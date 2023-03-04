@@ -43,7 +43,11 @@ export default {
       patcher.injectCSS(
         `
           [id*="message-content-"], [id*="chat-messages-"] [data-slate-node] {
-              color: var(--brc-color, var(--text-normal)) !important;
+            color: var(--brc-color, var(--text-normal)) !important;
+          }
+
+          [class*="repliedTextPreview-"] [class*="repliedTextContent-"] {
+            width: inherit !important;
           }
         `,
       )
