@@ -1,0 +1,83 @@
+{
+  "hash": "56f10b3f0ee2b04fe0e5074d785f1286140205ae8dfcf469d0afe5e8d3a64993",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Fake Mute and Deafen",
+      "tr": "Sahte Susturma ve Sağırlaştırma"
+    },
+    "description": {
+      "default": "Allows you to fake mute/deafen your self.",
+      "tr": "Kendinizi sahte olarak susturabilir/sağırlaştırabilmenizi sağlar."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "api": {
+    "patcher": true,
+    "ui": true,
+    "utils": true,
+    "modules": {
+      "common": [
+        {
+          "name": "GatewayConnectionStore",
+          "reason": "To get connection socket."
+        },
+        {
+          "name": "MediaEngineActions",
+          "reason": "To mute/unmute self."
+        },
+        {
+          "name": "NotificationSettingsStore",
+          "reason": "To disable mute/unmute notifications while faking."
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "tr": {
+      "FAKE_MUTE": "Sahte Susturma",
+      "FAKE_DEAF": "Sahte Sağırlaştırma",
+      "FAKE_CAMERA": "Sahte Kamera"
+    },
+    "default": {
+      "FAKE_MUTE": "Fake Mute",
+      "FAKE_DEAF": "Fake Deafen",
+      "FAKE_CAMERA": "Fake Camera"
+    }
+  },
+  "mode": "development",
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Auto Mute"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Automatically mutes you when you defaen yourself."
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": true,
+          "id": "autoMute"
+        }
+      ]
+    }
+  ],
+  "readme": true
+}
