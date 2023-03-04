@@ -1,0 +1,48 @@
+{
+  "hash": "08a59b871144be963ba1701b5a812f208b792e7b71491418cff4dbcaec5a5021",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Better Role Colors",
+      "tr": "Daha İyi Rol Renkleri"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Show member's role colors everywhere.",
+      "tr": "Üyelerin rol renklerini her yerde gösterir."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://media.discordapp.net/attachments/887446333047312464/1044338702677184512/image.png"
+      }
+    ]
+  },
+  "api": {
+    "patcher": true,
+    "utils": true,
+    "dom": true,
+    "modules": {
+      "common": [
+        {
+          "name": "GuildMemberStore",
+          "reason": "To get member role colors."
+        },
+        {
+          "name": "SelectedGuildStore",
+          "reason": "To get current guild."
+        }
+      ]
+    }
+  },
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
