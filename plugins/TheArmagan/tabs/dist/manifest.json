@@ -1,0 +1,89 @@
+{
+  "hash": "40d6ec709083a71199e410683c0e3488a7dc1df1d79b100e2f35465bdda40b4e",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Tabs",
+      "tr": "Sekmeler"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Organize your Discord using tabs. Supports bookmarks as well.",
+      "tr": "Discord'u sekmelerle organize edin. Yer imleri de destekler."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "i18n": {
+    "default": {
+      "LOADING": "Loading..",
+      "OPEN_IN_NEW_TAB": "Open in new tab",
+      "CLOSE": "Close",
+      "DELETE": "Delete",
+      "CLOSE_TABS_TO_RIGHT": "Close tabs to right",
+      "ADD_TO_BOOKMARKS": "Add to bookmarks",
+      "RENAME": "Rename",
+      "CLOSE_OTHER_TABS": "Close other tabs",
+      "MOVE_TAB_TO_LEFT": "Move tab to left",
+      "MOVE_TAB_TO_RIGHT": "Move tab to right"
+    },
+    "tr": {
+      "LOADING": "Yükleniyor..",
+      "OPEN_IN_NEW_TAB": "Yeni sekmede aç",
+      "CLOSE": "Kapat",
+      "DELETE": "Sil",
+      "CLOSE_TABS_TO_RIGHT": "Sağ taraftaki sekmeleri kapat",
+      "ADD_TO_BOOKMARKS": "Kitaplığa Ekle",
+      "RENAME": "Yeniden Adlandır",
+      "CLOSE_OTHER_TABS": "Diğer sekmeleri kapat",
+      "MOVE_TAB_TO_LEFT": "Sekmeyi sola kaydır",
+      "MOVE_TAB_TO_RIGHT": "Sekmeyi sağa kaydır"
+    }
+  },
+  "api": {
+    "ui": true,
+    "utils": true,
+    "dom": true,
+    "modules": {
+      "common": [
+        {
+          "name": "FluxDispatcher",
+          "reason": "To access channel change event."
+        },
+        {
+          "name": "WindowStore",
+          "reason": "To access window."
+        },
+        {
+          "name": "ChannelStore",
+          "reason": "To access channel data."
+        },
+        {
+          "name": "UserStore",
+          "reason": "To access user data."
+        },
+        {
+          "name": "GuildStore",
+          "reason": "To access guild data."
+        },
+        {
+          "name": "Router",
+          "reason": "To redirect to a tab."
+        },
+        {
+          "name": "ReadStateStore",
+          "reason": "To access unread messages."
+        }
+      ]
+    }
+  },
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
