@@ -223,7 +223,7 @@ export default {
           if (oldTab) {
             this.selectedTabId = oldTab.id;
           } else {
-            this.addTab(bookmark);
+            this.addTab({ pathname: bookmark.pathname });
           }
 
           this.ignoreSelectOnce = true;
