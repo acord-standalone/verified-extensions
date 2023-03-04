@@ -3,6 +3,7 @@ import { subscriptions, persist, i18n } from "@acord/extension";
 import { FluxDispatcher, WindowStore, ChannelStore, UserStore, GuildStore, Router, ReadStateStore } from "@acord/modules/common";
 import dom from "@acord/dom";
 import utils from "@acord/utils";
+import events from "@acord/events";
 
 import injectSCSS from "./styles.scss";
 
@@ -13,6 +14,7 @@ export default {
   async load() {
     await ui.vue.ready.when();
     if (unloaded) return;
+
     subscriptions.push(injectSCSS());
     /** @type {Element} */
     const tabsContainer = dom.parse(`
@@ -62,13 +64,18 @@ export default {
         this.tabs = persist.ghost?.[UserStore.getCurrentUser().id]?.tabs || [];
         this.bookmarks = persist.ghost?.[UserStore.getCurrentUser().id]?.bookmarks || [];
         if (!this.tabs.length) this.addTab();
-        this.selectedTabId = this.tabs[0].id;
+        this.selectedTabId = persist.ghost?.[UserStore.getCurrentUser().id]?.selectedTabId ?? this.tabs[0].id;
+        this.ignoreSelectOnce = this.selectedTab.pathname !== window.location.pathname;
+        Router.transitionTo(this.selectedTab.pathname);
+
         FluxDispatcher.subscribe("CHANNEL_SELECT", this.onChannelSelect);
         ReadStateStore.addChangeListener(this.onUnreadChange);
+        events.on("DocumentTitleChange", this.onDocumentTitleChange);
       },
       unmounted() {
         FluxDispatcher.unsubscribe("CHANNEL_SELECT", this.onChannelSelect);
         ReadStateStore.removeChangeListener(this.onUnreadChange);
+        events.off("DocumentTitleChange", this.onDocumentTitleChange);
       },
       computed: {
         selectedTab() {
@@ -80,7 +87,8 @@ export default {
         save() {
           persist.store[UserStore.getCurrentUser().id] = {
             tabs: this.tabs,
-            bookmarks: this.bookmarks
+            bookmarks: this.bookmarks,
+            selectedTabId: this.selectedTabId
           };
         },
         onTabContextMenu(tab, e) {
@@ -145,16 +153,15 @@ export default {
             this.ignoreSelectOnce = false;
             return;
           }
-          let selectedTab = this.tabs.find(i => i.id === this.selectedTabId);
-          let oldTitle = selectedTab?.title;
-          if (selectedTab) {
-            selectedTab.pathname = window.location.pathname;
-            selectedTab.icon = this.getIcon(selectedTab.pathname);
-            while (document.title === oldTitle) {
-              await utils.sleep(10);
-            }
-            selectedTab.title = document.title;
-          }
+          if (!this.selectedTab) return;
+          this.selectedTab.pathname = window.location.pathname;
+          this.selectedTab.icon = this.getIcon(this.selectedTab.pathname);
+          this.save();
+        },
+        onDocumentTitleChange(title) {
+          if (!this.selectedTab) return;
+          this.selectedTab.title = title;
+          this.save();
         },
         onUnreadChange() {
           this.tabs.forEach((tab) => {
@@ -222,12 +229,13 @@ export default {
           let oldTab = this.tabs.find(i => i.pathname === bookmark.pathname);
           if (oldTab) {
             this.selectedTabId = oldTab.id;
+            this.ignoreSelectOnce = true;
+            Router.transitionTo(bookmark.pathname);
           } else {
-            this.addTab({ pathname: bookmark.pathname });
+            this.addTab({ pathname: bookmark.pathname, title: bookmark.title });
+            this.ignoreSelectOnce = true;
+            Router.transitionTo(bookmark.pathname);
           }
-
-          this.ignoreSelectOnce = true;
-          Router.transitionTo(bookmark.pathname);
         },
         onBookmarkContextMenu(bookmark, e) {
           const self = this;

@@ -1,5 +1,5 @@
 {
-  "hash": "40d6ec709083a71199e410683c0e3488a7dc1df1d79b100e2f35465bdda40b4e",
+  "hash": "7e5155fae3cc6db52dcba3bda8990fb3ea9600cc03590b2477e83b1c019434f2",
   "type": "plugin",
   "about": {
     "name": {
@@ -50,6 +50,7 @@
     "ui": true,
     "utils": true,
     "dom": true,
+    "events": true,
     "modules": {
       "common": [
         {
