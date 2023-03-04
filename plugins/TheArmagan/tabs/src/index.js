@@ -109,7 +109,7 @@ export default {
               label: i18n.format("CLOSE_TABS_TO_RIGHT"),
               disabled: !tabsAfterMe.length,
               action() {
-                self.tabs.filter((_, idx) => idx != myIndex).forEach(i => onTabCloseClick(i));
+                self.tabs.filter((_, idx) => idx != myIndex).forEach(i => self.onTabCloseClick(i));
               }
             },
             {
