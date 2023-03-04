@@ -44,7 +44,7 @@ export default {
                   <input v-else v-focus type="text" class="rename-input" :value="bookmark.title" @blur="onBookmarkRenameBlur(bookmark, $event)" @keyup="onBookmarkRenameKeyUp(bookmark, $event)">
               </span>
               <span class="unread" :class="{'hidden': !bookmark.unread}">{{bookmark.unread}}</span>
-          </div>
+            </div>
           </div>
       </div>
     `);
