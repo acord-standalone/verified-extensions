@@ -96,28 +96,28 @@ export default {
         //     )
         // );
     },
-    async unload() { },
-    settings: {
-        data: [
-            {
-                "type": "input",
-                "property": "maxVolume",
-                "value": 100,
-                "name": "Max Volume",
-                "max": 2000,
-                "min": 0,
-                "description": "Maximum sound volume.",
-                "size": "medium"
-            },
-            {
-                "type": "textarea",
-                "property": "sounds",
-                "value": "",
-                "placeholder": "SoundName;https://discordcdnlink;0.5",
-                "name": "Sounds",
-                "description": "Each line is a new sound. Format: SoundName;SoundLink;Volume",
-                "rows": 9
-            }
-        ]
-    }
+    // async unload() { },
+    // settings: {
+    //     data: [
+    //         {
+    //             "type": "input",
+    //             "property": "maxVolume",
+    //             "value": 100,
+    //             "name": "Max Volume",
+    //             "max": 2000,
+    //             "min": 0,
+    //             "description": "Maximum sound volume.",
+    //             "size": "medium"
+    //         },
+    //         {
+    //             "type": "textarea",
+    //             "property": "sounds",
+    //             "value": "",
+    //             "placeholder": "SoundName;https://discordcdnlink;0.5",
+    //             "name": "Sounds",
+    //             "description": "Each line is a new sound. Format: SoundName;SoundLink;Volume",
+    //             "rows": 9
+    //         }
+    //     ]
+    // }
 }
