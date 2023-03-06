@@ -4,7 +4,7 @@ import patchSCSS from "./styles.scss";
 import modals from "@acord/modules/common/modals";
 import { SoundPlayer } from "./lib/SoundPlayer";
 import shared from "@acord/shared";
-import dom from "@acord/dom";
+// import dom from "@acord/dom";
 
 function getFileExtension(urlOrFileName = "") {
     return urlOrFileName.split(/\?|#/)[0].split(".").pop().toLowerCase();

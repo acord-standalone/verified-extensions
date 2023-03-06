@@ -1,5 +1,5 @@
 {
-  "hash": "4e3f8a6dbaf3b9822a2ab08432e3c0d8e9bebb739917c4be64f6be115ecc1219",
+  "hash": "7646c5252b5e193fa9813e0d9aa7b94ade89b77f58c5084970a59ce36857fb88",
   "type": "plugin",
   "about": {
     "name": {
@@ -93,6 +93,8 @@
   ],
   "mode": "production",
   "api": {
+    "patcher": true,
+    "shared": true,
     "modules": {
       "custom": [
         {
