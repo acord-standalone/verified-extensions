@@ -1,5 +1,5 @@
 {
-  "hash": "237f104cec4604761d97e5d27c04a8b4e415e3f1741c3ba55c23e89118071738",
+  "hash": "939cfcdf347f5a44c0e77b7ff88a5426b2f810ceef783f57872230e5930ab0fb",
   "type": "plugin",
   "about": {
     "name": {
@@ -183,6 +183,10 @@
         {
           "name": "React",
           "reason": "React"
+        },
+        {
+          "name": "MediaEngineStore",
+          "reason": "MediaEngineStore"
         }
       ]
     }
