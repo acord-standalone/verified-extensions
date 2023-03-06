@@ -1,5 +1,5 @@
 {
-  "hash": "5fbd85d1ff3a285747eeea258c12acde5554b04608ea85aea81623efef9d1bd1",
+  "hash": "237f104cec4604761d97e5d27c04a8b4e415e3f1741c3ba55c23e89118071738",
   "type": "plugin",
   "about": {
     "name": {
@@ -96,6 +96,7 @@
     "patcher": true,
     "shared": true,
     "ui": true,
+    "events": true,
     "modules": {
       "custom": [
         {
