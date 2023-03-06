@@ -1,5 +1,5 @@
 {
-  "hash": "7646c5252b5e193fa9813e0d9aa7b94ade89b77f58c5084970a59ce36857fb88",
+  "hash": "5fbd85d1ff3a285747eeea258c12acde5554b04608ea85aea81623efef9d1bd1",
   "type": "plugin",
   "about": {
     "name": {
@@ -95,6 +95,7 @@
   "api": {
     "patcher": true,
     "shared": true,
+    "ui": true,
     "modules": {
       "custom": [
         {
@@ -173,6 +174,10 @@
         {
           "name": "modals",
           "reason": "Modals"
+        },
+        {
+          "name": "components",
+          "reason": "Components"
         },
         {
           "name": "React",
