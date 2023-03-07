@@ -1,0 +1,18 @@
+.pi {
+    &--icon-container {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: 4px;
+
+        svg {
+            color: whitesmoke;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &--hidden {
+        display: none;
+    }
+}

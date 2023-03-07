@@ -1,0 +1,19 @@
+{
+  "hash": "47d03b2a53d8ef582618a604c9b6fd123d8f87519313bee1aa1f6ee48df8df32",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Platform Indicators",
+      "tr": "Platform İndikatörleri"
+    },
+    "authors": [
+      "ErdemGKSL"
+    ],
+    "description": {
+      "default": "Shows user's platform next to their username.",
+      "tr": "Kullanıcıların kullanıcı adları yanında platformlarını gösterir."
+    },
+    "version": "1.1.0",
+    "preview": "https://cdn.discordapp.com/attachments/887446333047312464/1031687430279012352/unknown.png"
+  }
+}

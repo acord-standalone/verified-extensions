@@ -1,0 +1,139 @@
+{
+  "hash": "4146444242a6b503af675d1e4e0b232236514808df5e164a9089841ff9f360e1",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Platform Indicators",
+      "tr": "Platform İndikatörleri"
+    },
+    "authors": [
+      {
+        "name": "érdem#6384",
+        "id": "319862027571036161"
+      },
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Shows user's platform next to their username.",
+      "tr": "Kullanıcıların kullanıcı adları yanında platformlarını gösterir."
+    },
+    "version": "1.1.0",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://cdn.discordapp.com/attachments/887446333047312464/1082764764154966196/image.png"
+      }
+    ]
+  },
+  "config": [],
+  "mode": "production",
+  "api": {
+    "dom": true,
+    "utils": true,
+    "patcher": true,
+    "modules": {
+      "custom": [
+        {
+          "name": "indicatorClasses1",
+          "reason": "Platform Indicator Classes",
+          "finder": {
+            "path": {
+              "after": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            },
+            "filter": {
+              "in": "properties",
+              "by": [
+                [
+                  "bot",
+                  "nameTag"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "indicatorClasses2",
+          "reason": "Platform Indicator Classes",
+          "finder": {
+            "path": {
+              "after": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            },
+            "filter": {
+              "in": "properties",
+              "by": [
+                [
+                  "wrappedName",
+                  "nameAndDecorators"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "indicatorClasses3",
+          "reason": "Platform Indicator Classes",
+          "finder": {
+            "path": {
+              "after": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            },
+            "filter": {
+              "in": "properties",
+              "by": [
+                [
+                  "wrappedName",
+                  "nameAndDecorators",
+                  "selected"
+                ]
+              ]
+            }
+          }
+        }
+      ],
+      "common": [
+        {
+          "name": "PresenceStore",
+          "reason": "To fetch presence data."
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "default": {
+      "web": "Web",
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "embedded": "Embedded",
+      "online": "Online",
+      "idle": "Idle",
+      "dnd": "Do Not Disturb"
+    },
+    "tr": {
+      "web": "Web",
+      "desktop": "Masaüstü",
+      "mobile": "Mobil",
+      "embedded": "Gömülü",
+      "online": "Çevrimiçi",
+      "idle": "Boşta",
+      "dnd": "Rahatsız Etmeyin"
+    }
+  },
+  "readme": false
+}
