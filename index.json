@@ -5,7 +5,7 @@
       "id": "default-guild-config",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/default-guild-config/dist"
     },
-    "data": {
+    "manifest": {
       "index": "./src/index.js",
       "type": "plugin",
       "about": {
@@ -53,7 +53,7 @@
       "id": "platform-indicators",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/platform-indicators/dist"
     },
-    "data": {
+    "manifest": {
       "index": "./src/index.js",
       "type": "plugin",
       "about": {
@@ -177,7 +177,7 @@
       "id": "better-role-colors",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/better-role-colors/dist"
     },
-    "data": {
+    "manifest": {
       "index": "./src/index.js",
       "type": "plugin",
       "about": {
@@ -231,7 +231,7 @@
       "id": "fake-mute-and-deaf",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/fake-mute-and-deaf/dist"
     },
-    "data": {
+    "manifest": {
       "index": "./src/index.js",
       "type": "plugin",
       "about": {
@@ -284,7 +284,7 @@
       "id": "sound-board",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/sound-board/dist"
     },
-    "data": {
+    "manifest": {
       "index": "./src/index.jsx",
       "type": "plugin",
       "about": {
@@ -418,7 +418,7 @@
       "id": "tabs",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/tabs/dist"
     },
-    "data": {
+    "manifest": {
       "index": "./src/index.js",
       "type": "plugin",
       "about": {
