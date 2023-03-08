@@ -1,5 +1,5 @@
 {
-  "hash": "e861143dc480d60de9cbc7ee0124a900a36e9ab18b0ea726c00bfb4a5cc9ba26",
+  "hash": "169bbdcb21a28300ea16d658f771dd6aa7567e0319adfa2bd7885b15947058a8",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Prevents Discord from pausing Spotify.",
       "tr": "Discord'un Spotify'ı otomatik olarak duraklatmasını engeller."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "previews": []
   },

@@ -1,9 +1,9 @@
 import patcher from "@acord/patcher";
-import { subscription } from "@acord/extension";
+import { subscriptions } from "@acord/extension";
 
 export default {
   load() {
-    subscription.push(
+    subscriptions.push(
       patcher.instead(
         "open",
         XMLHttpRequest.prototype,
