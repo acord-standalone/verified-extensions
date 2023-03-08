@@ -10,22 +10,24 @@ jobs:
 
     steps:
       
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.0
 
-      - name: Configure Globals
-        run: |
-          git config --global user.name "TheArmagan"
-          git config --global user.email "kiracarmaganonal@gmail.com"
       - name: Run Updater & Update Index
         run: node update-index.js
 
-      - name: Deploy Updated Index
-        run: |
-          git add index.json -f
-          git commit -m "[⚒️] Update Index"
-          git push -f
+      - name: Git Commit/Push Changes
+        uses: actions-x/commit@v6
+        with:
+          email: kiracarmaganonal@gmail.com
+          message: Update extension index.
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Whether to perform force push
+          force: 1
