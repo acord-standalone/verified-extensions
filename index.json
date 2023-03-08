@@ -436,7 +436,7 @@
           "default": "Organize your Discord using tabs. Supports bookmarks as well.",
           "tr": "Discord'u sekmelerle organize edin. Yer imleri de destekler."
         },
-        "version": "0.0.1",
+        "version": "0.0.2",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": []
