@@ -1,0 +1,29 @@
+{
+  "hash": "e861143dc480d60de9cbc7ee0124a900a36e9ab18b0ea726c00bfb4a5cc9ba26",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "No Spotify Auto Pause",
+      "tr": "Spotify Otomatik Duraklatmayı Kapat"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Prevents Discord from pausing Spotify.",
+      "tr": "Discord'un Spotify'ı otomatik olarak duraklatmasını engeller."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "api": {
+    "patcher": true
+  },
+  "mode": "production",
+  "config": [],
+  "readme": true
+}
