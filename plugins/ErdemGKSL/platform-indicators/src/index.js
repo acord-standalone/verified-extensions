@@ -6,7 +6,6 @@ import { Web } from "./icons/Web";
 import { Embedded } from "./icons/Embedded";
 import injectStyles from "./styles/style.scss";
 import { persist, subscriptions, events, i18n } from "@acord/extension";
-import { interval } from "@acord/utils";
 import dom from "@acord/dom";
 import utils from "@acord/utils";
 const colors = {
@@ -27,7 +26,7 @@ const elements = {
 export default {
   load() {
 
-    subscriptions.push(interval(() => {
+    subscriptions.push(utils.interval(() => {
       events.emit("render");
     }, 5000));
 
