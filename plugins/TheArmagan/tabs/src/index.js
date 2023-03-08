@@ -306,6 +306,22 @@ export default {
 
     document.querySelector('[class*="titleBar-"]').insertAdjacentElement("afterend", tabsContainer);
 
+    function removeTabsContainer() {
+      if (document.querySelector('.tabs--container')) tabsContainer.parentElement.removeChild(tabsContainer);
+    }
+
+    function reInject() {
+      removeTabsContainer();
+      document.querySelector('[class*="titleBar-"]').insertAdjacentElement("afterend", tabsContainer);
+    }
+
+    subscriptions.push(
+      events.on("MainWindowFullScreenExit", reInject),
+      events.on("MainWindowFullScreenEnter", removeTabsContainer),
+      events.on("CurrentUserChange", reInject),
+      events.on("LocaleChange", reInject),
+    );
+
     subscriptions.push(
       utils.interval(
         () => {
