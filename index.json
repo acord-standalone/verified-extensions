@@ -1,0 +1,485 @@
+[
+  {
+    "meta": {
+      "author": "ErdemGKSL",
+      "id": "default-guild-config",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/default-guild-config/dist"
+    },
+    "data": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Default Guild Notifications",
+          "tr": "Varsayılan Sunucu Bildirimleri"
+        },
+        "authors": [
+          {
+            "name": "érdem#6384",
+            "id": "319862027571036161"
+          }
+        ],
+        "description": {
+          "default": "This plugin allows you to set the default guild notifications settings.",
+          "tr": "Bu eklenti, varsayılan sunucu bildirim ayarlarını ayarlayabilmenizi sağlar."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {
+        "modules": {
+          "node": [],
+          "common": [
+            {
+              "name": "GuildNotificationsActions",
+              "reason": "To set the guild notifications settings."
+            },
+            {
+              "name": "FluxDispatcher",
+              "reason": "To dispatch the guild notifications settings."
+            }
+          ],
+          "custom": []
+        }
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "ErdemGKSL",
+      "id": "platform-indicators",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/platform-indicators/dist"
+    },
+    "data": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Platform Indicators",
+          "tr": "Platform İndikatörleri"
+        },
+        "authors": [
+          {
+            "name": "érdem#6384",
+            "id": "319862027571036161"
+          },
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Shows user's platform next to their username.",
+          "tr": "Kullanıcıların kullanıcı adları yanında platformlarını gösterir."
+        },
+        "version": "2.0.0",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://cdn.discordapp.com/attachments/887446333047312464/1082764764154966196/image.png"
+          }
+        ]
+      },
+      "mode": "production",
+      "api": {
+        "dom": true,
+        "utils": true,
+        "patcher": true,
+        "modules": {
+          "custom": [
+            {
+              "name": "indicatorClasses1",
+              "reason": "Platform Indicator Classes",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "bot",
+                      "nameTag"
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "name": "indicatorClasses2",
+              "reason": "Platform Indicator Classes",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "wrappedName",
+                      "nameAndDecorators"
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "name": "indicatorClasses3",
+              "reason": "Platform Indicator Classes",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "wrappedName",
+                      "nameAndDecorators",
+                      "selected"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "common": [
+            {
+              "name": "PresenceStore",
+              "reason": "To fetch presence data."
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
+      "id": "better-role-colors",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/better-role-colors/dist"
+    },
+    "data": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Better Role Colors",
+          "tr": "Daha İyi Rol Renkleri"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Show member's role colors everywhere.",
+          "tr": "Üyelerin rol renklerini her yerde gösterir."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://media.discordapp.net/attachments/887446333047312464/1044338702677184512/image.png"
+          }
+        ]
+      },
+      "api": {
+        "patcher": true,
+        "utils": true,
+        "dom": true,
+        "modules": {
+          "common": [
+            {
+              "name": "GuildMemberStore",
+              "reason": "To get member role colors."
+            },
+            {
+              "name": "SelectedGuildStore",
+              "reason": "To get current guild."
+            }
+          ]
+        }
+      },
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
+      "id": "fake-mute-and-deaf",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/fake-mute-and-deaf/dist"
+    },
+    "data": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Fake Mute and Deafen",
+          "tr": "Sahte Susturma ve Sağırlaştırma"
+        },
+        "description": {
+          "default": "Allows you to fake mute/deafen your self.",
+          "tr": "Kendinizi sahte olarak susturabilir/sağırlaştırabilmenizi sağlar."
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {
+        "patcher": true,
+        "ui": true,
+        "utils": true,
+        "modules": {
+          "common": [
+            {
+              "name": "GatewayConnectionStore",
+              "reason": "To get connection socket."
+            },
+            {
+              "name": "MediaEngineActions",
+              "reason": "To mute/unmute self."
+            },
+            {
+              "name": "NotificationSettingsStore",
+              "reason": "To disable mute/unmute notifications while faking."
+            }
+          ]
+        }
+      },
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
+      "id": "sound-board",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/sound-board/dist"
+    },
+    "data": {
+      "index": "./src/index.jsx",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Sound Board",
+          "tr": "Ses Tablosu"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Sound board for Discord. Shortcut is CTRL+B",
+          "tr": "Discord için ses tablosu. Kısayol CTRL+B"
+        },
+        "version": "3.0.1",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://i.imgur.com/2EVt0vj.png"
+          }
+        ]
+      },
+      "mode": "production",
+      "api": {
+        "patcher": true,
+        "shared": true,
+        "ui": true,
+        "events": true,
+        "modules": {
+          "custom": [
+            {
+              "name": "scrollClasses",
+              "reason": "Scroll Classes",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "thin",
+                      "scrollerBase"
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "name": "inputClasses",
+              "reason": "Text Input Classes",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "inputDefault",
+                      "copyInput"
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "name": "inputClasses2",
+              "reason": "Text Input Classes",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "input",
+                      "editable",
+                      "disabled",
+                      "inputWrapper"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "common": [
+            {
+              "name": "modals",
+              "reason": "Modals"
+            },
+            {
+              "name": "components",
+              "reason": "Components"
+            },
+            {
+              "name": "React",
+              "reason": "React"
+            },
+            {
+              "name": "MediaEngineStore",
+              "reason": "MediaEngineStore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
+      "id": "tabs",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/tabs/dist"
+    },
+    "data": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Tabs",
+          "tr": "Sekmeler"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Organize your Discord using tabs. Supports bookmarks as well.",
+          "tr": "Discord'u sekmelerle organize edin. Yer imleri de destekler."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {
+        "ui": true,
+        "utils": true,
+        "dom": true,
+        "events": true,
+        "modules": {
+          "common": [
+            {
+              "name": "FluxDispatcher",
+              "reason": "To access channel change event."
+            },
+            {
+              "name": "WindowStore",
+              "reason": "To access window."
+            },
+            {
+              "name": "ChannelStore",
+              "reason": "To access channel data."
+            },
+            {
+              "name": "UserStore",
+              "reason": "To access user data."
+            },
+            {
+              "name": "GuildStore",
+              "reason": "To access guild data."
+            },
+            {
+              "name": "Router",
+              "reason": "To redirect to a tab."
+            },
+            {
+              "name": "ReadStateStore",
+              "reason": "To access unread messages."
+            }
+          ]
+        }
+      },
+      "mode": "development"
+    }
+  }
+]
