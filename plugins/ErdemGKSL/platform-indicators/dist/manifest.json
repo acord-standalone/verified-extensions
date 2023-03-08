@@ -1,5 +1,5 @@
 {
-  "hash": "4146444242a6b503af675d1e4e0b232236514808df5e164a9089841ff9f360e1",
+  "hash": "0b0d613942c9d41f199a390948d000d9bf9ba60aac2b2f333218e9c8ffe51b1b",
   "type": "plugin",
   "about": {
     "name": {
@@ -20,7 +20,7 @@
       "default": "Shows user's platform next to their username.",
       "tr": "Kullanıcıların kullanıcı adları yanında platformlarını gösterir."
     },
-    "version": "1.1.0",
+    "version": "2.0.0",
     "previews": [
       {
         "name": "Default",
@@ -28,7 +28,31 @@
       }
     ]
   },
-  "config": [],
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Ignore bots"
+            },
+            {
+              "type": "Paragraph",
+              "value": "If enabled, platform indicators will not be shown for bots."
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": true,
+          "id": "ignoreBots"
+        }
+      ]
+    }
+  ],
   "mode": "production",
   "api": {
     "dom": true,
