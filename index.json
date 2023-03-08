@@ -302,7 +302,7 @@
           "default": "Prevents Discord from pausing Spotify.",
           "tr": "Discord'un Spotify'ı otomatik olarak duraklatmasını engeller."
         },
-        "version": "0.0.1",
+        "version": "0.0.2",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": []
