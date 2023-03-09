@@ -1,11 +1,6 @@
 {
-  "index": "./src/style.css",
+  "hash": "73b1666b5ba27d25ddbe610622de263e72204eb6080354f2ec671268403120f9",
   "type": "theme",
-  "out": {
-    "minify": true,
-    "sourceMap": false,
-    "directory": "./dist"
-  },
   "about": {
     "name": {
       "default": "Radial Status",
@@ -81,5 +76,6 @@
         }
       ]
     }
-  ]
+  ],
+  "readme": false
 }
