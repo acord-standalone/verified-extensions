@@ -1,5 +1,5 @@
 {
-  "hash": "21c2cf685d7b1504a8470b8d57a473d9f2d5da0ea5500854599c3b54a2945758",
+  "hash": "e606a743c7386fcea10776580abeecd04bba1112a32d87e85f09de7e78c4a9b9",
   "type": "theme",
   "about": {
     "name": {
@@ -33,13 +33,8 @@
           "gap": "8px",
           "children": [
             {
-              "type": "Column",
-              "children": [
-                {
-                  "type": "Heading",
-                  "value": "Backround Image"
-                }
-              ]
+              "type": "Heading",
+              "value": "Backround Image"
             },
             {
               "type": "Input",
@@ -54,13 +49,8 @@
           "gap": "8px",
           "children": [
             {
-              "type": "Column",
-              "children": [
-                {
-                  "type": "Heading",
-                  "value": "App Blur"
-                }
-              ]
+              "type": "Heading",
+              "value": "App Blur"
             },
             {
               "type": "Input",
@@ -157,6 +147,7 @@
         },
         {
           "type": "Column",
+          "gap": "8px",
           "children": [
             {
               "type": "Heading",
