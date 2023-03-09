@@ -516,5 +516,39 @@
       },
       "mode": "development"
     }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
+      "id": "translucence",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/translucence/dist"
+    },
+    "manifest": {
+      "index": "./src/style.css",
+      "type": "theme",
+      "about": {
+        "name": {
+          "default": "Translucence"
+        },
+        "authors": [
+          {
+            "name": "CapnKitten"
+          }
+        ],
+        "description": {
+          "default": "A translucent/frosted glass Discord theme",
+          "tr": "Şeffaf/bulanık cam Discord teması"
+        },
+        "version": "2.3.0",
+        "license": "MIT",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://i.imgur.com/Papo19d.png"
+          }
+        ]
+      },
+      "mode": "development"
+    }
   }
 ]
