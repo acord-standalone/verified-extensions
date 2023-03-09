@@ -548,7 +548,7 @@
           }
         ]
       },
-      "mode": "development"
+      "mode": "production"
     }
   }
 ]
