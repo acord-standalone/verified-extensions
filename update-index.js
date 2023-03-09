@@ -17,7 +17,7 @@ function loadExtensions(type) {
             meta: {
               author: authorDir.name,
               id: extensionId,
-              url: `https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/${authorDir.name}/${extensionId}/${outDir}`
+              url: `https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/${type}/${authorDir.name}/${extensionId}/${outDir}`
             },
             manifest: cfg
           })
