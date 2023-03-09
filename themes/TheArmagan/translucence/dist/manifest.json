@@ -1,5 +1,5 @@
 {
-  "hash": "8d2cda2c3592bb52000102ac4130c392e8f89e3ddbf92c3a75a4dad86a6f1502",
+  "hash": "21c2cf685d7b1504a8470b8d57a473d9f2d5da0ea5500854599c3b54a2945758",
   "type": "theme",
   "about": {
     "name": {
@@ -23,7 +23,7 @@
       }
     ]
   },
-  "mode": "development",
+  "mode": "production",
   "config": [
     {
       "type": "Row",
