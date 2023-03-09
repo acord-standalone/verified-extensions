@@ -520,6 +520,42 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "radialstatus",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/radialstatus/dist"
+    },
+    "manifest": {
+      "index": "./src/style.css",
+      "type": "theme",
+      "about": {
+        "name": {
+          "default": "Radial Status",
+          "tr": "Radial Durum"
+        },
+        "authors": [
+          {
+            "name": "Gibbu#1211",
+            "id": "174868361040232448"
+          }
+        ],
+        "description": {
+          "default": "Changes the status icons to wrap around the avatar.",
+          "tr": "Durum simgelerini avatarın etrafına sararak değiştirir."
+        },
+        "version": "2.3.0",
+        "license": "MIT",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://cdn.discordapp.com/attachments/887446333047312464/1083378028022857819/image.png"
+          }
+        ]
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "translucence",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/translucence/dist"
     },
