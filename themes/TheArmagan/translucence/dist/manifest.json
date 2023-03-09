@@ -1,5 +1,5 @@
 {
-  "hash": "daca31dda45524336274c4a1e1046678d387d257e356f641be4cc5e230f6d970",
+  "hash": "8d2cda2c3592bb52000102ac4130c392e8f89e3ddbf92c3a75a4dad86a6f1502",
   "type": "theme",
   "about": {
     "name": {
@@ -117,8 +117,8 @@
             },
             {
               "type": "Input",
-              "default": "156",
-              "placeholder": "156",
+              "default": "7",
+              "placeholder": "7",
               "id": "accentHue"
             }
           ]
@@ -133,8 +133,8 @@
             },
             {
               "type": "Input",
-              "default": "77.5%",
-              "placeholder": "77.5%",
+              "default": "25%",
+              "placeholder": "25%",
               "id": "accentSaturation"
             }
           ]
@@ -149,8 +149,8 @@
             },
             {
               "type": "Input",
-              "default": "47.1%",
-              "placeholder": "47.1%",
+              "default": "69%",
+              "placeholder": "69%",
               "id": "accentLightness"
             }
           ]
@@ -164,8 +164,8 @@
             },
             {
               "type": "Input",
-              "default": "#000000",
-              "placeholder": "#000000",
+              "default": "#ffffff",
+              "placeholder": "#ffffff",
               "id": "accentTextColor"
             }
           ]
