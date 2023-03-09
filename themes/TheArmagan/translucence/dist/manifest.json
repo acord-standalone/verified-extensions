@@ -1,5 +1,5 @@
 {
-  "hash": "e606a743c7386fcea10776580abeecd04bba1112a32d87e85f09de7e78c4a9b9",
+  "hash": "7b92c34de561547019a4dff08a6898e9bfbf782f42c6493870f07d7aecd29227",
   "type": "theme",
   "about": {
     "name": {
@@ -317,22 +317,6 @@
               "default": "61.8%",
               "placeholder": "61.8%",
               "id": "replyLightness"
-            }
-          ]
-        },
-        {
-          "type": "Column",
-          "gap": "8px",
-          "children": [
-            {
-              "type": "Heading",
-              "value": "Message Padding Side"
-            },
-            {
-              "type": "Input",
-              "default": "8px",
-              "placeholder": "8px",
-              "id": "messagePaddingSide"
             }
           ]
         }
