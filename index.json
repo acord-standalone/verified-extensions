@@ -275,7 +275,7 @@
           ]
         }
       },
-      "mode": "development"
+      "mode": "production"
     }
   },
   {
