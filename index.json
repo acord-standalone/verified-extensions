@@ -481,6 +481,7 @@
         "utils": true,
         "dom": true,
         "events": true,
+        "patcher": true,
         "modules": {
           "common": [
             {
@@ -514,7 +515,7 @@
           ]
         }
       },
-      "mode": "development"
+      "mode": "production"
     }
   },
   {
