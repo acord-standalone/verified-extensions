@@ -1,6 +1,7 @@
 import { GuildStore, FluxDispatcher } from "@acord/modules/common";
 import { notifications } from "@acord/ui"
 import { subscriptions, persist, i18n, manifest } from "@acord/extension";
+import events from "@acord/events";
 
 let guildVanityCache = {};
 
@@ -41,6 +42,7 @@ export default {
     subscriptions.push(() => FluxDispatcher.unsubscribe("GUILD_UPDATE", listener));
     subscriptions.push(() => FluxDispatcher.unsubscribe("GUILD_CREATE", listener));
     subscriptions.push(() => guildVanityCache = {});
+    subscriptions.push(() => events.on("LocaleChange", () => formatLog()));
     formatLog();
   },
   unload() {}
