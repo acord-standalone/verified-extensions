@@ -1,10 +1,10 @@
 {
-  "hash": "f2cd893e97801859748317711483ac75d9fa16d5f1c00a2aaea5e7f0fff5ec9c",
+  "hash": "d1e6b4962ff80de4ca17efad9c9c1663d222be24dd5a210e324e08086f7f5828",
   "type": "plugin",
   "about": {
     "name": {
       "default": "Vanity Url Notifications",
-      "tr": "Vanity URL Bildirimleri"
+      "tr": "Özel Sunucu Url Bildirimleri"
     },
     "authors": [
       {
@@ -14,7 +14,7 @@
     ],
     "description": {
       "default": "Sends notifications when a vanity url freed.",
-      "tr": "Vanity URL'lerin kullanımı boşa çıktığında bildirim gönderir."
+      "tr": "Özel sunucu Url'lerinin kullanımı boşa çıktığında bildirim gönderir."
     },
     "version": "0.0.1",
     "license": "MIT",
@@ -40,7 +40,7 @@
       ]
     }
   },
-  "mode": "development",
+  "mode": "production",
   "config": [
     {
       "type": "Column",
@@ -61,20 +61,42 @@
         },
         {
           "type": "Textarea",
-          "default": "suniaster",
+          "default": "hentai",
           "placeholder": "hentai, anime",
           "id": "notifyUrls",
           "cols": 6
+        }
+      ]
+    },
+    {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Logs",
+            "tr": "Loglar"
+          }
+        },
+        {
+          "type": "Textarea",
+          "default": "No logs yet.",
+          "id": "logs",
+          "cols": 24,
+          "height": 200,
+          "placeholder": "No logs yet."
         }
       ]
     }
   ],
   "i18n": {
     "default": {
-      "NOTIFICATION": "The vanity URL for {0} has changed from {1} to {2}"
+      "NOTIFICATION": "The vanity URL for {0} has changed from {1} to {2}",
+      "LOG": "{0}: Vanity URL for {1} has changed from {2} to {3}"
     },
     "tr": {
-      "NOTIFICATION": "{0} sunucusunun vanity URL'si {1} den {2} a değişti"
+      "NOTIFICATION": "{0} sunucusunun vanity URL'si {1} den {2} a değişti",
+      "LOG": "{0}: {1} sunucusunun vanity URL'si {2} den {3} a değişti"
     }
   },
   "readme": true

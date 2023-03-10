@@ -1,6 +1,6 @@
 import { GuildStore, FluxDispatcher } from "@acord/modules/common";
 import { notifications } from "@acord/ui"
-import { subscriptions, persist, i18n } from "@acord/extension"
+import { subscriptions, persist, i18n, manifest } from "@acord/extension";
 
 let guildVanityCache = {};
 
@@ -16,6 +16,21 @@ async function listener({ guild }) {
   if (notifyUrls.includes(oldVanity)) notifications.show(
     i18n.format("NOTIFICATION", guild.name, oldVanity, guild.vanity_url_code)
   );
+  log(oldVanity, guild.vanity_url_code, guild.name);
+}
+
+async function log(oldVanity, newVanity, guildName) {
+  const logUrls = JSON.parse(persist.ghost.logs ?? "[]");
+  if (logUrls.length >= 10) logUrls.shift();
+  logUrls.push({ o: oldVanity, n: newVanity, t: Date.now(), g: guildName });
+  persist.store.logs = JSON.stringify(logUrls);
+  formatLog(logUrls);
+}
+
+async function formatLog(logUrls) {
+  if (!logUrls) logUrls = JSON.parse(persist.ghost.logs ?? "[]");
+  const text = logUrls.map(({ o, n, t, g }) => i18n.format("LOG", new Date(t).toLocaleString(), g, o, n)).reverse().join("\n") || "No logs yet.";
+  persist.store.settings.logs = text;
 }
 
 export default {
@@ -26,6 +41,7 @@ export default {
     subscriptions.push(() => FluxDispatcher.unsubscribe("GUILD_UPDATE", listener));
     subscriptions.push(() => FluxDispatcher.unsubscribe("GUILD_CREATE", listener));
     subscriptions.push(() => guildVanityCache = {});
+    formatLog();
   },
   unload() {}
 }
