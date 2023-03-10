@@ -2,6 +2,7 @@ import patchContainer from "../other/patchContainer.js";
 import { makeRawArray } from "../other/VoiceStates.js";
 import { FluxDispatcher, VoiceStateStore } from "../other/apis.js";
 import { socket } from "../connection/socket.js";
+import events from "@acord/events";
 
 export function patchBulkUpdater() {
     function handleVoiceUpdate(d, alreadyRaw = false) {
@@ -39,4 +40,10 @@ export function patchBulkUpdater() {
             _lastUsers = {};
         }
     })());
+
+    patchContainer.add(
+        events.on("AuthenticationSuccess", async () => {
+            _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
+        })
+    );
 }

@@ -4255,6 +4255,11 @@
           _lastUsers = {};
         };
       })());
+      patchContainer.add(
+        events__default["default"].on("AuthenticationSuccess", async () => {
+          _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
+        })
+      );
     }
 
     var src = {};
