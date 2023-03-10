@@ -183,7 +183,7 @@
       "about": {
         "name": {
           "default": "Vanity Url Notifications",
-          "tr": "Vanity URL Bildirimleri"
+          "tr": "Özel Sunucu Url Bildirimleri"
         },
         "authors": [
           {
@@ -193,7 +193,7 @@
         ],
         "description": {
           "default": "Sends notifications when a vanity url freed.",
-          "tr": "Vanity URL'lerin kullanımı boşa çıktığında bildirim gönderir."
+          "tr": "Özel sunucu Url'lerinin kullanımı boşa çıktığında bildirim gönderir."
         },
         "version": "0.0.1",
         "license": "MIT",
@@ -220,7 +220,7 @@
           ]
         }
       },
-      "mode": "development"
+      "mode": "production"
     }
   },
   {
