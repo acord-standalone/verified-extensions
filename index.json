@@ -222,7 +222,7 @@
           ]
         }
       },
-      "mode": "development"
+      "mode": "production"
     }
   },
   {
@@ -516,6 +516,200 @@
         }
       },
       "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
+      "id": "voice-indicators",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/voice-indicators/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Voice Indicators",
+          "tr": "Ses İndikatörleri"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Shows voice indicators on the right side of the users. Supports private calls as well.",
+          "tr": "Kullanıcıların sağ tarafında ses indikatörleri gösterir. Özel aramaları da destekler."
+        },
+        "version": "3.0.1",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://i.imgur.com/vEuqPmL.png"
+          }
+        ]
+      },
+      "mode": "production",
+      "api": {
+        "dom": true,
+        "utils": true,
+        "patcher": true,
+        "events": true,
+        "ui": true,
+        "storage": true,
+        "modules": {
+          "custom": [
+            {
+              "name": "scrollerClasses",
+              "reason": "...",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "thin",
+                      "scrollerBase"
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "name": "indicatorClasses1",
+              "reason": "...",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "bot",
+                      "nameTag"
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "name": "indicatorClasses2",
+              "reason": "...",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "wrappedName",
+                      "nameAndDecorators"
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "name": "indicatorClasses3",
+              "reason": "...",
+              "finder": {
+                "path": {
+                  "after": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ]
+                },
+                "filter": {
+                  "in": "properties",
+                  "by": [
+                    [
+                      "wrappedName",
+                      "nameAndDecorators",
+                      "selected"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "common": [
+            {
+              "name": "PermissionStore",
+              "reason": "..."
+            },
+            {
+              "name": "VoiceStateStore",
+              "reason": "..."
+            },
+            {
+              "name": "ChannelStore",
+              "reason": "..."
+            },
+            {
+              "name": "GuildStore",
+              "reason": "..."
+            },
+            {
+              "name": "UserStore",
+              "reason": "..."
+            },
+            {
+              "name": "InviteActions",
+              "reason": "..."
+            },
+            {
+              "name": "FluxDispatcher",
+              "reason": "..."
+            },
+            {
+              "name": "Router",
+              "reason": "..."
+            },
+            {
+              "name": "React",
+              "reason": "..."
+            },
+            {
+              "name": "VoiceStateStore",
+              "reason": "..."
+            },
+            {
+              "name": "modals",
+              "reason": "..."
+            },
+            {
+              "name": "VoiceActions",
+              "reason": "..."
+            },
+            {
+              "name": "constants",
+              "reason": "..."
+            }
+          ]
+        }
+      }
     }
   },
   {
