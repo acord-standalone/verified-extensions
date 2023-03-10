@@ -1,5 +1,5 @@
 {
-  "hash": "56f10b3f0ee2b04fe0e5074d785f1286140205ae8dfcf469d0afe5e8d3a64993",
+  "hash": "1d094f0ebd242e08974ba44fa8a5449dd43e46b46ce9d236e56ed3236a9656bf",
   "type": "plugin",
   "about": {
     "name": {
@@ -53,7 +53,7 @@
       "FAKE_CAMERA": "Fake Camera"
     }
   },
-  "mode": "development",
+  "mode": "production",
   "config": [
     {
       "type": "Row",
