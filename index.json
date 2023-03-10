@@ -222,7 +222,7 @@
           ]
         }
       },
-      "mode": "development"
+      "mode": "production"
     }
   },
   {
