@@ -1,5 +1,5 @@
 {
-  "hash": "9f2be56135d279c1d3e018e2c03ebc598b7a1663e4dab7e3d05b90ca5bd13f3d",
+  "hash": "962c9af1069321fe508cf43da9002150299baa4a9c51cec2801ca060c7c4de57",
   "type": "plugin",
   "about": {
     "name": {
@@ -42,7 +42,7 @@
       ]
     }
   },
-  "mode": "development",
+  "mode": "production",
   "config": [],
   "readme": true
 }
