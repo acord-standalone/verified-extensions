@@ -20,7 +20,7 @@ async function listener({ guild }) {
   log(oldVanity, guild.vanity_url_code, guild.name);
 }
 
-async function log(oldVanity, newVanity, guildName) {
+function log(oldVanity, newVanity, guildName) {
   const logUrls = JSON.parse(persist.ghost.logs ?? "[]");
   if (logUrls.length >= 10) logUrls.shift();
   logUrls.push({ o: oldVanity, n: newVanity, t: Date.now(), g: guildName });
@@ -28,7 +28,7 @@ async function log(oldVanity, newVanity, guildName) {
   formatLog(logUrls);
 }
 
-async function formatLog(logUrls) {
+function formatLog(logUrls) {
   if (!logUrls) logUrls = JSON.parse(persist.ghost.logs ?? "[]");
   const text = logUrls.map(({ o, n, t, g }) => i18n.format("LOG", new Date(t).toLocaleString(), g, o, n)).reverse().join("\n") || "No logs yet.";
   persist.store.settings.logs = text;
@@ -39,10 +39,10 @@ export default {
     FluxDispatcher.subscribe("GUILD_UPDATE", listener);
     FluxDispatcher.subscribe("GUILD_CREATE", listener);
     setTimeout(() => Object.values(GuildStore.__getLocalVars().guilds).forEach(guild => guildVanityCache[guild.id] = guild.vanityURLCode), 1000);
+    subscriptions.push(events.on("LocaleChange", () => formatLog()));
     subscriptions.push(() => FluxDispatcher.unsubscribe("GUILD_UPDATE", listener));
     subscriptions.push(() => FluxDispatcher.unsubscribe("GUILD_CREATE", listener));
     subscriptions.push(() => guildVanityCache = {});
-    subscriptions.push(() => events.on("LocaleChange", () => formatLog()));
     formatLog();
   },
   unload() {}
