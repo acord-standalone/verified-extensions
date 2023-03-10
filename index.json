@@ -173,6 +173,58 @@
   },
   {
     "meta": {
+      "author": "ErdemGKSL",
+      "id": "vanity-url-notifies",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/vanity-url-notifies/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Vanity Url Notifications",
+          "tr": "Vanity URL Bildirimleri"
+        },
+        "authors": [
+          {
+            "name": "érdem#6384",
+            "id": "319862027571036161"
+          }
+        ],
+        "description": {
+          "default": "Sends notifications when a vanity url freed.",
+          "tr": "Vanity URL'lerin kullanımı boşa çıktığında bildirim gönderir."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://cdn.discordapp.com/attachments/685842268606693376/1083875182231429220/image.png"
+          }
+        ]
+      },
+      "api": {
+        "ui": true,
+        "modules": {
+          "common": [
+            {
+              "name": "GuildStore",
+              "reason": "Used to get guild's vanity url cache."
+            },
+            {
+              "name": "FluxDispatcher",
+              "reason": "Used to dispatch guild update events."
+            }
+          ]
+        }
+      },
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
       "author": "TheArmagan",
       "id": "better-role-colors",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/better-role-colors/dist"
