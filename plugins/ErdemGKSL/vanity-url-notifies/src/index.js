@@ -14,7 +14,8 @@ async function listener({ guild }) {
   if (oldVanity === guild.vanity_url_code) return;
   guildVanityCache[guild.id] = guild.vanity_url_code;
   const notifyUrls = persist.ghost.settings.notifyUrls?.split(",").map(url => url.trim()) || [];
-  if (notifyUrls.includes(oldVanity)) notifications.show(
+  if (!notifyUrls.includes(oldVanity)) return;
+  notifications.show(
     i18n.format("NOTIFICATION", guild.name, oldVanity, guild.vanity_url_code)
   );
   log(oldVanity, guild.vanity_url_code, guild.name);
