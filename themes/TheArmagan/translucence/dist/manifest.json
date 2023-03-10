@@ -1,5 +1,5 @@
 {
-  "hash": "7b92c34de561547019a4dff08a6898e9bfbf782f42c6493870f07d7aecd29227",
+  "hash": "aa0563beacd89edec43cd1d670edf527b0f10efdec011490803c5f8f4e49533e",
   "type": "theme",
   "about": {
     "name": {
@@ -34,7 +34,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Backround Image"
+              "value": {
+                "default": "Background Image",
+                "tr": "Arkaplan Resmi"
+              }
             },
             {
               "type": "Input",
@@ -50,7 +53,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "App Blur"
+              "value": {
+                "default": "App Blur",
+                "tr": "Uygulama Bulanıklığı"
+              }
             },
             {
               "type": "Input",
@@ -66,7 +72,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "App Margin"
+              "value": {
+                "default": "App Opacity",
+                "tr": "Uygulama Opaklığı"
+              }
             },
             {
               "type": "Input",
@@ -82,7 +91,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "App Radius"
+              "value": {
+                "default": "App Radius",
+                "tr": "Uygulama Yarıçapı"
+              }
             },
             {
               "type": "Input",
@@ -103,7 +115,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Accent Hue"
+              "value": {
+                "default": "Accent Color",
+                "tr": "Vurgu Rengi"
+              }
             },
             {
               "type": "Input",
@@ -119,7 +134,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Accent Saturation"
+              "value": {
+                "default": "Accent Saturation",
+                "tr": "Vurgu Doygunluğu"
+              }
             },
             {
               "type": "Input",
@@ -135,7 +153,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Accent Lightness"
+              "value": {
+                "default": "Accent Lightness",
+                "tr": "Vurgu Açıklığı"
+              }
             },
             {
               "type": "Input",
@@ -151,7 +172,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Accent Text Color"
+              "value": {
+                "default": "Accent Text Color",
+                "tr": "Vurgu Metin Rengi"
+              }
             },
             {
               "type": "Input",
@@ -172,7 +196,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Sidebar Color"
+              "value": {
+                "default": "Sidebar Color",
+                "tr": "Kenar Çubuğu Rengi"
+              }
             },
             {
               "type": "Input",
@@ -188,7 +215,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Main Content Color"
+              "value": {
+                "default": "Main Content Color",
+                "tr": "Ana İçerik Rengi"
+              }
             },
             {
               "type": "Input",
@@ -209,7 +239,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Message Color"
+              "value": {
+                "default": "Message Color",
+                "tr": "Mesaj Rengi"
+              }
             },
             {
               "type": "Input",
@@ -225,7 +258,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Message Radius"
+              "value": {
+                "default": "Message Radius",
+                "tr": "Mesaj Köşe Yuvarlaklığı"
+              }
             },
             {
               "type": "Input",
@@ -241,7 +277,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Message Padding Top"
+              "value": {
+                "default": "Message Padding Top",
+                "tr": "Mesaj Üst Boşluğu"
+              }
             },
             {
               "type": "Input",
@@ -257,7 +296,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Message Padding Side"
+              "value": {
+                "default": "Message Padding Side",
+                "tr": "Mesaj Yan Boşluğu"
+              }
             },
             {
               "type": "Input",
@@ -278,7 +320,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Reply Hue"
+              "value": {
+                "default": "Reply Hue",
+                "tr": "Cevap Tonu"
+              }
             },
             {
               "type": "Input",
@@ -294,7 +339,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Reply Saturation"
+              "value": {
+                "default": "Reply Saturation",
+                "tr": "Cevap Doygunluğu"
+              }
             },
             {
               "type": "Input",
@@ -310,7 +358,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Reply Lightness"
+              "value": {
+                "default": "Reply Lightness",
+                "tr": "Cevap Açıklığı"
+              }
             },
             {
               "type": "Input",
