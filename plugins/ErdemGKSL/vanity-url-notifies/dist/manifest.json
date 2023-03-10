@@ -1,0 +1,81 @@
+{
+  "hash": "f2cd893e97801859748317711483ac75d9fa16d5f1c00a2aaea5e7f0fff5ec9c",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Vanity Url Notifications",
+      "tr": "Vanity URL Bildirimleri"
+    },
+    "authors": [
+      {
+        "name": "érdem#6384",
+        "id": "319862027571036161"
+      }
+    ],
+    "description": {
+      "default": "Sends notifications when a vanity url freed.",
+      "tr": "Vanity URL'lerin kullanımı boşa çıktığında bildirim gönderir."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://cdn.discordapp.com/attachments/685842268606693376/1083875182231429220/image.png"
+      }
+    ]
+  },
+  "api": {
+    "ui": true,
+    "modules": {
+      "common": [
+        {
+          "name": "GuildStore",
+          "reason": "Used to get guild's vanity url cache."
+        },
+        {
+          "name": "FluxDispatcher",
+          "reason": "Used to dispatch guild update events."
+        }
+      ]
+    }
+  },
+  "mode": "development",
+  "config": [
+    {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "URLs",
+            "tr": "URL'ler"
+          }
+        },
+        {
+          "type": "Paragraph",
+          "value": {
+            "default": "Enter each URL with comma. Format: 'url, url, url'",
+            "tr": "Her URL'yi virgülle ayırın. Format: 'url, url, url'"
+          }
+        },
+        {
+          "type": "Textarea",
+          "default": "suniaster",
+          "placeholder": "hentai, anime",
+          "id": "notifyUrls",
+          "cols": 6
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "default": {
+      "NOTIFICATION": "The vanity URL for {0} has changed from {1} to {2}"
+    },
+    "tr": {
+      "NOTIFICATION": "{0} sunucusunun vanity URL'si {1} den {2} a değişti"
+    }
+  },
+  "readme": true
+}
