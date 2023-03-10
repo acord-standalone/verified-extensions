@@ -1,5 +1,5 @@
 {
-  "hash": "8b211f4fbc6b937095e0521611b7925c99b7c6af30fcbe626dada374d6fc1b15",
+  "hash": "033e0b621033d159968669a0102408ea0b698787aec91222c44a0d2f703ca307",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Organize your Discord using tabs. Supports bookmarks as well.",
       "tr": "Discord'u sekmelerle organize edin. Yer imleri de destekler."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "previews": []
   },
@@ -51,6 +51,7 @@
     "utils": true,
     "dom": true,
     "events": true,
+    "patcher": true,
     "modules": {
       "common": [
         {
@@ -84,7 +85,7 @@
       ]
     }
   },
-  "mode": "development",
+  "mode": "production",
   "config": [],
   "readme": true
 }
