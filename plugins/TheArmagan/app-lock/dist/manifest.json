@@ -1,5 +1,5 @@
 {
-  "hash": "ae6e3aa68c8adf7b04e60ce33cd3756a6bbbe64c296c3b112e02fd979ae4df90",
+  "hash": "35b901784a5ee1854e651d18f5d20b94339a2955a8f3376543bf2d744ed6a6dc",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,13 @@
       "default": "Lock the app using CTRL+L, default password is 1234.",
       "tr": "CTRL+L ile uygulamayı kilitle, varsayılan şifre 1234."
     },
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://media.discordapp.net/attachments/887446333047312464/1037115824625963008/unknown.png"
+      }
+    ]
   },
   "api": {
     "dom": true,
