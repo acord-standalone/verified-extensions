@@ -227,6 +227,72 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "app-lock",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/app-lock/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "App Lock",
+          "tr": "Uygulama Kilidi"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Lock the app using CTRL+L, default password is 1234.",
+          "tr": "CTRL+L ile uygulamayı kilitle, varsayılan şifre 1234."
+        },
+        "version": "0.0.1",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://media.discordapp.net/attachments/887446333047312464/1037115824625963008/unknown.png"
+          }
+        ]
+      },
+      "api": {
+        "dom": true,
+        "patcher": true,
+        "utils": true,
+        "modules": {
+          "node": [
+            {
+              "name": "fs",
+              "reason": "Something meaningful.."
+            }
+          ],
+          "common": [
+            {
+              "name": "Router",
+              "reason": "..."
+            },
+            {
+              "name": "VoiceStateStore",
+              "reason": "..."
+            },
+            {
+              "name": "UserStore",
+              "reason": "..."
+            },
+            {
+              "name": "VoiceActions",
+              "reason": "..."
+            }
+          ]
+        }
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "better-role-colors",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/better-role-colors/dist"
     },
