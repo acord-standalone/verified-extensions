@@ -1,0 +1,1 @@
+(function(c,u){"use strict";function o(t){return t&&typeof t=="object"&&"default"in t?t:{default:t}}var a=o(c);let e,n;var d={load(){e=a.default.injectCSS(u.persist.ghost.settings.customCSS||""),n=_.debounce(()=>{e?.(u.persist.ghost.settings.customCSS||"")},500)},unload(){e?.(),n=null,e=null},config(){n?.()}};return d})($acord.patcher,$acord.extension);

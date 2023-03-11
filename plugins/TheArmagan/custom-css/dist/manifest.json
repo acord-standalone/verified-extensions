@@ -1,0 +1,43 @@
+{
+  "hash": "56bd0fb8bd4fdc763c7fda894e5106bd120629b6e9bf52078155424af472da86",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Custom CSS",
+      "tr": "Özel CSS"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Custom CSS for Discord",
+      "tr": "Discord için özel CSS"
+    },
+    "version": "0.0.1"
+  },
+  "api": {
+    "patcher": true
+  },
+  "mode": "production",
+  "config": [
+    {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Heading",
+          "value": "Custom CSS"
+        },
+        {
+          "type": "Textarea",
+          "default": "",
+          "id": "customCSS",
+          "height": "200px"
+        }
+      ]
+    }
+  ],
+  "readme": false
+}
