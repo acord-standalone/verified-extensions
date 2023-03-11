@@ -800,6 +800,42 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "borderroles",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/borderroles/dist"
+    },
+    "manifest": {
+      "index": "./src/style.css",
+      "type": "theme",
+      "about": {
+        "name": {
+          "default": "Border Roles",
+          "tr": "Kenarlıklı Roller"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Add borders to role pills.",
+          "tr": "Üye rol simgelerine kenarlık ekler."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://cdn.discordapp.com/attachments/123136820409139200/1024667335845478450/unknown.png"
+          }
+        ]
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "radialstatus",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/radialstatus/dist"
     },
