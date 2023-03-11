@@ -1,0 +1,125 @@
+{
+  "hash": "ae6e3aa68c8adf7b04e60ce33cd3756a6bbbe64c296c3b112e02fd979ae4df90",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "App Lock",
+      "tr": "Uygulama Kilidi"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Lock the app using CTRL+L, default password is 1234.",
+      "tr": "CTRL+L ile uygulamayı kilitle, varsayılan şifre 1234."
+    },
+    "version": "0.0.1"
+  },
+  "api": {
+    "dom": true,
+    "patcher": true,
+    "utils": true,
+    "modules": {
+      "node": [
+        {
+          "name": "fs",
+          "reason": "Something meaningful.."
+        }
+      ],
+      "common": [
+        {
+          "name": "Router",
+          "reason": "..."
+        },
+        {
+          "name": "VoiceStateStore",
+          "reason": "..."
+        },
+        {
+          "name": "UserStore",
+          "reason": "..."
+        },
+        {
+          "name": "VoiceActions",
+          "reason": "..."
+        }
+      ]
+    }
+  },
+  "mode": "production",
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Pass Code"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Password for your Discord."
+            }
+          ]
+        },
+        {
+          "type": "Input",
+          "default": "1234",
+          "id": "passCode"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Auto Lock"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Automatically lock the app when starting up the Discord."
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": true,
+          "id": "autoLock"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Auto Disconnect"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Automatically disconnect from voice channel and reconnect on unlock."
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": false,
+          "id": "autoDisconnect"
+        }
+      ]
+    }
+  ],
+  "readme": false
+}
