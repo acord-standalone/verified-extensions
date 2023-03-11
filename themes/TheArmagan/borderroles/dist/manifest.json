@@ -1,0 +1,56 @@
+{
+  "hash": "71911df9f9ae22c62744f5ab25b57bade9dd7f739134671a33e0a9be9e4f6e9a",
+  "type": "theme",
+  "about": {
+    "name": {
+      "default": "Border Roles",
+      "tr": "Kenarlıklı Roller"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Add borders to role pills.",
+      "tr": "Üye rol simgelerine kenarlık ekler."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://cdn.discordapp.com/attachments/123136820409139200/1024667335845478450/unknown.png"
+      }
+    ]
+  },
+  "mode": "production",
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "gap": "8px",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Full Round"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Makes role pills fully round."
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": false,
+          "id": "fullRound"
+        }
+      ]
+    }
+  ],
+  "readme": false
+}
