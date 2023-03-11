@@ -22,7 +22,7 @@ function loadExtensions(type) {
             manifest: cfg
           })
         }
-      } catch (err) { console.error(err); }
+      } catch (err) { console.error(type, authorDir.name, extensionId, err); }
     });
   });
 }
