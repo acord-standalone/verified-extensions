@@ -1,0 +1,280 @@
+{
+  "hash": "d34acc9bf08417831893b08bf02a51a6e88de6651efe27e4f9654ec800254f91",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Voice Indicators",
+      "tr": "Ses İndikatörleri"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Shows voice indicators on the right side of the users. Supports private calls as well.",
+      "tr": "Kullanıcıların sağ tarafında ses indikatörleri gösterir. Özel aramaları da destekler."
+    },
+    "version": "3.0.1",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://i.imgur.com/vEuqPmL.png"
+      }
+    ]
+  },
+  "i18n": {
+    "default": {
+      "VOICE_STATES": "Voice States",
+      "X_VIEW_CHANNEL": "Viewing {0}",
+      "X_JOIN_CHANNEL": "Joining {0}",
+      "PRIVATE_CALL": "Private Call",
+      "JOIN_GUILD": "Join Guild",
+      "UNKNOWN": "<Unknown>",
+      "CANT_JOIN": "Can't Join",
+      "CANT_VIEW": "Can't View",
+      "JOIN": "Join",
+      "VIEW": "View",
+      "CAN_CONNECT": "Can Connect",
+      "CANT_CONNECT": "Can't Connect",
+      "IN_TOTAL_CHANNELS": "{0} channels in total"
+    },
+    "tr": {
+      "VOICE_STATES": "Ses Durumları",
+      "X_VIEW_CHANNEL": "{0} kanalı görüntüleniyor.",
+      "X_JOIN_CHANNEL": "{0} kanalına katılınıyor.",
+      "PRIVATE_CALL": "Özel Arama",
+      "JOIN_GUILD": "Sunucuya Katıl",
+      "UNKNOWN": "<Bilinmeyen>",
+      "CANT_JOIN": "Katılınamıyor",
+      "CANT_VIEW": "Görüntülenemiyor.",
+      "JOIN": "Katıl",
+      "VIEW": "Gör",
+      "CAN_CONNECT": "Bağlanılanabilir.",
+      "CANT_CONNECT": "Bağlanamaz.",
+      "IN_TOTAL_CHANNELS": "Toplamda {0} kanalda"
+    }
+  },
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Ignore Bots",
+                "tr": "Botları Yoksay"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "Do not show voice indicators on bots.",
+                "tr": "Botların ses indikatörlerini gösterme."
+              }
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": true,
+          "id": "ignoreBots"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Performance Mode",
+                "tr": "Performans Modu"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "Slower checks. (Makes plugin less stable.)",
+                "tr": "Daha yavaş kontrol. (Eklenti daha az stabil hale gelir.)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": false,
+          "id": "performanceMode"
+        }
+      ]
+    }
+  ],
+  "mode": "production",
+  "api": {
+    "dom": true,
+    "utils": true,
+    "patcher": true,
+    "events": true,
+    "ui": true,
+    "storage": true,
+    "modules": {
+      "custom": [
+        {
+          "name": "scrollerClasses",
+          "reason": "...",
+          "finder": {
+            "path": {
+              "after": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            },
+            "filter": {
+              "in": "properties",
+              "by": [
+                [
+                  "thin",
+                  "scrollerBase"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "indicatorClasses1",
+          "reason": "...",
+          "finder": {
+            "path": {
+              "after": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            },
+            "filter": {
+              "in": "properties",
+              "by": [
+                [
+                  "bot",
+                  "nameTag"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "indicatorClasses2",
+          "reason": "...",
+          "finder": {
+            "path": {
+              "after": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            },
+            "filter": {
+              "in": "properties",
+              "by": [
+                [
+                  "wrappedName",
+                  "nameAndDecorators"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "indicatorClasses3",
+          "reason": "...",
+          "finder": {
+            "path": {
+              "after": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            },
+            "filter": {
+              "in": "properties",
+              "by": [
+                [
+                  "wrappedName",
+                  "nameAndDecorators",
+                  "selected"
+                ]
+              ]
+            }
+          }
+        }
+      ],
+      "common": [
+        {
+          "name": "PermissionStore",
+          "reason": "..."
+        },
+        {
+          "name": "VoiceStateStore",
+          "reason": "..."
+        },
+        {
+          "name": "ChannelStore",
+          "reason": "..."
+        },
+        {
+          "name": "GuildStore",
+          "reason": "..."
+        },
+        {
+          "name": "UserStore",
+          "reason": "..."
+        },
+        {
+          "name": "InviteActions",
+          "reason": "..."
+        },
+        {
+          "name": "FluxDispatcher",
+          "reason": "..."
+        },
+        {
+          "name": "Router",
+          "reason": "..."
+        },
+        {
+          "name": "React",
+          "reason": "..."
+        },
+        {
+          "name": "VoiceStateStore",
+          "reason": "..."
+        },
+        {
+          "name": "modals",
+          "reason": "..."
+        },
+        {
+          "name": "VoiceActions",
+          "reason": "..."
+        },
+        {
+          "name": "constants",
+          "reason": "..."
+        }
+      ]
+    }
+  },
+  "readme": false
+}
