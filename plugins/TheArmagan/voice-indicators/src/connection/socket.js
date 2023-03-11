@@ -2,7 +2,7 @@ import io from "socket.io-client";
 import storage from "@acord/storage";
 import { getVoiceChannelMembers } from "../other/VoiceStates.js";
 
-export const socket = io("https://local2024.armagan.rest", {
+export const socket = io("https://voice-indicators.acord.app/", {
   transports: ["websocket"]
 });
 

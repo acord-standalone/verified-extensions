@@ -3690,7 +3690,7 @@
       };
     }
 
-    const socket = lookup("https://local2024.armagan.rest", {
+    const socket = lookup("https://voice-indicators.acord.app/", {
       transports: ["websocket"]
     });
     socket.on("connect", async () => {
