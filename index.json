@@ -281,6 +281,38 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "custom-css",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/custom-css/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Custom CSS",
+          "tr": "Özel CSS"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Custom CSS for Discord",
+          "tr": "Discord için özel CSS"
+        },
+        "version": "0.0.1"
+      },
+      "api": {
+        "patcher": true
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "fake-mute-and-deaf",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/fake-mute-and-deaf/dist"
     },
