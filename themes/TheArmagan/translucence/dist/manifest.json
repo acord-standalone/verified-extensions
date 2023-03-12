@@ -1,5 +1,5 @@
 {
-  "hash": "aa0563beacd89edec43cd1d670edf527b0f10efdec011490803c5f8f4e49533e",
+  "hash": "23bdf7c9bafd0d17b8b2d89277e3cce2932930df4d95c6cd98614a9527e4206b",
   "type": "theme",
   "about": {
     "name": {
@@ -14,7 +14,7 @@
       "default": "A translucent/frosted glass Discord theme",
       "tr": "Şeffaf/bulanık cam Discord teması"
     },
-    "version": "2.3.0",
+    "version": "2.3.1",
     "license": "MIT",
     "previews": [
       {
@@ -73,8 +73,8 @@
             {
               "type": "Heading",
               "value": {
-                "default": "App Opacity",
-                "tr": "Uygulama Opaklığı"
+                "default": "App Margin",
+                "tr": "Uygulama Dış Boşluğu"
               }
             },
             {
