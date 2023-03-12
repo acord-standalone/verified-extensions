@@ -1,4 +1,4 @@
-(function (storage, common, events, dom, utils, ui, custom, extension, React$1, toasts, modals, patcher) {
+(function (authentication, common, events, dom, utils, ui, custom, extension, React$1, toasts, modals, patcher) {
     'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -21,7 +21,7 @@
         return Object.freeze(n);
     }
 
-    var storage__default = /*#__PURE__*/_interopDefaultLegacy(storage);
+    var authentication__default = /*#__PURE__*/_interopDefaultLegacy(authentication);
     var common__default = /*#__PURE__*/_interopDefaultLegacy(common);
     var events__default = /*#__PURE__*/_interopDefaultLegacy(events);
     var dom__default = /*#__PURE__*/_interopDefaultLegacy(dom);
@@ -3694,7 +3694,7 @@
       transports: ["websocket"]
     });
     socket.on("connect", async () => {
-      let acordToken = storage__default["default"].authentication.token;
+      let acordToken = authentication__default["default"].token;
       if (acordToken) {
         socket.emit(":login", { acordToken });
       }
@@ -3756,7 +3756,7 @@
       patchContainer.add(
         events__default["default"].on("AuthenticationSuccess", async () => {
           socket.connect();
-          socket.emit(":login", { acordToken: storage__default["default"].authentication.token });
+          socket.emit(":login", { acordToken: authentication__default["default"].token });
         })
       );
       patchContainer.add(
@@ -4758,4 +4758,4 @@
 
     return index;
 
-})($acord.storage, $acord.modules.common, $acord.events, $acord.dom, $acord.utils, $acord.ui, $acord.modules.custom, $acord.extension, $acord.modules.common.React, $acord.ui.toasts, $acord.ui.modals, $acord.patcher);
+})($acord.authentication, $acord.modules.common, $acord.events, $acord.dom, $acord.utils, $acord.ui, $acord.modules.custom, $acord.extension, $acord.modules.common.React, $acord.ui.toasts, $acord.ui.modals, $acord.patcher);

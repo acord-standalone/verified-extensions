@@ -1,6 +1,6 @@
 import patchContainer from "../other/patchContainer.js";
 import events from "@acord/events";
-import storage from "@acord/storage";
+import authentication from "@acord/authentication";
 import { socket } from "../connection/socket.js";
 
 
@@ -22,7 +22,7 @@ export function patchUpdater() {
   patchContainer.add(
     events.on("AuthenticationSuccess", async () => {
       socket.connect();
-      socket.emit(":login", { acordToken: storage.authentication.token });
+      socket.emit(":login", { acordToken: authentication.token });
     })
   );
 

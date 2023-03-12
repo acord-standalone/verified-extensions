@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-import storage from "@acord/storage";
+import authentication from "@acord/authentication";
 import { getVoiceChannelMembers } from "../other/VoiceStates.js";
 
 export const socket = io("https://voice-indicators.acord.app/", {
@@ -7,7 +7,7 @@ export const socket = io("https://voice-indicators.acord.app/", {
 });
 
 socket.on("connect", async () => {
-  let acordToken = storage.authentication.token;
+  let acordToken = authentication.token;
   if (acordToken) {
     socket.emit(":login", { acordToken });
   }
