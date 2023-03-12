@@ -1,0 +1,52 @@
+{
+  "hash": "a38568d89b1e82f976c8cabffa3e4382fe0c88dca0c64aa71829e55e09f13d6b",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "See Hidden Channels",
+      "tr": "Gizli Kanalları Gör"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Option to see not allowed channels.",
+      "tr": "İzin verilmeyen kanalları görebilmenizi sağlar."
+    },
+    "version": "0.0.1"
+  },
+  "api": {
+    "ui": true,
+    "patcher": true,
+    "modules": {
+      "common": [
+        {
+          "name": "PermissionStore",
+          "reason": "..."
+        },
+        {
+          "name": "Router",
+          "reason": "..."
+        },
+        {
+          "name": "GuildActions",
+          "reason": "..."
+        }
+      ]
+    }
+  },
+  "mode": "production",
+  "config": [],
+  "i18n": {
+    "default": {
+      "SEE_HIDDEN_CHANNELS": "See Hidden Channels"
+    },
+    "tr": {
+      "SEE_HIDDEN_CHANNELS": "Gizli Kanalları Gör"
+    }
+  },
+  "readme": false
+}
