@@ -467,6 +467,55 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "see-hidden-channels",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/see-hidden-channels/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "See Hidden Channels",
+          "tr": "Gizli Kanalları Gör"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Option to see not allowed channels.",
+          "tr": "İzin verilmeyen kanalları görebilmenizi sağlar."
+        },
+        "version": "0.0.1"
+      },
+      "api": {
+        "ui": true,
+        "patcher": true,
+        "modules": {
+          "common": [
+            {
+              "name": "PermissionStore",
+              "reason": "..."
+            },
+            {
+              "name": "Router",
+              "reason": "..."
+            },
+            {
+              "name": "GuildActions",
+              "reason": "..."
+            }
+          ]
+        }
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "sound-board",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/sound-board/dist"
     },
