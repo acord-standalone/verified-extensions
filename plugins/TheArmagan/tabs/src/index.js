@@ -322,24 +322,26 @@ export default {
       events.on("LocaleChange", reInject),
     );
 
-    subscriptions.push(
-      utils.interval(
-        () => {
-          const pipWElm = document.querySelector(`[class*="pictureInPictureWindow-"]`);
-          if (pipWElm) {
-            if (pipWElm?.children?.[0]?.getAttribute?.("style") && !WindowStore.isElementFullScreen()) {
-              let style = utils.react.getProps(pipWElm, i => i?.style)?.style;
-              if (style) {
-                let v = style.transform.find(i => i.translateY).translateY;
-                if (typeof v === "object") v = v._parent._value;
-                pipWElm.setAttribute("style", pipWElm.getAttribute("style").replace(translateYRegex, `translateY(${v - tabsContainer.getBoundingClientRect().height}px)`));
-              }
-            }
-          }
-        },
-        1000
-      )
-    )
+    // subscriptions.push(
+    //   utils.interval(
+    //     () => {
+    //       const pipWElm = document.querySelector(`[class*="pictureInPictureWindow-"]`);
+    //       if (pipWElm) {
+    //         if (pipWElm?.children?.[0]?.getAttribute?.("style") && !WindowStore.isElementFullScreen()) {
+    //           let style = utils.react.getProps(pipWElm, i => i?.style)?.style;
+    //           if (style) {
+    //             let v = style.transform.find(i => i.translateY).translateY;
+    //             console.log(v);
+    //             window.v = v;
+    //             if (typeof v === "object") v = v._parent._value;
+    //             pipWElm.setAttribute("style", pipWElm.getAttribute("style").replace(translateYRegex, `translateY(${v - tabsContainer.getBoundingClientRect().height}px)`));
+    //           }
+    //         }
+    //       }
+    //     },
+    //     1000
+    //   )
+    // )
   },
   unload() {
     unloaded = true;
