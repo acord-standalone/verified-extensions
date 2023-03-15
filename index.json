@@ -485,8 +485,8 @@
           }
         ],
         "description": {
-          "default": "Option to see not allowed channels.",
-          "tr": "İzin verilmeyen kanalları görebilmenizi sağlar."
+          "default": "Option to make hidden channels visible. (It does not allow you to see the content of the channels.)",
+          "tr": "Gizli kanalları görebilmenizi sağlar. (Kanalın içeriğini görebilmenizi sağlamaz.)"
         },
         "version": "0.0.1"
       },
