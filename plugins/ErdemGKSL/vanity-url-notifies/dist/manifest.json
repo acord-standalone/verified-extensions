@@ -1,5 +1,5 @@
 {
-  "hash": "6e225bf9963cead4c874f000861cb73209d60fb0ee5eaaf94ee0ce45a26e074b",
+  "hash": "6e225bf9963cead4c874f000861cb73209d60fb0ee5eaaf94ee0ce45a26e074c",
   "type": "plugin",
   "about": {
     "name": {
@@ -13,7 +13,7 @@
       }
     ],
     "description": {
-      "default": "Sends notifications when a vanity url freed.",
+      "default": "Sends a notification when a vanity url is freed.",
       "tr": "Özel sunucu Url'lerinin kullanımı boşa çıktığında bildirim gönderir."
     },
     "version": "0.0.1",
