@@ -347,6 +347,42 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "copy-image-url",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/copy-image-url/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Copy Image URL",
+          "tr": "Resim URL'sini Kopyala"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "You can copy the profile picture and banner of users, the picture and banner of servers.",
+          "tr": "İnsaların profil resmini ve bannerını, sunucuların resmini ve bannerinş kopyalayabilirsiniz."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md"
+      },
+      "api": {
+        "dom": true,
+        "utils": true,
+        "ui": true
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "custom-css",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/custom-css/dist"
     },
