@@ -1,0 +1,44 @@
+{
+  "hash": "72e529f9eaa724e52006117f7f2f30707cb38ac4094ec98ac1f4592662e9be58",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Copy Image URL",
+      "tr": "Resim URL'sini Kopyala"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "You can copy the profile picture and banner of users, the picture and banner of servers.",
+      "tr": "İnsaların profil resmini ve bannerını, sunucuların resmini ve bannerinş kopyalayabilirsiniz."
+    },
+    "version": "0.0.1",
+    "license": "MIT"
+  },
+  "i18n": {
+    "default": {
+      "COPY_IMAGE_URL": "Copy Image URL",
+      "COPY_BANNER_URL": "Copy Banner URL",
+      "COPY_AVATAR_URL": "Copy Avatar URL",
+      "COPY_ICON_URL": "Copy Icon URL"
+    },
+    "tr": {
+      "COPY_IMAGE_URL": "Resim URL'sini Kopyala",
+      "COPY_BANNER_URL": "Banner URL'sini Kopyala",
+      "COPY_AVATAR_URL": "Avatar URL'sini Kopyala",
+      "COPY_ICON_URL": "Icon URL'sini Kopyala"
+    }
+  },
+  "api": {
+    "dom": true,
+    "utils": true,
+    "ui": true
+  },
+  "mode": "production",
+  "config": [],
+  "readme": true
+}
