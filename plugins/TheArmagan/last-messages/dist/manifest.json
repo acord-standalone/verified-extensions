@@ -1,0 +1,72 @@
+{
+  "hash": "62dba6558c5cef38fbcea78f965dcc8bbf2db39a6ffff728f67b759b76c120e0",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Last Messages",
+      "tr": "Son Mesajlar"
+    },
+    "description": {
+      "default": "See the channels that people last wrote messages and dates.",
+      "tr": "İnsanların son mesaj yazdığı kanalları ve tarihlerini görün."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://media.discordapp.net/attachments/945664842260439061/1085889102072791092/DiscordPTB_C60BJAOlsU.png"
+      }
+    ]
+  },
+  "api": {
+    "patcher": true,
+    "utils": true,
+    "dom": true,
+    "authentication": true,
+    "i18n": true,
+    "modules": {
+      "common": [
+        {
+          "name": "ChannelStore",
+          "reason": "..."
+        },
+        {
+          "name": "GuildStore",
+          "reason": "..."
+        },
+        {
+          "name": "Router",
+          "reason": "..."
+        },
+        {
+          "name": "FluxDispatcher",
+          "reason": "..."
+        }
+      ]
+    }
+  },
+  "mode": "production",
+  "config": [],
+  "i18n": {
+    "default": {
+      "LAST_MESSAGES": "Last Messages",
+      "LOADING": "Loading...",
+      "ERROR": "Something went wrong..",
+      "NO_MESSAGES": "Couldn't find any messages from this user recently."
+    },
+    "tr": {
+      "LAST_MESSAGES": "Son Mesajlar",
+      "LOADING": "Yükleniyor...",
+      "ERROR": "Bir şeyler ters gitti..",
+      "NO_MESSAGES": "Bu kullanıcıdan yakın zamanda hiç mesaj bulamadım."
+    }
+  },
+  "readme": true
+}
