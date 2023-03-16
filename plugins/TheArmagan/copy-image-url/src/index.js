@@ -19,7 +19,7 @@ export default {
                   {
                     label: i18n.format("COPY_AVATAR_URL"),
                     action() {
-                      utils.copyText(imgElm.src.split('?')[0] + "?size=4096");
+                      utils.copyText(imgElm.src.split('?')[0].replace(".webp", ".png") + "?size=4096");
                     }
                   }
                 ]
@@ -42,7 +42,7 @@ export default {
                   {
                     label: i18n.format("COPY_BANNER_URL"),
                     action() {
-                      utils.copyText(elm.style.backgroundImage.slice(5, -2).split('?')[0] + "?size=4096");
+                      utils.copyText(elm.style.backgroundImage.slice(5, -2).split('?')[0].replace(".webp", ".png") + "?size=4096");
                     }
                   }
                 ]
@@ -67,7 +67,7 @@ export default {
                   {
                     label: i18n.format("COPY_AVATAR_URL"),
                     action() {
-                      utils.copyText(imgElm.src.split('?')[0] + "?size=4096");
+                      utils.copyText(imgElm.src.split('?')[0].replace(".webp", ".png") + "?size=4096");
                     }
                   }
                 ]
@@ -90,7 +90,7 @@ export default {
                   {
                     label: i18n.format("COPY_BANNER_URL"),
                     action() {
-                      utils.copyText(elm.style.backgroundImage.slice(5, -2).split('?')[0] + "?size=4096");
+                      utils.copyText(elm.style.backgroundImage.slice(5, -2).split('?')[0].replace(".webp", ".png") + "?size=4096");
                     }
                   }
                 ]
