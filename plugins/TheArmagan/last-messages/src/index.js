@@ -168,13 +168,13 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '[class*="userInfoSection-"]',
+        '.userProfileModalInner-3fh3QA .userInfoSection-1gptv0:not(.connectedAccounts-1HaiEx)',
         /** @param {HTMLDivElement} elm */(elm) => {
           const user = utils.react.getProps(elm, i => i?.user).user;
           if (!user || !authentication.token) return;
 
           const header = dom.parse(`
-            <h1 class="defaultColor-1EVLSt eyebrow-1Shfyi defaultColor-1GKx81 userInfoSectionHeader-48g5Qj" data-text-variant="eyebrow">${i18n.format("LAST_MESSAGES")}</h1>
+            <h1 class="defaultColor-1EVLSt eyebrow-1Shfyi defaultColor-1GKx81 userInfoSectionHeader-48g5Qj acord--patched" data-text-variant="eyebrow">${i18n.format("LAST_MESSAGES")}</h1>
           `);
 
           const contentContainer = dom.parse(`
