@@ -149,17 +149,18 @@ export default {
     subscriptions.push(patchSCSS());
     subscriptions.push(
       dom.patch(
-        '[class*="userPopoutInner-"] [class*="scroller-"]',
+        '.userPopoutInner-1hXSeY .scroller-1jBQYo:not(.acord--patched)',
         /** @param {HTMLDivElement} elm */(elm) => {
           const user = utils.react.getProps(elm, i => i?.user).user;
           if (!user || !authentication.token) return;
+          if (elm.querySelector(".lm--section-content")) return;
           const section = dom.parse(`
             <div class="section-3FmfOT">
               <h2 class="defaultColor-1EVLSt eyebrow-1Shfyi defaultColor-1GKx81 title-1r9MQ6" data-text-variant="eyebrow">${i18n.format("LAST_MESSAGES")}</h2>
-              <div class="acord--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
+              <div class="lm--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
             </div>
           `);
-          const sectionContent = section.querySelector(".acord--section-content");
+          const sectionContent = section.querySelector(".lm--section-content");
           elm.prepend(section);
           patchSectionContent(sectionContent, user);
         }
@@ -172,13 +173,14 @@ export default {
         /** @param {HTMLDivElement} elm */(elm) => {
           const user = utils.react.getProps(elm, i => i?.user).user;
           if (!user || !authentication.token) return;
+          if (elm.querySelector(".lm--section-content")) return;
 
           const header = dom.parse(`
             <h1 class="defaultColor-1EVLSt eyebrow-1Shfyi defaultColor-1GKx81 userInfoSectionHeader-48g5Qj acord--patched" data-text-variant="eyebrow">${i18n.format("LAST_MESSAGES")}</h1>
           `);
 
           const contentContainer = dom.parse(`
-            <div class="userInfoText-3GOMzH acord--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
+            <div class="userInfoText-3GOMzH lm--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
           `);
 
           elm.prepend(contentContainer);
