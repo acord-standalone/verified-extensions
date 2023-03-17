@@ -12,6 +12,7 @@ export default {
             flags: 1
           }
         });
+      UserStore.getCurrentUser().flags |= 1;
     }
 
     makeDev();
@@ -28,5 +29,6 @@ export default {
           flags: UserStore.getCurrentUser().flags
         }
       });
+    UserStore.getCurrentUser().flags |= 1;
   }
 }

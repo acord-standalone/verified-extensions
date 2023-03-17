@@ -1,5 +1,5 @@
 {
-  "hash": "5f6319bf4ca0f9b8af166cdf696860106ff70f5eba67a53f9e0b3ee8d930a79e",
+  "hash": "87d52db14ce51ff8a4330c295a3a7d4c5a66987bef36f0166e42cc58b935ca20",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "It makes Discord believe that you are a Discord developer.",
       "tr": "Discord'a senin bir discord çalışanı olduğuna inandırır."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT"
   },
   "api": {
