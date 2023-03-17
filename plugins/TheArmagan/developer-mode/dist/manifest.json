@@ -1,0 +1,44 @@
+{
+  "hash": "5f6319bf4ca0f9b8af166cdf696860106ff70f5eba67a53f9e0b3ee8d930a79e",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Developer Mode",
+      "tr": "Geliştirici Modu"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "It makes Discord believe that you are a Discord developer.",
+      "tr": "Discord'a senin bir discord çalışanı olduğuna inandırır."
+    },
+    "version": "0.0.1",
+    "license": "MIT"
+  },
+  "api": {
+    "events": true,
+    "modules": {
+      "common": [
+        {
+          "name": "UserStore",
+          "reason": "..."
+        },
+        {
+          "name": "ExperimentStore",
+          "reason": "..."
+        },
+        {
+          "name": "FluxDispatcher",
+          "reason": "..."
+        }
+      ]
+    }
+  },
+  "mode": "production",
+  "config": [],
+  "readme": true
+}
