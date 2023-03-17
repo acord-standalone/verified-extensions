@@ -42,7 +42,7 @@ export default {
 
         const possibleTooltip = `${guild ? `${guild.name} > ` : ""}${((channel.isDM() && !channel.isGroupDM()) ?
           (UserStore.getUser(channel.getRecipientId()).tag + ", " + UserStore.getCurrentUser().tag)
-          : channel.name) || [...new Map(channel.recipients.map(i => [i, UserStore.getUser(i)])).values()].filter(i => i).map(i => i.tag).sort((a, b) => a.localeCompare(b)).join(", ")}`
+          : "") || [...new Map(channel.recipients.map(i => [i, UserStore.getUser(i)])).values()].filter(i => i).map(i => i.tag).sort((a, b) => a.localeCompare(b)).join(", ")}`
 
         localCache.updateCache[message.author.id] = [
           new Date().toISOString(),
