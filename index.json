@@ -436,7 +436,7 @@
           "default": "It makes Discord believe that you are a Discord developer.",
           "tr": "Discord'a senin bir discord çalışanı olduğuna inandırır."
         },
-        "version": "0.0.1",
+        "version": "0.0.2",
         "license": "MIT",
         "readme": "./readme.md"
       },
