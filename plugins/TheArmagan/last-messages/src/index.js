@@ -37,22 +37,24 @@ export default {
       function onMessage({ message }) {
         if (!message.author) return;
         if (message.type !== 0) return;
-        let channel = ChannelStore.getChannel(message.channel_id);
-        let guild = GuildStore.getGuild(channel.guild_id);
+        try {
+          let channel = ChannelStore.getChannel(message?.channel_id);
+          let guild = GuildStore.getGuild(channel?.guild_id);
 
-        const possibleTooltip = `${guild ? `${guild.name} > ` : ""}${((channel.isDM() && !channel.isGroupDM()) ?
-          (UserStore.getUser(channel.getRecipientId()).tag + ", " + UserStore.getCurrentUser().tag)
-          : "") || [...new Map(channel.recipients.map(i => [i, UserStore.getUser(i)])).values()].filter(i => i).map(i => i.tag).sort((a, b) => a.localeCompare(b)).join(", ")}`
+          const possibleTooltip = `${guild ? `${guild.name} > ` : ""}${((channel.isDM() && !channel.isGroupDM()) ?
+            (UserStore.getUser(channel.getRecipientId()).tag + ", " + UserStore.getCurrentUser().tag)
+            : channel.name) || [...new Map(channel.recipients.map(i => [i, UserStore.getUser(i)])).values()].filter(i => i).map(i => i.tag).sort((a, b) => a.localeCompare(b)).join(", ")}`
 
-        localCache.updateCache[message.author.id] = [
-          new Date().toISOString(),
-          channel?.id ?? null,
-          channel?.name ?? null,
-          guild?.id ?? null,
-          guild?.name ?? null,
-          possibleTooltip ?? null
-        ];
-        localCache.updated = true;
+          localCache.updateCache[message.author.id] = [
+            new Date().toISOString(),
+            channel?.id ?? null,
+            channel?.name ?? null,
+            guild?.id ?? null,
+            guild?.name ?? null,
+            possibleTooltip ?? null
+          ];
+          localCache.updated = true;
+        } catch (e) { console.log(e); }
       }
 
       FluxDispatcher.subscribe("MESSAGE_CREATE", onMessage);
