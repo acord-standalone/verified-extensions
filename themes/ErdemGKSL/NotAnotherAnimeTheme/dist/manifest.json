@@ -1,0 +1,30 @@
+{
+  "hash": "83b9ccd5e55b32209ba0cc803ccd57533a4e4a4e95a273a136924fd53825c16e",
+  "type": "theme",
+  "about": {
+    "name": {
+      "default": "Not Another Anime Theme"
+    },
+    "authors": [
+      {
+        "name": "puckzxz",
+        "image": "https://avatars1.githubusercontent.com/u/10362744"
+      }
+    ],
+    "description": {
+      "default": "An easily customizable and automatically updating theme",
+      "tr": "Özelleştirilebilir ve otomatik olarak güncellenen bir tema"
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://raw.githubusercontent.com/puckzxz/NotAnotherAnimeTheme/master/image/header.jpg"
+      }
+    ]
+  },
+  "mode": "production",
+  "config": [],
+  "readme": true
+}
