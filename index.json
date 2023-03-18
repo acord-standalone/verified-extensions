@@ -50,6 +50,49 @@
   {
     "meta": {
       "author": "ErdemGKSL",
+      "id": "goodword",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/goodword/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Goodwords",
+          "tr": "İyi Kelimeler"
+        },
+        "authors": [
+          {
+            "name": "érdem#6384",
+            "id": "319862027571036161"
+          }
+        ],
+        "description": {
+          "default": "When you say a badword, it makes it a 'goodword' ^^ (bots can't see your badwords)",
+          "tr": "Kötü kelime söylediğinde onu 'iyi kelime' yapar ^^ (botlar küfürlerinizi göremez)"
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {
+        "patcher": true,
+        "modules": {
+          "common": [
+            {
+              "name": "MessageActions",
+              "reason": "To patch message send events."
+            }
+          ]
+        }
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "ErdemGKSL",
       "id": "platform-indicators",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/platform-indicators/dist"
     },
