@@ -14,7 +14,7 @@ const colors = {
   idle: "#faa81a"
 };
 
-const classes = [indicatorClasses1.nameTag, indicatorClasses2.nameAndDecorators, indicatorClasses3.nameAndDecorators];
+const classes = [indicatorClasses1.nameTag, indicatorClasses2.nameAndDecorators, indicatorClasses3.nameAndDecorators, "nameAndDecorators-2A8Bbk"];
 
 const elements = {
   desktop: (state) => Desktop({ style: { color: colors[state] } }),

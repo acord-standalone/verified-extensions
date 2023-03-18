@@ -13,7 +13,8 @@ import { showModal } from "../lib/showModal.jsx";
 const indicatorClasses = [
   indicatorClasses1.nameTag,
   indicatorClasses2.nameAndDecorators,
-  indicatorClasses3.nameAndDecorators
+  indicatorClasses3.nameAndDecorators,
+  "nameAndDecorators-2A8Bbk"
 ];
 
 export function patchDOM() {
