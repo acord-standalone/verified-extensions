@@ -1,5 +1,5 @@
 {
-  "hash": "c958d14384c6e2346736833cff182b8b724ce51108cb92895aff9b16a0df87a6",
+  "hash": "b4cf495d8536f20d15d62f21d641bc378ba7bd9e887a9c9b70fba1f04dd738cd",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "When you say a badword, it makes it a 'goodword' ^^ (bots can't see your badwords)",
       "tr": "Kötü kelime söylediğinde onu 'iyi kelime' yapar ^^ (botlar küfürlerinizi göremez)"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "previews": []
   },
