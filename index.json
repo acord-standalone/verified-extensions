@@ -1149,6 +1149,42 @@
   },
   {
     "meta": {
+      "author": "ErdemGKSL",
+      "id": "NotAnotherAnimeTheme",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/ErdemGKSL/NotAnotherAnimeTheme/dist"
+    },
+    "manifest": {
+      "index": "./style.css",
+      "type": "theme",
+      "about": {
+        "name": {
+          "default": "Not Another Anime Theme"
+        },
+        "authors": [
+          {
+            "name": "puckzxz",
+            "image": "https://avatars1.githubusercontent.com/u/10362744"
+          }
+        ],
+        "description": {
+          "default": "An easily customizable and automatically updating theme",
+          "tr": "Özelleştirilebilir ve otomatik olarak güncellenen bir tema"
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://raw.githubusercontent.com/puckzxz/NotAnotherAnimeTheme/master/image/header.jpg"
+          }
+        ]
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
       "author": "TheArmagan",
       "id": "borderroles",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/borderroles/dist"
