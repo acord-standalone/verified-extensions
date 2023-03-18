@@ -7,7 +7,7 @@ const noCharChar = '󠇰';
 export default {
   load() {
     subscriptions.push(
-      patcher.instead(MessageActions, "sendMessage", (args, original) => {
+      patcher.instead("sendMessage", MessageActions, (args, original) => {
 
         const [channelId, message] = args;
   
