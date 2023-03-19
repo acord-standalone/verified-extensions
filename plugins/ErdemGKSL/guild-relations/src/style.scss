@@ -1,0 +1,72 @@
+.acord--gr--modal {
+  
+  background-color: rgba(20, 20, 20);
+  width: 800px;
+
+  border-radius: 15px;
+  transform: translate(-50%, -50%) !important;
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  & > .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+    & > .close {
+      cursor: pointer !important;
+    }
+  }
+
+  
+
+  & > .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    max-height: 500px;
+    contain: content;
+    overflow-y: auto;
+    gap: 8px;
+
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px;
+      background-color: rgba(35, 35, 35);
+      height: fit-content;
+      border-radius: 8px;
+      cursor: pointer;
+
+      img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: #fff;
+        // height: min-content;
+      }
+      
+      & > .username {
+        max-width: 150px;
+        text-overflow: ellipsis;
+        color: whitesmoke;
+      }
+  
+    }
+  }
+
+}
