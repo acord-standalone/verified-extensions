@@ -93,6 +93,64 @@
   {
     "meta": {
       "author": "ErdemGKSL",
+      "id": "guild-relations",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/guild-relations/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Server Relations",
+          "tr": "Sunucu İlişkileri"
+        },
+        "authors": [
+          {
+            "name": "érdem#6384",
+            "id": "319862027571036161"
+          }
+        ],
+        "description": {
+          "default": "Allows you to see your friends in that server",
+          "tr": "Sunucuda arkadaşlarınızı görebilmenizi sağlar"
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://cdn.discordapp.com/attachments/887446333047312464/1087098862268846161/image.png"
+          }
+        ]
+      },
+      "api": {
+        "patcher": true,
+        "ui": true,
+        "dom": true,
+        "modules": {
+          "common": [
+            {
+              "name": "UserStore",
+              "reason": "To fetch user avatar and username."
+            },
+            {
+              "name": "UserProfileStore",
+              "reason": "To fetch user's mutual guilds."
+            },
+            {
+              "name": "RelationshipStore",
+              "reason": "To fetch friends of yours."
+            }
+          ]
+        }
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "ErdemGKSL",
       "id": "platform-indicators",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/platform-indicators/dist"
     },
