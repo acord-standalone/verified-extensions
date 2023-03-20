@@ -1,10 +1,11 @@
 import { RelationshipStore, UserStore, UserProfileStore, UserProfileActions } from "@acord/modules/common";
 import { contextMenus, modals } from "@acord/ui";
 import dom from "@acord/dom";
-import { i18n, subscriptions } from "@acord/extension";
+import { i18n, subscriptions, persist } from "@acord/extension";
 import styles from "./style.scss";
 
 let isOpen = true;
+const cache = {};
 
 export default {
   load() {
@@ -173,6 +174,9 @@ async function fetchProfileWithoutRateLimit(userId) {
     let cached = UserProfileStore.getMutualGuilds(userId);
     if (cached) return { mutual_guilds: cached.map(guild => guild.guild), id: userId };
 
+    cached = persist.ghost.cache[userId];
+    if (cached && cache.timeout > Date.now()) return cached;
+
     let profile = await UserProfileActions.fetchProfile(userId).catch((e) => e.status);
     let tried = 0;
     while (profile == 429) {
@@ -188,6 +192,11 @@ async function fetchProfileWithoutRateLimit(userId) {
     }
     // console.log("fetched", profile && typeof profile !== "number")
     await new Promise(r => setTimeout(r, 10000));
+    persist.store.cache[userId] = {
+      mutual_guilds: profile.mutual_guilds,
+      id: userId,
+      timeout: Date.now() + 1000 * 60 * 60 * 6
+    };
     return profile;
   } catch (e) {
     // console.log("hata", e);
