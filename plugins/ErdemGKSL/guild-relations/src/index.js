@@ -36,6 +36,7 @@ export default {
 
                     const cachedUsers = getCachedGuildRelations(props.guild.id);
                     if (cachedUsers.length > 0) {
+                      console.log(cachedUsers)
                       const contentChildren = cachedUsers.map(user => {
                         const e = dom.parse(`<div class="user">
                     ${user.avatar ? `<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256"></img>` : ""}
@@ -167,24 +168,28 @@ async function fetchCacheOfFriends() {
 async function fetchProfileWithoutRateLimit(userId) {
   try {
     // console.log("fetching", userId);
+
+    let cached = UserProfileStore.getMutualGuilds(userId);
+    if (cached) return { mutual_guilds: cached.map(guild => guild.guild), id: userId };
+
     let profile = await UserProfileActions.fetchProfile(userId).catch((e) => e.status);
     let tried = 0;
     while (profile == 429) {
-      await new Promise(r => setTimeout(r, (15000 * ++tried)));
+      await new Promise(r => setTimeout(r, (60000 * ++tried)));
       // console.log("retrying", userId);
       profile = await UserProfileActions.fetchProfile(userId).catch(e => e.status);
       if (profile == 429); // console.log("rate limited", tried);
     }
     if (typeof profile === "number") {
       // console.log("error", profile);
-      await new Promise(r => setTimeout(r, (15000 * ++tried)));
+      await new Promise(r => setTimeout(r, (60000 * ++tried)));
       return null;
     }
     // console.log("fetched", profile && typeof profile !== "number")
     return profile;
   } catch (e) {
     // console.log("hata", e);
-    await new Promise(r => setTimeout(r, (15000)));
+    await new Promise(r => setTimeout(r, (60000)));
     return null;
   }
 } 
