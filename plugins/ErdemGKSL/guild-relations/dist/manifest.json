@@ -1,5 +1,5 @@
 {
-  "hash": "5f01a1f2958e80ad19c29dc1907a145f1adce03f6922f94145bc61052c99edff",
+  "hash": "48ecd169d79606f6ca88fa7a68a3a77abc05c9e8fa5f3291af45b2ca902e8e69",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to see your friends in that server",
       "tr": "Sunucuda arkadaşlarınızı görebilmenizi sağlar"
     },
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
     "previews": [
       {
@@ -42,6 +42,10 @@
         {
           "name": "RelationshipStore",
           "reason": "To fetch friends of yours."
+        },
+        {
+          "name": "UserProfileActions",
+          "reason": "To fetch user's mutual guilds."
         }
       ]
     }

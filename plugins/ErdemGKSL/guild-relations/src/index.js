@@ -1,12 +1,13 @@
-import { RelationshipStore, UserStore, UserProfileStore } from "@acord/modules/common";
+import { RelationshipStore, UserStore, UserProfileStore, UserProfileActions } from "@acord/modules/common";
 import { contextMenus, modals } from "@acord/ui";
 import dom from "@acord/dom";
 import { i18n, subscriptions } from "@acord/extension";
 import styles from "./style.scss";
 
+let isOpen = true;
+
 export default {
   load() {
-
     subscriptions.push(styles());
     subscriptions.push(
       contextMenus.patch(
@@ -62,24 +63,66 @@ export default {
         }
       )
     )
+    fetchCacheOfFriends();
   },
-  unload() { }
+  unload() { 
+    isOpen = false;
+  }
 }
 
-function getGuildRelations(guildId) {
+async function getGuildRelations(guildId) {
   try {
     const friendIds = RelationshipStore.getFriendIDs();
     const relations = [];
     for (const friendId of friendIds) {
-      const mutualGuilds = UserProfileStore.getMutualGuilds(friendId) ?? [];
+      const mutualGuilds = await fetchMutualGuilds(friendId);
       for (const mutualGuild of mutualGuilds) {
-        if (mutualGuild.guild.id === guildId) {
+        console.log(mutualGuild)
+        if (mutualGuild.id === guildId) {
           const friend = UserStore.getUser(friendId);
           relations.push(friend);
         }
       }
     }
     return relations;
+  } catch (e) {
+    console.log(e);
+    return [];
+  }
+}
+
+async function fetchMutualGuilds(friendId) {
+  try {
+    const friend = UserStore.getUser(friendId);
+    if (!friend) return [];
+    const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild);
+    if (mutualGuilds) return mutualGuilds;
+    if (!isOpen) return [];
+    profile = await UserProfileActions.fetchProfile(friendId);
+    while (!profile) {
+      profile = await UserProfileActions.fetchProfile(friendId).catch(e => e.status);
+      if (profile === 429) {
+        await new Promise(r => setTimeout(r, 5000));
+        profile = null;
+      }
+    }
+    if (typeof profile === "number") return [];
+    return profile.mutual_guilds;
+  } catch (e) {
+    console.log(e);
+    return [];
+  }
+}
+
+async function fetchCacheOfFriends() {
+  try {
+    const friendIds = RelationshipStore.getFriendIDs();
+    const friends = [];
+    for (const friendId of friendIds) {
+      if (!isOpen) break;
+      friends.push(await fetchMutualGuilds(friendId));
+    }
+    return friends;
   } catch (e) {
     console.log(e);
     return [];
