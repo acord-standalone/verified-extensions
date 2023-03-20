@@ -38,12 +38,13 @@ export default {
                     ${user.avatar ? `<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256"></img>` : ""}
                     <div class="username">${user.tag}</div>
                   </div>`);
+                  console.log(user.id);
                       e.addEventListener("click", () => {
-                        ui.modals.show.user(user.id);
+                        modals.show.user(user.id);
+                        close();
                       });
                       return e;
                     });
-                    console.log(contentChildren);
                     /** @type {Element} */
                     const content = element.querySelector(".content");
                     content.replaceChildren(...contentChildren);
@@ -52,9 +53,6 @@ export default {
                     closeButton.addEventListener("click", () => {
                       close();
                     });
-
-
-                    console.log(props.guild);
                     return element;
                   });
                 }
@@ -74,9 +72,7 @@ function getGuildRelations(guildId) {
     const relations = [];
     for (const friendId of friendIds) {
       const mutualGuilds = UserProfileStore.getMutualGuilds(friendId) ?? [];
-      if (mutualGuilds.length) console.log("31!");
       for (const mutualGuild of mutualGuilds) {
-        console.log(mutualGuild.guild.id, guildId)
         if (mutualGuild.guild.id === guildId) {
           const friend = UserStore.getUser(friendId);
           relations.push(friend);
