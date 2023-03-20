@@ -118,7 +118,7 @@ function getCachedGuildRelations(guildId) {
   try {
     const friendIds = RelationshipStore.getFriendIDs();
     for (const friendId of friendIds) {
-      const cached = persist.ghost.cache[friendId];
+      const cached = persist.ghost.cache?.[friendId];
       const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild) ?? (cached && cached.timeout > Date.now() ? cached?.mutual_guilds : null) ?? [];
       for (const mutualGuild of mutualGuilds) {
         // console.log(mutualGuild)
@@ -175,7 +175,7 @@ async function fetchProfileWithoutRateLimit(userId) {
     let cached = UserProfileStore.getMutualGuilds(userId);
     if (cached) return { mutual_guilds: cached.map(guild => guild.guild), id: userId };
 
-    cached = persist.ghost.cache[userId];
+    cached = persist.ghost.cache?.[userId];
     if (cached && cache.timeout > Date.now()) return cached;
 
     let profile = await UserProfileActions.fetchProfile(userId).catch((e) => e.status);
