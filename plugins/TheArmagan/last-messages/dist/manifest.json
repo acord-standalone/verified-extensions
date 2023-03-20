@@ -1,5 +1,5 @@
 {
-  "hash": "e7252d43871d4abf1bdf538950160da7f0fec32cc69c67835d33be0790fb46d6",
+  "hash": "e7252d43871d4abf1bdf538950160da7f0fec32cc69c67835d33be0790fb46d7",
   "type": "plugin",
   "about": {
     "name": {
@@ -7,7 +7,7 @@
       "tr": "Son Mesajlar"
     },
     "description": {
-      "default": "See the channels that people last wrote messages and dates.",
+      "default": "Allows you to see the channels and timestamps at which people have sent their last message.",
       "tr": "İnsanların son mesaj yazdığı kanalları ve tarihlerini görün."
     },
     "authors": [
