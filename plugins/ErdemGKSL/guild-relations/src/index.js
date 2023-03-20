@@ -99,14 +99,19 @@ async function fetchMutualGuilds(friendId) {
     if (mutualGuilds) return mutualGuilds;
     if (!isOpen) return [];
     profile = await UserProfileActions.fetchProfile(friendId);
+    let tried = 0;
     while (!profile) {
       profile = await UserProfileActions.fetchProfile(friendId).catch(e => e.status);
-      if (profile === 429) {
-        await new Promise(r => setTimeout(r, 5000));
+      if (profile == 429) {
+        console.log("rate limited", tried);
+        await new Promise(r => setTimeout(r, (2500 * ++tried)));
         profile = null;
       }
     }
-    if (typeof profile === "number") return [];
+    if (typeof profile === "number") {
+      console.log("error", profile);
+      return [];
+    }
     return profile.mutual_guilds;
   } catch (e) {
     console.log(e);
