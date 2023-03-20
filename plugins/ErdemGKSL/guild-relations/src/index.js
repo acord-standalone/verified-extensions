@@ -16,8 +16,8 @@ export default {
           comp.props.children.push(
             contextMenus.build.item(
               { type: "separator" }
-              ),
-              contextMenus.build.item(
+            ),
+            contextMenus.build.item(
               {
                 label: i18n.format("GUILD_RELATIONS"),
                 async action() {
@@ -33,23 +33,42 @@ export default {
                     </div>
                     
                   </div>`);
-                  
-                  const contentChildren = getGuildRelations(props.guild.id).map(user => {
-                    const e = dom.parse(`<div class="user">
+
+                    const cachedUsers = getCachedGuildRelations(props.guild.id);
+                    if (cachedUsers.length > 0) {
+                      const contentChildren = cachedUsers.map(user => {
+                        const e = dom.parse(`<div class="user">
                     ${user.avatar ? `<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256"></img>` : ""}
                     <div class="username">${user.tag}</div>
                   </div>`);
-                  // console.log(user.id);
-                  e.addEventListener("click", () => {
-                    close();
-                    modals.show.user(user.id);
-                  });
-                      return e;
+                        e.addEventListener("click", () => {
+                          close();
+                          modals.show.user(user.id);
+                        });
+                        return e;
+                      });
+                      /** @type {Element} */
+                      const content = element.querySelector(".content");
+                      content.replaceChildren(...contentChildren);
+                    }
+
+                    getGuildRelations(props.guild.id).then(users => {
+                      const contentChildren = users.map(user => {
+                        const e = dom.parse(`<div class="user">
+                      ${user.avatar ? `<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256"></img>` : ""}
+                      <div class="username">${user.tag}</div>
+                    </div>`);
+                        e.addEventListener("click", () => {
+                          close();
+                          modals.show.user(user.id);
+                        });
+                        return e;
+                      });
+                      /** @type {Element} */
+                      const content = element.querySelector(".content");
+                      content.replaceChildren(...contentChildren);
                     });
-                    /** @type {Element} */
-                    const content = element.querySelector(".content");
-                    content.replaceChildren(...contentChildren);
-                    
+
                     const closeButton = element.querySelector(".close");
                     closeButton.addEventListener("click", () => {
                       close();
@@ -61,22 +80,22 @@ export default {
             ),
           )
         }
-        )
-        )
-        fetchCacheOfFriends();
-        return;
+      )
+    )
+    fetchCacheOfFriends();
+    return;
   },
   unload() {
     isOpen = false;
   }
 }
 
-function getGuildRelations(guildId) {
+async function getGuildRelations(guildId) {
   try {
     const friendIds = RelationshipStore.getFriendIDs();
     const relations = [];
     for (const friendId of friendIds) {
-      const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild) ?? [];
+      const mutualGuilds = await fetchMutualGuilds(friendId);
       for (const mutualGuild of mutualGuilds) {
         // console.log(mutualGuild)
         if (mutualGuild.id === guildId) {
@@ -92,13 +111,35 @@ function getGuildRelations(guildId) {
   }
 }
 
+function getCachedGuildRelations(guildId) {
+  try {
+    const friendIds = RelationshipStore.getFriendIDs();
+    const relations = [];
+    for (const friendId of friendIds) {
+      const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild);
+      for (const mutualGuild of mutualGuilds) {
+        // console.log(mutualGuild)
+        if (mutualGuild.id === guildId) {
+          const friend = UserStore.getUser(friendId);
+          relations.push(friend);
+        }
+      }
+    }
+    return relations;
+  } catch (e) {
+    // console.log(e);
+    return [];
+  }
+}
+
+
 async function fetchMutualGuilds(friendId) {
   try {
     const friend = UserStore.getUser(friendId);
     if (!friend) return [];
     const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild);
     if (mutualGuilds) // console.log("cached already", friendId)
-    if (mutualGuilds) return mutualGuilds;
+      if (mutualGuilds) return mutualGuilds;
     if (!isOpen) return [];
     let profile = await fetchProfileWithoutRateLimit(friendId).catch(() => null);
     return profile?.mutual_guilds ?? [];
@@ -142,8 +183,8 @@ async function fetchProfileWithoutRateLimit(userId) {
     // console.log("fetched", profile && typeof profile !== "number")
     return profile;
   } catch (e) {
-      // console.log("hata", e);
-      await new Promise(r => setTimeout(r, (15000)));
-      return null;
+    // console.log("hata", e);
+    await new Promise(r => setTimeout(r, (15000)));
+    return null;
   }
 } 
