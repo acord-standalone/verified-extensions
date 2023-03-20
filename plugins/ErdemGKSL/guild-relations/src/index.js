@@ -35,7 +35,7 @@ export default {
                   </div>`);
 
                     const cachedUsers = getCachedGuildRelations(props.guild.id);
-                    console.log("cachedUsers", cachedUsers);
+                    // console.log("cachedUsers", cachedUsers);
                     if (cachedUsers.length > 0) {
                       const contentChildren = cachedUsers.map(user => {
                         const e = dom.parse(`<div class="user">
@@ -128,7 +128,7 @@ function getCachedGuildRelations(guildId) {
     }
     return relations;
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     return relations;
   }
 }
