@@ -193,6 +193,7 @@ async function fetchProfileWithoutRateLimit(userId) {
     }
     // console.log("fetched", profile && typeof profile !== "number")
     await new Promise(r => setTimeout(r, 10000));
+    if (!persist.ghost.cache) persist.store.cache = {};
     persist.store.cache[userId] = {
       mutual_guilds: profile.mutual_guilds.map(guild => ({ id: guild.id })),
       id: userId,
