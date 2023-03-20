@@ -9,6 +9,7 @@ let isOpen = true;
 export default {
   load() {
     subscriptions.push(styles());
+    return;
     subscriptions.push(
       contextMenus.patch(
         "guild-context",
@@ -98,11 +99,11 @@ async function fetchMutualGuilds(friendId) {
     const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild);
     if (mutualGuilds) return mutualGuilds;
     if (!isOpen) return [];
-    profile = await UserProfileActions.fetchProfile(friendId).catch(() => null);
+    let profile = await fetchProfileWithoutRateLimit(friendId).catch(() => null);
     let tried = 0;
     while (!profile) {
       await new Promise(r => setTimeout(r, (2500 * ++tried)));
-      profile = await UserProfileActions.fetchProfile(friendId).catch(e => e.status);
+      profile = await fetchProfileWithoutRateLimit(friendId).catch(e => e.status);
       if (profile == 429) {
         console.log("rate limited", tried);
         profile = null;
@@ -134,3 +135,27 @@ async function fetchCacheOfFriends() {
     return [];
   }
 }
+
+async function fetchProfileWithoutRateLimit(userId) {
+  try {
+    const profile = await UserProfileActions.fetchProfile(userId).catch(() => null);
+    let tried = 0;
+    while (!profile) {
+      await new Promise(r => setTimeout(r, (2500 * ++tried)));
+      profile = await UserProfileActions.fetchProfile(userId).catch(e => e.status);
+      if (profile == 429) {
+        console.log("rate limited", tried);
+        profile = null;
+      }
+    }
+    if (typeof profile === "number") {
+      console.log("error", profile);
+      await new Promise(r => setTimeout(r, (2500 * ++tried)));
+      return null;
+    }
+    return profile;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+} 
