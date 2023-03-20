@@ -635,7 +635,7 @@
           "tr": "Son Mesajlar"
         },
         "description": {
-          "default": "See the channels that people last wrote messages and dates.",
+          "default": "Allows you to see the channels and timestamps at which people have sent their last message.",
           "tr": "İnsanların son mesaj yazdığı kanalları ve tarihlerini görün."
         },
         "authors": [
