@@ -39,7 +39,7 @@ export default {
                     ${user.avatar ? `<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256"></img>` : ""}
                     <div class="username">${user.tag}</div>
                   </div>`);
-                  console.log(user.id);
+                      console.log(user.id);
                       e.addEventListener("click", () => {
                         close();
                         modals.show.user(user.id);
@@ -65,7 +65,7 @@ export default {
     )
     fetchCacheOfFriends();
   },
-  unload() { 
+  unload() {
     isOpen = false;
   }
 }
@@ -110,8 +110,8 @@ async function fetchMutualGuilds(friendId) {
     }
     if (typeof profile === "number") {
       console.log("error", profile);
-        await new Promise(r => setTimeout(r, (2500 * ++tried)));
-        return [];
+      await new Promise(r => setTimeout(r, (2500 * ++tried)));
+      return [];
     }
     return profile.mutual_guilds;
   } catch (e) {
