@@ -101,10 +101,10 @@ async function fetchMutualGuilds(friendId) {
     profile = await UserProfileActions.fetchProfile(friendId).catch(() => null);
     let tried = 0;
     while (!profile) {
+      await new Promise(r => setTimeout(r, (2500 * ++tried)));
       profile = await UserProfileActions.fetchProfile(friendId).catch(e => e.status);
       if (profile == 429) {
         console.log("rate limited", tried);
-        await new Promise(r => setTimeout(r, (2500 * ++tried)));
         profile = null;
       }
     }
