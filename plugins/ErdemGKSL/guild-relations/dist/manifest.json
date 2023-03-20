@@ -1,5 +1,5 @@
 {
-  "hash": "8659e9a640c0bdbb4d037ae56b6615f99805daeefd4b404407dd6a2003257548",
+  "hash": "f887610a40d364582a32c189674bb8c36fc3d85fdd63a51f4a3cfaced60e4fdb",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to see your friends in that server",
       "tr": "Sunucuda arkadaşlarınızı görebilmenizi sağlar"
     },
-    "version": "0.0.4",
+    "version": "0.0.5",
     "license": "MIT",
     "previews": [
       {
