@@ -98,7 +98,7 @@ async function fetchMutualGuilds(friendId) {
     const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild);
     if (mutualGuilds) return mutualGuilds;
     if (!isOpen) return [];
-    profile = await UserProfileActions.fetchProfile(friendId);
+    profile = await UserProfileActions.fetchProfile(friendId).catch(() => null);
     let tried = 0;
     while (!profile) {
       profile = await UserProfileActions.fetchProfile(friendId).catch(e => e.status);
@@ -110,7 +110,8 @@ async function fetchMutualGuilds(friendId) {
     }
     if (typeof profile === "number") {
       console.log("error", profile);
-      return [];
+        await new Promise(r => setTimeout(r, (2500 * ++tried)));
+        return [];
     }
     return profile.mutual_guilds;
   } catch (e) {
