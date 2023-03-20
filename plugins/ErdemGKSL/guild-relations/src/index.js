@@ -40,8 +40,8 @@ export default {
                   </div>`);
                   console.log(user.id);
                       e.addEventListener("click", () => {
-                        modals.show.user(user.id);
                         close();
+                        modals.show.user(user.id);
                       });
                       return e;
                     });
