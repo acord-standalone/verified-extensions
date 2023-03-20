@@ -9,7 +9,6 @@ let isOpen = true;
 export default {
   load() {
     subscriptions.push(styles());
-    return;
     subscriptions.push(
       contextMenus.patch(
         "guild-context",
@@ -17,40 +16,40 @@ export default {
           comp.props.children.push(
             contextMenus.build.item(
               { type: "separator" }
-            ),
-            contextMenus.build.item(
+              ),
+              contextMenus.build.item(
               {
                 label: i18n.format("GUILD_RELATIONS"),
                 async action() {
                   modals.show(({ close }) => {
                     const element = dom.parse(`<div class="acord--gr--modal">
                     <div class="header">
-                      <h1>Sunucu İlişkileri</h1>
-                      <svg width="48" height="48" version="1.1" viewBox="0 0 700 700" class="close">
-                        <path d="m349.67 227.44 75.371-75.371c34.379-34.379 87.273 17.852 52.891 52.23l-75.371 75.371 75.371 75.371c34.379 34.379-18.512 87.273-52.891 52.891l-75.371-75.371-75.371 75.371c-34.379 34.379-86.613-18.512-52.23-52.891l75.371-75.371-75.371-75.371c-34.379-34.379 17.852-86.613 52.23-52.23z" fill-rule="evenodd" fill="currentColor"/>
+                    <h1>Sunucu İlişkileri</h1>
+                    <svg width="48" height="48" version="1.1" viewBox="0 0 700 700" class="close">
+                    <path d="m349.67 227.44 75.371-75.371c34.379-34.379 87.273 17.852 52.891 52.23l-75.371 75.371 75.371 75.371c34.379 34.379-18.512 87.273-52.891 52.891l-75.371-75.371-75.371 75.371c-34.379 34.379-86.613-18.512-52.23-52.891l75.371-75.371-75.371-75.371c-34.379-34.379 17.852-86.613 52.23-52.23z" fill-rule="evenodd" fill="currentColor"/>
                       </svg>
                     </div>
                     <div class="content thin-RnSY0a scrollerBase-1Pkza4">
                     </div>
-
+                    
                   </div>`);
-
-                    const contentChildren = getGuildRelations(props.guild.id).map(user => {
-                      const e = dom.parse(`<div class="user">
+                  
+                  const contentChildren = getGuildRelations(props.guild.id).map(user => {
+                    const e = dom.parse(`<div class="user">
                     ${user.avatar ? `<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256"></img>` : ""}
                     <div class="username">${user.tag}</div>
                   </div>`);
-                      console.log(user.id);
-                      e.addEventListener("click", () => {
-                        close();
-                        modals.show.user(user.id);
-                      });
+                  // console.log(user.id);
+                  e.addEventListener("click", () => {
+                    close();
+                    modals.show.user(user.id);
+                  });
                       return e;
                     });
                     /** @type {Element} */
                     const content = element.querySelector(".content");
                     content.replaceChildren(...contentChildren);
-
+                    
                     const closeButton = element.querySelector(".close");
                     closeButton.addEventListener("click", () => {
                       close();
@@ -62,23 +61,24 @@ export default {
             ),
           )
         }
-      )
-    )
-    fetchCacheOfFriends();
+        )
+        )
+        fetchCacheOfFriends();
+        return;
   },
   unload() {
     isOpen = false;
   }
 }
 
-async function getGuildRelations(guildId) {
+function getGuildRelations(guildId) {
   try {
     const friendIds = RelationshipStore.getFriendIDs();
     const relations = [];
     for (const friendId of friendIds) {
-      const mutualGuilds = await fetchMutualGuilds(friendId);
+      const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild) ?? [];
       for (const mutualGuild of mutualGuilds) {
-        console.log(mutualGuild)
+        // console.log(mutualGuild)
         if (mutualGuild.id === guildId) {
           const friend = UserStore.getUser(friendId);
           relations.push(friend);
@@ -87,7 +87,7 @@ async function getGuildRelations(guildId) {
     }
     return relations;
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     return [];
   }
 }
@@ -97,26 +97,13 @@ async function fetchMutualGuilds(friendId) {
     const friend = UserStore.getUser(friendId);
     if (!friend) return [];
     const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild);
+    if (mutualGuilds) // console.log("cached already", friendId)
     if (mutualGuilds) return mutualGuilds;
     if (!isOpen) return [];
     let profile = await fetchProfileWithoutRateLimit(friendId).catch(() => null);
-    let tried = 0;
-    while (!profile) {
-      await new Promise(r => setTimeout(r, (2500 * ++tried)));
-      profile = await fetchProfileWithoutRateLimit(friendId).catch(e => e.status);
-      if (profile == 429) {
-        console.log("rate limited", tried);
-        profile = null;
-      }
-    }
-    if (typeof profile === "number") {
-      console.log("error", profile);
-      await new Promise(r => setTimeout(r, (2500 * ++tried)));
-      return [];
-    }
-    return profile.mutual_guilds;
+    return profile?.mutual_guilds ?? [];
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     return [];
   }
 }
@@ -131,31 +118,32 @@ async function fetchCacheOfFriends() {
     }
     return friends;
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     return [];
   }
 }
 
 async function fetchProfileWithoutRateLimit(userId) {
   try {
-    const profile = await UserProfileActions.fetchProfile(userId).catch(() => null);
+    // console.log("fetching", userId);
+    let profile = await UserProfileActions.fetchProfile(userId).catch((e) => e.status);
     let tried = 0;
-    while (!profile) {
-      await new Promise(r => setTimeout(r, (2500 * ++tried)));
+    while (profile == 429) {
+      await new Promise(r => setTimeout(r, (60000 * ++tried)));
+      // console.log("retrying", userId);
       profile = await UserProfileActions.fetchProfile(userId).catch(e => e.status);
-      if (profile == 429) {
-        console.log("rate limited", tried);
-        profile = null;
-      }
+      if (profile == 429); // console.log("rate limited", tried);
     }
     if (typeof profile === "number") {
-      console.log("error", profile);
-      await new Promise(r => setTimeout(r, (2500 * ++tried)));
+      // console.log("error", profile);
+      await new Promise(r => setTimeout(r, (60000 * ++tried)));
       return null;
     }
+    // console.log("fetched", profile && typeof profile !== "number")
     return profile;
   } catch (e) {
-    console.log(e);
-    return null;
+      // console.log("hata", e);
+      await new Promise(r => setTimeout(r, (60000)));
+      return null;
   }
 } 
