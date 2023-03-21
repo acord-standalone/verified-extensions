@@ -119,7 +119,7 @@ function getCachedGuildRelations(guildId) {
     const friendIds = RelationshipStore.getFriendIDs();
     for (const friendId of friendIds) {
       const cached = persist.ghost.cache?.[friendId];
-      const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild) ?? (cached && cached.timeout > Date.now() ? cached?.mutual_guilds : null) ?? [];
+      const mutualGuilds = UserProfileStore.getMutualGuilds(friendId)?.map(guild => guild.guild) ?? cached?.mutual_guilds ?? [];
       for (const mutualGuild of mutualGuilds) {
         // console.log(mutualGuild)
         if (mutualGuild.id === guildId) {
