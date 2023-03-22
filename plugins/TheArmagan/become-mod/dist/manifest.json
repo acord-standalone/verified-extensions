@@ -1,13 +1,13 @@
 {
-  "hash": "85d956d0e676361030c9cd46a96ef59b04c18b7ba8d16abe3cbf220f45e08c84",
+  "hash": "85d956d0e676361030c9cd46a96ef59b04c18b7ba8d16abe3cbf220f45e08c86",
   "type": "plugin",
   "about": {
     "name": {
-      "default": "Become Mode",
+      "default": "Become Mod",
       "tr": "Yetkili Ol"
     },
     "description": {
-      "default": "Makes your client think you have administrator on a guild.",
+      "default": "Makes your client think you have admin permissions on a guild.",
       "tr": "İstemcinin sunucuda yönetici olduğunu düşünmesini sağlar."
     },
     "authors": [
