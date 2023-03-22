@@ -1,0 +1,52 @@
+{
+  "hash": "85d956d0e676361030c9cd46a96ef59b04c18b7ba8d16abe3cbf220f45e08c84",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Become Mode",
+      "tr": "Yetkili Ol"
+    },
+    "description": {
+      "default": "Makes your client think you have administrator on a guild.",
+      "tr": "İstemcinin sunucuda yönetici olduğunu düşünmesini sağlar."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT"
+  },
+  "api": {
+    "ui": true,
+    "modules": {
+      "common": [
+        {
+          "name": "FluxDispatcher",
+          "reason": "..."
+        },
+        {
+          "name": "GuildStore",
+          "reason": "..."
+        },
+        {
+          "name": "UserStore",
+          "reason": "..."
+        }
+      ]
+    }
+  },
+  "mode": "production",
+  "config": [],
+  "i18n": {
+    "default": {
+      "BECOME_MOD": "Become Mod"
+    },
+    "tr": {
+      "BECOME_MOD": "Yetkili Ol"
+    }
+  },
+  "readme": true
+}
