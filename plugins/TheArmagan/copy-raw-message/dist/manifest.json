@@ -1,0 +1,38 @@
+{
+  "hash": "5b2b2dd174b1e8231b4c1c347d1ff4e271229340be69744ec1a5bd84f63b7e71",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Copy Raw Message",
+      "tr": "Çiğ Mesajı Kopyala"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Allows you to copy messages with their formatting.",
+      "tr": "Mesajları biçimlendirmeleriyle birlikte kopyalamanıza olanak sağlar."
+    },
+    "version": "0.0.2",
+    "license": "MIT",
+    "previews": []
+  },
+  "api": {
+    "utils": true,
+    "ui": true
+  },
+  "mode": "production",
+  "config": [],
+  "i18n": {
+    "default": {
+      "COPY_RAW_MESSAGE": "Copy Raw Message"
+    },
+    "tr": {
+      "COPY_RAW_MESSAGE": "Çiğ Mesajı Kopyala"
+    }
+  },
+  "readme": true
+}
