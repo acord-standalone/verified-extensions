@@ -406,11 +406,11 @@
       "type": "plugin",
       "about": {
         "name": {
-          "default": "Become Mode",
+          "default": "Become Mod",
           "tr": "Yetkili Ol"
         },
         "description": {
-          "default": "Makes your client think you have administrator permissions on a guild.",
+          "default": "Makes your client think you have admin permissions on a guild.",
           "tr": "İstemcinin sunucuda yönetici olduğunu düşünmesini sağlar."
         },
         "authors": [
