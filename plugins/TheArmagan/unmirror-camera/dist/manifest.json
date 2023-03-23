@@ -1,0 +1,28 @@
+{
+  "hash": "6899c06906267b48346c89c6641b76e667956cb98a75786c112c6cbe6fa9f8e4",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Unmirror Camera",
+      "tr": "Kamerayı Çevir"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Unmirrors your camera.",
+      "tr": "Kameranızı olması gerektiği yöne çevirir."
+    },
+    "version": "0.0.1",
+    "license": "MIT"
+  },
+  "api": {
+    "patcher": true
+  },
+  "mode": "production",
+  "config": [],
+  "readme": true
+}
