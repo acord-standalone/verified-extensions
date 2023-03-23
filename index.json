@@ -538,6 +538,42 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "copy-raw-message",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/copy-raw-message/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Copy Raw Message",
+          "tr": "Çiğ Mesajı Kopyala"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Allows you to copy messages with their formatting.",
+          "tr": "Mesajları biçimlendirmeleriyle birlikte kopyalamanıza olanak sağlar."
+        },
+        "version": "0.0.2",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {
+        "utils": true,
+        "ui": true
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "custom-css",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/custom-css/dist"
     },
