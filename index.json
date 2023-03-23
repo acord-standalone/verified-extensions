@@ -1062,6 +1062,40 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "unmirror-camera",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/unmirror-camera/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Unmirror Camera",
+          "tr": "Kamerayı Çevir"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Unmirrors your camera.",
+          "tr": "Kameranızı olması gerektiği yöne çevirir."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md"
+      },
+      "api": {
+        "patcher": true
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "voice-indicators",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/voice-indicators/dist"
     },
