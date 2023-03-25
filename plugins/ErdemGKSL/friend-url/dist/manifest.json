@@ -1,5 +1,5 @@
 {
-  "hash": "03d301fd9ac550f3bff6cdc9a30eec729e0f7bee1f57cb4f30042a7f74907c84",
+  "hash": "fdf4b6aa48064b03237ec4f9588eab29ddb15de13be6bba3f0c7a25577ba2ccf",
   "type": "plugin",
   "about": {
     "name": {
@@ -52,7 +52,7 @@
       "ERROR_COPY": "Arkadaşlık linki kopyalanamadı!"
     },
     "default": {
-      "FRIEND_CODE_URL": "Friend url",
+      "FRIEND_CODE_URL": "Friendship link",
       "SUCCESS_COPY": "Friend url successfully copied!",
       "ERROR_COPY": "Friend url could not be copied!"
     }
