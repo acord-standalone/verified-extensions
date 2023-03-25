@@ -1,13 +1,22 @@
-.acord--fu--button {
-  padding: 4px 16px 4px 16px;
-  background-color: #5865f2;
-  height: 32px;
-  color: white;
-  border-radius: 3px;
-  margin-left: -55px;
-  transition: background-color 0.2s ease-in-out;
+.acord--fu {
 
-  &:hover {
-    background-color: #4752c4;
+  &--button {
+    padding: 4px 16px 4px 16px;
+    background-color: #5865f2;
+    height: 32px;
+    color: white;
+    border-radius: 3px;
+    transition: background-color 0.2s ease-in-out;
+  
+    &:hover {
+      background-color: #4752c4;
+    }
   }
+
+  &--packer {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
 }

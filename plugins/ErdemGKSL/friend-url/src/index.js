@@ -18,7 +18,12 @@ export default {
       /** @type {Element} */
       const btn = dom.parse(`<button class="acord--fu--button">${i18n.format("FRIEND_CODE_URL")}</button>`);
       btn.addEventListener("click", clickTrigger);
-      elm.appendChild(btn);
+      const children = [...elm.children];
+      const packer = dom.parse(`<div class="acord--fu--packer"></div>`);
+      const editBtn = children.pop();
+      packer.appendChild(editBtn);
+      packer.appendChild(btn);
+      elm.replaceChildren(...children, packer);
     }));
     subscriptions.push(injectSCSS());
   },

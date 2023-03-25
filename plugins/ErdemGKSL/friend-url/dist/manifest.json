@@ -1,5 +1,5 @@
 {
-  "hash": "ae735bb7536ef687794886759e1a3667bdb909625cbf20b7a3a9a0534099fb34",
+  "hash": "b7deeeb5f3583ae76ab57d0ac0bcbaa47af0fb2691e5fa07165edef57ce55822",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "This plugin allows you to copy your friend url.",
       "tr": "Bu eklenti arkadaşlık linkinizi kopyalamanıza olanak sağlar."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "previews": [
       {
