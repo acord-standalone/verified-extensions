@@ -71,7 +71,7 @@
           "default": "This plugin allows you to copy your friend url.",
           "tr": "Bu eklenti arkadaşlık linkinizi kopyalamanıza olanak sağlar."
         },
-        "version": "0.0.1",
+        "version": "0.0.2",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": [
