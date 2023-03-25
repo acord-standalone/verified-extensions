@@ -27,16 +27,13 @@ export default {
 
 async function getFriendCode() {
   const userId = UserStore.getCurrentUser()?.id;
-  console.log(0);
   if (!userId) return null;
   const oldCode = persist.ghost.oldCode?.[userId];
   if (oldCode && oldCode.expires_at > Date.now()) {
-    console.log(1);
     return oldCode.code;
   }
 
   const code = await InviteActions.createFriendInvite().catch(() => null);
-  console.log(2, code);
   if (!code) return null;
 
   if (code.inviter?.id) persist.store.oldCode[code.inviter?.id] = {
