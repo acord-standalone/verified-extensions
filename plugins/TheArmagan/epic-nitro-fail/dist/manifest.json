@@ -1,5 +1,5 @@
 {
-  "hash": "3fcc5dd64cf3b0f32c43e33a3df8398cda5f52314e1ab497b14de11da44a416b",
+  "hash": "bc8dc8b96a087f2ec7eade1472313cf8c2ff6aaa8d9823df38fec8ad1f3829ef",
   "type": "plugin",
   "about": {
     "name": {
@@ -18,7 +18,8 @@
     ],
     "version": "0.0.1",
     "license": "MIT",
-    "previews": []
+    "previews": [],
+    "forceUnverified": true
   },
   "api": {
     "modules": {
