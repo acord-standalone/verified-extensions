@@ -772,7 +772,8 @@
         "version": "0.0.1",
         "license": "MIT",
         "readme": "./readme.md",
-        "previews": []
+        "previews": [],
+        "forceUnverified": true
       },
       "api": {
         "modules": {
