@@ -1,5 +1,5 @@
 {
-  "hash": "3fcc5dd64cf3b0f32c43e33a3df8398cda5f52314e1ab497b14de11da44a416b",
+  "hash": "e0796c62b4a4fff1715cb7cedc8f8217aeb4e94a7ec9b245863cc452169acd95",
   "type": "plugin",
   "about": {
     "name": {
@@ -7,8 +7,8 @@
       "tr": "Epik Nitro Başarısızlığı"
     },
     "description": {
-      "default": "Allows you to use nitro features without nitro. And more.",
-      "tr": "Nitro olmadan nitro özelliklerini kullanmanıza izin verir. Ve daha fazlasını."
+      "default": "Allows you to use nitro features without nitro. (You violate the rules of the discord at your own risk.)",
+      "tr": "Nitro olmadan nitro özelliklerini kullanmanıza izin verir. (Discordun kurallarını ihlal etmeniz sizin sorumluluğunuzdadır.)"
     },
     "authors": [
       {
