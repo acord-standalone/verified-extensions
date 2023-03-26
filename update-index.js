@@ -21,7 +21,7 @@ function loadExtensions(type) {
                 url: `https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/${type}/${authorDir.name}/${extensionId}/${outDir}`
               },
               manifest: cfg
-            })
+            });
           }
         }
       } catch (err) { console.error(type, authorDir.name, extensionId, err); }
