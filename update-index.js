@@ -13,14 +13,16 @@ function loadExtensions(type) {
         let outDir = cfg.out.directory.replace(/^(\.\/|\/)?/, "").replace(/\/$/, "");
         if (fs.existsSync(path.resolve(__dirname, `./${type}`, authorDir.name, extensionId, cfg.out.directory, "./source.js"))) {
           delete cfg.out;
-          result.push({
-            meta: {
-              author: authorDir.name,
-              id: extensionId,
-              url: `https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/${type}/${authorDir.name}/${extensionId}/${outDir}`
-            },
-            manifest: cfg
-          })
+          if (!cfg.forceUnverified) {
+            result.push({
+              meta: {
+                author: authorDir.name,
+                id: extensionId,
+                url: `https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/${type}/${authorDir.name}/${extensionId}/${outDir}`
+              },
+              manifest: cfg
+            })
+          }
         }
       } catch (err) { console.error(type, authorDir.name, extensionId, err); }
     });
