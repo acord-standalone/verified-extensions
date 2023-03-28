@@ -387,43 +387,6 @@
   {
     "meta": {
       "author": "TheArmagan",
-      "id": "aeagar-activity",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/aeagar-activity/dist"
-    },
-    "manifest": {
-      "index": "./src/index.js",
-      "type": "plugin",
-      "about": {
-        "name": "æAgar",
-        "authors": [
-          {
-            "name": "Armagan#2448",
-            "id": "707309693449535599"
-          }
-        ],
-        "description": {
-          "default": "Acord's own AgarIO instance.",
-          "tr": "Acord'un kendi AgarIO sunucusu."
-        },
-        "version": "0.0.1"
-      },
-      "api": {
-        "dom": true,
-        "modules": {
-          "common": [
-            {
-              "name": "FluxDispatcher",
-              "reason": "..."
-            }
-          ]
-        }
-      },
-      "mode": "production"
-    }
-  },
-  {
-    "meta": {
-      "author": "TheArmagan",
       "id": "app-lock",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/app-lock/dist"
     },
