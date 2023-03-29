@@ -1,9 +1,25 @@
 import { subscriptions, persist } from "@acord/extension";
 import { videoQualityModule } from "@acord/modules/custom";
+import { FluxDispatcher } from "@acord/modules/common";
+import events from "@acord/events";
 import patcher from "@acord/patcher";
 
 export default {
   load() {
+    FluxDispatcher.dispatch({
+      type: "UPDATE_BACKGROUND_GRADIENT_PRESET",
+      presetId: persist.ghost.settings.customThemePresetId
+    });
+
+    subscriptions.push(
+      events.on("CurrentUserChange", () => {
+        FluxDispatcher.dispatch({
+          type: "UPDATE_BACKGROUND_GRADIENT_PRESET",
+          presetId: persist.ghost.settings.customThemePresetId
+        });
+      })
+    );
+
     subscriptions.push(
       patcher.before(
         "updateVideoQuality",
@@ -102,6 +118,17 @@ export default {
     )
   },
   unload() {
-
+    FluxDispatcher.dispatch({
+      type: "UPDATE_BACKGROUND_GRADIENT_PRESET",
+      presetId: null
+    });
+  },
+  config({ item }) {
+    if (item.id === "customThemePresetId") {
+      FluxDispatcher.dispatch({
+        type: "UPDATE_BACKGROUND_GRADIENT_PRESET",
+        presetId: item.value
+      });
+    }
   }
 }
