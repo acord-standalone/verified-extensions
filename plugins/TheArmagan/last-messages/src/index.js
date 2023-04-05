@@ -151,14 +151,14 @@ export default {
     subscriptions.push(patchSCSS());
     subscriptions.push(
       dom.patch(
-        '.userPopoutInner-1hXSeY .scroller-1jBQYo:not(.acord--patched)',
+        '.userPopoutInner-nv9Y92 .scroller-15bIdk:not(.acord--patched)',
         /** @param {HTMLDivElement} elm */(elm) => {
           const user = utils.react.getProps(elm, i => i?.user).user;
           if (!user || !authentication.token) return;
           if (elm.querySelector(".lm--section-content")) return;
           const section = dom.parse(`
-            <div class="section-3FmfOT">
-              <h2 class="defaultColor-1EVLSt eyebrow-1Shfyi defaultColor-1GKx81 title-1r9MQ6" data-text-variant="eyebrow">${i18n.format("LAST_MESSAGES")}</h2>
+            <div class="section-28YDOf">
+              <h2 class="defaultColor-1EVLSt eyebrow-1Shfyi defaultColor-1GKx81 title-3CjiSS" data-text-variant="eyebrow">${i18n.format("LAST_MESSAGES")}</h2>
               <div class="lm--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
             </div>
           `);
@@ -171,18 +171,18 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.userProfileModalInner-3fh3QA .userInfoSection-1gptv0:not(.connectedAccounts-1HaiEx)',
+        '.userProfileModalInner-3dx9L9 .userInfoSection-2u2hir:not(.connectedAccounts-2R5M4w)',
         /** @param {HTMLDivElement} elm */(elm) => {
           const user = utils.react.getProps(elm, i => i?.user).user;
           if (!user || !authentication.token) return;
           if (elm.querySelector(".lm--section-content")) return;
 
           const header = dom.parse(`
-            <h1 class="defaultColor-1EVLSt eyebrow-1Shfyi defaultColor-1GKx81 userInfoSectionHeader-48g5Qj acord--patched" data-text-variant="eyebrow">${i18n.format("LAST_MESSAGES")}</h1>
+            <h1 class="defaultColor-1EVLSt eyebrow-1Shfyi defaultColor-1GKx81 userInfoSectionHeader-2mYYun acord--patched" data-text-variant="eyebrow">${i18n.format("LAST_MESSAGES")}</h1>
           `);
 
           const contentContainer = dom.parse(`
-            <div class="userInfoText-3GOMzH lm--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
+            <div class="userInfoText-2MFCmH lm--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
           `);
 
           elm.prepend(contentContainer);
