@@ -7,7 +7,7 @@ export default {
   load() {
     subscriptions.push(
       dom.patch(
-        '.userPopoutInner-1hXSeY .avatarHoverTarget-l77PhT',
+        '.avatarHoverTarget-1zzfRL',
         /** @param {HTMLDivElement} elm */(elm) => {
           const imgElm = elm.querySelector('img');
           if (!imgElm) return;
@@ -32,7 +32,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.userPopoutInner-1hXSeY .popoutBannerPremium-2RvDNZ',
+        '.popoutBannerPremium-3i5EEI',
         /** @param {HTMLDivElement} elm */(elm) => {
           elm.addEventListener('contextmenu', (e) => {
             contextMenus.open(
@@ -55,7 +55,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.userProfileModalInner-3fh3QA .avatar-1YsFQ1',
+        '.avatar-3QF_VA',
         /** @param {HTMLDivElement} elm */(elm) => {
           const imgElm = elm.querySelector('img');
           if (!imgElm) return;
@@ -80,7 +80,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.userProfileModalInner-3fh3QA .profileBannerPremium-3xIFwS',
+        '.profileBannerPremium-KD60EB',
         /** @param {HTMLDivElement} elm */(elm) => {
           elm.addEventListener('contextmenu', (e) => {
             contextMenus.open(
