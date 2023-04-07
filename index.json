@@ -732,7 +732,7 @@
             "id": "707309693449535599"
           }
         ],
-        "version": "0.0.2",
+        "version": "0.0.3",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": []
@@ -748,7 +748,8 @@
                   "in": "strings",
                   "by": [
                     [
-                      "audioSSRC"
+                      "audioSSRC",
+                      "updateVideoQuality"
                     ]
                   ]
                 },
