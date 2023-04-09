@@ -791,7 +791,7 @@
             "id": "707309693449535599"
           }
         ],
-        "version": "0.0.6",
+        "version": "0.0.7",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": [
@@ -823,6 +823,10 @@
             },
             {
               "name": "FluxDispatcher",
+              "reason": "..."
+            },
+            {
+              "name": "moment",
               "reason": "..."
             }
           ]
