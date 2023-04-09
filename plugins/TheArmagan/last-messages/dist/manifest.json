@@ -1,5 +1,5 @@
 {
-  "hash": "7d42e6310abcbfe4604d83feef7f382d820102543c90f7d8694fb0b9ce045a24",
+  "hash": "e16746b2c35b8a350a533535130ab3e7d4b4981ec86b65ed6d100809d56f01d0",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.6",
+    "version": "0.0.7",
     "license": "MIT",
     "previews": [
       {
@@ -47,6 +47,10 @@
         },
         {
           "name": "FluxDispatcher",
+          "reason": "..."
+        },
+        {
+          "name": "moment",
           "reason": "..."
         }
       ]

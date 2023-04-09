@@ -1,16 +1,12 @@
 import dom from "@acord/dom";
-import { ChannelStore, GuildStore, Router, FluxDispatcher } from "@acord/modules/common";
+import { ChannelStore, GuildStore, Router, FluxDispatcher, moment } from "@acord/modules/common";
 import { subscriptions, i18n } from "@acord/extension";
 import utils from "@acord/utils";
 import mainI18N from "@acord/i18n";
 import patchSCSS from "./styles.scss";
 import authentication from "@acord/authentication";
 
-function formatDate(data) {
-  let date = new Date(data);
-  let dateText = `${date.toLocaleString(mainI18N.locale, { month: 'short' })} ${(new Date().getDate()).toString().padStart(2, "0")}, ${date.getFullYear()} ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
-  return dateText;
-}
+
 
 const channelIcons = {
   "0": `
@@ -123,11 +119,11 @@ export default {
 
         let tooltip = `${i.guildId ? `${guild ? `${guild.name} > ` : `${i.guildName} > `}` : ""}${channel ? channel.name : i.channelName || ""}`.trim();
         if (!tooltip) tooltip = i.possibleTooltip;
-
+        console.log(i.date);
         const container = dom.parse(`
           <div class="line">
-            <span class="timestamp-6-ptG3" acord--tooltip-content="${new Date(i.date).toLocaleDateString(mainI18N.locale)} ${new Date(i.date).toLocaleTimeString(mainI18N.locale)}">
-              ${formatDate(i.date)}
+            <span class="timestamp-6-ptG3 info" acord--tooltip-content="${moment(i.date).format("DD.MM.YYYY HH:mm:ss")}">
+              ${moment(i.date).format("MMM DD, YYYY HH:MM")}
             </span>
             <span class="channelMention wrapper-1ZcZW- interactive" role="link" tabindex="0" acord--tooltip-content="${tooltip}">
               <span class="channelWithIcon">
@@ -182,7 +178,7 @@ export default {
           `);
 
           const contentContainer = dom.parse(`
-            <div class="userInfoText-2MFCmH lm--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
+            <div class="userInfoText-2MFCmH info lm--section-content thin-RnSY0a scrollerBase-1Pkza4"></div>
           `);
 
           elm.prepend(contentContainer);
