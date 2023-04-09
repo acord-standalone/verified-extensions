@@ -123,7 +123,7 @@ export default {
         const container = dom.parse(`
           <div class="line">
             <span class="timestamp-6-ptG3 info" acord--tooltip-content="${moment(i.date).format("DD.MM.YYYY HH:mm:ss")}">
-              ${moment(i.date).format("MMM DD, YYYY HH:MM")}
+              ${moment(i.date).format("MMM DD, YYYY HH:mm")}
             </span>
             <span class="channelMention wrapper-1ZcZW- interactive" role="link" tabindex="0" acord--tooltip-content="${tooltip}">
               <span class="channelWithIcon">
