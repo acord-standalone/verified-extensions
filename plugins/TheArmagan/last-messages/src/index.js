@@ -1,5 +1,5 @@
 import dom from "@acord/dom";
-import { ChannelStore, GuildStore, Router, FluxDispatcher, moment } from "@acord/modules/common";
+import { ChannelStore, GuildStore, Router, FluxDispatcher, moment, UserStore } from "@acord/modules/common";
 import { subscriptions, i18n } from "@acord/extension";
 import utils from "@acord/utils";
 import mainI18N from "@acord/i18n";
@@ -39,7 +39,7 @@ export default {
 
           const possibleTooltip = `${guild ? `${guild.name} > ` : ""}${((channel.isDM() && !channel.isGroupDM()) ?
             (UserStore.getUser(channel.getRecipientId()).tag + ", " + UserStore.getCurrentUser().tag)
-            : channel.name) || [...new Map(channel.recipients.map(i => [i, UserStore.getUser(i)])).values()].filter(i => i).map(i => i.tag).sort((a, b) => a.localeCompare(b)).join(", ")}`
+            : channel.name) || [...new Map([...channel.recipients.map(i => [i, UserStore.getUser(i)]), [UserStore.getCurrentUser().id, UserStore.getCurrentUser()]]).values()].filter(i => i).map(i => i.tag).sort((a, b) => a.localeCompare(b)).join(", ")}`
 
           localCache.updateCache[message.author.id] = [
             new Date().toISOString(),
