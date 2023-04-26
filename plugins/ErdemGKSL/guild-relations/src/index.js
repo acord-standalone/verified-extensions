@@ -198,7 +198,7 @@ async function fetchProfileWithoutRateLimit(userId) {
       id: userId,
       timeout: Date.now() + 1000 * 60 * 60 * 6
     };
-    await new Promise(r => setTimeout(r, 10000));
+    await new Promise(r => setTimeout(r, 20000));
     return profile;
   } catch (e) {
     // console.log("hata", e);
