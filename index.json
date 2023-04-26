@@ -163,7 +163,7 @@
       "type": "plugin",
       "about": {
         "name": {
-          "default": "Mass Quit Dm's",
+          "default": "Mass Quit DM's",
           "tr": "Toplu DM Çıkışı"
         },
         "authors": [
