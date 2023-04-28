@@ -155,6 +155,64 @@
   {
     "meta": {
       "author": "ErdemGKSL",
+      "id": "mass-quit-dms",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/mass-quit-dms/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Mass Quit DM's",
+          "tr": "Toplu DM Çıkışı"
+        },
+        "authors": [
+          {
+            "name": "Erdem#0002",
+            "id": "319862027571036161"
+          }
+        ],
+        "description": {
+          "default": "Massive DM Group Quitter, sliently.",
+          "tr": "Toplu DM Grup Çıkışı, sessizce."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://cdn.discordapp.com/attachments/887446333047312464/1100802041330282596/image.png"
+          }
+        ]
+      },
+      "api": {
+        "ui": true,
+        "dom": true,
+        "utils": true,
+        "modules": {
+          "common": [
+            {
+              "name": "PrivateChannelSortStore",
+              "reason": "Something meaningful.."
+            },
+            {
+              "name": "PrivateChannelActions",
+              "reason": "Something meaningful.."
+            },
+            {
+              "name": "ChannelStore",
+              "reason": "Something meaningful.."
+            }
+          ]
+        }
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "ErdemGKSL",
       "id": "platform-indicators",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/platform-indicators/dist"
     },
@@ -791,7 +849,7 @@
             "id": "707309693449535599"
           }
         ],
-        "version": "0.0.7",
+        "version": "0.0.8",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": [
