@@ -1,5 +1,5 @@
 {
-  "hash": "e7aeba62248f48565d688e2e194c95979a0090f28604881ad5f141b2d016e061",
+  "hash": "b0fd1e7654c928bd8c8146df06e49f2a4f62bf6b13f0f27fb106ac145efe021f",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.8",
+    "version": "0.0.9",
     "license": "MIT",
     "previews": [
       {
@@ -39,6 +39,10 @@
         },
         {
           "name": "GuildStore",
+          "reason": "..."
+        },
+        {
+          "name": "UserStore",
           "reason": "..."
         },
         {
