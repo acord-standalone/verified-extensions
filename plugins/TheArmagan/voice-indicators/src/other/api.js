@@ -17,26 +17,28 @@ export async function fetchUserVoiceStates(userId) {
     guildIcon: i[5],
     guildVanity: i[6],
     state: i[7],
+    channelAt: i[8],
+    joinedAt: i[9],
   }));
   localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 1000 });
   return states;
 }
 
 export async function fetchVoiceMembers(id) {
-  let members = getVoiceChannelMembers(id, false);
-  if (!members.length) {
-    let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
-    if (cached) return cached.members;
+  let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
+  if (cached) return cached.members;
 
-    members = ((await awaitResponse("members", { id }))?.data || []);
-    members = members.map(i => ({
-      userId: i[0],
-      userTag: i[1],
-      userAvatar: i[2],
-      state: i[3]
-    }));
-    localCache.responseCache.set(`VoiceMembers:${id}`, { at: Date.now(), members, ttl: 1000 });
-  }
+  let members = ((await awaitResponse("members", { id }))?.data || []);
+  members = members.map(i => ({
+    userId: i[0],
+    userTag: i[1],
+    userAvatar: i[2],
+    state: i[3],
+    joinedAt: i[4]
+  }));
+
+  localCache.responseCache.set(`VoiceMembers:${id}`, { at: Date.now(), members, ttl: 1000 });
+
   return members;
 }
 

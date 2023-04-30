@@ -3643,7 +3643,8 @@
       },
       constants: {
         Permissions
-      }
+      },
+      moment
     } = common__default["default"];
 
     function getVoiceChannelMembers(channelId, raw = false) {
@@ -3686,7 +3687,9 @@
         guildId: raw[8],
         guildName: raw[9],
         guildVanity: raw[10],
-        guildIcon: raw[11]
+        guildIcon: raw[11],
+        createdAt: raw[12],
+        joinedAt: raw[13]
       };
     }
 
@@ -3785,26 +3788,26 @@
         guildName: i[4],
         guildIcon: i[5],
         guildVanity: i[6],
-        state: i[7]
+        state: i[7],
+        channelAt: i[8],
+        joinedAt: i[9]
       }));
       localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 1e3 });
       return states;
     }
     async function fetchVoiceMembers(id) {
-      let members = getVoiceChannelMembers(id, false);
-      if (!members.length) {
-        let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
-        if (cached)
-          return cached.members;
-        members = (await awaitResponse("members", { id }))?.data || [];
-        members = members.map((i) => ({
-          userId: i[0],
-          userTag: i[1],
-          userAvatar: i[2],
-          state: i[3]
-        }));
-        localCache.responseCache.set(`VoiceMembers:${id}`, { at: Date.now(), members, ttl: 1e3 });
-      }
+      let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
+      if (cached)
+        return cached.members;
+      let members = (await awaitResponse("members", { id }))?.data || [];
+      members = members.map((i) => ({
+        userId: i[0],
+        userTag: i[1],
+        userAvatar: i[2],
+        state: i[3],
+        joinedAt: i[4]
+      }));
+      localCache.responseCache.set(`VoiceMembers:${id}`, { at: Date.now(), members, ttl: 1e3 });
       return members;
     }
 
@@ -4009,6 +4012,14 @@
       }));
     }
 
+    function formatSeconds(s) {
+      if (isNaN(parseInt(s)))
+        s = 0;
+      s = Math.floor(s);
+      let hours = Math.floor(s / 60 / 60);
+      return `${hours > 0 ? `${hours.toString().padStart(2, "0")}:` : ""}${Math.floor(s / 60 % 60).toString().padStart(2, "0")}:${(s % 60).toString().padStart(2, "0")}`;
+    }
+
     const indicatorMap = {
       guildDeaf: DeafIcon({ color: COLORS.DANGER }),
       deaf: DeafIcon({ color: COLORS.SECONDARY }),
@@ -4023,6 +4034,7 @@
     function Modal({ e, states }) {
       const [currentData, setCurrentData] = React.useState({ inMyChannels: false, isJoinable: false, state: states[0] });
       const [members, setMembers] = React.useState([]);
+      const [rnd, setRnd] = React.useState("");
       async function onChange(state) {
         let channel = ChannelStore.getChannel(state.channelId);
         let inMyChannels = !!channel;
@@ -4031,7 +4043,11 @@
         setMembers(state.channelRedacted ? [] : await fetchVoiceMembers(state.channelId));
       }
       React.useEffect(() => {
-        onChange(states[0]);
+        let state = states[0];
+        onChange(state);
+        return utils__default["default"].interval(async () => {
+          setRnd(Math.random());
+        }, 1e3);
       }, []);
       return /* @__PURE__ */ React.createElement(ModalRoot, {
         transitionState: e.transitionState,
@@ -4132,6 +4148,9 @@
           }
         }
       }, /* @__PURE__ */ React.createElement("div", {
+        className: "time-elapsed",
+        "acord--tooltip-content": moment(member.joinedAt).format("MMM DD, YYYY HH:mm")
+      }, member.joinedAt === -1 ? "" : formatSeconds((Date.now() - member.joinedAt) / 1e3)), /* @__PURE__ */ React.createElement("div", {
         className: "avatar",
         style: { backgroundImage: `url("${member.userAvatar ? `https://cdn.discordapp.com/avatars/${member.userId}/${member.userAvatar}.png?size=128` : `https://cdn.discordapp.com/embed/avatars/${Number(member.userTag.split("#")[1]) % 5}.png`}")` }
       }), /* @__PURE__ */ React.createElement("div", {
@@ -4174,6 +4193,7 @@
               return;
             let indicatorContainer = dom__default["default"].parse(`<span class="vi--icon-container vi--hidden"></span>`);
             let rendering = false;
+            let elapsedInterval = null;
             indicatorContainer.render = async () => {
               if (rendering)
                 return;
@@ -4194,17 +4214,25 @@
               let channel = ChannelStore.getChannel(state.channelId);
               indicatorContainer.classList.remove("vi--hidden");
               indicatorContainer.classList[!channel ? "add" : "remove"]("vi--cant-join");
-              const tooltipHTML = `
+              if (elapsedInterval)
+                elapsedInterval();
+              let tooltipElm = dom__default["default"].parse(`
             <div class="vi--tooltip">
               <div class="can-connect">${extension.i18n.format(channel ? "CAN_CONNECT" : "CANT_CONNECT")}</div>
               <div class="guild-name">${state.guildId ? state.guildName || "Unknown Guild" : extension.i18n.format("PRIVATE_CALL")}</div>
               <div class="channel-name">${state.channelName || "Plugin Deprecated"}</div>
+              <div class="time-elapsed">${extension.i18n.format("IN_VOICE_FOR", formatSeconds((Date.now() - state.joinedAt) / 1e3))}</div>
               ${states.length > 1 ? `<div class="total-states">${extension.i18n.format("IN_TOTAL_CHANNELS", states.length)}</div>` : ""}
             </div>
-          `;
-              indicatorContainer.setAttribute("acord--tooltip-content", tooltipHTML);
+          `);
+              let timeElapsed = tooltipElm.querySelector(".time-elapsed");
+              elapsedInterval = utils__default["default"].interval(() => {
+                timeElapsed.innerHTML = extension.i18n.format("IN_VOICE_FOR", formatSeconds((Date.now() - state.joinedAt) / 1e3));
+              }, 1e3);
+              let tooltip = ui__default["default"].tooltips.create(indicatorContainer, tooltipElm);
+              if (tooltip?.onDestroy)
+                tooltip.onDestroy(elapsedInterval);
               indicatorContainer.replaceChildren(dom__default["default"].parse(renderIcon(state)));
-              ui__default["default"].tooltips.create(indicatorContainer, tooltipHTML);
               rendering = false;
             };
             indicatorContainer.render();
@@ -4214,12 +4242,16 @@
               showModal(indicatorContainer.states);
             });
             elm.appendChild(indicatorContainer);
+            return () => {
+              if (elapsedInterval)
+                elapsedInterval();
+            };
           }
         )
       );
     }
 
-    var styles = () => patcher.injectCSS(".vi--icon-container{display:inline-flex;align-items:center;justify-content:center;background-color:#00000080;border-radius:50%;width:18px;height:18px;min-width:18px;min-height:18px;margin-left:4px;z-index:99}.vi--icon{display:flex;transition:filter .1s ease-in-out;color:#fff;width:14px;height:14px}.vi--icon:hover{filter:brightness(1.2)}.vi--red-dot{width:10px;height:10px;border-radius:50%;background-color:#ed4245;box-shadow:0 0 4px #ed4245}.vi--hidden{display:none!important}.vi--modal-root{display:flex;flex-direction:column}.vi--modal-root .vi--modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px}.vi--modal-root .vi--modal-header .title{font-size:28px;font-weight:600;color:#efefef}.vi--modal-root .vi--modal-header .vi--modal-close{width:24px;height:24px}.vi--modal-root .vi--modal-header .vi--modal-close svg{width:24px;height:24px}.vi--modal-root .vi--modal-content{padding:0 16px 16px;display:flex;flex-direction:column}.vi--modal-root .vi--modal-content .tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px}.vi--modal-root .vi--modal-content .tabs .item{width:fit-content;display:flex;align-items:center;justify-content:center;padding:8px;opacity:.75;background-color:#00000040;border-top-left-radius:8px;border-top-right-radius:8px;cursor:pointer;border-bottom:2px solid transparent}.vi--modal-root .vi--modal-content .tabs .item>.content{display:flex;align-items:center;gap:4px}.vi--modal-root .vi--modal-content .tabs .item>.content .icon{width:32px;height:32px;min-width:32px;min-height:32px;background-position:center;background-size:contain;border-radius:50%;background-color:#5865f2}.vi--modal-root .vi--modal-content .tabs .item>.content .name{font-size:16px;color:#efefef;max-width:128px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.vi--modal-root .vi--modal-content .tabs .item>.content .vanity svg{width:14px;height:14px}.vi--modal-root .vi--modal-content .tabs .item:hover{opacity:.85;border-bottom:2px solid rgba(255,255,255,.75)}.vi--modal-root .vi--modal-content .tabs .item.active{opacity:1;border-bottom:2px solid white}.vi--modal-root .vi--modal-content>.content{margin-top:8px}.vi--modal-root .vi--modal-content>.content>.channel>.name-container{display:flex;align-items:center;justify-content:space-between;background-color:#00000040;padding:8px;border-radius:8px}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.name{display:flex;font-size:20px;font-weight:400;color:#efefef;align-items:center}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.name svg{margin-right:8px;width:24px;height:24px;pointer-events:none}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls{display:flex}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls>.control{padding:4px;cursor:pointer}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls>.control svg{width:24px;height:24px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container{padding:8px 8px 8px 40px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members{display:flex;flex-direction:column;overflow:auto;max-height:500px;height:100%}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member{display:flex;margin-bottom:4px;cursor:pointer;width:min-content;align-items:center}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.avatar{width:32px;height:32px;border-radius:50%;background-position:center;background-size:contain;margin-right:8px;background-color:#5865f2}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about{border-radius:9999px;background-color:#0003;display:flex;align-items:center;padding:8px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container{display:flex;align-items:center;width:max-content;font-size:16px;color:#dfdfdf}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container .name{width:100%}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container .discriminator{opacity:.5}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.state{background-color:transparent;margin-left:8px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.state svg{width:16px;height:16px}[class*=userText-] [class*=nameTag-],[class*=topSection-] [class*=nameTag-]{display:flex;align-items:center}[class*=userText-] [class*=nameTag-] *,[class*=topSection-] [class*=nameTag-] *{overflow:hidden}[class*=vi--],[class*=vi--] *{box-sizing:border-box}.vi--cant-join{opacity:.75}.vi--cant-click{cursor:default!important}.vi--tooltip{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}.vi--tooltip .can-connect,.vi--tooltip .total-states{font-size:12px;opacity:.75}.vi--tooltip .guild-name{font-size:16px;font-weight:600;padding-left:4px;border-left:4px solid #5865f2}.vi--tooltip .channel-name{font-size:14px;font-weight:400;padding-left:6px;border-left:2px solid #5865f2}.vi--tooltip .total-states{margin-bottom:0}");
+    var styles = () => patcher.injectCSS(".vi--icon-container{display:inline-flex;align-items:center;justify-content:center;background-color:#00000080;border-radius:50%;width:18px;height:18px;min-width:18px;min-height:18px;margin-left:4px;z-index:99}.vi--icon{display:flex;transition:filter .1s ease-in-out;color:#fff;width:14px;height:14px}.vi--icon:hover{filter:brightness(1.2)}.vi--red-dot{width:10px;height:10px;border-radius:50%;background-color:#ed4245;box-shadow:0 0 4px #ed4245}.vi--hidden{display:none!important}.vi--modal-root{display:flex;flex-direction:column}.vi--modal-root .vi--modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px}.vi--modal-root .vi--modal-header .title{font-size:28px;font-weight:600;color:#efefef}.vi--modal-root .vi--modal-header .vi--modal-close{width:24px;height:24px}.vi--modal-root .vi--modal-header .vi--modal-close svg{width:24px;height:24px}.vi--modal-root .vi--modal-content{padding:0 16px 16px;display:flex;flex-direction:column}.vi--modal-root .vi--modal-content .tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px}.vi--modal-root .vi--modal-content .tabs .item{width:fit-content;display:flex;align-items:center;justify-content:center;padding:8px;opacity:.75;background-color:#00000040;border-top-left-radius:8px;border-top-right-radius:8px;cursor:pointer;border-bottom:2px solid transparent}.vi--modal-root .vi--modal-content .tabs .item>.content{display:flex;align-items:center;gap:4px}.vi--modal-root .vi--modal-content .tabs .item>.content .icon{width:32px;height:32px;min-width:32px;min-height:32px;background-position:center;background-size:contain;border-radius:50%;background-color:#5865f2}.vi--modal-root .vi--modal-content .tabs .item>.content .name{font-size:16px;color:#efefef;max-width:128px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.vi--modal-root .vi--modal-content .tabs .item>.content .vanity svg{width:14px;height:14px}.vi--modal-root .vi--modal-content .tabs .item:hover{opacity:.85;border-bottom:2px solid rgba(255,255,255,.75)}.vi--modal-root .vi--modal-content .tabs .item.active{opacity:1;border-bottom:2px solid white}.vi--modal-root .vi--modal-content>.content{margin-top:8px}.vi--modal-root .vi--modal-content>.content>.channel>.name-container{display:flex;align-items:center;justify-content:space-between;background-color:#00000040;padding:8px;border-radius:8px}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.name{display:flex;font-size:20px;font-weight:400;color:#efefef;align-items:center}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.name svg{margin-right:8px;width:24px;height:24px;pointer-events:none}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls{display:flex}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls>.control{padding:4px;cursor:pointer}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls>.control svg{width:24px;height:24px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container{padding:8px 8px 8px 40px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members{display:flex;flex-direction:column;overflow:auto;max-height:500px;height:100%;position:relative}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member{display:flex;margin-bottom:4px;cursor:pointer;width:min-content;align-items:center}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.time-elapsed{width:36px;margin-right:8px;font-size:12px;color:#dfdfdf;opacity:.5}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.avatar{width:32px;height:32px;border-radius:50%;background-position:center;background-size:contain;margin-right:8px;background-color:#5865f2}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about{border-radius:9999px;background-color:#0003;display:flex;align-items:center;padding:8px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container{display:flex;align-items:center;width:max-content;font-size:16px;color:#dfdfdf}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container .name{width:100%}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container .discriminator{opacity:.5}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.state{background-color:transparent;margin-left:8px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.state svg{width:16px;height:16px}[class*=userText-] [class*=nameTag-],[class*=topSection-] [class*=nameTag-]{display:flex;align-items:center}[class*=userText-] [class*=nameTag-] *,[class*=topSection-] [class*=nameTag-] *{overflow:hidden}[class*=vi--],[class*=vi--] *{box-sizing:border-box}.vi--cant-join{opacity:.75}.vi--cant-click{cursor:default!important}.vi--tooltip{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}.vi--tooltip .can-connect,.vi--tooltip .total-states,.vi--tooltip .time-elapsed{font-size:12px;opacity:.75}.vi--tooltip .guild-name{font-size:16px;font-weight:600;padding-left:4px;border-left:4px solid #5865f2}.vi--tooltip .channel-name{font-size:14px;font-weight:400;padding-left:6px;border-left:2px solid #5865f2}.vi--tooltip .total-states{margin-bottom:0}");
 
     function patchStyles() {
       patchContainer.add(styles());

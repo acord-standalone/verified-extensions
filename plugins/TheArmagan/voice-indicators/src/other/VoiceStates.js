@@ -89,5 +89,7 @@ export function rawToParsed(raw) {
     guildName: raw[9],
     guildVanity: raw[10],
     guildIcon: raw[11],
+    createdAt: raw[12],
+    joinedAt: raw[13]
   }
 }

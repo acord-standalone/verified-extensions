@@ -2,7 +2,7 @@ import { scrollerClasses } from "@acord/modules/custom";
 import utils from "@acord/utils";
 import toasts from "@acord/ui/toasts";
 import { fetchVoiceMembers } from "../../other/api";
-import { InviteActions, ModalRoot, selectVoiceChannel, React, transitionTo, PermissionStore, Permissions, ChannelStore } from "../../other/apis";
+import { InviteActions, ModalRoot, selectVoiceChannel, React, transitionTo, PermissionStore, Permissions, ChannelStore, moment } from "../../other/apis";
 import { COLORS } from "../../other/constants";
 import { ArrowIcon } from "./ArrowIcon";
 import { CloseIcon } from "./CloseIcon";
@@ -13,6 +13,7 @@ import { VideoIcon } from "./VideoIcon";
 import { VoiceIcon } from "./VoiceIcon";
 import { i18n } from "@acord/extension";
 import modals from "@acord/ui/modals";
+import { formatSeconds } from "../../other/utils.js";
 
 
 const indicatorMap = {
@@ -28,6 +29,7 @@ const indicatorMap = {
 export function Modal({ e, states }) {
   const [currentData, setCurrentData] = React.useState({ inMyChannels: false, isJoinable: false, state: states[0] });
   const [members, setMembers] = React.useState([]);
+  const [rnd, setRnd] = React.useState("");
 
   async function onChange(state) {
     let channel = ChannelStore.getChannel(state.channelId);
@@ -38,7 +40,12 @@ export function Modal({ e, states }) {
   }
 
   React.useEffect(() => {
-    onChange(states[0]);
+    let state = states[0];
+    onChange(state);
+
+    return utils.interval(async () => {
+      setRnd(Math.random());
+    }, 1000);
   }, []);
 
   return (
@@ -139,6 +146,9 @@ export function Modal({ e, states }) {
                       }
                     }}
                   >
+                    <div className="time-elapsed" acord--tooltip-content={moment(member.joinedAt).format("MMM DD, YYYY HH:mm")}>
+                      {member.joinedAt === -1 ? "" : formatSeconds((Date.now() - member.joinedAt) / 1000)}
+                    </div>
                     <div className="avatar" style={{ backgroundImage: `url("${member.userAvatar ? `https://cdn.discordapp.com/avatars/${member.userId}/${member.userAvatar}.png?size=128` : `https://cdn.discordapp.com/embed/avatars/${Number(member.userTag.split("#")[1]) % 5}.png`}")` }}></div>
                     <div className="about">
                       <div className="name-container">

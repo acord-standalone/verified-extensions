@@ -25,5 +25,6 @@ export const {
   },
   constants: {
     Permissions
-  }
+  },
+  moment
 } = common;
