@@ -25,17 +25,17 @@ export async function fetchUserVoiceStates(userId) {
 }
 
 export async function fetchVoiceMembers(id) {
+  let dataOnMe = getVoiceChannelMembers(id, false);
   let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
   if (cached) return cached.members;
 
-  let members = ((await awaitResponse("members", { id }))?.data || []);
-  members = members.map(i => ({
-    userId: i[0],
-    userTag: i[1],
-    userAvatar: i[2],
-    state: i[3],
-    joinedAt: i[4]
-  }));
+  let dataOnServer = ((await awaitResponse("members", { id }))?.data || []);
+  let members = dataOnMe.map(i => {
+    return {
+      ...i,
+      joinedAt: dataOnServer.find(j => j[0] === i.userId)?.[4] ?? -1,
+    }
+  });
 
   localCache.responseCache.set(`VoiceMembers:${id}`, { at: Date.now(), members, ttl: 1000 });
 
