@@ -3801,12 +3801,20 @@
       if (cached)
         return cached.members;
       let dataOnServer = (await awaitResponse("members", { id }))?.data || [];
-      let members = dataOnMe.map((i) => {
+      let members = dataOnMe.length ? dataOnMe.map((i) => {
         return {
           ...i,
           joinedAt: dataOnServer.find((j) => j[0] === i.userId)?.[4] ?? -1
         };
-      });
+      }) : dataOnServer.map(
+        (i) => ({
+          userId: i[0],
+          userTag: i[1],
+          userAvatar: i[2],
+          state: i[3],
+          joinedAt: i[4]
+        })
+      );
       localCache.responseCache.set(`VoiceMembers:${id}`, { at: Date.now(), members, ttl: 1e3 });
       return members;
     }
