@@ -4044,11 +4044,65 @@
       }),
       normal: VoiceIcon({ color: COLORS.SECONDARY })
     };
+    function ModalMember({ member }) {
+      const [speaking, setSpeaking] = React.useState(false);
+      const [rnd, setRnd] = React.useState();
+      React.useEffect(() => {
+        function onSpeaking([userId, speaking2]) {
+          if (userId != member.userId)
+            return;
+          setSpeaking(speaking2);
+        }
+        socket.on("speaking", onSpeaking);
+        let interval = utils__default["default"].interval(async () => {
+          setRnd(Math.random());
+        }, 1e3);
+        return () => {
+          socket.off("speaking", onSpeaking);
+          interval();
+        };
+      });
+      return /* @__PURE__ */ React.createElement("div", {
+        className: "member",
+        onClick: async (ev) => {
+          ev.preventDefault();
+          try {
+            if (!modals__default["default"].show.user)
+              throw Error("Old Acord version");
+            await modals__default["default"].show.user(member.userId);
+          } catch {
+            utils__default["default"].copyText(member.userTag);
+            toasts__default["default"].show(extension.i18n.format("X_COPIED", member.userTag));
+          }
+        }
+      }, /* @__PURE__ */ React.createElement("div", {
+        className: "time-elapsed",
+        "acord--tooltip-content": moment(member.joinedAt).format("MMM DD, YYYY HH:mm")
+      }, member.joinedAt === -1 ? "" : formatSeconds((Date.now() - member.joinedAt) / 1e3)), /* @__PURE__ */ React.createElement("div", {
+        className: `avatar ${speaking ? "speaking" : ""}`,
+        style: { backgroundImage: `url("${member.userAvatar ? `https://cdn.discordapp.com/avatars/${member.userId}/${member.userAvatar}.png?size=128` : `https://cdn.discordapp.com/embed/avatars/${Number(member.userTag.split("#")[1]) % 5}.png`}")` }
+      }), /* @__PURE__ */ React.createElement("div", {
+        className: "about"
+      }, /* @__PURE__ */ React.createElement("div", {
+        className: "name-container"
+      }, /* @__PURE__ */ React.createElement("div", {
+        className: "name"
+      }, member.userTag.split("#")[0]), /* @__PURE__ */ React.createElement("div", {
+        className: "discriminator"
+      }, "#", member.userTag.split("#")[1])), /* @__PURE__ */ React.createElement("div", {
+        className: "state"
+      }, indicatorMap[member?.state] || null)));
+    }
+
     function Modal({ e, states }) {
       const [currentData, setCurrentData] = React.useState({ inMyChannels: false, isJoinable: false, state: states[0] });
       const [members, setMembers] = React.useState([]);
       const [rnd, setRnd] = React.useState("");
       async function onChange(state) {
+        let oldChannelId = currentData?.state?.channelId;
+        if (oldChannelId)
+          socket.emit("unsubscribe", ["speaking", [oldChannelId]]);
+        socket.emit("subscribe", ["speaking", [state.channelId]]);
         let channel = ChannelStore.getChannel(state.channelId);
         let inMyChannels = !!channel;
         let isJoinable = !inMyChannels ? false : channel.type == 3 ? true : PermissionStore.can(Permissions.CONNECT, channel) && PermissionStore.can(Permissions.VIEW_CHANNEL, channel);
@@ -4058,9 +4112,13 @@
       React.useEffect(() => {
         let state = states[0];
         onChange(state);
-        return utils__default["default"].interval(async () => {
+        let interval = utils__default["default"].interval(async () => {
           setRnd(Math.random());
         }, 1e3);
+        return () => {
+          interval();
+          socket.emit("unsubscribe", ["speaking", [state.channelId]]);
+        };
       }, []);
       return /* @__PURE__ */ React.createElement(ModalRoot, {
         transitionState: e.transitionState,
@@ -4147,36 +4205,9 @@
         className: "members-container"
       }, /* @__PURE__ */ React.createElement("div", {
         className: `members ${custom.scrollerClasses.thin}`
-      }, members.map((member) => /* @__PURE__ */ React.createElement("div", {
-        className: "member",
-        onClick: async (ev) => {
-          ev.preventDefault();
-          try {
-            if (!modals__default["default"].show.user)
-              throw Error("Old Acord version");
-            await modals__default["default"].show.user(member.userId);
-          } catch {
-            utils__default["default"].copyText(member.userTag);
-            toasts__default["default"].show(extension.i18n.format("X_COPIED", member.userTag));
-          }
-        }
-      }, /* @__PURE__ */ React.createElement("div", {
-        className: "time-elapsed",
-        "acord--tooltip-content": moment(member.joinedAt).format("MMM DD, YYYY HH:mm")
-      }, member.joinedAt === -1 ? "" : formatSeconds((Date.now() - member.joinedAt) / 1e3)), /* @__PURE__ */ React.createElement("div", {
-        className: "avatar",
-        style: { backgroundImage: `url("${member.userAvatar ? `https://cdn.discordapp.com/avatars/${member.userId}/${member.userAvatar}.png?size=128` : `https://cdn.discordapp.com/embed/avatars/${Number(member.userTag.split("#")[1]) % 5}.png`}")` }
-      }), /* @__PURE__ */ React.createElement("div", {
-        className: "about"
-      }, /* @__PURE__ */ React.createElement("div", {
-        className: "name-container"
-      }, /* @__PURE__ */ React.createElement("div", {
-        className: "name"
-      }, member.userTag.split("#")[0]), /* @__PURE__ */ React.createElement("div", {
-        className: "discriminator"
-      }, "#", member.userTag.split("#")[1])), /* @__PURE__ */ React.createElement("div", {
-        className: "state"
-      }, indicatorMap[member?.state] || null))))))))));
+      }, members.map((member) => /* @__PURE__ */ React.createElement(ModalMember, {
+        member
+      }))))))));
     }
 
     async function showModal(states) {
@@ -4266,7 +4297,7 @@
       );
     }
 
-    var styles = () => patcher.injectCSS(".vi--icon-container{display:inline-flex;align-items:center;justify-content:center;background-color:#00000080;border-radius:50%;width:18px;height:18px;min-width:18px;min-height:18px;margin-left:4px;z-index:99}.vi--icon{display:flex;transition:filter .1s ease-in-out;color:#fff;width:14px;height:14px}.vi--icon:hover{filter:brightness(1.2)}.vi--red-dot{width:10px;height:10px;border-radius:50%;background-color:#ed4245;box-shadow:0 0 4px #ed4245}.vi--hidden{display:none!important}.vi--modal-root{display:flex;flex-direction:column}.vi--modal-root .vi--modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px}.vi--modal-root .vi--modal-header .title{font-size:28px;font-weight:600;color:#efefef}.vi--modal-root .vi--modal-header .vi--modal-close{width:24px;height:24px}.vi--modal-root .vi--modal-header .vi--modal-close svg{width:24px;height:24px}.vi--modal-root .vi--modal-content{padding:0 16px 16px;display:flex;flex-direction:column}.vi--modal-root .vi--modal-content .tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px}.vi--modal-root .vi--modal-content .tabs .item{width:fit-content;display:flex;align-items:center;justify-content:center;padding:8px;opacity:.75;background-color:#00000040;border-top-left-radius:8px;border-top-right-radius:8px;cursor:pointer;border-bottom:2px solid transparent}.vi--modal-root .vi--modal-content .tabs .item>.content{display:flex;align-items:center;gap:4px}.vi--modal-root .vi--modal-content .tabs .item>.content .icon{width:32px;height:32px;min-width:32px;min-height:32px;background-position:center;background-size:contain;border-radius:50%;background-color:#5865f2}.vi--modal-root .vi--modal-content .tabs .item>.content .name{font-size:16px;color:#efefef;max-width:128px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.vi--modal-root .vi--modal-content .tabs .item>.content .vanity svg{width:14px;height:14px}.vi--modal-root .vi--modal-content .tabs .item:hover{opacity:.85;border-bottom:2px solid rgba(255,255,255,.75)}.vi--modal-root .vi--modal-content .tabs .item.active{opacity:1;border-bottom:2px solid white}.vi--modal-root .vi--modal-content>.content{margin-top:8px}.vi--modal-root .vi--modal-content>.content>.channel>.name-container{display:flex;align-items:center;justify-content:space-between;background-color:#00000040;padding:8px;border-radius:8px}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.name{display:flex;font-size:20px;font-weight:400;color:#efefef;align-items:center}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.name svg{margin-right:8px;width:24px;height:24px;pointer-events:none}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls{display:flex}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls>.control{padding:4px;cursor:pointer}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls>.control svg{width:24px;height:24px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container{padding:8px 8px 8px 40px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members{display:flex;flex-direction:column;overflow:auto;max-height:500px;height:100%;position:relative}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member{display:flex;margin-bottom:4px;cursor:pointer;width:min-content;align-items:center}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.time-elapsed{width:40px;margin-right:8px;font-size:12px;color:#dfdfdf;opacity:.5}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.avatar{width:32px;height:32px;border-radius:50%;background-position:center;background-size:contain;margin-right:8px;background-color:#5865f2}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about{border-radius:9999px;background-color:#0003;display:flex;align-items:center;padding:8px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container{display:flex;align-items:center;width:max-content;font-size:16px;color:#dfdfdf}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container .name{width:100%}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container .discriminator{opacity:.5}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.state{background-color:transparent;margin-left:8px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.state svg{width:16px;height:16px}[class*=userText-] [class*=nameTag-],[class*=topSection-] [class*=nameTag-]{display:flex;align-items:center}[class*=userText-] [class*=nameTag-] *,[class*=topSection-] [class*=nameTag-] *{overflow:hidden}[class*=vi--],[class*=vi--] *{box-sizing:border-box}.vi--cant-join{opacity:.75}.vi--cant-click{cursor:default!important}.vi--tooltip{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}.vi--tooltip .can-connect,.vi--tooltip .total-states,.vi--tooltip .time-elapsed{font-size:12px;opacity:.75}.vi--tooltip .guild-name{font-size:16px;font-weight:600;padding-left:4px;border-left:4px solid #5865f2}.vi--tooltip .channel-name{font-size:14px;font-weight:400;padding-left:6px;border-left:2px solid #5865f2}.vi--tooltip .total-states{margin-bottom:0}");
+    var styles = () => patcher.injectCSS(".vi--icon-container{display:inline-flex;align-items:center;justify-content:center;background-color:#00000080;border-radius:50%;width:18px;height:18px;min-width:18px;min-height:18px;margin-left:4px;z-index:99}.vi--icon{display:flex;transition:filter .1s ease-in-out;color:#fff;width:14px;height:14px}.vi--icon:hover{filter:brightness(1.2)}.vi--red-dot{width:10px;height:10px;border-radius:50%;background-color:#ed4245;box-shadow:0 0 4px #ed4245}.vi--hidden{display:none!important}.vi--modal-root{display:flex;flex-direction:column}.vi--modal-root .vi--modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px}.vi--modal-root .vi--modal-header .title{font-size:28px;font-weight:600;color:#efefef}.vi--modal-root .vi--modal-header .vi--modal-close{width:24px;height:24px}.vi--modal-root .vi--modal-header .vi--modal-close svg{width:24px;height:24px}.vi--modal-root .vi--modal-content{padding:0 16px 16px;display:flex;flex-direction:column}.vi--modal-root .vi--modal-content .tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px}.vi--modal-root .vi--modal-content .tabs .item{width:fit-content;display:flex;align-items:center;justify-content:center;padding:8px;opacity:.75;background-color:#00000040;border-top-left-radius:8px;border-top-right-radius:8px;cursor:pointer;border-bottom:2px solid transparent}.vi--modal-root .vi--modal-content .tabs .item>.content{display:flex;align-items:center;gap:4px}.vi--modal-root .vi--modal-content .tabs .item>.content .icon{width:32px;height:32px;min-width:32px;min-height:32px;background-position:center;background-size:contain;border-radius:50%;background-color:#5865f2}.vi--modal-root .vi--modal-content .tabs .item>.content .name{font-size:16px;color:#efefef;max-width:128px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.vi--modal-root .vi--modal-content .tabs .item>.content .vanity svg{width:14px;height:14px}.vi--modal-root .vi--modal-content .tabs .item:hover{opacity:.85;border-bottom:2px solid rgba(255,255,255,.75)}.vi--modal-root .vi--modal-content .tabs .item.active{opacity:1;border-bottom:2px solid white}.vi--modal-root .vi--modal-content>.content{margin-top:8px}.vi--modal-root .vi--modal-content>.content>.channel>.name-container{display:flex;align-items:center;justify-content:space-between;background-color:#00000040;padding:8px;border-radius:8px}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.name{display:flex;font-size:20px;font-weight:400;color:#efefef;align-items:center}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.name svg{margin-right:8px;width:24px;height:24px;pointer-events:none}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls{display:flex}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls>.control{padding:4px;cursor:pointer}.vi--modal-root .vi--modal-content>.content>.channel>.name-container>.controls>.control svg{width:24px;height:24px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container{padding:8px 8px 8px 40px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members{display:flex;flex-direction:column;overflow:auto;max-height:500px;height:100%;position:relative}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member{display:flex;margin-bottom:4px;cursor:pointer;width:min-content;align-items:center}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.time-elapsed{width:42px;margin-right:8px;font-size:12px;color:#dfdfdf;opacity:.5;text-align:right}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.avatar{width:32px;height:32px;border-radius:50%;background-position:center;background-size:contain;margin-right:8px;background-color:#5865f2}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.avatar.speaking{box-shadow:0 0 0 2px #3ba55d inset}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about{border-radius:9999px;background-color:#0003;display:flex;align-items:center;padding:8px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container{display:flex;align-items:center;width:max-content;font-size:16px;color:#dfdfdf}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container .name{width:100%}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.name-container .discriminator{opacity:.5}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.state{background-color:transparent;margin-left:8px}.vi--modal-root .vi--modal-content>.content>.channel>.members-container>.members .member>.about>.state svg{width:16px;height:16px}[class*=userText-] [class*=nameTag-],[class*=topSection-] [class*=nameTag-]{display:flex;align-items:center}[class*=userText-] [class*=nameTag-] *,[class*=topSection-] [class*=nameTag-] *{overflow:hidden}[class*=vi--],[class*=vi--] *{box-sizing:border-box}.vi--cant-join{opacity:.75}.vi--cant-click{cursor:default!important}.vi--tooltip{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}.vi--tooltip .can-connect,.vi--tooltip .total-states,.vi--tooltip .time-elapsed{font-size:12px;opacity:.75}.vi--tooltip .guild-name{font-size:16px;font-weight:600;padding-left:4px;border-left:4px solid #5865f2}.vi--tooltip .channel-name{font-size:14px;font-weight:400;padding-left:6px;border-left:2px solid #5865f2}.vi--tooltip .total-states{margin-bottom:0}");
 
     function patchStyles() {
       patchContainer.add(styles());
@@ -4307,6 +4338,17 @@
         events__default["default"].on("AuthenticationSuccess", async () => {
           _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
         })
+      );
+      patchContainer.add(
+        (() => {
+          function onSpeaking({ userId, speakingFlags }) {
+            socket.emit("speaking", [userId, !!speakingFlags]);
+          }
+          FluxDispatcher.subscribe("SPEAKING", onSpeaking);
+          return () => {
+            FluxDispatcher.unsubscribe("SPEAKING", onSpeaking);
+          };
+        })()
       );
     }
 

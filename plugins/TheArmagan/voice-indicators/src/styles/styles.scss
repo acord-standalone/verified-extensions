@@ -192,11 +192,12 @@
               align-items: center;
 
               & > .time-elapsed {
-                width: 40px;
+                width: 42px;
                 margin-right: 8px;
                 font-size: 12px;
                 color: rgb(223, 223, 223);
                 opacity: 0.5;
+                text-align: right;
               }
 
               & > .avatar {
@@ -207,6 +208,10 @@
                 background-size: contain;
                 margin-right: 8px;
                 background-color: #5865f2;
+
+                &.speaking {
+                  box-shadow: 0px 0px 0px 2px #3ba55d inset;
+                }
               }
 
               & > .about {

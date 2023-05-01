@@ -46,4 +46,17 @@ export function patchBulkUpdater() {
             _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
         })
     );
+
+    patchContainer.add(
+        (() => {
+            function onSpeaking({ userId, speakingFlags }) {
+                socket.emit("speaking", [userId, !!speakingFlags])
+            }
+
+            FluxDispatcher.subscribe("SPEAKING", onSpeaking);
+            return () => {
+                FluxDispatcher.unsubscribe("SPEAKING", onSpeaking);
+            }
+        })()
+    );
 }

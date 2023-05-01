@@ -12,19 +12,8 @@ import { MuteIcon } from "./MuteIcon";
 import { VideoIcon } from "./VideoIcon";
 import { VoiceIcon } from "./VoiceIcon";
 import { i18n } from "@acord/extension";
-import modals from "@acord/ui/modals";
-import { formatSeconds } from "../../other/utils.js";
-
-
-const indicatorMap = {
-  guildDeaf: DeafIcon({ color: COLORS.DANGER }),
-  deaf: DeafIcon({ color: COLORS.SECONDARY }),
-  guildMute: MuteIcon({ color: COLORS.DANGER }),
-  mute: MuteIcon({ color: COLORS.SECONDARY }),
-  video: VideoIcon({ color: COLORS.SECONDARY }),
-  stream: <div class="v--icon vi--red-dot" ></div>,
-  normal: VoiceIcon({ color: COLORS.SECONDARY })
-}
+import { socket } from "../../connection/socket.js";
+import { ModalMember } from "./ModalMember.jsx";
 
 export function Modal({ e, states }) {
   const [currentData, setCurrentData] = React.useState({ inMyChannels: false, isJoinable: false, state: states[0] });
@@ -32,6 +21,9 @@ export function Modal({ e, states }) {
   const [rnd, setRnd] = React.useState("");
 
   async function onChange(state) {
+    let oldChannelId = currentData?.state?.channelId;
+    if (oldChannelId) socket.emit("unsubscribe", ["speaking", [oldChannelId]]);
+    socket.emit("subscribe", ["speaking", [state.channelId]]);
     let channel = ChannelStore.getChannel(state.channelId);
     let inMyChannels = !!channel;
     let isJoinable = !inMyChannels ? false : (channel.type == 3 ? true : (PermissionStore.can(Permissions.CONNECT, channel) && PermissionStore.can(Permissions.VIEW_CHANNEL, channel)))
@@ -43,9 +35,14 @@ export function Modal({ e, states }) {
     let state = states[0];
     onChange(state);
 
-    return utils.interval(async () => {
+    let interval = utils.interval(async () => {
       setRnd(Math.random());
     }, 1000);
+
+    return () => {
+      interval();
+      socket.emit("unsubscribe", ["speaking", [state.channelId]]);
+    }
   }, []);
 
   return (
@@ -132,35 +129,7 @@ export function Modal({ e, states }) {
             </div>
             <div className="members-container">
               <div className={`members ${scrollerClasses.thin}`}>
-                {members.map(member => (
-                  <div
-                    className="member"
-                    onClick={async (ev) => {
-                      ev.preventDefault();
-                      try {
-                        if (!modals.show.user) throw Error("Old Acord version");
-                        await modals.show.user(member.userId);
-                      } catch {
-                        utils.copyText(member.userTag);
-                        toasts.show(i18n.format("X_COPIED", member.userTag));
-                      }
-                    }}
-                  >
-                    <div className="time-elapsed" acord--tooltip-content={moment(member.joinedAt).format("MMM DD, YYYY HH:mm")}>
-                      {member.joinedAt === -1 ? "" : formatSeconds((Date.now() - member.joinedAt) / 1000)}
-                    </div>
-                    <div className="avatar" style={{ backgroundImage: `url("${member.userAvatar ? `https://cdn.discordapp.com/avatars/${member.userId}/${member.userAvatar}.png?size=128` : `https://cdn.discordapp.com/embed/avatars/${Number(member.userTag.split("#")[1]) % 5}.png`}")` }}></div>
-                    <div className="about">
-                      <div className="name-container">
-                        <div className="name">{member.userTag.split("#")[0]}</div>
-                        <div className="discriminator">#{member.userTag.split("#")[1]}</div>
-                      </div>
-                      <div className="state">
-                        {indicatorMap[member?.state] || null}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                {members.map(member => <ModalMember member={member} />)}
               </div>
             </div>
           </div>

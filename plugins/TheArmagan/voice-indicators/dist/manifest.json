@@ -1,5 +1,5 @@
 {
-  "hash": "2720a898c40395438c30d4d72bb48836929015b1dfb998c0fc60609988b202ef",
+  "hash": "27181a3e8fae975bb2aef2d87969403be3a384085188fbe160a2833a7a582dff",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Shows voice indicators on the right side of the users. Supports private calls as well.",
       "tr": "Kullanıcıların sağ tarafında ses indikatörleri gösterir. Özel aramaları da destekler."
     },
-    "version": "3.0.7",
+    "version": "3.0.8",
     "previews": [
       {
         "name": "Default",
