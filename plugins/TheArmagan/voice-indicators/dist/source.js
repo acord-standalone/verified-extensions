@@ -4205,6 +4205,7 @@
             if (extension.persist.ghost.settings.ignoreBots && user.bot)
               return;
             let indicatorContainer = dom__default["default"].parse(`<span class="vi--icon-container vi--hidden"></span>`);
+            let tooltip = ui__default["default"].tooltips.create(indicatorContainer, "");
             let rendering = false;
             let elapsedInterval = null;
             indicatorContainer.render = async () => {
@@ -4238,11 +4239,11 @@
               ${states.length > 1 ? `<div class="total-states">${extension.i18n.format("IN_TOTAL_CHANNELS", states.length)}</div>` : ""}
             </div>
           `);
+              tooltip.content = tooltipElm;
               let timeElapsed = tooltipElm.querySelector(".time-elapsed");
               elapsedInterval = utils__default["default"].interval(() => {
                 timeElapsed.innerHTML = extension.i18n.format("IN_VOICE_FOR", formatSeconds((Date.now() - state.joinedAt) / 1e3));
               }, 1e3);
-              let tooltip = ui__default["default"].tooltips.create(indicatorContainer, tooltipElm);
               if (tooltip?.onDestroy)
                 tooltip.onDestroy(elapsedInterval);
               indicatorContainer.replaceChildren(dom__default["default"].parse(renderIcon(state)));
@@ -4258,6 +4259,7 @@
             return () => {
               if (elapsedInterval)
                 elapsedInterval();
+              tooltip.destroy();
             };
           }
         )

@@ -30,6 +30,7 @@ export function patchDOM() {
 
         /** @type {Element} */
         let indicatorContainer = dom.parse(`<span class="vi--icon-container vi--hidden"></span>`);
+        let tooltip = ui.tooltips.create(indicatorContainer, "");
 
         let rendering = false;
         let elapsedInterval = null;
@@ -70,12 +71,12 @@ export function patchDOM() {
             </div>
           `);
 
+          tooltip.content = tooltipElm;
+
           let timeElapsed = tooltipElm.querySelector(".time-elapsed");
           elapsedInterval = utils.interval(() => {
             timeElapsed.innerHTML = i18n.format("IN_VOICE_FOR", formatSeconds((Date.now() - state.joinedAt) / 1000));
           }, 1000);
-
-          let tooltip = ui.tooltips.create(indicatorContainer, tooltipElm);
           if (tooltip?.onDestroy) tooltip.onDestroy(elapsedInterval);
           // indicatorContainer.setAttribute("acord--tooltip-content", tooltipHTML);
           indicatorContainer.replaceChildren(dom.parse(renderIcon(state)));
@@ -96,6 +97,7 @@ export function patchDOM() {
 
         return () => {
           if (elapsedInterval) elapsedInterval();
+          tooltip.destroy();
         }
       }
     )
