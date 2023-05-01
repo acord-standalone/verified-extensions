@@ -1,0 +1,112 @@
+{
+  "hash": "6f53f47239bb654a461ac271e6d88ace39d9bb185580be4fdec38291dceeb8a4",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Force Channel Notifications",
+      "tr": "Zorunlu Kanal Bildirimleri"
+    },
+    "description": {
+      "default": "Forces notifications on a specific channel.",
+      "tr": "Belli bir kanalda bildirimleri zorunlu hale getirir."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [
+    {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Channel Ids"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Force notifications on these channels."
+            }
+          ]
+        },
+        {
+          "type": "Textarea",
+          "default": "",
+          "id": "channelIds"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Only when hidden"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Send notifications only when the Discord fully is hidden."
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": false,
+          "id": "onlyWhenHidden"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Silent Notifications"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Send notifications silently."
+            }
+          ]
+        },
+        {
+          "type": "Check",
+          "default": false,
+          "id": "silentNotifications"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "default": {
+      "FORCE_NOTIFICATIONS": "Force Notifications",
+      "NO_CONTENT": "No content to display.",
+      "TITLE": "{0} in {1}",
+      "DMS": "Direct Messages"
+    },
+    "tr": {
+      "FORCE_NOTIFICATIONS": "Bildirimlere Zorla",
+      "NO_CONTENT": "Gösterilecek içerik yok.",
+      "TITLE": "{0} ({1})",
+      "DMS": "Direkt Mesajlar"
+    }
+  },
+  "readme": true
+}
