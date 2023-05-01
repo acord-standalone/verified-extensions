@@ -1,0 +1,36 @@
+{
+  "hash": "fa699d83aed6b20dfe71f452fd73021c94db256eee413eeb8dda42a2b361c777",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Guild Member Counts",
+      "tr": "Sunucu Üye Sayıları"
+    },
+    "description": {
+      "default": "Shows the member counts of the guilds you are in.",
+      "tr": "Bulunduğunuz sunucuların üye sayılarını gösterir."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "i18n": {
+    "default": {
+      "MEMBER_COUNT": "{0} members"
+    },
+    "tr": {
+      "MEMBER_COUNT": "{0} üye"
+    }
+  },
+  "readme": true
+}
