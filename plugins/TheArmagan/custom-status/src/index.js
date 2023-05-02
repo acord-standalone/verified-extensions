@@ -30,8 +30,8 @@ function updateActivity() {
 
   if (typeof settings.start_timestamp !== "undefined" || typeof settings.end_timestamp !== "undefined") {
     activity.timestamps = {
-      start: settings.start_timestamp || undefined,
-      end: settings.end_timestamp || undefined,
+      start: settings.start_timestamp ? Number(settings.start_timestamp) : undefined,
+      end: settings.start_timestamp ? Number(settings.end_timestamp) : undefined,
     };
   }
 
