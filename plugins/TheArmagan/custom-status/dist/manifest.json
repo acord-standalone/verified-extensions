@@ -1,5 +1,5 @@
 {
-  "hash": "fc434e549857dcd469f59d4079be09e4bd869671841f77ca8e082050f6195677",
+  "hash": "465472cc9bad4dcf0b27371695bd79710ff6d9631fbb50014b5d2a3ce99f7323",
   "type": "plugin",
   "about": {
     "name": {
@@ -214,8 +214,8 @@
             },
             {
               "type": "Input",
-              "default": "0",
-              "placeholder": "0",
+              "default": "",
+              "placeholder": "",
               "id": "start_timestamp"
             }
           ]
