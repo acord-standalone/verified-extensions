@@ -9,8 +9,8 @@ function updateActivity() {
     application_id: settings.application_id,
     type: settings.type || 0,
     flags: 1,
-    details: settings.details || "discord.gg/acord",
-    state: settings.state || "Acord",
+    details: settings.details,
+    state: settings.state,
   };
 
   if (settings.button_1_text || settings.button_2_text) {
