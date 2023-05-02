@@ -66,18 +66,20 @@ export function patchDOM() {
               <div class="can-connect">${i18n.format(channel ? "CAN_CONNECT" : "CANT_CONNECT")}</div>
               <div class="guild-name">${state.guildId ? (state.guildName || "Unknown Guild") : i18n.format("PRIVATE_CALL")}</div>
               <div class="channel-name">${state.channelName || "Plugin Deprecated"}</div>
-              <div class="time-elapsed">${i18n.format("IN_VOICE_FOR", formatSeconds((Date.now() - state.joinedAt) / 1000))}</div>
+              ${state.joinedAt !== -1 ? `<div class="time-elapsed">${i18n.format("IN_VOICE_FOR", formatSeconds((Date.now() - state.joinedAt) / 1000))}</div>` : ""}
               ${states.length > 1 ? `<div class="total-states">${i18n.format("IN_TOTAL_CHANNELS", states.length)}</div>` : ""}
             </div>
           `);
 
           tooltip.content = tooltipElm;
 
-          let timeElapsed = tooltipElm.querySelector(".time-elapsed");
-          elapsedInterval = utils.interval(() => {
-            timeElapsed.innerHTML = i18n.format("IN_VOICE_FOR", formatSeconds((Date.now() - state.joinedAt) / 1000));
-          }, 1000);
-          if (tooltip?.onDestroy) tooltip.onDestroy(elapsedInterval);
+          if (state.joinedAt !== -1) {
+            let timeElapsed = tooltipElm.querySelector(".time-elapsed");
+            elapsedInterval = utils.interval(() => {
+              timeElapsed.innerHTML = i18n.format("IN_VOICE_FOR", formatSeconds((Date.now() - state.joinedAt) / 1000));
+            }, 1000);
+            if (tooltip?.onDestroy) tooltip.onDestroy(elapsedInterval);
+          }
           // indicatorContainer.setAttribute("acord--tooltip-content", tooltipHTML);
           indicatorContainer.replaceChildren(dom.parse(renderIcon(state)));
           // ui.tooltips.create(indicatorContainer, tooltipHTML);
