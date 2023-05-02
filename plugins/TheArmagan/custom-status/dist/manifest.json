@@ -1,5 +1,5 @@
 {
-  "hash": "29786d9266825dec2d3fc6912b7d86469f679f8e7d5cf28edae1fdda6b9d1830",
+  "hash": "ddd4cd67886ac7eb9656ba41076319f03c09e0f33b4c78bfadaab9528505a0f0",
   "type": "plugin",
   "about": {
     "name": {
@@ -17,7 +17,12 @@
       "tr": "Özel durum ayarlamanıza olanak sağlar."
     },
     "version": "0.0.1",
-    "previews": []
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://media.discordapp.net/attachments/724874750383358073/1103064417744191509/image.png"
+      }
+    ]
   },
   "config": [
     {
