@@ -1,5 +1,6 @@
 import { subscriptions, persist } from "@acord/extension";
 import { FluxDispatcher } from "@acord/modules/common";
+import events from "@acord/events";
 
 function updateActivity() {
   let settings = persist.ghost.settings || {};
@@ -55,6 +56,10 @@ const debouncedUpdateActivity = _.debounce(updateActivity, 2500);
 export default {
   load() {
     updateActivity();
+
+    subscriptions.push(
+      events.on("CurrentUserChange", updateActivity)
+    );
   },
   unload() {
     FluxDispatcher.dispatch({
