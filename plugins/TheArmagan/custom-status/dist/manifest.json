@@ -1,5 +1,5 @@
 {
-  "hash": "465472cc9bad4dcf0b27371695bd79710ff6d9631fbb50014b5d2a3ce99f7323",
+  "hash": "9751c0508f47802a7a1a23e6f8e83260b36b15baaa59bfb1aabd167f9f2d36b1",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to set custom rich presence status.",
       "tr": "Özel durum ayarlamanıza olanak sağlar."
     },
-    "version": "0.0.3",
+    "version": "0.0.4",
     "previews": [
       {
         "name": "Default",

@@ -1,6 +1,7 @@
 import { subscriptions, persist } from "@acord/extension";
 import { FluxDispatcher } from "@acord/modules/common";
 import events from "@acord/events";
+import utils from "@acord/utils";
 
 function updateActivity() {
   let settings = persist.ghost.settings || {};
@@ -30,8 +31,8 @@ function updateActivity() {
 
   if (typeof settings.start_timestamp !== "undefined" || typeof settings.end_timestamp !== "undefined") {
     activity.timestamps = {
-      start: settings.start_timestamp ? Number(settings.start_timestamp) : undefined,
-      end: settings.start_timestamp ? Number(settings.end_timestamp) : undefined,
+      start: settings.start_timestamp?.trim() ? Number(settings.start_timestamp.trim()) : undefined,
+      end: settings.end_timestamp?.trim() ? Number(settings.end_timestamp.trim()) : undefined,
     };
   }
 
@@ -58,7 +59,8 @@ export default {
     updateActivity();
 
     subscriptions.push(
-      events.on("CurrentUserChange", updateActivity)
+      events.on("CurrentUserChange", updateActivity),
+      utils.interval(updateActivity, 5000)
     );
   },
   unload() {
