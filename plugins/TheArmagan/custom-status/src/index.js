@@ -37,12 +37,18 @@ function updateActivity() {
   }
 
   if (settings.large_image || settings.small_image) {
-    activity.assets = {
-      large_image: settings.large_image,
-      large_text: settings.large_text || undefined,
-      small_image: settings.small_image,
-      small_text: settings.small_text || undefined,
-    };
+
+    activity.assets = {};
+
+    if (settings.large_image) {
+      activity.assets.large_image = settings.large_image;
+      activity.assets.large_text = settings.large_text || undefined;
+    }
+
+    if (settings.small_image) {
+      activity.assets.small_image = settings.small_image;
+      activity.assets.small_text = settings.small_text || undefined;
+    }
   }
 
   FluxDispatcher.dispatch({
