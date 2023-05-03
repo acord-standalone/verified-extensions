@@ -685,7 +685,7 @@
           "default": "Allows you to set custom rich presence status.",
           "tr": "Özel durum ayarlamanıza olanak sağlar."
         },
-        "version": "0.0.5",
+        "version": "0.0.6",
         "previews": [
           {
             "name": "Default",
