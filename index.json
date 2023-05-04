@@ -1644,6 +1644,35 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "amoled-cord",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/amoled-cord/dist"
+    },
+    "manifest": {
+      "index": "./src/style.css",
+      "type": "theme",
+      "about": {
+        "name": {
+          "default": "AMOLED-Cord"
+        },
+        "authors": [
+          {
+            "name": "LuckFire",
+            "id": "399416615742996480"
+          }
+        ],
+        "description": {
+          "default": "A basically pitch black theme for Discord. Lights out, baby!",
+          "tr": "Discord için temelde tamamen siyah bir tema. Işıklar kapalı, bebeğim!"
+        },
+        "version": "4.0.3",
+        "license": "MIT"
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "borderroles",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/borderroles/dist"
     },
