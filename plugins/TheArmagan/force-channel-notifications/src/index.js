@@ -1,6 +1,6 @@
 import { subscriptions, i18n, persist } from "@acord/extension";
 import ui from "@acord/ui";
-import { FluxDispatcher, Router, GuildStore } from "@acord/modules/common";
+import { FluxDispatcher, Router, GuildStore, UserStore } from "@acord/modules/common";
 
 function toggleChannel(channelId) {
   console.log(persist.ghost?.settings?.channelIds);
@@ -41,6 +41,8 @@ export default {
       (() => {
         function onMessage({ message }) {
           if (!(message?.channel_id && persist.ghost?.settings?.channelIds?.includes(message?.channel_id))) return;
+
+          if (message.author.id === UserStore.getCurrentUser().id) return;
 
           if (persist.ghost?.settings?.onlyWhenHidden && document.visibilityState === 'visible') return;
           if (window.location.href.includes(message?.channel_id) && document.visibilityState === 'visible' && document.hasFocus()) return;
