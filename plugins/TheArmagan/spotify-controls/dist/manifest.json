@@ -1,0 +1,33 @@
+{
+  "hash": "c69b5fb92e88ee85202eb731020ab132c284ef6198d30f659b01f7c24067fc5f",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Spotify Controls",
+      "tr": "Spotify Kontrolleri"
+    },
+    "description": {
+      "default": "Allows you to control spotify inside Discord.",
+      "tr": "Discord içerisinden spotify'ı kontrol etmenize olanak sağlar."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://media.discordapp.net/attachments/724874750383358073/1103636477671383131/DiscordPTB_dyKqegtehz.png"
+      }
+    ]
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}

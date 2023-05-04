@@ -1,0 +1,149 @@
+.sc--container {
+  & > .player {
+    border-bottom: 1px solid var(--background-modifier-accent);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .big-artwork {
+      width: 224px;
+      height: 224px;
+      background-position: center;
+      background-size: cover;
+      border-radius: 4px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+
+      &:hover {
+        .collapse {
+          opacity: 0.25;
+        }
+      }
+
+      .collapse {
+        display: flex;
+        padding: 4px;
+        background-color: black;
+        opacity: 0;
+        border-radius: 50%;
+        margin: 4px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.75;
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+          color: whitesmoke;
+        }
+      }
+    }
+
+    .small-artwork {
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      background-position: center;
+      background-size: cover;
+      border-radius: 4px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+
+      &:hover {
+        .expand {
+          opacity: 0.25;
+        }
+      }
+
+      .expand {
+        display: flex;
+        padding: 4px;
+        background-color: black;
+        opacity: 0;
+        border-radius: 50%;
+        margin: 4px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.75;
+        }
+
+        svg {
+          width: 14px;
+          height: 14px;
+          color: whitesmoke;
+        }
+      }
+    }
+
+    & > .info {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+
+      & > .data {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+
+        & > .texts {
+          .title {
+            font-size: 16px;
+            color: whitesmoke;
+            font-weight: 500;
+            opacity: 0.95;
+
+            width: 152px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .artist {
+            font-size: 12px;
+            color: whitesmoke;
+            font-weight: 400;
+            opacity: 0.75;
+
+            width: 152px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .expand {
+            width: 224px;
+          }
+        }
+
+        & > .controls {
+          display: flex;
+          justify-content: space-around;
+          .button {
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            svg {
+              width: 16px;
+              height: 16px;
+              color: rgba(245, 245, 245, 1);
+            }
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.25);
+            }
+          }
+        }
+      }
+    }
+  }
+}
