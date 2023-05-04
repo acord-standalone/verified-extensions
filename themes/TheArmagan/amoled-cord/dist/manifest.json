@@ -1,0 +1,24 @@
+{
+  "hash": "9f1a2b10270893636cb4ef9e0ec5efd19a9ac58ca535208a3186894bb23394b5",
+  "type": "theme",
+  "about": {
+    "name": {
+      "default": "AMOLED-Cord"
+    },
+    "authors": [
+      {
+        "name": "LuckFire",
+        "id": "399416615742996480"
+      }
+    ],
+    "description": {
+      "default": "A basically pitch black theme for Discord. Lights out, baby!",
+      "tr": "Discord için temelde tamamen siyah bir tema. Işıklar kapalı, bebeğim!"
+    },
+    "version": "4.0.3",
+    "license": "MIT"
+  },
+  "mode": "production",
+  "config": [],
+  "readme": false
+}
