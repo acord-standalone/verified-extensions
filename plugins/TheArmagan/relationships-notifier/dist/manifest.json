@@ -1,0 +1,26 @@
+{
+  "hash": "03f779c260693d7933f33bb71ddc2510a45d3ea996118c82e0ae8815fd8838c7",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Relationship Notifier"
+    },
+    "description": {
+      "default": "Notifications for friend removal, friend request cancel, group removal and server kick/ban."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
