@@ -2,6 +2,7 @@ import { subscriptions } from "@acord/extension";
 import { FluxDispatcher } from "@acord/modules/common";
 import dom from "@acord/dom";
 import utils from "@acord/utils";
+import events from "@acord/events";
 import patchSCSS from "./styles.scss";
 
 export default {
@@ -149,10 +150,26 @@ export default {
         });
 
         app.mount(appElm);
-        document.querySelector('section.panels-3wFtMD > .wrapper-3Hk9OB').insertAdjacentElement("afterend", appElm);
+
+        function reInject() {
+          appElm.remove();
+          if (!document.querySelector('.sc--container'))
+            document.querySelector('section.panels-3wFtMD > .wrapper-3Hk9OB')
+              .insertAdjacentElement("afterend", appElm);
+        }
+
+        events.on("MainWindowFullScreenExit", reInject);
+        events.on("CurrentUserChange", reInject);
+        events.on("LocaleChange", reInject);
+
+        reInject();
+
         return () => {
           app.unmount();
           appElm.remove();
+          events.off("MainWindowFullScreenExit", reInject);
+          events.off("CurrentUserChange", reInject);
+          events.off("LocaleChange", reInject);
         }
       })()
     )
