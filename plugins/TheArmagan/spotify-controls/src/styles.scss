@@ -145,5 +145,24 @@
         }
       }
     }
+
+    & > .progress {
+      width: 100%;
+      overflow: hidden;
+      height: 12px;
+      -webkit-appearance: none;
+      background-color: rgba(0, 0, 0, 0.15);
+      border-radius: 9999px;
+      cursor: pointer;
+
+      &::-webkit-slider-thumb {
+        width: 12px;
+        height: 12px;
+        -webkit-appearance: none;
+        background: whitesmoke;
+        border-radius: 50%;
+        cursor: ew-resize;
+      }
+    }
   }
 }

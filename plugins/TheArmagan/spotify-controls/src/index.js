@@ -55,6 +55,7 @@ export default {
                     </div>
                   </div>
                 </div>
+                <input type="range" class="progress" :value="progress" :max="duration" @input="onProgressInput" />
               </div>
             </div>
           `,
@@ -66,19 +67,29 @@ export default {
               bigArtwork: false,
               track: null,
               checkInterval: null,
-              isPlaying: false
+              isPlaying: false,
+              progress: 0,
+              duration: 0
             }
           },
           methods: {
             async fetchData() {
               let data = await utils.spotify.request("GET", "/me/player");
               data.item.album.image = data.item.album.images[0];
+
               this.track = data.item;
               this.isPlaying = data.is_playing;
+              this.progress = data.progress_ms;
+              this.duration = data.item.duration_ms;
+
+              this.updateInterval();
             },
             stateUpdate(data) {
               this.track = data.track;
               this.isPlaying = data.isPlaying;
+              this.progress = data.position;
+              this.duration = data.track?.duration || 0;
+              this.updateInterval();
             },
             playPause() {
               if (this.isPlaying) {
@@ -94,11 +105,21 @@ export default {
             },
             skipPrevious() {
               utils.spotify.request("POST", "/me/player/previous");
+            },
+            onProgressInput(e) {
+              utils.spotify.request("PUT", "/me/player/seek?position_ms=" + e.target.value);
+            },
+            updateInterval() {
+              clearInterval(this.checkInterval);
+              this.checkInterval = setInterval(() => {
+                if (this.isPlaying) this.progress += 1000;
+              }, 1000);
             }
           },
           mounted() {
             this.fetchData();
             FluxDispatcher.subscribe("SPOTIFY_PLAYER_STATE", this.stateUpdate)
+            this.updateInterval();
           },
           unmounted() {
             clearInterval(this.checkInterval);

@@ -1,5 +1,5 @@
 {
-  "hash": "c69b5fb92e88ee85202eb731020ab132c284ef6198d30f659b01f7c24067fc5f",
+  "hash": "a16ab63dc6d90a9b5f717cee89f1c2d0111c14e5c7dfae840f161c85edd8050a",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,13 +16,13 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "readme": "./readme.md",
     "previews": [
       {
         "name": "Default",
-        "image": "https://media.discordapp.net/attachments/724874750383358073/1103636477671383131/DiscordPTB_dyKqegtehz.png"
+        "image": "https://cdn.discordapp.com/attachments/724874750383358073/1104005257987624990/image.png"
       }
     ]
   },
