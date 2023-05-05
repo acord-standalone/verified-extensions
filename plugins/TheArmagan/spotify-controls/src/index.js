@@ -55,12 +55,17 @@ export default {
                     </div>
                   </div>
                 </div>
-                <input type="range" class="progress" :value="progress" :max="duration" @input="onProgressInput" />
+                <div class="progress-container">
+                  <div class="text">{{formatSeconds(progress/1000)}}</div>
+                  <input type="range" class="progress" :value="progress" :max="duration" @input="onProgressInput" />
+                  <div class="text">{{formatSeconds(duration/1000)}}</div>
+                </div>
               </div>
             </div>
           `,
         )
 
+        let internalApp = null;
         const app = Vue.createApp({
           data() {
             return {
@@ -104,19 +109,35 @@ export default {
               utils.spotify.request("POST", "/me/player/next");
             },
             skipPrevious() {
-              utils.spotify.request("POST", "/me/player/previous");
+              if (this.progress > 6000) {
+                utils.spotify.request("PUT", "/me/player/seek?position_ms=0");
+              } else {
+                utils.spotify.request("POST", "/me/player/previous");
+              }
             },
             onProgressInput(e) {
-              utils.spotify.request("PUT", "/me/player/seek?position_ms=" + e.target.value);
+              clearInterval(internalApp.checkInterval);
+              this.debouncedProgressUpdate(e);
             },
+            debouncedProgressUpdate: _.debounce((e) => {
+              utils.spotify.request("PUT", "/me/player/seek?position_ms=" + e.target.value);
+              internalApp.updateInterval();
+            }, 250),
             updateInterval() {
               clearInterval(this.checkInterval);
               this.checkInterval = setInterval(() => {
                 if (this.isPlaying) this.progress += 1000;
               }, 1000);
+            },
+            formatSeconds(s) {
+              if (isNaN(parseInt(s))) s = 0;
+              s = Math.floor(s);
+              let hours = Math.floor((s / 60) / 60);
+              return `${hours > 0 ? `${hours.toString().padStart(2, "0")}:` : ""}${Math.floor((s / 60) % 60).toString().padStart(2, "0")}:${(s % 60).toString().padStart(2, "0")}`;
             }
           },
           mounted() {
+            internalApp = this;
             this.fetchData();
             FluxDispatcher.subscribe("SPOTIFY_PLAYER_STATE", this.stateUpdate)
             this.updateInterval();
