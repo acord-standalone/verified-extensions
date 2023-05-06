@@ -1,0 +1,28 @@
+{
+  "hash": "8f0da06fc47f007be99593969aa06b7ded272e846d7057e8b9a932b31dee9d3a",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "See Deleted Messages",
+      "tr": "Silinen Mesajları Gör"
+    },
+    "description": {
+      "default": "See deleted messages in a channel.",
+      "tr": "Bir kanaldaki silinen mesajları görün."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
