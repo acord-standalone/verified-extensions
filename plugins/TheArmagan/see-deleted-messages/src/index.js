@@ -1,7 +1,7 @@
 import { subscriptions } from "@acord/extension";
 import actionHandlers from "@acord/actionHandlers";
 import dom from "@acord/dom";
-import { FluxDispatcher, MessageStore } from "@acord/modules/common";
+import { FluxDispatcher, MessageStore, UserStore } from "@acord/modules/common";
 
 export default {
   load() {
@@ -34,7 +34,8 @@ export default {
     function shouldIgnoreMessage(msg) {
       if (!msg) return true;
       if ((msg.flags & 64) === 64) return true;
-      if (msg.author.bot) return true;
+      let user = UserStore.getUser(msg.author.id);
+      if (!user || user?.bot) return true;
     }
 
     subscriptions.push(
