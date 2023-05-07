@@ -17,7 +17,14 @@
       }
     ],
     "version": "0.0.1",
-    "license": "MIT"
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://cdn.discordapp.com/attachments/724874750383358073/1104559772033884180/becomemod.jpg"
+      }
+    ]
+  }
   },
   "api": {
     "ui": true,

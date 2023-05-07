@@ -18,7 +18,12 @@
     },
     "version": "0.0.2",
     "license": "MIT",
-    "previews": []
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://cdn.discordapp.com/attachments/724874750383358073/1104559772268773408/goodwords.jpg"
+      }
+    ]
   },
   "api": {
     "patcher": true,

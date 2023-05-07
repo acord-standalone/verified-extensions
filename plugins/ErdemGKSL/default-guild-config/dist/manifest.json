@@ -18,7 +18,13 @@
     },
     "version": "0.0.1",
     "license": "MIT",
-    "previews": []
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://cdn.discordapp.com/attachments/724874750383358073/1104559772486873108/default_notifs.jpg"
+      }
+    ]
+  }
   },
   "api": {
     "modules": {
