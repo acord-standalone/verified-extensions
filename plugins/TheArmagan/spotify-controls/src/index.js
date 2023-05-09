@@ -99,7 +99,7 @@ export default {
             },
             playPause() {
               if (this.isPlaying) {
-                utils.spotify.request("PUT", "/me/player/pause");
+                utils.spotify.request("PUT", "/me/player/pause#");
                 this.isPlaying = false;
               } else {
                 utils.spotify.request("PUT", "/me/player/play");
