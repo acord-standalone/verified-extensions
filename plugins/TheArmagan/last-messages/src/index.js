@@ -119,7 +119,6 @@ export default {
 
         let tooltip = `${i.guildId ? `${guild ? `${guild.name} > ` : `${i.guildName} > `}` : ""}${channel ? channel.name : i.channelName || ""}`.trim();
         if (!tooltip) tooltip = i.possibleTooltip;
-        console.log(i.date);
         const container = dom.parse(`
           <div class="line">
             <span class="timestamp-6-ptG3 info" acord--tooltip-content="${moment(i.date).format("DD.MM.YYYY HH:mm:ss")}">

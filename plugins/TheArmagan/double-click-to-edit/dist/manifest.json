@@ -1,0 +1,43 @@
+{
+  "hash": "b751bbcc6a2ac6035abd00a4f088461e63cbd9ccf414df89048a7bed053e0494",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Double Click to Edit",
+      "tr": "Çift Tıkla Düzenle"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "You can edit messages by double clicking them.",
+      "tr": "Mesajları çift tıklayarak düzenleyebilirsiniz."
+    },
+    "version": "0.0.1"
+  },
+  "api": {
+    "dom": true,
+    "modules": {
+      "common": [
+        {
+          "name": "MessageActions",
+          "reason": "..."
+        },
+        {
+          "name": "MessageStore",
+          "reason": "..."
+        },
+        {
+          "name": "UserStore",
+          "reason": "..."
+        }
+      ]
+    }
+  },
+  "mode": "production",
+  "config": [],
+  "readme": false
+}
