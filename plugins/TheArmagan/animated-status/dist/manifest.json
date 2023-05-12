@@ -1,5 +1,5 @@
 {
-  "hash": "d801b09951fd6b3aa05e6aaf4a1f2e7479db9418b954eb5f8075ec1b9667d1ef",
+  "hash": "c3d9bb1aacaa9ad1392b15344be0ee2d31588f89d7051a4f622e55252b301bd6",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,14 +16,14 @@
       "default": "Allows you to make status that changes at the intervals you want.",
       "tr": "İstediğiniz aralıklarla değişen durum yapmanızı sağlar."
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "api": {
     "utils": true,
     "modules": {
       "common": [
         {
-          "name": "FluxDispatcher",
+          "name": "UserSettingsProtoActions",
           "reason": "..."
         }
       ]

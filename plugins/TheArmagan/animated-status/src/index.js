@@ -1,5 +1,5 @@
-import { FluxDispatcher } from "@acord/modules/common";
-import { subscriptions, persist } from "@acord/extension";
+import { UserSettingsProtoActions } from "@acord/modules/common";
+import { persist } from "@acord/extension";
 import utils from "@acord/utils";
 
 let idx = 0;
@@ -18,19 +18,14 @@ async function loop() {
     return;
   }
 
-  FluxDispatcher.dispatch({
-    type: "LOCAL_ACTIVITY_UPDATE",
-    activity: {
-      application_id: "1083403277980409937",
-      type: 4,
-      flags: 1,
-      state: status.state,
-      emoji: status.emoji ? {
-        name: status.emoji
-      } : undefined,
-    },
-    socketId: "rest.armagan.acord.AnimatedCustomState",
-  })
+  UserSettingsProtoActions.updateAsync("status", (d) => {
+    d.customStatus = {
+      expiresAtMs: "0",
+      text: status.state,
+      emojiName: status.emoji,
+      emojiId: "0",
+    };
+  }, 0);
 
   idx = ((idx + 1) % statuses.length);
   await utils.sleep(status.timeout * 1000);
@@ -75,11 +70,9 @@ export default {
     statuses = [];
     currentLoopId = null;
     idx = 0;
-    FluxDispatcher.dispatch({
-      type: "LOCAL_ACTIVITY_UPDATE",
-      activity: {},
-      socketId: "rest.armagan.acord.AnimatedCustomState",
-    });
+    UserSettingsProtoActions.updateAsync("status", (d) => {
+      d.customStatus = undefined;
+    }, 0);
   },
   config() {
     debouncedConfig();
