@@ -411,14 +411,14 @@
           "default": "Allows you to make status that changes at the intervals you want.",
           "tr": "İstediğiniz aralıklarla değişen durum yapmanızı sağlar."
         },
-        "version": "0.0.1"
+        "version": "0.0.2"
       },
       "api": {
         "utils": true,
         "modules": {
           "common": [
             {
-              "name": "FluxDispatcher",
+              "name": "UserSettingsProtoActions",
               "reason": "..."
             }
           ]
