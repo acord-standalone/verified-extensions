@@ -390,6 +390,46 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "animated-status",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/animated-status/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Animated Status",
+          "tr": "Animasyonlu Durum"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Allows you to make status that changes at the intervals you want.",
+          "tr": "İstediğiniz aralıklarla değişen durum yapmanızı sağlar."
+        },
+        "version": "0.0.1"
+      },
+      "api": {
+        "utils": true,
+        "modules": {
+          "common": [
+            {
+              "name": "FluxDispatcher",
+              "reason": "..."
+            }
+          ]
+        }
+      },
+      "mode": "production"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "app-lock",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/app-lock/dist"
     },
