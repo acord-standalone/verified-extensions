@@ -1,5 +1,5 @@
 {
-  "hash": "b751bbcc6a2ac6035abd00a4f088461e63cbd9ccf414df89048a7bed053e0494",
+  "hash": "7e18b99ae3f5390dd9325b0364ea38cd358e0e1a37d6b7157f31d371e667927e",
   "type": "plugin",
   "about": {
     "name": {
@@ -32,6 +32,10 @@
         },
         {
           "name": "UserStore",
+          "reason": "..."
+        },
+        {
+          "name": "FluxDispatcher",
           "reason": "..."
         }
       ]
