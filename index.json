@@ -408,7 +408,7 @@
           }
         ],
         "description": {
-          "default": "Allows you to make status that changes at the intervals you want.",
+          "default": "Allows you to write a status that changes at the intervals you want.",
           "tr": "İstediğiniz aralıklarla değişen durum yapmanızı sağlar."
         },
         "version": "0.0.2"
