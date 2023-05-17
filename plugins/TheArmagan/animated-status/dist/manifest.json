@@ -1,5 +1,5 @@
 {
-  "hash": "6312369ac6d024d76e075e2f7b9137a05921206d477300c0d43585d75826fc68",
+  "hash": "275a9e7a8bfa1a4e71b1929b11a55a4f82bbb9e08be71d2dd3e3582017e3aa76",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to write a status that changes at the intervals you want.",
       "tr": "İstediğiniz aralıklarla değişen durum yapmanızı sağlar."
     },
-    "version": "0.0.3"
+    "version": "0.0.4"
   },
   "api": {
     "utils": true,

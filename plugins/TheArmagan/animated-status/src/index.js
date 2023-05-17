@@ -50,7 +50,7 @@ function updateStatuses() {
     let [state, timeout, emoji] = l.split("|");
     return {
       state: state?.trim(),
-      timeout: Math.max(isNaN(timeout?.trim()) ? 1 : parseFloat(timeout.trim()), 1),
+      timeout: Math.max(isNaN(timeout?.trim()) ? 10 : parseFloat(timeout.trim()), 1),
       emoji: emoji?.trim(),
     }
   })
