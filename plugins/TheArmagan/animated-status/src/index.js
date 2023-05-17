@@ -40,7 +40,7 @@ function resetLoop() {
 }
 
 function updateStatuses() {
-  let t = (persist.ghost?.settings?.statuses || "").trim();
+  let t = (persist.ghost?.settings?.statuses || "")?.trim() || "";
   if (!t) {
     statuses = [];
     return;
@@ -49,8 +49,8 @@ function updateStatuses() {
   statuses = t.split("\n").map(l => {
     let [state, timeout, emoji] = l.split("|");
     return {
-      state: state.trim(),
-      timeout: Math.max(isNaN(timeout.trim()) ? 1 : parseFloat(timeout.trim()), 1),
+      state: state?.trim(),
+      timeout: Math.max(isNaN(timeout?.trim()) ? 1 : parseFloat(timeout.trim()), 1),
       emoji: emoji?.trim(),
     }
   })
@@ -63,7 +63,7 @@ const debouncedConfig = _.debounce(() => {
 
 export default {
   load() {
-    updateStatuses();
+    try { updateStatuses(); } catch { }
     resetLoop();
   },
   unload() {
