@@ -496,6 +496,72 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "audio-presets",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/audio-presets/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Audio Presets",
+          "tr": "Ses Ön Ayarları"
+        },
+        "description": {
+          "default": "Allows you to use custom audio presets.",
+          "tr": "Özel ses ön ayarları kullanmanıza olanak sağlar."
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "version": "0.0.3",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {
+        "modules": {
+          "custom": [
+            {
+              "name": "WebAudio",
+              "finder": {
+                "filter": {
+                  "export": false,
+                  "in": "prototypes",
+                  "by": [
+                    [
+                      "_ensureAudio"
+                    ]
+                  ]
+                },
+                "path": {
+                  "before": [
+                    "exports.Z",
+                    "exports.ZP",
+                    "exports.default",
+                    "exports"
+                  ],
+                  "after": "WebAudio"
+                },
+                "map": {
+                  "WebAudio": [
+                    "prototype._ensureAudio"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "become-mod",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/become-mod/dist"
     },
