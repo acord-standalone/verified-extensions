@@ -92,6 +92,7 @@ export default {
       dom.patch(
         ".channelTextArea-1FufC0",
         /** @param {Element} elm */(elm) => {
+          internalApp.userIds = [];
           elm.classList.add("cv--container");
           elm.appendChild(avatarsContainer);
           internalApp.update();

@@ -3706,6 +3706,7 @@
           dom__default["default"].patch(
             ".channelTextArea-1FufC0",
             (elm) => {
+              internalApp.userIds = [];
               elm.classList.add("cv--container");
               elm.appendChild(avatarsContainer);
               internalApp.update();

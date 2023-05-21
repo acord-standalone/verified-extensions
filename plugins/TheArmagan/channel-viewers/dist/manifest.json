@@ -1,5 +1,5 @@
 {
-  "hash": "b838fe53fd4e96e2226d1d5bbd37d8548a62975c097ac4504c6710da893202dc",
+  "hash": "d7e530ad15dd6094966ed0d606a8b7a576ba25ed310da57f7765c1afdd6d05c2",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to see who is watching your current channel.",
       "tr": "Kanala bakanları görmenizi sağlar. (İnsta'daki gibi.)"
     },
-    "version": "0.0.4",
+    "version": "0.0.5",
     "license": "MIT",
     "readme": "./readme.md",
     "previews": [
