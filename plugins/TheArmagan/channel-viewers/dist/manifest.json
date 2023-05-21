@@ -1,5 +1,5 @@
 {
-  "hash": "acf74493ea107749a08860a9823afde89589415ef8b61cd5fd428bb20830ffac",
+  "hash": "a791a1a614235c3971bb608aa297574103fc0d02af8cc033107d2cc58b9f7606",
   "type": "plugin",
   "about": {
     "name": {
@@ -18,7 +18,13 @@
     },
     "version": "0.0.2",
     "license": "MIT",
-    "readme": "./readme.md"
+    "readme": "./readme.md",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://media.discordapp.net/attachments/945664842260439061/1109937870732533880/image.png"
+      }
+    ]
   },
   "i18n": {
     "default": {
