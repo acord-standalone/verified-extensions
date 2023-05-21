@@ -687,7 +687,7 @@
           "default": "Allows you to see who is watching your current channel.",
           "tr": "Kanala bakanları görmenizi sağlar. (İnsta'daki gibi.)"
         },
-        "version": "0.0.3",
+        "version": "0.0.4",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": [
