@@ -46,6 +46,9 @@ export default {
           let ids = (await awaitResponse("set", [this.selectedChannelId]))?.data || [];
           this.userIds = ids;
 
+          this.updateTooltips();
+        },
+        updateTooltips() {
           this.$nextTick(() => {
             document.querySelectorAll(".cv--avatars .avatar").forEach(elm => {
               let tooltip = elm.tooltip || ui.tooltips.create(elm);
@@ -57,11 +60,13 @@ export default {
         onJoin([channelId, userId]) {
           if (this.userIds.indexOf(userId) === -1)
             this.userIds.push(userId);
+          this.updateTooltips();
         },
         onLeave([channelId, userId]) {
           let idx = this.userIds.indexOf(userId);
           if (idx !== -1)
             this.userIds.splice(idx, 1);
+          this.updateTooltips();
         },
         onUserClick(user) {
           ui.modals.show.user(user.id);
@@ -94,8 +99,6 @@ export default {
         socket.disconnect();
       }
     );
-
-
 
     socket.connect();
   }

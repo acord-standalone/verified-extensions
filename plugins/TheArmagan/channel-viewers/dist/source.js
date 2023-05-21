@@ -3624,7 +3624,7 @@
       });
     }
 
-    var injectSCSS = () => patcher.injectCSS(".cv--container{position:relative}.cv--avatars{position:absolute;top:-32px;left:32px;height:32px;max-width:100%;display:flex;align-items:center;gap:2px}.cv--avatars .avatar{width:32px;height:32px;border-radius:50%;background-position:center;background-size:cover;background-repeat:no-repeat;margin:-10px;border:2px solid #313338;transition:.1s ease-in-out all;cursor:pointer;z-index:1}.cv--avatars:hover .avatar{margin:0}");
+    var injectSCSS = () => patcher.injectCSS(".cv--container{position:relative}.cv--avatars{position:absolute;top:-24px;left:24px;height:24px;max-width:100%;display:flex;align-items:center;gap:2px}.cv--avatars .avatar{width:24px;height:24px;border-radius:50%;background-position:center;background-size:cover;background-repeat:no-repeat;margin:-8px;border:2px solid #313338;transition:.1s ease-in-out all;cursor:pointer;z-index:1}.cv--avatars:hover .avatar{margin:0}");
 
     var index = {
       load() {
@@ -3662,6 +3662,9 @@
             async update() {
               let ids = (await awaitResponse("set", [this.selectedChannelId]))?.data || [];
               this.userIds = ids;
+              this.updateTooltips();
+            },
+            updateTooltips() {
               this.$nextTick(() => {
                 document.querySelectorAll(".cv--avatars .avatar").forEach((elm) => {
                   let tooltip = elm.tooltip || ui__default["default"].tooltips.create(elm);
@@ -3673,11 +3676,13 @@
             onJoin([channelId, userId]) {
               if (this.userIds.indexOf(userId) === -1)
                 this.userIds.push(userId);
+              this.updateTooltips();
             },
             onLeave([channelId, userId]) {
               let idx = this.userIds.indexOf(userId);
               if (idx !== -1)
                 this.userIds.splice(idx, 1);
+              this.updateTooltips();
             },
             onUserClick(user) {
               ui__default["default"].modals.show.user(user.id);
