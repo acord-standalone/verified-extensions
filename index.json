@@ -666,6 +666,38 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "channel-viewers",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/channel-viewers/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Channel Viewers",
+          "tr": "Kanal'a Bakanlar"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Allows you to see who is watching your current channel.",
+          "tr": "Kanala bakanları görmenizi sağlar. (İnsta'daki gibi.)"
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md"
+      },
+      "api": {},
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "copy-image-url",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/copy-image-url/dist"
     },
