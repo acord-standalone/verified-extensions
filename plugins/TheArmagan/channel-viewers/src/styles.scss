@@ -1,0 +1,36 @@
+.cv {
+  &--container {
+    position: relative;
+  }
+
+  &--avatars {
+    position: absolute;
+    top: -32px;
+    left: 32px;
+    height: 32px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: -10px;
+      border: 2px solid #313338;
+      transition: 100ms ease-in-out all;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    &:hover {
+      .avatar {
+        margin: 0px;
+      }
+    }
+  }
+}

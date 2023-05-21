@@ -1,0 +1,41 @@
+{
+  "hash": "c7c1fcb768eba9f85c36c2bf93539cc2b3c0a3843200057e617d7bf8145457bc",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Channel Viewers",
+      "tr": "Kanal'a Bakanlar"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Allows you to see who is watching your current channel.",
+      "tr": "Kanala bakanları görmenizi sağlar. (İnsta'daki gibi.)"
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md"
+  },
+  "i18n": {
+    "default": {
+      "COPY_IMAGE_URL": "Copy Image URL",
+      "COPY_BANNER_URL": "Copy Banner URL",
+      "COPY_AVATAR_URL": "Copy Avatar URL",
+      "COPY_ICON_URL": "Copy Icon URL"
+    },
+    "tr": {
+      "COPY_IMAGE_URL": "Resim URL'sini Kopyala",
+      "COPY_BANNER_URL": "Banner URL'sini Kopyala",
+      "COPY_AVATAR_URL": "Avatar URL'sini Kopyala",
+      "COPY_ICON_URL": "Icon URL'sini Kopyala"
+    }
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
