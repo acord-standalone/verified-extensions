@@ -3661,7 +3661,8 @@
           methods: {
             async update() {
               let ids = (await awaitResponse("set", [this.selectedChannelId]))?.data || [];
-              this.userIds = ids;
+              let currentUser = common.UserStore.getCurrentUser();
+              this.userIds = ids.filter((id) => id !== currentUser.id);
               this.updateTooltips();
             },
             updateTooltips() {

@@ -44,7 +44,8 @@ export default {
       methods: {
         async update() {
           let ids = (await awaitResponse("set", [this.selectedChannelId]))?.data || [];
-          this.userIds = ids;
+          let currentUser = UserStore.getCurrentUser();
+          this.userIds = ids.filter((id) => id !== currentUser.id);
 
           this.updateTooltips();
         },
