@@ -59,6 +59,8 @@ export default {
           })
         },
         onJoin([channelId, userId]) {
+          if (UserStore.getCurrentUser().id === userId) return;
+
           if (this.userIds.indexOf(userId) === -1)
             this.userIds.push(userId);
           this.updateTooltips();

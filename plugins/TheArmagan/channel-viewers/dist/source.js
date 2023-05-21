@@ -3675,6 +3675,8 @@
               });
             },
             onJoin([channelId, userId]) {
+              if (common.UserStore.getCurrentUser().id === userId)
+                return;
               if (this.userIds.indexOf(userId) === -1)
                 this.userIds.push(userId);
               this.updateTooltips();
