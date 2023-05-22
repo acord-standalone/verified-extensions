@@ -1817,6 +1817,38 @@
   },
   {
     "meta": {
+      "author": "TheArmagan",
+      "id": "volume-boost",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/volume-boost/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Volume Boost",
+          "tr": "Ses Yükseltici"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Allows you to change users volume to more than 200%",
+          "tr": "Kullanıcıların sesini 200%'den fazla arttırmanızı sağlar"
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md"
+      },
+      "api": {},
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
       "author": "ErdemGKSL",
       "id": "NotAnotherAnimeTheme",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/ErdemGKSL/NotAnotherAnimeTheme/dist"
