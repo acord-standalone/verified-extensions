@@ -1,0 +1,35 @@
+{
+  "hash": "b83a7924315e29c26094963e48c807abfe2a8a1a82d06f98eea06f9d2992dda2",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Volume Boost",
+      "tr": "Ses Yükseltici"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Allows you to change users volume to more than 200%",
+      "tr": "Kullanıcıların sesini 200%'den fazla arttırmanızı sağlar"
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md"
+  },
+  "i18n": {
+    "default": {
+      "CHANGE_USER_VOLUME": "Change User Volume"
+    },
+    "tr": {
+      "CHANGE_USER_VOLUME": "Kullanıcı Ses Seviyesini Değiştir"
+    }
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
