@@ -3639,7 +3639,8 @@
           data() {
             return {
               userIds: [],
-              selectedChannelId: null
+              selectedChannelId: null,
+              tooltips: []
             };
           },
           computed: {
@@ -3666,11 +3667,13 @@
               this.updateTooltips();
             },
             updateTooltips() {
+              this.tooltips.forEach((tooltip) => tooltip.destroy());
+              this.tooltips = [];
               this.$nextTick(() => {
                 document.querySelectorAll(".cv--avatars .avatar").forEach((elm) => {
-                  let tooltip = elm.tooltip || ui__default["default"].tooltips.create(elm);
+                  let tooltip = ui__default["default"].tooltips.create(elm);
                   tooltip.content = elm.getAttribute("acord--tooltip-content");
-                  elm.tooltip = tooltip;
+                  this.tooltips.push(tooltip);
                 });
               });
             },
@@ -3706,7 +3709,6 @@
           dom__default["default"].patch(
             ".channelTextArea-1FufC0",
             (elm) => {
-              internalApp.userIds = [];
               elm.classList.add("cv--container");
               elm.appendChild(avatarsContainer);
               internalApp.update();
