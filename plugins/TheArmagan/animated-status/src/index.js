@@ -22,8 +22,8 @@ async function loop() {
     d.customStatus = {
       expiresAtMs: "0",
       text: status.state,
-      emojiName: status.emoji,
-      emojiId: "0",
+      emojiName: status.emojiName,
+      emojiId: status.emojiId,
     };
   }, 0);
 
@@ -39,6 +39,8 @@ function resetLoop() {
   loop();
 }
 
+const customEmojiRegex = /<(a)?:([a-zA-Z0-9_-]+):(\d+)>/;
+
 function updateStatuses() {
   let t = (persist.ghost?.settings?.statuses || "")?.trim() || "";
   if (!t) {
@@ -48,10 +50,14 @@ function updateStatuses() {
 
   statuses = t.split("\n").map(l => {
     let [state, timeout, emoji] = l.split("|");
+    emoji = emoji?.trim();
+    let isCustomEmoji = customEmojiRegex.test(emoji);
+    let customEmoji = isCustomEmoji ? emoji.match(customEmojiRegex) : [];
     return {
       state: state?.trim(),
       timeout: Math.max(isNaN(timeout?.trim()) ? 10 : parseFloat(timeout.trim()), 1),
-      emoji: emoji?.trim(),
+      emojiName: isCustomEmoji ? customEmoji[2] : emoji?.trim(),
+      emojiId: isCustomEmoji ? customEmoji[3] : "0",
     }
   })
 }
