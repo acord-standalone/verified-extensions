@@ -1,5 +1,5 @@
 {
-  "hash": "9a4072bbe55da5055b5173a09f08ab9950fc1451d9eae34fb5c3887ad1a29e20",
+  "hash": "4409f8f52d545afaeaca78628a0eb0f8a6bd9ced85c27c71ba138e2559bcb281",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.9",
+    "version": "0.0.10",
     "license": "MIT",
     "previews": [
       {
@@ -30,7 +30,6 @@
     "utils": true,
     "dom": true,
     "authentication": true,
-    "i18n": true,
     "modules": {
       "common": [
         {
@@ -55,6 +54,10 @@
         },
         {
           "name": "moment",
+          "reason": "..."
+        },
+        {
+          "name": "InviteActions",
           "reason": "..."
         }
       ]
