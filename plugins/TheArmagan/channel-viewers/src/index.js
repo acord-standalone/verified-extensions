@@ -4,6 +4,7 @@ import ui from "@acord/ui";
 import { subscriptions } from "@acord/extension";
 import { UserStore, SelectedChannelStore } from "@acord/modules/common";
 import { socket, awaitResponse } from "./connection/socket.js";
+import authentication from "@acord/authentication";
 
 import injectSCSS from "./styles.scss";
 
@@ -36,11 +37,15 @@ export default {
         socket.on("join", this.onJoin);
         socket.on("leave", this.onLeave);
         events.on("DocumentTitleChange", this.titleUpdate);
+        events.on("AuthenticationSuccess", this.authUpdate);
+        events.on("AuthenticationFailure", this.authUpdate);
       },
       unmounted() {
         socket.off("join", this.onJoin);
         socket.off("leave", this.onLeave);
         events.off("DocumentTitleChange", this.titleUpdate);
+        events.off("AuthenticationSuccess", this.authUpdate);
+        events.off("AuthenticationFailure", this.authUpdate);
       },
       methods: {
         async update() {
@@ -49,6 +54,14 @@ export default {
           this.userIds = ids.filter((id) => id !== currentUser.id);
 
           this.updateTooltips();
+        },
+        authUpdate() {
+          if (authentication.token) {
+            socket.connect();
+            socket.emit(":login", { acordToken: authentication.token });
+          } else {
+            socket.disconnect();
+          }
         },
         updateTooltips() {
           this.tooltips.forEach((tooltip) => tooltip.destroy());

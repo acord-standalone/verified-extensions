@@ -3653,11 +3653,15 @@
             socket.on("join", this.onJoin);
             socket.on("leave", this.onLeave);
             events__default["default"].on("DocumentTitleChange", this.titleUpdate);
+            events__default["default"].on("AuthenticationSuccess", this.authUpdate);
+            events__default["default"].on("AuthenticationFailure", this.authUpdate);
           },
           unmounted() {
             socket.off("join", this.onJoin);
             socket.off("leave", this.onLeave);
             events__default["default"].off("DocumentTitleChange", this.titleUpdate);
+            events__default["default"].off("AuthenticationSuccess", this.authUpdate);
+            events__default["default"].off("AuthenticationFailure", this.authUpdate);
           },
           methods: {
             async update() {
@@ -3665,6 +3669,14 @@
               let currentUser = common.UserStore.getCurrentUser();
               this.userIds = ids.filter((id) => id !== currentUser.id);
               this.updateTooltips();
+            },
+            authUpdate() {
+              if (authentication__default["default"].token) {
+                socket.connect();
+                socket.emit(":login", { acordToken: authentication__default["default"].token });
+              } else {
+                socket.disconnect();
+              }
             },
             updateTooltips() {
               this.tooltips.forEach((tooltip) => tooltip.destroy());
