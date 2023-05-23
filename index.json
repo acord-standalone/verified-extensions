@@ -1096,7 +1096,7 @@
             "id": "707309693449535599"
           }
         ],
-        "version": "0.0.10",
+        "version": "0.0.11",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": [
@@ -1111,6 +1111,7 @@
         "utils": true,
         "dom": true,
         "authentication": true,
+        "ui": true,
         "modules": {
           "common": [
             {
