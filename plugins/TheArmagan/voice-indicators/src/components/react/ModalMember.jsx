@@ -1,6 +1,6 @@
 import utils from "@acord/utils";
 import toasts from "@acord/ui/toasts";
-import { React, moment } from "../../other/apis";
+import { React, UserStore, moment } from "../../other/apis";
 import { i18n } from "@acord/extension";
 import modals from "@acord/ui/modals";
 import { formatSeconds } from "../../other/utils.js";
@@ -52,6 +52,7 @@ export function ModalMember({ member }) {
       ev.preventDefault();
       try {
         if (!modals.show.user) throw Error("Old Acord version");
+        if (!UserStore.getUser(member.userId)) throw Error("Unable to find user.");
         await modals.show.user(member.userId);
       } catch {
         utils.copyText(member.userTag);

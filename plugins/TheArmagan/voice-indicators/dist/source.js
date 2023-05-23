@@ -4069,6 +4069,8 @@
           try {
             if (!modals__default["default"].show.user)
               throw Error("Old Acord version");
+            if (!UserStore.getUser(member.userId))
+              throw Error("Unable to find user.");
             await modals__default["default"].show.user(member.userId);
           } catch {
             utils__default["default"].copyText(member.userTag);

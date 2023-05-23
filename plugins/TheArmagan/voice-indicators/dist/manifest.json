@@ -1,5 +1,5 @@
 {
-  "hash": "cdcfbb2069e41e9be66f2f14479cc291b414470a9510839750739b1d799c7433",
+  "hash": "9415d8e616aafed6ad4f235abb5b24ce79f21266b3953b44b2ccdd14b96a5f39",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Shows voice indicators on the right side of the users. Supports private calls as well.",
       "tr": "Kullanıcıların sağ tarafında ses indikatörleri gösterir. Özel aramaları da destekler."
     },
-    "version": "3.0.8",
+    "version": "3.0.9",
     "previews": [
       {
         "name": "Default",
@@ -39,7 +39,8 @@
       "CAN_CONNECT": "Can Connect",
       "CANT_CONNECT": "Can't Connect",
       "IN_TOTAL_CHANNELS": "{0} channels in total",
-      "IN_VOICE_FOR": "In voice for {0}"
+      "IN_VOICE_FOR": "In voice for {0}",
+      "X_COPIED": "{0} copied to clipboard."
     },
     "tr": {
       "VOICE_STATES": "Ses Durumları",
@@ -55,7 +56,8 @@
       "CAN_CONNECT": "Bağlanılanabilir.",
       "CANT_CONNECT": "Bağlanamaz.",
       "IN_TOTAL_CHANNELS": "Toplamda {0} kanalda",
-      "IN_VOICE_FOR": "{0} için sesli kanalda"
+      "IN_VOICE_FOR": "{0} için sesli kanalda",
+      "X_COPIED": "{0} panoya kopyalandı."
     }
   },
   "config": [
