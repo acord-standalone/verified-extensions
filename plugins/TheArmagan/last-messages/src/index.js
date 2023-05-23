@@ -1,8 +1,7 @@
 import dom from "@acord/dom";
-import { ChannelStore, GuildStore, Router, FluxDispatcher, moment, UserStore } from "@acord/modules/common";
+import { ChannelStore, GuildStore, Router, FluxDispatcher, moment, UserStore, InviteActions } from "@acord/modules/common";
 import { subscriptions, i18n } from "@acord/extension";
 import utils from "@acord/utils";
-import mainI18N from "@acord/i18n";
 import patchSCSS from "./styles.scss";
 import authentication from "@acord/authentication";
 
@@ -47,7 +46,8 @@ export default {
             channel?.name ?? null,
             guild?.id ?? null,
             guild?.name ?? null,
-            possibleTooltip ?? null
+            possibleTooltip ?? null,
+            guild?.vanityURLCode ?? null
           ];
           localCache.updated = true;
         } catch (e) { console.log(e); }
@@ -103,7 +103,8 @@ export default {
         channelName: i[2],
         guildId: i[3],
         guildName: i[4],
-        possibleTooltip: i[5]
+        possibleTooltip: i[5],
+        vanity: i[6]
       }));
 
       if (!data.length) {
@@ -135,7 +136,15 @@ export default {
 
         if (channel) {
           container.querySelector(".channelMention").onclick = () => {
-            Router.transitionTo(`/channels/${i.guildId || "@me"}/${i.channelId}`);
+            if (i.vanity && !channel) {
+              InviteActions.acceptInvite({ inviteKey: i.vanity }).then(() => {
+                channel = ChannelStore.getChannel(i.channelId);
+                Router.transitionTo(`/channels/${i.guildId || "@me"}/${i.channelId}`);
+              });
+              return;
+            } else if (channel) {
+              Router.transitionTo(`/channels/${i.guildId || "@me"}/${i.channelId}`);
+            }
           };
         }
 
