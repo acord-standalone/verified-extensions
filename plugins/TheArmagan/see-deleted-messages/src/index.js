@@ -1,6 +1,7 @@
-import { subscriptions } from "@acord/extension";
+import { subscriptions, i18n } from "@acord/extension";
 import actionHandlers from "@acord/actionHandlers";
 import dom from "@acord/dom";
+import { contextMenus } from "@acord/ui";
 import { FluxDispatcher, MessageStore, UserStore } from "@acord/modules/common";
 
 export default {
@@ -24,6 +25,8 @@ export default {
         return () => {
           e.style.backgroundColor = "";
         }
+      } else {
+        e.style.backgroundColor = "";
       }
     }
 
@@ -40,6 +43,28 @@ export default {
 
     subscriptions.push(
       dom.patch('[id^="chat-messages-"]', handleDomElement),
+      contextMenus.patch("message", (elm, props) => {
+        if (deletedMessageData.has(props.message.id))
+          elm.props.children.push(
+            contextMenus.build.item({
+              type: "separator",
+            }),
+            contextMenus.build.item({
+              label: i18n.format("DELETE_FROM_ME"),
+              action() {
+                let delMsg = deletedMessageData.get(props.message.id);
+                if (delMsg) {
+                  FluxDispatcher.dispatch({
+                    type: "MESSAGE_DELETE",
+                    ...delMsg,
+                    __original__: true,
+                  });
+                  deletedMessageData.delete(props.message.id);
+                }
+              }
+            })
+          );
+      }),
       actionHandlers.patch("MESSAGE_DELETE", "MessageStore", {
         actionHandler(d) {
           if (!shouldIgnoreMessage(MessageStore.getMessage(d.event.channelId, d.event.id))) d.cancel();
