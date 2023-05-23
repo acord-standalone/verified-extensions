@@ -1,5 +1,5 @@
 {
-  "hash": "4409f8f52d545afaeaca78628a0eb0f8a6bd9ced85c27c71ba138e2559bcb281",
+  "hash": "95a7fdc19b3fe7d700a2feadedf657c4b60ac6521b94cbe2c198a4ec56e9325c",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.10",
+    "version": "0.0.11",
     "license": "MIT",
     "previews": [
       {
@@ -30,6 +30,7 @@
     "utils": true,
     "dom": true,
     "authentication": true,
+    "ui": true,
     "modules": {
       "common": [
         {
@@ -70,13 +71,21 @@
       "LAST_MESSAGES": "Last Messages",
       "LOADING": "Loading...",
       "ERROR": "Something went wrong..",
-      "NO_MESSAGES": "Couldn't find any messages from this user recently."
+      "NO_MESSAGES": "Couldn't find any messages from this user recently.",
+      "CHANNEL_NOT_FOUND": "Couldn't find any target channel.",
+      "CHANNEL_FOUND": "Target channel found.",
+      "JOINING": "Joining...",
+      "UNABLE_TO_JOIN": "Unable to join the target channel."
     },
     "tr": {
       "LAST_MESSAGES": "Son Mesajlar",
       "LOADING": "Yükleniyor...",
       "ERROR": "Bir şeyler ters gitti..",
-      "NO_MESSAGES": "Bu kullanıcıdan yakın zamanda hiç mesaj bulamadım."
+      "NO_MESSAGES": "Bu kullanıcıdan yakın zamanda hiç mesaj bulamadım.",
+      "CHANNEL_NOT_FOUND": "Hedef kanal bulunamadı.",
+      "CHANNEL_FOUND": "Hedef kanal bulundu.",
+      "JOINING": "Katılınıyor...",
+      "UNABLE_TO_JOIN": "Hedef kanala katılamadım."
     }
   },
   "readme": true
