@@ -1881,7 +1881,7 @@
           "default": "Allows you to change users volume to more than 200%",
           "tr": "Kullanıcıların sesini 200%'den fazla arttırmanızı sağlar"
         },
-        "version": "0.0.1",
+        "version": "0.0.2",
         "license": "MIT",
         "readme": "./readme.md"
       },
