@@ -1,5 +1,5 @@
 {
-  "hash": "b83a7924315e29c26094963e48c807abfe2a8a1a82d06f98eea06f9d2992dda2",
+  "hash": "be5e0988d86ca66460e744ec0a476673dd9ecbcf1a4b31d6f56454035fa54d7e",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to change users volume to more than 200%",
       "tr": "Kullanıcıların sesini 200%'den fazla arttırmanızı sağlar"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "readme": "./readme.md"
   },

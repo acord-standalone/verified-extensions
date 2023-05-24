@@ -16,7 +16,7 @@
           "user-context",
           (menu, props) => {
             let volumeParent = utils__default["default"].findInTree(menu, (i) => i?.props?.children?.props?.id === "user-volume");
-            if (!volumeParent)
+            if (!volumeParent?.props?.children)
               return;
             if (!Array.isArray(volumeParent.props.children))
               volumeParent.props.children = [volumeParent.props.children];

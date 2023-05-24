@@ -14,7 +14,7 @@ export default {
         "user-context",
         (menu, props) => {
           let volumeParent = utils.findInTree(menu, i => i?.props?.children?.props?.id === "user-volume");
-          if (!volumeParent) return;
+          if (!volumeParent?.props?.children) return;
 
           if (!Array.isArray(volumeParent.props.children)) volumeParent.props.children = [volumeParent.props.children];
 
