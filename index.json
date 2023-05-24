@@ -1542,6 +1542,44 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "toggle-game-activity",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/toggle-game-activity/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Toggle Game Activity",
+          "tr": "Oyunuyor Durumunu Aç/Kapat"
+        },
+        "description": {
+          "default": "Allows you to toggle game activity easily.",
+          "tr": "Oyunuyor durumunu kolayca açıp kapatabilmenizi sağlar."
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://media.discordapp.net/attachments/992923898192601118/1110676954941763646/image.png"
+          }
+        ]
+      },
+      "api": {},
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "unmirror-camera",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/unmirror-camera/dist"
     },
