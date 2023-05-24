@@ -1,5 +1,5 @@
 {
-  "hash": "c29132d77561d7b324eed0ce913a918024e86ea468c7d033972f30cb0c927f18",
+  "hash": "e0816164639b07867d73a65e8c7a251d2f842a9fca2625866230439a56749eff",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.12",
+    "version": "0.0.13",
     "license": "MIT",
     "previews": [
       {

@@ -116,12 +116,12 @@ export default {
       sectionContent.innerHTML = "";
 
       data.forEach(i => {
-        const guild = i.guildId ? GuildStore.getGuild(i.guildId) : null;
-        const channel = i.channelId ? ChannelStore.getChannel(i.channelId) : null;
+        let guild = i.guildId ? GuildStore.getGuild(i.guildId) : null;
+        let channel = i.channelId ? ChannelStore.getChannel(i.channelId) : null;
 
         let tooltip = `${i.guildId ? `${guild ? `${guild.name} > ` : `${i.guildName} > `}` : ""}${channel ? channel.name : i.channelName || ""}`.trim();
         if (!tooltip) tooltip = i.possibleTooltip;
-        const container = dom.parse(`
+        let container = dom.parse(`
           <div class="line">
             <span class="timestamp-6-ptG3 info" acord--tooltip-content="${moment(i.date).format("DD.MM.YYYY HH:mm:ss")}">
               ${moment(i.date).format("MMM DD, YYYY HH:mm")}
