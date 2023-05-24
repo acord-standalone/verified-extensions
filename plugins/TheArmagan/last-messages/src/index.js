@@ -138,12 +138,16 @@ export default {
         container.querySelector(".channelMention").onclick = () => {
           if (i.vanity && !channel) {
             ui.toasts.show.info(i18n.format("JOINING"));
-            InviteActions.acceptInvite({ inviteKey: i.vanity }).then(() => {
-              channel = ChannelStore.getChannel(i.channelId);
-              Router.transitionTo(`/channels/${i.guildId || "@me"}/${i.channelId}`);
-              ui.toasts.show.success(i18n.format("CHANNEL_FOUND"));
-            }).catch(() => {
-              ui.toasts.show.error(i18n.format("UNABLE_TO_JOIN"));
+            InviteActions.acceptInvite({ inviteKey: i.vanity }).finally(() => {
+              setTimeout(() => {
+                channel = ChannelStore.getChannel(i.channelId);
+                if (channel) {
+                  Router.transitionTo(`/channels/${i.guildId || "@me"}/${i.channelId}`);
+                  ui.toasts.show.success(i18n.format("CHANNEL_FOUND"));
+                } else {
+                  ui.toasts.show.error(i18n.format("CHANNEL_NOT_FOUND"));
+                }
+              }, 1000);
             });
             return;
           } else if (channel) {
