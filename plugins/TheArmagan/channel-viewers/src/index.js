@@ -2,7 +2,7 @@ import dom from "@acord/dom";
 import events from "@acord/events";
 import ui from "@acord/ui";
 import { subscriptions } from "@acord/extension";
-import { UserStore, SelectedChannelStore } from "@acord/modules/common";
+import { UserStore, SelectedChannelStore, FluxDispatcher } from "@acord/modules/common";
 import { socket, awaitResponse } from "./connection/socket.js";
 import authentication from "@acord/authentication";
 
@@ -39,6 +39,7 @@ export default {
         events.on("DocumentTitleChange", this.titleUpdate);
         events.on("AuthenticationSuccess", this.authUpdate);
         events.on("AuthenticationFailure", this.authUpdate);
+        FluxDispatcher.subscribe("WINDOW_FOCUS", this.focusUpdate);
       },
       unmounted() {
         socket.off("join", this.onJoin);
@@ -46,13 +47,13 @@ export default {
         events.off("DocumentTitleChange", this.titleUpdate);
         events.off("AuthenticationSuccess", this.authUpdate);
         events.off("AuthenticationFailure", this.authUpdate);
+        FluxDispatcher.unsubscribe("WINDOW_FOCUS", this.focusUpdate);
       },
       methods: {
         async update() {
           let ids = (await awaitResponse("set", [this.selectedChannelId]))?.data || [];
           let currentUser = UserStore.getCurrentUser();
           this.userIds = ids.filter((id) => id !== currentUser.id);
-
           this.updateTooltips();
         },
         authUpdate() {
@@ -97,7 +98,15 @@ export default {
         titleUpdateDebounced: _.debounce(function () {
           this.selectedChannelId = SelectedChannelStore.getChannelId();
           this.update();
-        }, 1000)
+        }, 1000),
+        focusUpdate: _.debounce(async function focusUpdate({ focused }) {
+          if (focused) {
+            this.titleUpdateDebounced();
+          } else {
+            await awaitResponse("set", [null]);
+            this.updateTooltips();
+          }
+        }, 100)
       }
     });
 

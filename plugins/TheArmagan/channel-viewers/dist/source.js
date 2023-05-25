@@ -3655,6 +3655,7 @@
             events__default["default"].on("DocumentTitleChange", this.titleUpdate);
             events__default["default"].on("AuthenticationSuccess", this.authUpdate);
             events__default["default"].on("AuthenticationFailure", this.authUpdate);
+            common.FluxDispatcher.subscribe("WINDOW_FOCUS", this.focusUpdate);
           },
           unmounted() {
             socket.off("join", this.onJoin);
@@ -3662,6 +3663,7 @@
             events__default["default"].off("DocumentTitleChange", this.titleUpdate);
             events__default["default"].off("AuthenticationSuccess", this.authUpdate);
             events__default["default"].off("AuthenticationFailure", this.authUpdate);
+            common.FluxDispatcher.unsubscribe("WINDOW_FOCUS", this.focusUpdate);
           },
           methods: {
             async update() {
@@ -3712,7 +3714,15 @@
             titleUpdateDebounced: _.debounce(function() {
               this.selectedChannelId = common.SelectedChannelStore.getChannelId();
               this.update();
-            }, 1e3)
+            }, 1e3),
+            focusUpdate: _.debounce(async function focusUpdate({ focused }) {
+              if (focused) {
+                this.titleUpdateDebounced();
+              } else {
+                await awaitResponse("set", [null]);
+                this.updateTooltips();
+              }
+            }, 100)
           }
         });
         app.mount(avatarsContainer);
