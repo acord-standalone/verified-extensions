@@ -73,6 +73,9 @@ export default {
         events.on("AuthenticationFailure", authUpdate);
 
         function onSeen([channelId, messageId, userId]) {
+          document.querySelectorAll('[id^="chat-messages-"]').forEach(elm => {
+            elm?.__ms__remove?.(userId);
+          });
           document.querySelector(`#chat-messages-${channelId}-${messageId}`)?.__ms__add?.([userId, Date.now()]);
         }
 
