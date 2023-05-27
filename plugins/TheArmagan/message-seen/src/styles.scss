@@ -1,0 +1,35 @@
+.ms {
+  &--container {
+    position: relative;
+  }
+
+  &--avatars {
+    position: absolute;
+    bottom: 0px;
+    right: 4px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    .avatar {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: -4px;
+      border: 2px solid #313338;
+      transition: 100ms ease-in-out all;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    &:hover {
+      .avatar {
+        margin: 0px;
+      }
+    }
+  }
+}
