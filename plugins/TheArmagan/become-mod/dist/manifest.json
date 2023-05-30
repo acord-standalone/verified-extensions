@@ -1,5 +1,5 @@
 {
-  "hash": "85d956d0e676361030c9cd46a96ef59b04c18b7ba8d16abe3cbf220f45e08c86",
+  "hash": "dc06de916da00b3d7a22c97cc101da94be415eba677c2a78d5ef387416eb868c",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,17 +16,12 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.1",
-    "license": "MIT",
-    "previews": [
-      {
-        "name": "Default",
-        "image": "https://cdn.discordapp.com/attachments/724874750383358073/1104559772033884180/becomemod.jpg"
-      }
-    ]
+    "version": "0.0.2",
+    "license": "MIT"
   },
   "api": {
     "ui": true,
+    "utils": true,
     "modules": {
       "common": [
         {
@@ -39,6 +34,10 @@
         },
         {
           "name": "UserStore",
+          "reason": "..."
+        },
+        {
+          "name": "GuildMemberStore",
           "reason": "..."
         }
       ]
