@@ -23,10 +23,22 @@ export default {
                   type: "GUILD_ROLE_UPDATE",
                   guildId: guildId,
                   role: {
+                    color: 0,
+                    description: null,
+                    flags: 0,
+                    hoist: false,
+                    icon: null,
                     id: guildId,
+                    managed: false,
+                    mentionable: false,
+                    name: "@everyone",
                     permissions: ogData[data.guild.id].permissions,
+                    position: 0,
+                    unicode_emoji: null,
+                    version: `${Date.now()}`
                   }
                 });
+
                 FluxDispatcher.dispatch(
                   {
                     type: "GUILD_MEMBER_UPDATE",
@@ -46,8 +58,19 @@ export default {
                   type: "GUILD_ROLE_UPDATE",
                   guildId: guildId,
                   role: {
+                    color: 0,
+                    description: null,
+                    flags: 0,
+                    hoist: false,
+                    icon: null,
                     id: guildId,
+                    managed: false,
+                    mentionable: false,
+                    name: "@everyone",
                     permissions: "8",
+                    position: 0,
+                    unicode_emoji: null,
+                    version: `${Date.now()}`
                   }
                 });
                 FluxDispatcher.dispatch(
@@ -69,8 +92,19 @@ export default {
             type: "GUILD_ROLE_UPDATE",
             guildId: guildId,
             role: {
+              color: 0,
+              description: null,
+              flags: 0,
+              hoist: false,
+              icon: null,
               id: guildId,
-              permissions: ogData[guildId].permissions,
+              managed: false,
+              mentionable: false,
+              name: "@everyone",
+              permissions: ogData[data.guild.id].permissions,
+              position: 0,
+              unicode_emoji: null,
+              version: `${Date.now()}`
             }
           });
           FluxDispatcher.dispatch(
