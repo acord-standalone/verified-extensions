@@ -390,6 +390,39 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "acord-emojis",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/acord-emojis/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Acord Emojis",
+          "tr": "Acord Emojileri"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Allows you to use nitro emojis between Acord users.",
+          "tr": "Acord kullanıcıları arasında nitro emojilerini kullanmanızı sağlar."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {},
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "animated-status",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/animated-status/dist"
     },
