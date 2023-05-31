@@ -1,5 +1,5 @@
 import patcher from "@acord/patcher";
-import { subscriptions } from "@acord/extension";
+import { subscriptions, persist } from "@acord/extension";
 import { MessageActions, PremiumActions, EmojiStore, SelectedGuildStore, FluxDispatcher } from "@acord/modules/common";
 
 export default {
@@ -58,6 +58,8 @@ export default {
     // }
 
     function ogToOwn(content) {
+      const selectedGuildId = SelectedGuildStore.getGuildId();
+
       const separator = '<';
       const closingSeparator = '>';
 
@@ -70,9 +72,13 @@ export default {
         const animStr = content.charAt(openingIndex + separator.length) === 'a' ? 'a' : '';
         const emoteStr = content.slice(openingIndex + separator.length + animStr.length, closingIndex);
         const emoteParts = emoteStr.split(':');
-        if (emoteParts.length === 3 && emoteParts[1].trim() !== '') {
-          const emoteName = emoteParts[1].trim();
-          const emoteId = emoteParts[2];
+
+        const emoteName = emoteParts[1].trim();
+        const emoteId = emoteParts[2];
+
+        const emoji = EmojiStore.getCustomEmojiById(emoteId);
+
+        if (emoteParts.length === 3 && emoteParts[1].trim() !== '' && !(emoji && !emoji.animated && selectedGuildId && emoji.guildId == selectedGuildId)) {
           result += content.slice(startIndex, openingIndex) + `|(${animStr};${emoteName};${emoteId})|`;
         } else {
           result += content.slice(startIndex, closingIndex + closingSeparator.length);
@@ -91,6 +97,7 @@ export default {
         "sendMessage",
         MessageActions,
         function (args) {
+          if (!persist.ghost.settings.handleOutgoing) return;
           if (args[1] && args[1].content) {
             args[1].invalidEmojis = [];
             args[1].validNonShortcutEmojis = args[1].validNonShortcutEmojis.filter(i => !i.available);
@@ -102,6 +109,8 @@ export default {
         "editMessage",
         MessageActions,
         function (args) {
+          if (!persist.ghost.settings.handleOutgoing) return;
+
           if (args[2] && args[2].content) {
             args[2].content = ogToOwn(args[2].content);
           }
@@ -123,6 +132,7 @@ export default {
       ),
       (() => {
         function eventHandler(e) {
+          if (!persist.ghost.settings.handleIncoming) return;
           if ((e.type === "MESSAGE_CREATE" || e.type === "MESSAGE_UPDATE") && e.message && e.message.content) {
             e.message.content = ownToOg(e.message.content);
           } else if (e.type === "LOAD_MESSAGES_SUCCESS" && e.messages) {
