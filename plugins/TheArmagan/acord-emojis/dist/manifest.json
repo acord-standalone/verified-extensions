@@ -1,0 +1,28 @@
+{
+  "hash": "575c0bdbe4ed8421fe61e23bca546fedfd3e3a65d46177dc5dd7084246f21efd",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Acord Emojis",
+      "tr": "Acord Emojileri"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Allows you to use nitro emojis between Acord users.",
+      "tr": "Acord kullanıcıları arasında nitro emojilerini kullanmanızı sağlar."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
