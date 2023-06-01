@@ -72,15 +72,19 @@ export default {
         const animStr = content.charAt(openingIndex + separator.length) === 'a' ? 'a' : '';
         const emoteStr = content.slice(openingIndex + separator.length + animStr.length, closingIndex);
         const emoteParts = emoteStr.split(':');
+        let ignore = true;
+        if (emoteParts.length === 3 && emoteParts[1].trim() !== '') {
+          const emoteName = emoteParts[1].trim();
+          const emoteId = emoteParts[2];
 
-        const emoteName = emoteParts[1].trim();
-        const emoteId = emoteParts[2];
+          const emoji = EmojiStore.getCustomEmojiById(emoteId);
 
-        const emoji = EmojiStore.getCustomEmojiById(emoteId);
-
-        if (emoteParts.length === 3 && emoteParts[1].trim() !== '' && !(emoji && !emoji.animated && selectedGuildId && emoji.guildId == selectedGuildId)) {
-          result += content.slice(startIndex, openingIndex) + `|(${animStr};${emoteName};${emoteId})|`;
-        } else {
+          if (!(emoji && !emoji.animated && selectedGuildId && emoji.guildId === selectedGuildId)) {
+            result += content.slice(startIndex, openingIndex) + `|(${animStr};${emoteName};${emoteId})|`;
+            ignore = false;
+          }
+        }
+        if (ignore) {
           result += content.slice(startIndex, closingIndex + closingSeparator.length);
         }
 
