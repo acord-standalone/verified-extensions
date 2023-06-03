@@ -1,5 +1,5 @@
 {
-  "hash": "780b421e448ba8aa2214a5c2bce17a51a91daf0a8c3cf41ec40e2c853e8c7f9d",
+  "hash": "0f505979b472abc98ec1e37107426fe0b0e12535851006d827638a5462e47c6c",
   "type": "plugin",
   "about": {
     "name": {
@@ -8,7 +8,7 @@
     },
     "description": {
       "default": "Automatically saves message media.",
-      "tr": "Mesaj dedyalarını otomatik olarak kaydetmenize olanak sağlar."
+      "tr": "Mesaj medyalarını otomatik olarak kaydetmenize olanak sağlar."
     },
     "authors": [
       {
