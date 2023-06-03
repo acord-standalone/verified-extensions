@@ -43,7 +43,7 @@ export default {
               if (persist.ghost.settings.fileExtensions.includes("all") || persist.ghost.settings.fileExtensions.includes(atc.filename.split(".").pop())) {
                 let guild_id = message.guild_id ? `guild-${message.guild_id}` : `account-${UserStore.getCurrentUser().id}`;
                 try {
-                  let req = await fetch(atc.url);
+                  let req = await fetch(atc.proxy_url || atc.url);
                   let data = new DataView(await req.arrayBuffer());
                   if (!fs.existsSync(`${persist.store.settings.folderPath}/${guild_id}/channel-${message.channel_id}/user-${message.author.id}`)) {
                     await fs.promises.mkdir(`${persist.store.settings.folderPath}/${guild_id}/channel-${message.channel_id}/user-${message.author.id}`, { recursive: true });
