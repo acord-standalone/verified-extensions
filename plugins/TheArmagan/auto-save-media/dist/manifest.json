@@ -1,0 +1,118 @@
+{
+  "hash": "a2bd6613f090cb2f39052783422a033164784da8a7999ef805b0c07fa0de526c",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Auto Save Media",
+      "tr": "Otomatik Medya Kaydet"
+    },
+    "description": {
+      "default": "Automatically saves message media.",
+      "tr": "Mesaj dedyalarını otomatik olarak kaydetmenize olanak sağlar."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "i18n": {
+    "default": {
+      "AUTO_SAVE_MEDIA": "Auto Save Media"
+    },
+    "tr": {
+      "AUTO_SAVE_MEDIA": "Medyayı Otomatik Kaydet"
+    }
+  },
+  "config": [
+    {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Channels Ids",
+            "tr": "Kanal Idleri"
+          }
+        },
+        {
+          "type": "Paragraph",
+          "value": {
+            "default": "The channel ids separated by comma. If you want to save all channels, type all.",
+            "tr": "Kanal idlerini virgülle ayırarak yazın. Eğer tüm kanalları kaydetmek istiyorsanız all yazın."
+          }
+        },
+        {
+          "type": "Textarea",
+          "default": "",
+          "id": "channelIds",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "File Extensions",
+            "tr": "Dosya Uzantıları"
+          }
+        },
+        {
+          "type": "Paragraph",
+          "value": {
+            "default": "The file extensions you want to save automatically. If you want to save all extensions, type all.",
+            "tr": "Otomatik olarak kaydetmek istediğiniz dosya uzantıları her şeyi istiyorsanız all yazın."
+          }
+        },
+        {
+          "type": "Textarea",
+          "default": "png, jpg, jpeg, gif, mp4, mp3, webm",
+          "id": "fileExtensions",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Folder Path",
+            "tr": "Klasör Yolu"
+          }
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Input",
+              "default": "",
+              "id": "folderPath"
+            },
+            {
+              "type": "Button",
+              "id": "folderPathButton",
+              "value": {
+                "default": "Choose Folder",
+                "tr": "Klasör Seç"
+              },
+              "width": "150px"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "readme": true
+}
