@@ -1,26 +1,228 @@
 import { subscriptions, i18n } from "@acord/extension";
-import actionHandlers from "@acord/actionHandlers";
 import dom from "@acord/dom";
+import patcher from "@acord/patcher";
+import utils from "@acord/utils";
+import sharedStorage from "@acord/storage/shared";
 import { contextMenus } from "@acord/ui";
-import { FluxDispatcher, MessageStore, UserStore } from "@acord/modules/common";
+import { FluxDispatcher, MessageStore, UserStore, ChannelStore } from "@acord/modules/common";
+
+function findLastIndex(array, predicate) {
+  let l = array.length;
+  while (l--) {
+    if (predicate(array[l], l, array))
+      return l;
+  }
+  return -1;
+}
+
+function cleanupUserObject(user) {
+  return {
+    discriminator: user.discriminator,
+    username: user.username,
+    avatar: user.avatar,
+    id: user.id,
+    bot: user.bot,
+    public_flags: typeof user.publicFlags !== 'undefined' ? user.publicFlags : user.public_flags
+  };
+}
+function cleanupEmbed(embed) {
+  if (!embed?.id) return embed;
+  const retEmbed = {};
+  if (typeof embed.rawTitle === 'string') retEmbed.title = embed.rawTitle;
+  if (typeof embed.rawDescription === 'string') retEmbed.description = embed.rawDescription;
+  if (typeof embed.referenceId !== 'undefined') retEmbed.reference_id = embed.referenceId;
+  if (typeof embed.color === 'string') retEmbed.color = ZeresPluginLibrary.ColorConverter.hex2int(embed.color);
+  if (typeof embed.type !== 'undefined') retEmbed.type = embed.type;
+  if (typeof embed.url !== 'undefined') retEmbed.url = embed.url;
+  if (typeof embed.provider === 'object') retEmbed.provider = { name: embed.provider.name, url: embed.provider.url };
+  if (typeof embed.footer === 'object') retEmbed.footer = { text: embed.footer.text, icon_url: embed.footer.iconURL, proxy_icon_url: embed.footer.iconProxyURL };
+  if (typeof embed.author === 'object') retEmbed.author = { name: embed.author.name, url: embed.author.url, icon_url: embed.author.iconURL, proxy_icon_url: embed.author.iconProxyURL };
+  if (typeof embed.timestamp === 'object' && embed.timestamp._isAMomentObject) retEmbed.timestamp = embed.timestamp.milliseconds();
+  if (typeof embed.thumbnail === 'object') {
+    if (typeof embed.thumbnail.proxyURL === 'string' || (typeof embed.thumbnail.url === 'string' && !embed.thumbnail.url.endsWith('?format=jpeg'))) {
+      retEmbed.thumbnail = {
+        url: embed.thumbnail.url,
+        proxy_url: typeof embed.thumbnail.proxyURL === 'string' ? embed.thumbnail.proxyURL.split('?format')[0] : undefined,
+        width: embed.thumbnail.width,
+        height: embed.thumbnail.height
+      };
+    }
+  }
+  if (typeof embed.image === 'object') {
+    retEmbed.image = {
+      url: embed.image.url,
+      proxy_url: embed.image.proxyURL,
+      width: embed.image.width,
+      height: embed.image.height
+    };
+  }
+  if (typeof embed.video === 'object') {
+    retEmbed.video = {
+      url: embed.video.url,
+      proxy_url: embed.video.proxyURL,
+      width: embed.video.width,
+      height: embed.video.height
+    };
+  }
+  if (Array.isArray(embed.fields) && embed.fields.length) {
+    retEmbed.fields = embed.fields.map(e => ({ name: e.rawName, value: e.rawValue, inline: e.inline }));
+  }
+  return retEmbed;
+}
+
+function cleanupMessageObject(message) {
+  const ret = {
+    mention_everyone: typeof message.mention_everyone !== 'boolean' ? typeof message.mentionEveryone !== 'boolean' ? false : message.mentionEveryone : message.mention_everyone,
+    edited_timestamp: message.edited_timestamp || message.editedTimestamp && new Date(message.editedTimestamp).getTime() || null,
+    attachments: message.attachments || [],
+    channel_id: message.channel_id,
+    reactions: (message.reactions || []).map(e => (!e.emoji.animated && delete e.emoji.animated, !e.me && delete e.me, e)),
+    guild_id: message.guild_id || (ChannelStore.getChannel(message.channel_id) ? ChannelStore.getChannel(message.channel_id).guild_id : undefined),
+    content: message.content,
+    type: message.type,
+    embeds: message.embeds || [],
+    author: cleanupUserObject(message.author),
+    mentions: (message.mentions || []).map(e => (typeof e === 'string' ? UserStore.getUser(e) ? cleanupUserObject(UserStore.getUser(e)) : e : cleanupUserObject(e))),
+    mention_roles: message.mention_roles || message.mentionRoles || [],
+    id: message.id,
+    flags: message.flags,
+    timestamp: new Date(message.timestamp).getTime(),
+    referenced_message: null
+  };
+  if (ret.type === 19) {
+    ret.message_reference = message.message_reference || message.messageReference;
+    if (ret.message_reference) {
+      if (message.referenced_message) {
+        ret.referenced_message = cleanupMessageObject(message.referenced_message);
+      } else if (MessageStore.getMessage(ret.message_reference.channel_id, ret.message_reference.message_id)) {
+        ret.referenced_message = cleanupMessageObject(MessageStore.getMessage(ret.message_reference.channel_id, ret.message_reference.message_id));
+      }
+    }
+  }
+  message.embeds = message.embeds.map(cleanupEmbed);
+  return ret;
+}
 
 export default {
   load() {
-    let deletedMessageData = new Map();
-    subscriptions.push(() => {
-      deletedMessageData.forEach((value, key) => {
-        FluxDispatcher.dispatch({
-          type: "MESSAGE_DELETE",
-          ...value,
-          __original__: true,
-        });
-      });
-      deletedMessageData.clear();
-    });
 
-    function handleDomElement(e) {
-      let msgId = e.id.split("-").pop();
-      if (deletedMessageData.has(msgId)) {
+    const dataUpdateQueue = [];
+    let dataUpdateQueueRunning = false;
+
+    async function saveData() {
+      if (dataUpdateQueueRunning) return;
+      let item = dataUpdateQueue.shift();
+      if (item) {
+        dataUpdateQueueRunning = true;
+        await item();
+        dataUpdateQueueRunning = false;
+        setTimeout(saveData, 0);
+      }
+    }
+
+    function saveMessageToCache(msg) {
+      return new Promise(r => {
+        let cleanedMessage = cleanupMessageObject(msg);
+        dataUpdateQueue.push(async () => {
+          let d = await sharedStorage.get(`DeletedMessages;Channel;${cleanedMessage.channel_id}`, {});
+          d[cleanedMessage.id] = { message: cleanedMessage, saved_at: Date.now() };
+          await sharedStorage.set(`DeletedMessages;Channel;${cleanedMessage.channel_id}`, d);
+          r();
+        });
+        saveData();
+      })
+    }
+
+    function deleteMessageFromCache(msg) {
+      return new Promise(r => {
+        dataUpdateQueue.push(async () => {
+          let d = await sharedStorage.get(`DeletedMessages;Channel;${msg.channel_id}`, {});
+          delete d[msg.id];
+          await sharedStorage.set(`DeletedMessages;Channel;${msg.channel_id}`, d);
+          r();
+
+          FluxDispatcher.dispatch({
+            type: "MESSAGE_DELETE",
+            channelId: msg.channel_id,
+            id: msg.id,
+            __original__: true
+          });
+        });
+        saveData();
+      });
+    }
+
+    function updateMessageFromCache(msg, updater) {
+      return new Promise(r => {
+        dataUpdateQueue.push(async () => {
+          let d = await sharedStorage.get(`DeletedMessages;Channel;${msg.channel_id}`);
+          if (d) {
+            if (d[msg.id]) await updater(d[msg.id]);
+            await sharedStorage.set(`DeletedMessages;Channel;${msg.channel_id}`, d);
+          }
+          r();
+        });
+        saveData();
+      });
+    }
+
+    async function reAddDeletedMessages(messages, channelId, channelStart, channelEnd) {
+      if (!messages.length) return;
+      const savedMessages = await sharedStorage.get(`DeletedMessages;Channel;${channelId}`, {});
+      const deletedMessages = Object.keys(savedMessages);
+
+      const DISCORD_EPOCH = 14200704e5;
+      const IDs = [];
+      const savedIDs = [];
+
+      for (let i = 0, len = messages.length; i < len; i++) {
+        const { id } = messages[i];
+        IDs.push({ id, time: (id / 4194304) + DISCORD_EPOCH });
+      }
+
+      for (let i = 0, len = deletedMessages.length; i < len; i++) {
+        const id = deletedMessages[i];
+        const record = savedMessages[id];
+        if (!record) continue;
+        if (record.hidden) continue;
+        savedIDs.push({ id: id, time: (id / 4194304) + DISCORD_EPOCH });
+      }
+
+      savedIDs.sort((a, b) => a.time - b.time);
+
+      if (!savedIDs.length) return;
+
+      const { time: lowestTime } = IDs.at(-1);
+      const { time: highestTime } = IDs.at(0);
+
+      const lowestIDX = channelEnd ? 0 : savedIDs.findIndex(e => e.time > lowestTime);
+
+      if (lowestIDX === -1) return;
+
+      const highestIDX = channelStart ? savedIDs.length - 1 : findLastIndex(savedIDs, e => e.time < highestTime);
+
+      if (highestIDX === -1) return;
+
+      const reAddIDs = savedIDs.slice(lowestIDX, highestIDX + 1);
+      reAddIDs.push(...IDs);
+      reAddIDs.sort((a, b) => b.time - a.time);
+
+      for (let i = 0, len = reAddIDs.length; i < len; i++) {
+        const { id } = reAddIDs[i];
+        if (messages.findIndex((e) => e?.id === id) !== -1) continue;
+        messages.splice(i, 0, savedMessages[id]?.message);
+        console.log(savedMessages[id]?.message);
+      }
+    }
+
+
+    async function handleDomElement(e) {
+      let [, , chId, msgId] = e.id.split("-");
+      let channelData = await sharedStorage.get(`DeletedMessages;Channel;${chId}`)
+      if (channelData?.[msgId]) {
+        let message = utils.react.getProps(e, i => i?.message)?.message;
+        if (message) message.__deleted__ = true;
+
         e.style.backgroundColor = "rgba(255,0,0,0.1)";
         return () => {
           e.style.backgroundColor = "";
@@ -44,62 +246,83 @@ export default {
     subscriptions.push(
       dom.patch('[id^="chat-messages-"]', handleDomElement),
       contextMenus.patch("message", (elm, props) => {
-        if (deletedMessageData.has(props.message.id))
-          elm.props.children.push(
-            contextMenus.build.item({
-              type: "separator",
-            }),
-            contextMenus.build.item({
-              label: i18n.format("DELETE_FROM_ME"),
-              action() {
-                let delMsg = deletedMessageData.get(props.message.id);
-                if (delMsg) {
-                  FluxDispatcher.dispatch({
-                    type: "MESSAGE_DELETE",
-                    ...delMsg,
-                    __original__: true,
-                  });
-                  deletedMessageData.delete(props.message.id);
-                }
-              }
-            })
-          );
+        if (!props.message.__deleted__) return;
+        elm.props.children.push(
+          contextMenus.build.item({
+            type: "separator",
+          }),
+          contextMenus.build.item({
+            label: i18n.format("DELETE_FROM_ME"),
+            danger: true,
+            action() {
+              deleteMessageFromCache(props.message).then(patchVisibleMessages);
+            }
+          }),
+          contextMenus.build.item({
+            label: i18n.format("HIDE_FROM_ME"),
+            action() {
+              FluxDispatcher.dispatch({
+                type: "MESSAGE_DELETE",
+                channelId: props.message.channel_id,
+                id: props.message.id,
+                __original__: true
+              });
+            }
+          })
+        );
       }),
-      actionHandlers.patch("MESSAGE_DELETE", "MessageStore", {
-        actionHandler(d) {
-          if (!shouldIgnoreMessage(MessageStore.getMessage(d.event.channelId, d.event.id))) d.cancel();
-          delete d.event.type;
-          deletedMessageData.set(d.event.id, d.event);
-          setTimeout(patchVisibleMessages, 0);
-        },
-        storeDidChange(d) {
-          d.cancel();
-        }
-      }),
-      actionHandlers.patch("MESSAGE_DELETE_BULK", "MessageStore", {
-        actionHandler(d) {
-          let toDelete = [];
-          d.event.ids.forEach(id => {
-            if (shouldIgnoreMessage(MessageStore.getMessage(d.event.channelId, id)))
-              return toDelete.push(id);
-            deletedMessageData.set(id, { id, channelId: d.event.channelId, guildId: d.event.guildId });
-          });
-          if (toDelete.length) {
-            FluxDispatcher.dispatch({
-              type: "MESSAGE_DELETE_BULK",
-              ids: toDelete,
-              channelId: d.event.channelId,
-              guildId: d.event.guildId,
-              __original__: true,
-            });
+      patcher.instead(
+        "dispatch",
+        FluxDispatcher,
+        async function (args, ogFunc) {
+          if (args[0].__original__) return ogFunc.call(this, ...args);
+
+          if (args[0].type === "MESSAGE_DELETE") {
+            let msg = MessageStore.getMessage(args[0].channelId, args[0].id);
+            if (shouldIgnoreMessage(msg)) return ogFunc.call(this, ...args);
+            saveMessageToCache(MessageStore.getMessage(args[0].channelId, args[0].id)).then(patchVisibleMessages);
+            return;
           }
-          setTimeout(patchVisibleMessages, 0);
-          d.cancel();
-        },
-        storeDidChange(d) {
-          d.cancel();
+
+          if (args[0].type === "MESSAGE_DELETE_BULK") {
+            let toDelete = [];
+            args[0].ids.forEach(id => {
+              let msg = MessageStore.getMessage(args[0].channelId, id);
+              if (shouldIgnoreMessage(msg)) return toDelete.push(id);
+              saveMessageToCache(msg);
+            });
+            if (toDelete.length) {
+              FluxDispatcher.dispatch({
+                type: "MESSAGE_DELETE_BULK",
+                ids: toDelete,
+                channelId: args[0].channelId,
+                guildId: args[0].guildId,
+                __original__: true,
+              });
+            }
+            setTimeout(patchVisibleMessages, 0);
+            return;
+          }
+
+          if (args[0].type === "LOAD_MESSAGES_SUCCESS") {
+            await reAddDeletedMessages(args[0].messages, args[0].channelId, !args[0].hasMoreAfter && !args[0].isBefore, !args[0].hasMoreBefore && !args[0].isAfter);
+            setTimeout(patchVisibleMessages, 50);
+          }
+
+          try {
+            if (args[0].type === "MESSAGE_UPDATE") {
+              if (shouldIgnoreMessage(args[0].message)) return ogFunc.call(this, ...args);
+              if (!args[0].message.edited_timestamp) {
+                updateMessageFromCache(args[0].message, async (record) => {
+                  record.message.embeds = args[0].message.embeds.map(cleanupEmbed);
+                });
+              }
+            }
+          } catch (e) { }
+
+          return ogFunc.call(this, ...args);
         }
-      }),
+      )
     )
   },
   unload() { }

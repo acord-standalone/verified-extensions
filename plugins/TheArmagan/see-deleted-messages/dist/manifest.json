@@ -1,5 +1,5 @@
 {
-  "hash": "8363d8741539dd30e189029455d02a869252b0650cd32ef09f8c840920f384a3",
+  "hash": "960df54651ae235447536a4b841ee44cc24b22f9e08ce3fce6530824c037d33e",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.4",
+    "version": "0.0.5",
     "license": "MIT",
     "readme": "./readme.md",
     "previews": []
@@ -26,10 +26,12 @@
   "config": [],
   "i18n": {
     "default": {
-      "DELETE_FROM_ME": "Delete From Me"
+      "DELETE_FROM_ME": "Delete From Me",
+      "HIDE_FROM_ME": "Hide From Me"
     },
     "tr": {
-      "DELETE_FROM_ME": "Benden Sil"
+      "DELETE_FROM_ME": "Benden Sil",
+      "HIDE_FROM_ME": "Benden Gizle"
     }
   },
   "readme": true
