@@ -608,7 +608,7 @@
         },
         "description": {
           "default": "Automatically saves message media.",
-          "tr": "Mesaj dedyalarını otomatik olarak kaydetmenize olanak sağlar."
+          "tr": "Mesaj medyalarını otomatik olarak kaydetmenize olanak sağlar."
         },
         "authors": [
           {
