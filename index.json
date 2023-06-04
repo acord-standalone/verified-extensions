@@ -1222,6 +1222,39 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "link-emojis",
+      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/link-emojis/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Link Emojis",
+          "tr": "Emoji Linkleri"
+        },
+        "authors": [
+          {
+            "name": "Armagan#2448",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Converts nitro emojis to links.",
+          "tr": "Nitro emojilerini linklere çevirir."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {},
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "message-seen",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/message-seen/dist"
     },
