@@ -803,7 +803,19 @@
       "api": {
         "dom": true,
         "utils": true,
-        "ui": true
+        "ui": true,
+        "modules": {
+          "common": [
+            {
+              "name": "SelectedGuildStore",
+              "reason": "..."
+            },
+            {
+              "name": "GuildStore",
+              "reason": "..."
+            }
+          ]
+        }
       },
       "mode": "production"
     }
