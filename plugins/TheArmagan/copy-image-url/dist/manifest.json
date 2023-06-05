@@ -1,5 +1,5 @@
 {
-  "hash": "6c885ce3a8db2faeb07742f333bd4d4ecf85a05c675f88130c89cf15f9dfde7d",
+  "hash": "7fdf13767abd458306f1ea8b6088bce1cb7058fa4a9ce73e0377364439ec0c1e",
   "type": "plugin",
   "about": {
     "name": {
@@ -36,7 +36,19 @@
   "api": {
     "dom": true,
     "utils": true,
-    "ui": true
+    "ui": true,
+    "modules": {
+      "common": [
+        {
+          "name": "SelectedGuildStore",
+          "reason": "..."
+        },
+        {
+          "name": "GuildStore",
+          "reason": "..."
+        }
+      ]
+    }
   },
   "mode": "production",
   "config": [],

@@ -2,6 +2,7 @@ import { contextMenus } from "@acord/ui";
 import { subscriptions, i18n } from "@acord/extension";
 import dom from "@acord/dom";
 import utils from "@acord/utils";
+import { SelectedGuildStore, GuildStore } from "@acord/modules/common";
 
 export default {
   load() {
@@ -130,6 +131,28 @@ export default {
           }));
 
           comp.props.children.push(...items);
+        }
+      )
+    );
+
+    subscriptions.push(
+      contextMenus.patch(
+        "dev-context",
+        (comp, props) => {
+          if (!Array.isArray(comp.props.children)) comp.props.children = [comp.props.children];
+          if (!props.label.includes("ID") || !props.id) return;
+          let guildId = SelectedGuildStore.getGuildId();
+          if (!guildId) return;
+          let guild = GuildStore.getGuild(guildId);
+          if (!guild) return;
+          let role = guild.roles[props.id];
+          if (!role?.icon) return;
+          comp.props.children.push(contextMenus.build.item({
+            label: i18n.format("COPY_ICON_URL"),
+            action() {
+              utils.copyText(`https://cdn.discordapp.com/role-icons/${props.id}/${role.icon}.${role.icon.startsWith("a_") ? "gif" : "png"}?size=4096`);
+            }
+          }));
         }
       )
     )
