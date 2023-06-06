@@ -978,67 +978,6 @@
   {
     "meta": {
       "author": "TheArmagan",
-      "id": "epic-nitro-fail",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/epic-nitro-fail/dist"
-    },
-    "manifest": {
-      "index": "./src/index.js",
-      "type": "plugin",
-      "about": {
-        "name": {
-          "default": "Epic Nitro Fail",
-          "tr": "Epik Nitro Başarısızlığı"
-        },
-        "description": {
-          "default": "Allows you to use nitro features without nitro. (You violate the rules of the discord at your own risk.)",
-          "tr": "Nitro olmadan nitro özelliklerini kullanmanıza izin verir. (Discordun kurallarını ihlal etmeniz sizin sorumluluğunuzdadır.)"
-        },
-        "authors": [
-          {
-            "name": "Armagan#2448",
-            "id": "707309693449535599"
-          }
-        ],
-        "version": "0.0.3",
-        "license": "MIT",
-        "readme": "./readme.md",
-        "previews": []
-      },
-      "api": {
-        "modules": {
-          "custom": [
-            {
-              "name": "videoQualityModule",
-              "finder": {
-                "filter": {
-                  "export": false,
-                  "in": "strings",
-                  "by": [
-                    [
-                      "audioSSRC",
-                      "updateVideoQuality"
-                    ]
-                  ]
-                },
-                "path": {
-                  "before": [
-                    "exports.Z",
-                    "exports.ZP",
-                    "exports.default",
-                    "exports"
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      },
-      "mode": "development"
-    }
-  },
-  {
-    "meta": {
-      "author": "TheArmagan",
       "id": "fake-mute-and-deaf",
       "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/fake-mute-and-deaf/dist"
     },
