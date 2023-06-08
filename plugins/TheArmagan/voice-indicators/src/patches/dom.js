@@ -2,7 +2,6 @@ import patchContainer from "../other/patchContainer.js";
 import dom from "@acord/dom";
 import utils from "@acord/utils";
 import ui from "@acord/ui";
-import { indicatorClasses1, indicatorClasses2, indicatorClasses3 } from "@acord/modules/custom";
 import { persist, i18n } from "@acord/extension";
 import { fetchUserVoiceStates } from "../other/api.js";
 import { renderIcon } from "../lib/renderIcon.js";
@@ -10,18 +9,18 @@ import { ChannelStore } from "../other/apis.js";
 import { showModal } from "../lib/showModal.jsx";
 import { formatSeconds } from "../other/utils.js";
 
-
-const indicatorClasses = [
-  indicatorClasses1.nameTag,
-  indicatorClasses2.nameAndDecorators,
-  indicatorClasses3.nameAndDecorators,
-  "nameAndDecorators-2A8Bbk"
+const selectors = [
+  ".nameAndDecorators-3ERwy2",
+  ".userText-1_v2Cq h1",
+  ".container-3g15px .defaultColor-1EVLSt",
+  ".nameAndDecorators-2A8Bbk",
+  ".info-3ddo6z .username-Qpc78p"
 ];
 
 export function patchDOM() {
   patchContainer.add(
     dom.patch(
-      indicatorClasses.map(i => `.${i}`).join(", "),
+      selectors.join(", "),
       (elm) => {
         let user = utils.react.getProps(elm, i => !!i?.user)?.user;
         if (!user) return;

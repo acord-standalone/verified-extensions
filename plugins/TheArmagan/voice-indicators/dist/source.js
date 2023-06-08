@@ -1,4 +1,4 @@
-(function (authentication, common, events, dom, utils, ui, custom, extension, React$1, toasts, modals, patcher) {
+(function (authentication, common, events, dom, utils, ui, extension, React$1, custom, toasts, modals, patcher) {
     'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -4221,16 +4221,17 @@
       });
     }
 
-    const indicatorClasses = [
-      custom.indicatorClasses1.nameTag,
-      custom.indicatorClasses2.nameAndDecorators,
-      custom.indicatorClasses3.nameAndDecorators,
-      "nameAndDecorators-2A8Bbk"
+    const selectors = [
+      ".nameAndDecorators-3ERwy2",
+      ".userText-1_v2Cq h1",
+      ".container-3g15px .defaultColor-1EVLSt",
+      ".nameAndDecorators-2A8Bbk",
+      ".info-3ddo6z .username-Qpc78p"
     ];
     function patchDOM() {
       patchContainer.add(
         dom__default["default"].patch(
-          indicatorClasses.map((i) => `.${i}`).join(", "),
+          selectors.join(", "),
           (elm) => {
             let user = utils__default["default"].react.getProps(elm, (i) => !!i?.user)?.user;
             if (!user)
@@ -4852,4 +4853,4 @@
 
     return index;
 
-})($acord.authentication, $acord.modules.common, $acord.events, $acord.dom, $acord.utils, $acord.ui, $acord.modules.custom, $acord.extension, $acord.modules.common.React, $acord.ui.toasts, $acord.ui.modals, $acord.patcher);
+})($acord.authentication, $acord.modules.common, $acord.events, $acord.dom, $acord.utils, $acord.ui, $acord.extension, $acord.modules.common.React, $acord.modules.custom, $acord.ui.toasts, $acord.ui.modals, $acord.patcher);
