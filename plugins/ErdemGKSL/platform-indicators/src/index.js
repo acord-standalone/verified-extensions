@@ -1,4 +1,3 @@
-import { indicatorClasses1, indicatorClasses2, indicatorClasses3 } from "@acord/modules/custom";
 import { PresenceStore } from "@acord/modules/common"
 import { Desktop } from "./icons/Desktop";
 import { Mobile } from "./icons/Mobile";
@@ -14,7 +13,13 @@ const colors = {
   idle: "#faa81a"
 };
 
-const classes = [indicatorClasses1.nameTag, indicatorClasses2.nameAndDecorators, indicatorClasses3.nameAndDecorators, "nameAndDecorators-2A8Bbk"];
+const selectors = [
+  ".nameAndDecorators-3ERwy2",
+  ".userText-1_v2Cq h1",
+  ".container-3g15px .defaultColor-1EVLSt",
+  ".nameAndDecorators-2A8Bbk",
+  ".info-3ddo6z .username-Qpc78p"
+];
 
 const elements = {
   desktop: (state) => Desktop({ style: { color: colors[state] } }),
@@ -30,7 +35,7 @@ export default {
       events.emit("render");
     }, 5000));
 
-    subscriptions.push(dom.patch(classes.map((c) => `.${c}`).join(", "), /** @type {Element} */(elm) => {
+    subscriptions.push(dom.patch(selectors.join(", "), /** @type {Element} */(elm) => {
       const user = utils.react.getProps(elm, i => !!i?.user)?.user;
       if (!user) return;
       if (user.bot && persist.ghost.settings.ignoreBots) return;

@@ -1,5 +1,5 @@
 {
-  "hash": "4b7ba8fdc56306b0d8ccd0812fdf579ea991d3303f76d3610f9c0aa0970455f4",
+  "hash": "da39fcab3cee7a5df17eb46f16e9237fcec0d37e7670b40e7ae309a31887c79f",
   "type": "plugin",
   "about": {
     "name": {
@@ -20,7 +20,7 @@
       "default": "Shows user's platform next to their username.",
       "tr": "Kullanıcıların kullanıcı adları yanında platformlarını gösterir."
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "previews": [
       {
         "name": "Default",
@@ -59,78 +59,6 @@
     "utils": true,
     "patcher": true,
     "modules": {
-      "custom": [
-        {
-          "name": "indicatorClasses1",
-          "reason": "Platform Indicator Classes",
-          "finder": {
-            "path": {
-              "after": [
-                "exports.Z",
-                "exports.ZP",
-                "exports.default",
-                "exports"
-              ]
-            },
-            "filter": {
-              "in": "properties",
-              "by": [
-                [
-                  "bot",
-                  "nameTag"
-                ]
-              ]
-            }
-          }
-        },
-        {
-          "name": "indicatorClasses2",
-          "reason": "Platform Indicator Classes",
-          "finder": {
-            "path": {
-              "after": [
-                "exports.Z",
-                "exports.ZP",
-                "exports.default",
-                "exports"
-              ]
-            },
-            "filter": {
-              "in": "properties",
-              "by": [
-                [
-                  "wrappedName",
-                  "nameAndDecorators"
-                ]
-              ]
-            }
-          }
-        },
-        {
-          "name": "indicatorClasses3",
-          "reason": "Platform Indicator Classes",
-          "finder": {
-            "path": {
-              "after": [
-                "exports.Z",
-                "exports.ZP",
-                "exports.default",
-                "exports"
-              ]
-            },
-            "filter": {
-              "in": "properties",
-              "by": [
-                [
-                  "wrappedName",
-                  "nameAndDecorators",
-                  "selected"
-                ]
-              ]
-            }
-          }
-        }
-      ],
       "common": [
         {
           "name": "PresenceStore",
