@@ -48,7 +48,7 @@ export default {
     },
     config({ data, item } = {}) {
         if (item?.id == "passCode") {
-            if (`${data.value || ""}`.length < 1 || isNaN(data.value)) {
+            if (data.value.length < 1 || isNaN(data.value)) {
                 persist.store.settings.passCode = "0";
             }
         }

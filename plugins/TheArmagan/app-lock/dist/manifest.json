@@ -1,5 +1,5 @@
 {
-  "hash": "35b901784a5ee1854e651d18f5d20b94339a2955a8f3376543bf2d744ed6a6dc",
+  "hash": "e3ac82223d3d300dfc75a927fe3e1ebfb625da357aab268076b0bb5a7b6e2cf3",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Lock the app using CTRL+L, default password is 1234.",
       "tr": "CTRL+L ile uygulamayı kilitle, varsayılan şifre 1234."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "previews": [
       {
         "name": "Default",
@@ -76,7 +76,8 @@
         {
           "type": "Input",
           "default": "1234",
-          "id": "passCode"
+          "id": "passCode",
+          "maxlength": 4
         }
       ]
     },
@@ -98,7 +99,7 @@
         },
         {
           "type": "Check",
-          "default": true,
+          "default": false,
           "id": "autoLock"
         }
       ]
