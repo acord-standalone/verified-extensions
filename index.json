@@ -412,7 +412,7 @@
           "default": "Lock the app using CTRL+L, default password is 1234.",
           "tr": "CTRL+L ile uygulamayı kilitle, varsayılan şifre 1234."
         },
-        "version": "0.0.1",
+        "version": "0.0.2",
         "previews": [
           {
             "name": "Default",
