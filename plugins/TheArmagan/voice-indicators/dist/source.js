@@ -3621,7 +3621,7 @@
     const {
       PermissionStore,
       VoiceStateStore,
-      ChannelStore: ChannelStore$1,
+      ChannelStore,
       GuildStore,
       UserStore,
       InviteActions,
@@ -3655,7 +3655,7 @@
       }) : [];
     }
     function makeRawArray(i) {
-      let channel = ChannelStore$1.getChannel(i.channelId);
+      let channel = ChannelStore.getChannel(i.channelId);
       let guild = GuildStore.getGuild(channel?.guild_id);
       let user = UserStore.getUser(i.userId);
       return [
@@ -4106,7 +4106,7 @@
         if (oldChannelId)
           socket.emit("unsubscribe", ["speaking", [oldChannelId]]);
         socket.emit("subscribe", ["speaking", [state.channelId]]);
-        let channel = ChannelStore$1.getChannel(state.channelId);
+        let channel = ChannelStore.getChannel(state.channelId);
         let inMyChannels = !!channel;
         let isJoinable = !inMyChannels ? false : channel.type == 3 ? true : PermissionStore.can(Permissions.CONNECT, channel) && PermissionStore.can(Permissions.VIEW_CHANNEL, channel);
         setCurrentData({ inMyChannels, isJoinable, state });
@@ -4260,7 +4260,7 @@
                 return rendering = false;
               indicatorContainer.states = states;
               let state = states[0];
-              let channel = ChannelStore$1.getChannel(state.channelId);
+              let channel = ChannelStore.getChannel(state.channelId);
               indicatorContainer.classList.remove("vi--hidden");
               indicatorContainer.classList[!channel ? "add" : "remove"]("vi--cant-join");
               if (elapsedInterval)

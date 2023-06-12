@@ -1,6 +1,6 @@
 import patchContainer from "../other/patchContainer.js";
 import { makeRawArray } from "../other/VoiceStates.js";
-import { FluxDispatcher, VoiceStateStore, SelectedGuildStore } from "../other/apis.js";
+import { FluxDispatcher, VoiceStateStore, SelectedGuildStore, ChannelStore } from "../other/apis.js";
 import { socket } from "../connection/socket.js";
 import events from "@acord/events";
 
