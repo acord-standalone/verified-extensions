@@ -1649,7 +1649,7 @@
           "default": "Shows voice indicators on the right side of the users. Supports private calls as well.",
           "tr": "Kullanıcıların sağ tarafında ses indikatörleri gösterir. Özel aramaları da destekler."
         },
-        "version": "3.0.10",
+        "version": "3.0.11",
         "previews": [
           {
             "name": "Default",
@@ -1746,6 +1746,10 @@
             },
             {
               "name": "constants",
+              "reason": "..."
+            },
+            {
+              "name": "SelectedGuildStore",
               "reason": "..."
             }
           ]
