@@ -1,16 +1,22 @@
 import patchContainer from "../other/patchContainer.js";
 import { makeRawArray } from "../other/VoiceStates.js";
-import { FluxDispatcher, VoiceStateStore } from "../other/apis.js";
+import { FluxDispatcher, VoiceStateStore, SelectedGuildStore } from "../other/apis.js";
 import { socket } from "../connection/socket.js";
 import events from "@acord/events";
 
 export function patchBulkUpdater() {
+    const wantedGuilds = new Set();
+
     function handleVoiceUpdate(d, alreadyRaw = false) {
-        socket.emit("voiceStateUpdate", [
-            d.oldState ? (alreadyRaw ? d.oldState : makeRawArray(d.oldState)) : null,
-            d.newState ? (alreadyRaw ? d.newState : makeRawArray(d.newState)) : null,
-            d.type
-        ]);
+        let channel = ChannelStore.getChannel(d.channelId);
+
+        if (!channel?.guild_id || wantedGuilds.has(channel.guild_id)) {
+            socket.emit("voiceStateUpdate", [
+                d.oldState ? (alreadyRaw ? d.oldState : makeRawArray(d.oldState)) : null,
+                d.newState ? (alreadyRaw ? d.newState : makeRawArray(d.newState)) : null,
+                d.type
+            ]);
+        }
     }
 
     let _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
@@ -44,7 +50,16 @@ export function patchBulkUpdater() {
     patchContainer.add(
         events.on("AuthenticationSuccess", async () => {
             _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
-        })
+        }),
+        events.on("DocumentTitleChange",
+            _.debounce(() => {
+                let guildId = SelectedGuildStore.getGuildId();
+                if (guildId) wantedGuilds.add(guildId);
+            }, 500)
+        ),
+        () => {
+            wantedGuilds.clear();
+        }
     );
 
     patchContainer.add(

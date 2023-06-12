@@ -3621,11 +3621,12 @@
     const {
       PermissionStore,
       VoiceStateStore,
-      ChannelStore,
+      ChannelStore: ChannelStore$1,
       GuildStore,
       UserStore,
       InviteActions,
       FluxDispatcher,
+      SelectedGuildStore,
       Router: {
         transitionTo
       },
@@ -3654,7 +3655,7 @@
       }) : [];
     }
     function makeRawArray(i) {
-      let channel = ChannelStore.getChannel(i.channelId);
+      let channel = ChannelStore$1.getChannel(i.channelId);
       let guild = GuildStore.getGuild(channel?.guild_id);
       let user = UserStore.getUser(i.userId);
       return [
@@ -4105,7 +4106,7 @@
         if (oldChannelId)
           socket.emit("unsubscribe", ["speaking", [oldChannelId]]);
         socket.emit("subscribe", ["speaking", [state.channelId]]);
-        let channel = ChannelStore.getChannel(state.channelId);
+        let channel = ChannelStore$1.getChannel(state.channelId);
         let inMyChannels = !!channel;
         let isJoinable = !inMyChannels ? false : channel.type == 3 ? true : PermissionStore.can(Permissions.CONNECT, channel) && PermissionStore.can(Permissions.VIEW_CHANNEL, channel);
         setCurrentData({ inMyChannels, isJoinable, state });
@@ -4259,7 +4260,7 @@
                 return rendering = false;
               indicatorContainer.states = states;
               let state = states[0];
-              let channel = ChannelStore.getChannel(state.channelId);
+              let channel = ChannelStore$1.getChannel(state.channelId);
               indicatorContainer.classList.remove("vi--hidden");
               indicatorContainer.classList[!channel ? "add" : "remove"]("vi--cant-join");
               if (elapsedInterval)
@@ -4309,12 +4310,16 @@
     }
 
     function patchBulkUpdater() {
+      const wantedGuilds = /* @__PURE__ */ new Set();
       function handleVoiceUpdate(d, alreadyRaw = false) {
-        socket.emit("voiceStateUpdate", [
-          d.oldState ? alreadyRaw ? d.oldState : makeRawArray(d.oldState) : null,
-          d.newState ? alreadyRaw ? d.newState : makeRawArray(d.newState) : null,
-          d.type
-        ]);
+        let channel = ChannelStore.getChannel(d.channelId);
+        if (!channel?.guild_id || wantedGuilds.has(channel.guild_id)) {
+          socket.emit("voiceStateUpdate", [
+            d.oldState ? alreadyRaw ? d.oldState : makeRawArray(d.oldState) : null,
+            d.newState ? alreadyRaw ? d.newState : makeRawArray(d.newState) : null,
+            d.type
+          ]);
+        }
       }
       let _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
       patchContainer.add((() => {
@@ -4342,7 +4347,18 @@
       patchContainer.add(
         events__default["default"].on("AuthenticationSuccess", async () => {
           _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
-        })
+        }),
+        events__default["default"].on(
+          "DocumentTitleChange",
+          _.debounce(() => {
+            let guildId = SelectedGuildStore.getGuildId();
+            if (guildId)
+              wantedGuilds.add(guildId);
+          }, 500)
+        ),
+        () => {
+          wantedGuilds.clear();
+        }
       );
       patchContainer.add(
         (() => {

@@ -8,6 +8,7 @@ export const {
   UserStore,
   InviteActions,
   FluxDispatcher,
+  SelectedGuildStore,
   Router: {
     transitionTo
   },
