@@ -1,11 +1,14 @@
 import { awaitResponse } from "../connection/socket";
-import { getVoiceChannelMembers } from "./VoiceStates";
+import { getAllVoiceStates, getVoiceChannelMembers, rawToParsed } from "./VoiceStates";
 import { localCache } from "./cache.js";
 
 /** @returns {import("./VoiceStates.js").VoiceStateRaw?} */
 export async function fetchUserVoiceStates(userId) {
+  return getAllVoiceStates()[userId].map(i => rawToParsed(i));
+
   let cached = localCache.responseCache.get(`Users:${userId}`);
   if (cached) return cached.states;
+
 
   let states = await new Promise(r => localCache.stateRequestCache.push([userId, r]));
   states = states.map(i => ({
@@ -25,10 +28,12 @@ export async function fetchUserVoiceStates(userId) {
 }
 
 export async function fetchVoiceMembers(id) {
+
+
   let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
   if (cached) return cached.members;
 
-  let dataOnServer = ((await awaitResponse("members", { id }))?.data || []);
+  let dataOnServer = [] || ((await awaitResponse("members", { id }))?.data || []);
   let dataOnMe = getVoiceChannelMembers(id, false);
   let members = [];
   if (dataOnMe.length) {

@@ -3648,11 +3648,23 @@
       moment
     } = common__default["default"];
 
+    function getAllVoiceStates(rawString) {
+      return Object.fromEntries(getAllVoiceStatesEntries(rawString));
+    }
+    function getAllVoiceStatesEntries(rawString) {
+      return Object.values(VoiceStateStore.getAllVoiceStates()).map((i) => Object.values(i)).flat().map((i) => [
+        i.userId,
+        getUserVoiceStates(i.userId, rawString)
+      ]).filter((i) => i[1]?.length);
+    }
     function getVoiceChannelMembers(channelId, raw = false) {
       let states = VoiceStateStore.getVoiceStatesForChannel(channelId);
       return states ? Object.keys(states).map((userId) => {
         return raw ? makeRawArray(states[userId]) : rawToParsed(makeRawArray(states[userId]));
       }) : [];
+    }
+    function getUserVoiceStates(userId, rawString) {
+      return Object.values(VoiceStateStore.__getLocalVars().users[userId] || {}).map((i) => rawString ? makeRawArray(i).join(";") : makeRawArray(i));
     }
     function makeRawArray(i) {
       let channel = ChannelStore.getChannel(i.channelId);
@@ -3777,30 +3789,13 @@
     };
 
     async function fetchUserVoiceStates(userId) {
-      let cached = localCache.responseCache.get(`Users:${userId}`);
-      if (cached)
-        return cached.states;
-      let states = await new Promise((r) => localCache.stateRequestCache.push([userId, r]));
-      states = states.map((i) => ({
-        channelId: i[0],
-        channelName: i[1],
-        channelIcon: i[2],
-        guildId: i[3],
-        guildName: i[4],
-        guildIcon: i[5],
-        guildVanity: i[6],
-        state: i[7],
-        channelAt: i[8],
-        joinedAt: i[9]
-      }));
-      localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 1e3 });
-      return states;
+      return getAllVoiceStates()[userId].map((i) => rawToParsed(i));
     }
     async function fetchVoiceMembers(id) {
       let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
       if (cached)
         return cached.members;
-      let dataOnServer = (await awaitResponse("members", { id }))?.data || [];
+      let dataOnServer = [];
       let dataOnMe = getVoiceChannelMembers(id, false);
       let members = [];
       if (dataOnMe.length) {
@@ -4260,6 +4255,7 @@
                 return rendering = false;
               indicatorContainer.states = states;
               let state = states[0];
+              console.log(states);
               let channel = ChannelStore.getChannel(state.channelId);
               indicatorContainer.classList.remove("vi--hidden");
               indicatorContainer.classList[!channel ? "add" : "remove"]("vi--cant-join");
