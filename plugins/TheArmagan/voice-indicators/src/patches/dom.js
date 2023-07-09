@@ -52,7 +52,6 @@ export function patchDOM() {
           indicatorContainer.states = states;
 
           let state = states[0];
-          console.log(states);
           let channel = ChannelStore.getChannel(state.channelId);
 
           indicatorContainer.classList.remove("vi--hidden");

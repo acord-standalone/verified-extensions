@@ -4255,7 +4255,6 @@
                 return rendering = false;
               indicatorContainer.states = states;
               let state = states[0];
-              console.log(states);
               let channel = ChannelStore.getChannel(state.channelId);
               indicatorContainer.classList.remove("vi--hidden");
               indicatorContainer.classList[!channel ? "add" : "remove"]("vi--cant-join");
