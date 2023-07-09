@@ -3789,7 +3789,12 @@
     };
 
     async function fetchUserVoiceStates(userId) {
-      return getAllVoiceStates()[userId].map((i) => rawToParsed(i));
+      let cached = localCache.responseCache.get(`Users:${userId}`);
+      if (cached)
+        return cached.states;
+      const states = getAllVoiceStates()[userId].map((i) => rawToParsed(i));
+      localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 3e3 });
+      return states;
     }
     async function fetchVoiceMembers(id) {
       let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
