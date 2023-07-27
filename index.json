@@ -3,7 +3,7 @@
     "meta": {
       "author": "ErdemGKSL",
       "id": "default-guild-config",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/default-guild-config/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/default-guild-config/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -44,14 +44,85 @@
           "custom": []
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Mute"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Mute the guild on join."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": true,
+              "id": "muted"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Suppress Roles"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Suppress the role pings on join."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "suppress_roles"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Suppress Everyone"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Suppress the everyone pings on join."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "suppress_everyone"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "ErdemGKSL",
       "id": "goodword",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/goodword/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/goodword/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -87,14 +158,42 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Bad words",
+                "tr": "Kötü kelimeler"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "Write your bad words, separated by ','.",
+                "tr": "İyi kelime olucak, kötü kelimeleriniz, ',' ile ayırarak yazın."
+              }
+            },
+            {
+              "type": "Textarea",
+              "default": "fuck, amk, oç, aq",
+              "placeholder": "fuck, amk, oç, aq",
+              "id": "badwords",
+              "cols": 6
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "ErdemGKSL",
       "id": "mass-quit-dms",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/mass-quit-dms/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/mass-quit-dms/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -145,14 +244,23 @@
           ]
         }
       },
-      "mode": "production"
+      "i18n": {
+        "default": {
+          "QUIT_DMS": "Quit DM Groups"
+        },
+        "tr": {
+          "QUIT_DMS": "DM Gruplarından Çık"
+        }
+      },
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "ErdemGKSL",
       "id": "platform-indicators",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/platform-indicators/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/platform-indicators/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -184,6 +292,31 @@
           }
         ]
       },
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Ignore bots"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "If enabled, platform indicators will not be shown for bots."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": true,
+              "id": "ignoreBots"
+            }
+          ]
+        }
+      ],
       "mode": "production",
       "api": {
         "dom": true,
@@ -197,6 +330,26 @@
             }
           ]
         }
+      },
+      "i18n": {
+        "default": {
+          "web": "Web",
+          "desktop": "Desktop",
+          "mobile": "Mobile",
+          "embedded": "Embedded",
+          "online": "Online",
+          "idle": "Idle",
+          "dnd": "Do Not Disturb"
+        },
+        "tr": {
+          "web": "Web",
+          "desktop": "Masaüstü",
+          "mobile": "Mobil",
+          "embedded": "Gömülü",
+          "online": "Çevrimiçi",
+          "idle": "Boşta",
+          "dnd": "Rahatsız Etmeyin"
+        }
       }
     }
   },
@@ -204,7 +357,7 @@
     "meta": {
       "author": "ErdemGKSL",
       "id": "vanity-url-notifies",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/ErdemGKSL/vanity-url-notifies/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/vanity-url-notifies/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -250,14 +403,72 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "URLs",
+                "tr": "URL'ler"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "Enter each URL with comma. Format: 'url, url, url'",
+                "tr": "Her URL'yi virgülle ayırın. Format: 'url, url, url'"
+              }
+            },
+            {
+              "type": "Textarea",
+              "default": "hentai",
+              "placeholder": "hentai, anime",
+              "id": "notifyUrls",
+              "cols": 6
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Logs",
+                "tr": "Loglar"
+              }
+            },
+            {
+              "type": "Textarea",
+              "default": "No logs yet.",
+              "id": "logs",
+              "cols": 24,
+              "height": 200,
+              "placeholder": "No logs yet."
+            }
+          ]
+        }
+      ],
+      "i18n": {
+        "default": {
+          "NOTIFICATION": "The vanity URL for {0} has changed from {1} to {2}",
+          "LOG": "{0}: Vanity URL for {1} has changed from {2} to {3}"
+        },
+        "tr": {
+          "NOTIFICATION": "{0} sunucusunun vanity URL'si {1} den {2} a değişti",
+          "LOG": "{0}: {1} sunucusunun vanity URL'si {2} den {3} a değişti"
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "acord-emojis",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/acord-emojis/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/acord-emojis/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -283,14 +494,76 @@
         "previews": []
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Handle Incoming",
+                    "tr": "Gelen Mesajları İşle"
+                  }
+                },
+                {
+                  "type": "Paragraph",
+                  "value": {
+                    "default": "Handles incoming messages and replaces nitro emojis with their image.",
+                    "tr": "Gelen mesajları işler ve nitro emojilerini resimleriyle değiştirir."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": true,
+              "id": "handleIncoming"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Handle Outgoing",
+                    "tr": "Giden Mesajları İşle"
+                  }
+                },
+                {
+                  "type": "Paragraph",
+                  "value": {
+                    "default": "Handles outgoing messages and replaces nitro emojis with their own format. If you are already a nitro user, you can disable this option.",
+                    "tr": "Giden mesajları işler ve nitro emojilerini kendi formatlarıyla değiştirir. Zaten nitro kullanıcısıysanız bu seçeneği devre dışı bırakabilirsiniz."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "handleOutgoing"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "animated-status",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/animated-status/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/animated-status/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -323,14 +596,42 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Statuses",
+                "tr": "Durumlar"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "Each line is a new text. Emoji is optional. Format: Text | Seconds | Emoji",
+                "tr": "Her satır yeni bir metindir. Emoji isteğe bağlıdır. Format: Metin | Saniye | Emoji"
+              }
+            },
+            {
+              "type": "Textarea",
+              "default": "JOIN NOW! | 6 | 😎\ndiscord.gg/acord | 6 | 🎁",
+              "id": "statuses",
+              "cols": 6,
+              "placeholder": "JOIN NOW! | 6 | 😎\ndiscord.gg/acord | 6 | 🎁"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "app-lock",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/app-lock/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/app-lock/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -389,14 +690,86 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Pass Code"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Password for your Discord."
+                }
+              ]
+            },
+            {
+              "type": "Input",
+              "default": "1234",
+              "id": "passCode",
+              "maxlength": 4
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Auto Lock"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Automatically lock the app when starting up the Discord."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "autoLock"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Auto Disconnect"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Automatically disconnect from voice channel and reconnect on unlock."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "autoDisconnect"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "audio-presets",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/audio-presets/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/audio-presets/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -455,14 +828,58 @@
           ]
         }
       },
-      "mode": "development"
+      "mode": "development",
+      "config": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Preset"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Your audio preset configuration.. Supports swapping sounds and also custom sounds from discord cdn(uploads) too. Format is original_name=new_name or original_name=https://discordcdnlink"
+            },
+            {
+              "type": "Textarea",
+              "default": "message1=message2\ncall_ringing=call_ringing_beat",
+              "id": "preset",
+              "placeholder": "message1=message2\ncall_ringing=https://discordcdnlink"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Log Audio Names"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Helpful when trying to identify which sound is which."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "logAudioNames"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "auto-save-media",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/auto-save-media/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/auto-save-media/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -488,14 +905,105 @@
         "previews": []
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "i18n": {
+        "default": {
+          "AUTO_SAVE_MEDIA": "Auto Save Media"
+        },
+        "tr": {
+          "AUTO_SAVE_MEDIA": "Medyayı Otomatik Kaydet"
+        }
+      },
+      "config": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Channels Ids",
+                "tr": "Kanal Idleri"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "The channel ids separated by comma. If you want to save all channels, type all.",
+                "tr": "Kanal idlerini virgülle ayırarak yazın. Eğer tüm kanalları kaydetmek istiyorsanız all yazın."
+              }
+            },
+            {
+              "type": "Textarea",
+              "default": "",
+              "id": "channelIds",
+              "placeholder": ""
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "File Extensions",
+                "tr": "Dosya Uzantıları"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "The file extensions you want to save automatically. If you want to save all extensions, type all.",
+                "tr": "Otomatik olarak kaydetmek istediğiniz dosya uzantıları her şeyi istiyorsanız all yazın."
+              }
+            },
+            {
+              "type": "Textarea",
+              "default": "png, jpg, jpeg, gif, mp4, mp3, webm",
+              "id": "fileExtensions",
+              "placeholder": ""
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Folder Path",
+                "tr": "Klasör Yolu"
+              }
+            },
+            {
+              "type": "Row",
+              "children": [
+                {
+                  "type": "Input",
+                  "default": "",
+                  "id": "folderPath"
+                },
+                {
+                  "type": "Button",
+                  "id": "folderPathButton",
+                  "value": {
+                    "default": "Choose Folder",
+                    "tr": "Klasör Seç"
+                  },
+                  "width": "150px"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "become-mod",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/become-mod/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/become-mod/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -543,14 +1051,23 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [],
+      "i18n": {
+        "default": {
+          "BECOME_MOD": "Become Mod"
+        },
+        "tr": {
+          "BECOME_MOD": "Yetkili Ol"
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "better-role-colors",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/better-role-colors/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/better-role-colors/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -597,14 +1114,15 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "channel-viewers",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/channel-viewers/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/channel-viewers/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -634,15 +1152,30 @@
           }
         ]
       },
+      "i18n": {
+        "default": {
+          "COPY_IMAGE_URL": "Copy Image URL",
+          "COPY_BANNER_URL": "Copy Banner URL",
+          "COPY_AVATAR_URL": "Copy Avatar URL",
+          "COPY_ICON_URL": "Copy Icon URL"
+        },
+        "tr": {
+          "COPY_IMAGE_URL": "Resim URL'sini Kopyala",
+          "COPY_BANNER_URL": "Banner URL'sini Kopyala",
+          "COPY_AVATAR_URL": "Avatar URL'sini Kopyala",
+          "COPY_ICON_URL": "Icon URL'sini Kopyala"
+        }
+      },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "copy-image-url",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/copy-image-url/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/copy-image-url/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -666,6 +1199,20 @@
         "license": "MIT",
         "readme": "./readme.md"
       },
+      "i18n": {
+        "default": {
+          "COPY_IMAGE_URL": "Copy Image URL",
+          "COPY_BANNER_URL": "Copy Banner URL",
+          "COPY_AVATAR_URL": "Copy Avatar URL",
+          "COPY_ICON_URL": "Copy Icon URL"
+        },
+        "tr": {
+          "COPY_IMAGE_URL": "Resim URL'sini Kopyala",
+          "COPY_BANNER_URL": "Banner URL'sini Kopyala",
+          "COPY_AVATAR_URL": "Avatar URL'sini Kopyala",
+          "COPY_ICON_URL": "Icon URL'sini Kopyala"
+        }
+      },
       "api": {
         "dom": true,
         "utils": true,
@@ -683,14 +1230,15 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "copy-raw-message",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/copy-raw-message/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/copy-raw-message/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -719,14 +1267,23 @@
         "utils": true,
         "ui": true
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [],
+      "i18n": {
+        "default": {
+          "COPY_RAW_MESSAGE": "Copy Raw Message"
+        },
+        "tr": {
+          "COPY_RAW_MESSAGE": "Çiğ Mesajı Kopyala"
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "custom-css",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/custom-css/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/custom-css/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -751,14 +1308,31 @@
       "api": {
         "patcher": true
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Custom CSS"
+            },
+            {
+              "type": "Textarea",
+              "default": "",
+              "id": "customCSS",
+              "height": "200px"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "custom-status",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/custom-status/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/custom-status/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -786,6 +1360,286 @@
           }
         ]
       },
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Application Id"
+                },
+                {
+                  "type": "Input",
+                  "default": "1083403277980409937",
+                  "placeholder": "1083403277980409937",
+                  "id": "application_id"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Name"
+                },
+                {
+                  "type": "Input",
+                  "default": "Acord",
+                  "placeholder": "Acord",
+                  "id": "name"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Activity Type"
+                },
+                {
+                  "type": "Select",
+                  "default": 0,
+                  "id": "type",
+                  "options": [
+                    {
+                      "label": "Playing",
+                      "value": 0
+                    },
+                    {
+                      "label": "Streaming",
+                      "value": 1
+                    },
+                    {
+                      "label": "Listening",
+                      "value": 2
+                    },
+                    {
+                      "label": "Watching",
+                      "value": 3
+                    },
+                    {
+                      "label": "Competing",
+                      "value": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Details (Top) (Required)"
+                },
+                {
+                  "type": "Input",
+                  "default": "Details",
+                  "placeholder": "Top Text",
+                  "id": "details"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "State (Bottom) (Required)"
+                },
+                {
+                  "type": "Input",
+                  "default": "State",
+                  "placeholder": "Bottom Text",
+                  "id": "state"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Button 1 Text"
+                },
+                {
+                  "type": "Input",
+                  "default": "Button 1",
+                  "id": "button_1_text"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Button 1 URL"
+                },
+                {
+                  "type": "Input",
+                  "default": "https://discord.gg/acord",
+                  "id": "button_1_url"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Button 2 Text"
+                },
+                {
+                  "type": "Input",
+                  "default": "Button 2",
+                  "id": "button_2_text"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Button 2 URL"
+                },
+                {
+                  "type": "Input",
+                  "default": "https://discord.gg/acord",
+                  "id": "button_2_url"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Start Timestamp"
+                },
+                {
+                  "type": "Input",
+                  "default": "",
+                  "placeholder": "",
+                  "id": "start_timestamp"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "End Timestamp"
+                },
+                {
+                  "type": "Input",
+                  "default": "",
+                  "placeholder": "",
+                  "id": "end_timestamp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Large Image Name"
+                },
+                {
+                  "type": "Input",
+                  "default": "",
+                  "id": "large_image"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Large Image Text"
+                },
+                {
+                  "type": "Input",
+                  "default": "",
+                  "id": "large_text"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Small Image Name"
+                },
+                {
+                  "type": "Input",
+                  "default": "",
+                  "id": "small_image"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Small Image Text"
+                },
+                {
+                  "type": "Input",
+                  "default": "",
+                  "id": "small_text"
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "mode": "development"
     }
   },
@@ -793,7 +1647,7 @@
     "meta": {
       "author": "TheArmagan",
       "id": "double-click-to-edit",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/double-click-to-edit/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/double-click-to-edit/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -838,14 +1692,15 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "fake-mute-and-deaf",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/fake-mute-and-deaf/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/fake-mute-and-deaf/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -891,14 +1746,51 @@
           ]
         }
       },
-      "mode": "production"
+      "i18n": {
+        "tr": {
+          "FAKE_MUTE": "Sahte Susturma",
+          "FAKE_DEAF": "Sahte Sağırlaştırma",
+          "FAKE_CAMERA": "Sahte Kamera"
+        },
+        "default": {
+          "FAKE_MUTE": "Fake Mute",
+          "FAKE_DEAF": "Fake Deafen",
+          "FAKE_CAMERA": "Fake Camera"
+        }
+      },
+      "mode": "production",
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Auto Mute"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Automatically mutes you when you defaen yourself."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": true,
+              "id": "autoMute"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "force-channel-notifications",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/force-channel-notifications/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/force-channel-notifications/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -924,14 +1816,99 @@
         "previews": []
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Channel Ids"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Force notifications on these channels."
+                }
+              ]
+            },
+            {
+              "type": "Textarea",
+              "default": "",
+              "id": "channelIds"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Only when hidden"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Send notifications only when the Discord fully is hidden."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "onlyWhenHidden"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Silent Notifications"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Send notifications silently."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "silentNotifications"
+            }
+          ]
+        }
+      ],
+      "i18n": {
+        "default": {
+          "FORCE_NOTIFICATIONS": "Force Notifications",
+          "NO_CONTENT": "No content to display.",
+          "TITLE": "{0} in {1}",
+          "DMS": "Direct Messages"
+        },
+        "tr": {
+          "FORCE_NOTIFICATIONS": "Bildirimlere Zorla",
+          "NO_CONTENT": "Gösterilecek içerik yok.",
+          "TITLE": "{0} ({1})",
+          "DMS": "Direkt Mesajlar"
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "guild-member-counts",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/guild-member-counts/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/guild-member-counts/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -957,14 +1934,23 @@
         "previews": []
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": [],
+      "i18n": {
+        "default": {
+          "MEMBER_COUNT": "{0} members"
+        },
+        "tr": {
+          "MEMBER_COUNT": "{0} üye"
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "last-messages",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/last-messages/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/last-messages/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1033,14 +2019,37 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [],
+      "i18n": {
+        "default": {
+          "LAST_MESSAGES": "Last Messages",
+          "LOADING": "Loading...",
+          "ERROR": "Something went wrong..",
+          "NO_MESSAGES": "Couldn't find any messages from this user recently.",
+          "CHANNEL_NOT_FOUND": "Couldn't find any target channel.",
+          "CHANNEL_FOUND": "Target channel found.",
+          "JOINING": "Joining...",
+          "UNABLE_TO_JOIN": "Unable to join the target channel."
+        },
+        "tr": {
+          "LAST_MESSAGES": "Son Mesajlar",
+          "LOADING": "Yükleniyor...",
+          "ERROR": "Bir şeyler ters gitti..",
+          "NO_MESSAGES": "Bu kullanıcıdan yakın zamanda hiç mesaj bulamadım.",
+          "CHANNEL_NOT_FOUND": "Hedef kanal bulunamadı.",
+          "CHANNEL_FOUND": "Hedef kanal bulundu.",
+          "JOINING": "Katılınıyor...",
+          "UNABLE_TO_JOIN": "Hedef kanala katılamadım."
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "link-emojis",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/link-emojis/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/link-emojis/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1066,14 +2075,68 @@
         "previews": []
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": [
+        {
+          "type": "Row",
+          "gap": "8px",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Size",
+                    "tr": "Boyut"
+                  }
+                },
+                {
+                  "type": "Paragraph",
+                  "value": {
+                    "default": "Size of the emojis to be sent.",
+                    "tr": "Emojilerin atılacağı boyut."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Select",
+              "default": 32,
+              "id": "size",
+              "options": [
+                {
+                  "label": "16",
+                  "value": 16
+                },
+                {
+                  "label": "32",
+                  "value": 32
+                },
+                {
+                  "label": "48",
+                  "value": 48
+                },
+                {
+                  "label": "64",
+                  "value": 64
+                },
+                {
+                  "label": "128",
+                  "value": 128
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "message-seen",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/message-seen/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/message-seen/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1097,14 +2160,15 @@
         "license": "MIT"
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "no-spotify-auto-pause",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/no-spotify-auto-pause/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/no-spotify-auto-pause/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1132,14 +2196,15 @@
       "api": {
         "patcher": true
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "relationships-notifier",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/relationships-notifier/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/relationships-notifier/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1163,14 +2228,15 @@
         "previews": []
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "see-deleted-messages",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/see-deleted-messages/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/see-deleted-messages/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1196,14 +2262,25 @@
         "previews": []
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": [],
+      "i18n": {
+        "default": {
+          "DELETE_FROM_ME": "Delete From Me",
+          "HIDE_FROM_ME": "Hide From Me"
+        },
+        "tr": {
+          "DELETE_FROM_ME": "Benden Sil",
+          "HIDE_FROM_ME": "Benden Gizle"
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "see-hidden-channels",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/see-hidden-channels/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/see-hidden-channels/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1245,14 +2322,23 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [],
+      "i18n": {
+        "default": {
+          "SEE_HIDDEN_CHANNELS": "See Hidden Channels"
+        },
+        "tr": {
+          "SEE_HIDDEN_CHANNELS": "Gizli Kanalları Gör"
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "sound-board",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/sound-board/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/sound-board/dist"
     },
     "manifest": {
       "index": "./src/index.jsx",
@@ -1280,6 +2366,81 @@
           }
         ]
       },
+      "i18n": {
+        "default": {
+          "SOUND_BOARD": "Sound Board",
+          "VOLUME": "Volume: {0}%",
+          "ADD_TO_SOUNDBOARD": "Add to Soundboard",
+          "REMOVE_FROM_SOUNDBOARD": "Remove from Soundboard",
+          "IMPORT_MEDIA_URL": "https://cdn.discordapp.com/attachments",
+          "IMPORT_MEDIA": "Import Media",
+          "PAUSE": "Pause",
+          "RESUME": "Resume",
+          "STOP": "Stop",
+          "PLAY": "Play",
+          "SOUND_VOLUME": "Sound Volume"
+        },
+        "tr": {
+          "SOUND_BOARD": "Ses Tablosu",
+          "VOLUME": "Ses Seviyesi: %{0}",
+          "ADD_TO_SOUNDBOARD": "Ses Tablosuna ekle",
+          "REMOVE_FROM_SOUNDBOARD": "Ses Tablosundan kaldır",
+          "IMPORT_MEDIA_URL": "https://cdn.discordapp.com/attachments",
+          "IMPORT_MEDIA": "Import Media",
+          "PAUSE": "Duraklat",
+          "RESUME": "Devam Et",
+          "STOP": "Durdur",
+          "PLAY": "Başlat",
+          "SOUND_VOLUME": "Ses Seviyesi"
+        }
+      },
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Max Volume"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "The maximum possible volume of the sounds."
+                }
+              ]
+            },
+            {
+              "type": "Input",
+              "default": 100,
+              "id": "maxVolume",
+              "inputType": "number",
+              "min": 0,
+              "max": 1000
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Sounds"
+            },
+            {
+              "type": "Paragraph",
+              "value": "Each line is a new sound. Format: SoundName;SoundLink;Volume"
+            },
+            {
+              "type": "Textarea",
+              "default": "",
+              "id": "sounds",
+              "cols": 6
+            }
+          ]
+        }
+      ],
       "mode": "production",
       "api": {
         "patcher": true,
@@ -1386,7 +2547,7 @@
     "meta": {
       "author": "TheArmagan",
       "id": "spotify-controls",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/spotify-controls/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/spotify-controls/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1417,14 +2578,15 @@
         ]
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "tabs",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/tabs/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/tabs/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1448,6 +2610,32 @@
         "license": "MIT",
         "readme": "./readme.md",
         "previews": []
+      },
+      "i18n": {
+        "default": {
+          "LOADING": "Loading..",
+          "OPEN_IN_NEW_TAB": "Open in new tab",
+          "CLOSE": "Close",
+          "DELETE": "Delete",
+          "CLOSE_TABS_TO_RIGHT": "Close tabs to right",
+          "ADD_TO_BOOKMARKS": "Add to bookmarks",
+          "RENAME": "Rename",
+          "CLOSE_OTHER_TABS": "Close other tabs",
+          "MOVE_TAB_TO_LEFT": "Move tab to left",
+          "MOVE_TAB_TO_RIGHT": "Move tab to right"
+        },
+        "tr": {
+          "LOADING": "Yükleniyor..",
+          "OPEN_IN_NEW_TAB": "Yeni sekmede aç",
+          "CLOSE": "Kapat",
+          "DELETE": "Sil",
+          "CLOSE_TABS_TO_RIGHT": "Sağ taraftaki sekmeleri kapat",
+          "ADD_TO_BOOKMARKS": "Kitaplığa Ekle",
+          "RENAME": "Yeniden Adlandır",
+          "CLOSE_OTHER_TABS": "Diğer sekmeleri kapat",
+          "MOVE_TAB_TO_LEFT": "Sekmeyi sola kaydır",
+          "MOVE_TAB_TO_RIGHT": "Sekmeyi sağa kaydır"
+        }
       },
       "api": {
         "ui": true,
@@ -1488,14 +2676,15 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "toggle-game-activity",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/toggle-game-activity/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/toggle-game-activity/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1526,14 +2715,25 @@
         ]
       },
       "api": {},
-      "mode": "development"
+      "mode": "development",
+      "config": [],
+      "i18n": {
+        "default": {
+          "DISABLE": "Disable Activity",
+          "ENABLE": "Enable Activity"
+        },
+        "tr": {
+          "DISABLE": "Oyunuyor Durumunu Kapat",
+          "ENABLE": "Oyunuyor Durumunu Aç"
+        }
+      }
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "unmirror-camera",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/unmirror-camera/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/unmirror-camera/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1560,14 +2760,15 @@
       "api": {
         "patcher": true
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "voice-indicators",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/voice-indicators/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/voice-indicators/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1595,6 +2796,102 @@
           }
         ]
       },
+      "i18n": {
+        "default": {
+          "VOICE_STATES": "Voice States",
+          "X_VIEW_CHANNEL": "Viewing {0}",
+          "X_JOIN_CHANNEL": "Joining {0}",
+          "PRIVATE_CALL": "Private Call",
+          "JOIN_GUILD": "Join Guild",
+          "UNKNOWN": "<Unknown>",
+          "CANT_JOIN": "Can't Join",
+          "CANT_VIEW": "Can't View",
+          "JOIN": "Join",
+          "VIEW": "View",
+          "CAN_CONNECT": "Can Connect",
+          "CANT_CONNECT": "Can't Connect",
+          "IN_TOTAL_CHANNELS": "{0} channels in total",
+          "IN_VOICE_FOR": "In voice for {0}",
+          "X_COPIED": "{0} copied to clipboard."
+        },
+        "tr": {
+          "VOICE_STATES": "Ses Durumları",
+          "X_VIEW_CHANNEL": "{0} kanalı görüntüleniyor.",
+          "X_JOIN_CHANNEL": "{0} kanalına katılınıyor.",
+          "PRIVATE_CALL": "Özel Arama",
+          "JOIN_GUILD": "Sunucuya Katıl",
+          "UNKNOWN": "<Bilinmeyen>",
+          "CANT_JOIN": "Katılınamıyor",
+          "CANT_VIEW": "Görüntülenemiyor.",
+          "JOIN": "Katıl",
+          "VIEW": "Gör",
+          "CAN_CONNECT": "Bağlanılanabilir.",
+          "CANT_CONNECT": "Bağlanamaz.",
+          "IN_TOTAL_CHANNELS": "Toplamda {0} kanalda",
+          "IN_VOICE_FOR": "{0} için sesli kanalda",
+          "X_COPIED": "{0} panoya kopyalandı."
+        }
+      },
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Ignore Bots",
+                    "tr": "Botları Yoksay"
+                  }
+                },
+                {
+                  "type": "Paragraph",
+                  "value": {
+                    "default": "Do not show voice indicators on bots.",
+                    "tr": "Botların ses indikatörlerini gösterme."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": true,
+              "id": "ignoreBots"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Performance Mode",
+                    "tr": "Performans Modu"
+                  }
+                },
+                {
+                  "type": "Paragraph",
+                  "value": {
+                    "default": "Slower checks. (Makes plugin less stable.)",
+                    "tr": "Daha yavaş kontrol. (Eklenti daha az stabil hale gelir.)"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "performanceMode"
+            }
+          ]
+        }
+      ],
       "mode": "production",
       "api": {
         "dom": true,
@@ -1699,7 +2996,7 @@
     "meta": {
       "author": "TheArmagan",
       "id": "voice-timer",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/plugins/TheArmagan/voice-timer/dist"
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/voice-timer/dist"
     },
     "manifest": {
       "index": "./src/index.js",
@@ -1727,6 +3024,14 @@
           }
         ]
       },
+      "i18n": {
+        "default": {
+          "CALL_TIME": "Time Elapsed: {0}"
+        },
+        "tr": {
+          "CALL_TIME": "Geçen Süre: {0}"
+        }
+      },
       "api": {
         "patcher": true,
         "utils": true,
@@ -1740,14 +3045,15 @@
           ]
         }
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "ErdemGKSL",
       "id": "NotAnotherAnimeTheme",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/ErdemGKSL/NotAnotherAnimeTheme/dist"
+      "url": "https://api.acord.app/extensions/raw/themes/ErdemGKSL/NotAnotherAnimeTheme/dist"
     },
     "manifest": {
       "index": "./style.css",
@@ -1776,14 +3082,15 @@
           }
         ]
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "amoled-cord",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/amoled-cord/dist"
+      "url": "https://api.acord.app/extensions/raw/themes/TheArmagan/amoled-cord/dist"
     },
     "manifest": {
       "index": "./src/style.css",
@@ -1805,14 +3112,15 @@
         "version": "4.0.3",
         "license": "MIT"
       },
-      "mode": "production"
+      "mode": "production",
+      "config": []
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "borderroles",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/borderroles/dist"
+      "url": "https://api.acord.app/extensions/raw/themes/TheArmagan/borderroles/dist"
     },
     "manifest": {
       "index": "./src/style.css",
@@ -1841,14 +3149,40 @@
           }
         ]
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Full Round"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Makes role pills fully round."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "fullRound"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "radialstatus",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/radialstatus/dist"
+      "url": "https://api.acord.app/extensions/raw/themes/TheArmagan/radialstatus/dist"
     },
     "manifest": {
       "index": "./src/style.css",
@@ -1877,14 +3211,65 @@
           }
         ]
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Avatar Shape"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "50% = Circle, 0% = Square"
+                }
+              ]
+            },
+            {
+              "type": "Input",
+              "default": "50%",
+              "placeholder": "50%",
+              "id": "avatarShape"
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": "Show Phone"
+                },
+                {
+                  "type": "Paragraph",
+                  "value": "Visibility of the phone icon next to a users avatar."
+                }
+              ]
+            },
+            {
+              "type": "Check",
+              "default": true,
+              "id": "phoneVisible"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "meta": {
       "author": "TheArmagan",
       "id": "translucence",
-      "url": "https://raw.githubusercontent.com/acord-standalone/verified-extensions/main/themes/TheArmagan/translucence/dist"
+      "url": "https://api.acord.app/extensions/raw/themes/TheArmagan/translucence/dist"
     },
     "manifest": {
       "index": "./src/style.css",
@@ -1911,7 +3296,357 @@
           }
         ]
       },
-      "mode": "production"
+      "mode": "production",
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Background Image",
+                    "tr": "Arkaplan Resmi"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "https://i.imgur.com/upSMOgj.png",
+                  "placeholder": "https://i.imgur.com/upSMOgj.png",
+                  "id": "bgImage"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "App Blur",
+                    "tr": "Uygulama Bulanıklığı"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "6px",
+                  "placeholder": "6px",
+                  "id": "appBlur"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "App Margin",
+                    "tr": "Uygulama Dış Boşluğu"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "0px",
+                  "placeholder": "0px",
+                  "id": "appMargin"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "App Radius",
+                    "tr": "Uygulama Yarıçapı"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "0px",
+                  "placeholder": "0px",
+                  "id": "appRadius"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Accent Color",
+                    "tr": "Vurgu Rengi"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "7",
+                  "placeholder": "7",
+                  "id": "accentHue"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Accent Saturation",
+                    "tr": "Vurgu Doygunluğu"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "25%",
+                  "placeholder": "25%",
+                  "id": "accentSaturation"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Accent Lightness",
+                    "tr": "Vurgu Açıklığı"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "69%",
+                  "placeholder": "69%",
+                  "id": "accentLightness"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Accent Text Color",
+                    "tr": "Vurgu Metin Rengi"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "#ffffff",
+                  "placeholder": "#ffffff",
+                  "id": "accentTextColor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Sidebar Color",
+                    "tr": "Kenar Çubuğu Rengi"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "rgba(0,0,0,0.4)",
+                  "placeholder": "rgba(0,0,0,0.4)",
+                  "id": "sidebarColor"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Main Content Color",
+                    "tr": "Ana İçerik Rengi"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "rgba(0,0,0,0.2)",
+                  "placeholder": "rgba(0,0,0,0.2)",
+                  "id": "mainContentColor"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Message Color",
+                    "tr": "Mesaj Rengi"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "rgba(0,0,0,0.4)",
+                  "placeholder": "rgba(0,0,0,0.4)",
+                  "id": "messageColor"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Message Radius",
+                    "tr": "Mesaj Köşe Yuvarlaklığı"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "8px",
+                  "placeholder": "8px",
+                  "id": "messageRadius"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Message Padding Top",
+                    "tr": "Mesaj Üst Boşluğu"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "8px",
+                  "placeholder": "8px",
+                  "id": "messagePaddingTop"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Message Padding Side",
+                    "tr": "Mesaj Yan Boşluğu"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "8px",
+                  "placeholder": "8px",
+                  "id": "messagePaddingSide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Reply Hue",
+                    "tr": "Cevap Tonu"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "226",
+                  "placeholder": "226",
+                  "id": "replyHue"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Reply Saturation",
+                    "tr": "Cevap Doygunluğu"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "77.4%",
+                  "placeholder": "77.4%",
+                  "id": "replySaturation"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "gap": "8px",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Reply Lightness",
+                    "tr": "Cevap Açıklığı"
+                  }
+                },
+                {
+                  "type": "Input",
+                  "default": "61.8%",
+                  "placeholder": "61.8%",
+                  "id": "replyLightness"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
 ]
