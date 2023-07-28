@@ -1,9 +1,10 @@
 import { subscriptions, i18n } from "@acord/extension";
 import dom from "@acord/dom";
 import patcher from "@acord/patcher";
+import dispatcher from "@acord/dispatcher";
 import utils from "@acord/utils";
 import sharedStorage from "@acord/storage/shared";
-import { contextMenus } from "@acord/ui";
+import { contextMenus, notifications } from "@acord/ui";
 import { FluxDispatcher, MessageStore, UserStore, ChannelStore } from "@acord/modules/common";
 
 function findLastIndex(array, predicate) {
@@ -271,59 +272,70 @@ export default {
           })
         );
       }),
-      patcher.instead(
-        "dispatch",
-        FluxDispatcher,
-        async function (args, ogFunc) {
-          if (args[0].__original__) return ogFunc.call(this, ...args);
-
-          if (args[0].type === "MESSAGE_DELETE") {
-            let msg = MessageStore.getMessage(args[0].channelId, args[0].id);
-            if (shouldIgnoreMessage(msg)) return ogFunc.call(this, ...args);
-            saveMessageToCache(MessageStore.getMessage(args[0].channelId, args[0].id)).then(patchVisibleMessages);
-            return;
-          }
-
-          if (args[0].type === "MESSAGE_DELETE_BULK") {
-            let toDelete = [];
-            args[0].ids.forEach(id => {
-              let msg = MessageStore.getMessage(args[0].channelId, id);
-              if (shouldIgnoreMessage(msg)) return toDelete.push(id);
-              saveMessageToCache(msg);
+      dispatcher.patch(
+        "MESSAGE_DELETE",
+        async function (e) {
+          let msg = MessageStore.getMessage(e.event.channelId, e.event.id);
+          if (shouldIgnoreMessage(msg)) return;
+          e.cancel();
+          saveMessageToCache(MessageStore.getMessage(e.event.channelId, e.event.id)).then(patchVisibleMessages);
+          return;
+        }
+      ),
+      dispatcher.patch(
+        "MESSAGE_DELETE_BULK",
+        async function (e) {
+          e.cancel();
+          let toDelete = [];
+          e.event.ids.forEach(id => {
+            let msg = MessageStore.getMessage(e.event.channelId, id);
+            if (shouldIgnoreMessage(msg)) return toDelete.push(id);
+            saveMessageToCache(msg);
+          });
+          if (toDelete.length) {
+            FluxDispatcher.dispatch({
+              type: "MESSAGE_DELETE_BULK",
+              ids: toDelete,
+              channelId: e.event.channelId,
+              guildId: e.event.guildId,
+              __original__: true,
             });
-            if (toDelete.length) {
-              FluxDispatcher.dispatch({
-                type: "MESSAGE_DELETE_BULK",
-                ids: toDelete,
-                channelId: args[0].channelId,
-                guildId: args[0].guildId,
-                __original__: true,
+          }
+          setTimeout(patchVisibleMessages, 0);
+        }
+      ),
+      dispatcher.patch(
+        "LOAD_MESSAGES_SUCCESS",
+        async function (e) {
+          await reAddDeletedMessages(e.event.messages, e.event.channelId, !e.event.hasMoreAfter && !e.event.isBefore, !e.event.hasMoreBefore && !e.event.isAfter);
+          setTimeout(patchVisibleMessages, 50);
+        }
+      ),
+      dispatcher.patch(
+        "MESSAGE_UPDATE",
+        async function (e) {
+          try {
+            if (shouldIgnoreMessage(e.event.message)) return;
+            e.cancel();
+            if (!e.event.message.edited_timestamp) {
+              updateMessageFromCache(e.event.message, async (record) => {
+                record.message.embeds = e.event.message.embeds.map(cleanupEmbed);
               });
             }
-            setTimeout(patchVisibleMessages, 0);
-            return;
-          }
-
-          if (args[0].type === "LOAD_MESSAGES_SUCCESS") {
-            await reAddDeletedMessages(args[0].messages, args[0].channelId, !args[0].hasMoreAfter && !args[0].isBefore, !args[0].hasMoreBefore && !args[0].isAfter);
-            setTimeout(patchVisibleMessages, 50);
-          }
-
-          try {
-            if (args[0].type === "MESSAGE_UPDATE") {
-              if (shouldIgnoreMessage(args[0].message)) return ogFunc.call(this, ...args);
-              if (!args[0].message.edited_timestamp) {
-                updateMessageFromCache(args[0].message, async (record) => {
-                  record.message.embeds = args[0].message.embeds.map(cleanupEmbed);
-                });
-              }
-            }
-          } catch (e) { }
-
-          return ogFunc.call(this, ...args);
+          } catch { }
         }
       )
     )
   },
-  unload() { }
+  unload() { },
+  async config({ item }) {
+    if (item?.id === "deleteAll") {
+      notifications.show.success(i18n.format("ALL_DELETING"));
+      let keysToDelete = (await sharedStorage.keys()).filter(e => e.startsWith("DeletedMessages;Channel;"));
+      for (let i = 0, len = keysToDelete.length; i < len; i++) {
+        await sharedStorage.delete(keysToDelete[i]);
+      }
+      notifications.show.success(i18n.format("ALL_DELETED"));
+    }
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "hash": "960df54651ae235447536a4b841ee44cc24b22f9e08ce3fce6530824c037d33e",
+  "hash": "cd6d39975ba25a74d94116a21981874b3d68862f39d6732f40a5f07e7bdca5c1",
   "type": "plugin",
   "about": {
     "name": {
@@ -23,15 +23,54 @@
   },
   "api": {},
   "mode": "development",
-  "config": [],
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Delete Cached Messages",
+                "tr": "Önbelleklenen Mesajları Sil"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "Delete all cached deleted messages from this plugin.",
+                "tr": "Bu eklentinin önbelleğindeki tüm silinen mesajları silin."
+              }
+            }
+          ]
+        },
+        {
+          "type": "Button",
+          "id": "deleteAll",
+          "value": {
+            "default": "Delete All",
+            "tr": "Tümünü Sil"
+          },
+          "width": "200px",
+          "danger": true
+        }
+      ]
+    }
+  ],
   "i18n": {
     "default": {
       "DELETE_FROM_ME": "Delete From Me",
-      "HIDE_FROM_ME": "Hide From Me"
+      "HIDE_FROM_ME": "Hide From Me",
+      "ALL_DELETED": "All deleted messages are deleted.",
+      "ALL_DELETING": "Deleting all deleted messages..."
     },
     "tr": {
       "DELETE_FROM_ME": "Benden Sil",
-      "HIDE_FROM_ME": "Benden Gizle"
+      "HIDE_FROM_ME": "Benden Gizle",
+      "ALL_DELETED": "Tüm silinen mesajlar silindi.",
+      "ALL_DELETING": "Tüm silinen mesajlar siliniyor..."
     }
   },
   "readme": true
