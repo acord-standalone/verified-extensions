@@ -71,7 +71,7 @@ export default {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "x-acord-token": authentication.token
+              "authorization": authentication.token
             },
             body: JSON.stringify(localCache.updateCache)
           }
@@ -89,7 +89,7 @@ export default {
         {
           method: "GET",
           headers: {
-            "x-acord-token": authentication.token
+            "authorization": authentication.token
           }
         }
       );
