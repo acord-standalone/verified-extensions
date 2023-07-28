@@ -39,7 +39,7 @@ export function patchLocalCache() {
                     });
                 })();
             }
-            setTimeout(loop, persist.ghost.settings.performanceMode ? 100 : 1000);
+            setTimeout(loop, persist.ghost.settings.performanceMode ? 1000 : 100);
         }
         loop();
 

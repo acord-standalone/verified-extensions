@@ -10,7 +10,6 @@ import { ChannelStore, GuildStore, UserStore, VoiceStateStore } from "./apis";
  * @returns {{[id:string]: VoiceStateRawArray[]}}
  */
 export function getAllVoiceStates(rawString) {
-
   return Object.fromEntries(getAllVoiceStatesEntries(rawString));
 }
 

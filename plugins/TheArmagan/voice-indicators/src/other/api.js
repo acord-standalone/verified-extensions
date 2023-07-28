@@ -8,28 +8,23 @@ export async function fetchUserVoiceStates(userId) {
 
   let cached = localCache.responseCache.get(`Users:${userId}`);
   if (cached) return cached.states;
-  const states = getAllVoiceStates()[userId].map(i => rawToParsed(i));
-  localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 3000 });
-  return states;
 
+  let states = await new Promise(r => localCache.stateRequestCache.push([userId, r]));
+  states = states.map(i => ({
+    channelId: i[0],
+    channelName: i[1],
+    channelIcon: i[2],
+    guildId: i[3],
+    guildName: i[4],
+    guildIcon: i[5],
+    guildVanity: i[6],
+    state: i[7],
+    channelAt: i[8],
+    joinedAt: i[9],
+  }));
   
-
-
-  // let states = await new Promise(r => localCache.stateRequestCache.push([userId, r]));
-  // states = states.map(i => ({
-  //   channelId: i[0],
-  //   channelName: i[1],
-  //   channelIcon: i[2],
-  //   guildId: i[3],
-  //   guildName: i[4],
-  //   guildIcon: i[5],
-  //   guildVanity: i[6],
-  //   state: i[7],
-  //   channelAt: i[8],
-  //   joinedAt: i[9],
-  // }));
-  // localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 1000 });
-  // return states;
+  localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 1000 });
+  return states;
 }
 
 export async function fetchVoiceMembers(id) {

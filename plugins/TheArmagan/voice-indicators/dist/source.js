@@ -3648,23 +3648,11 @@
       moment
     } = common__default["default"];
 
-    function getAllVoiceStates(rawString) {
-      return Object.fromEntries(getAllVoiceStatesEntries(rawString));
-    }
-    function getAllVoiceStatesEntries(rawString) {
-      return Object.values(VoiceStateStore.getAllVoiceStates()).map((i) => Object.values(i)).flat().map((i) => [
-        i.userId,
-        getUserVoiceStates(i.userId, rawString)
-      ]).filter((i) => i[1]?.length);
-    }
     function getVoiceChannelMembers(channelId, raw = false) {
       let states = VoiceStateStore.getVoiceStatesForChannel(channelId);
       return states ? Object.keys(states).map((userId) => {
         return raw ? makeRawArray(states[userId]) : rawToParsed(makeRawArray(states[userId]));
       }) : [];
-    }
-    function getUserVoiceStates(userId, rawString) {
-      return Object.values(VoiceStateStore.__getLocalVars().users[userId] || {}).map((i) => rawString ? makeRawArray(i).join(";") : makeRawArray(i));
     }
     function makeRawArray(i) {
       let channel = ChannelStore.getChannel(i.channelId);
@@ -3710,9 +3698,9 @@
       transports: ["websocket"]
     });
     socket.on("connect", async () => {
-      let acordToken = authentication__default["default"].token;
-      if (acordToken) {
-        socket.emit(":login", { acordToken });
+      let token = authentication__default["default"].token;
+      if (token) {
+        socket.emit(":login", { token });
       }
     });
     socket.on(":kill", () => {
@@ -3792,8 +3780,20 @@
       let cached = localCache.responseCache.get(`Users:${userId}`);
       if (cached)
         return cached.states;
-      const states = getAllVoiceStates()[userId].map((i) => rawToParsed(i));
-      localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 3e3 });
+      let states = await new Promise((r) => localCache.stateRequestCache.push([userId, r]));
+      states = states.map((i) => ({
+        channelId: i[0],
+        channelName: i[1],
+        channelIcon: i[2],
+        guildId: i[3],
+        guildName: i[4],
+        guildIcon: i[5],
+        guildVanity: i[6],
+        state: i[7],
+        channelAt: i[8],
+        joinedAt: i[9]
+      }));
+      localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 1e3 });
       return states;
     }
     async function fetchVoiceMembers(id) {
@@ -4843,7 +4843,7 @@
               });
             })();
           }
-          setTimeout(loop, extension.persist.ghost.settings.performanceMode ? 100 : 1e3);
+          setTimeout(loop, extension.persist.ghost.settings.performanceMode ? 1e3 : 100);
         }
         loop();
         return () => {

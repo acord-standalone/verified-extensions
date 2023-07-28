@@ -9,5 +9,15 @@
     "not firefox <= 107",
     "not and_ff <= 110",
     "not firefox <= 111"
-  ]
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "width: fit-content"
+        ]
+      }
+    ]
+  }
 }

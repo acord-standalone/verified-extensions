@@ -7,7 +7,6 @@ import { socket } from "../connection/socket.js";
 export function patchUpdater() {
 
   patchContainer.add((() => {
-
     let interval = setInterval(() => {
       document.querySelectorAll(".vi--icon-container").forEach(e => {
         e.render();

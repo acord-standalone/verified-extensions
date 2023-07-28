@@ -1,10 +1,10 @@
 {
-  "hash": "6416b417e127457628161d9ee879180694098a299568fc900c75c9fb5aadcae9",
+  "hash": "95e77031fa1304684e8a6d0880fd3f243e0617a62e9eaf6c957bc83c02a02274",
   "type": "plugin",
   "about": {
     "name": {
-      "default": "Voice Indicators Offline",
-      "tr": "Ses İndikatörleri Offline"
+      "default": "Voice Indicators",
+      "tr": "Ses İndikatörleri"
     },
     "authors": [
       {

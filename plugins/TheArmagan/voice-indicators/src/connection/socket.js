@@ -7,9 +7,9 @@ export const socket = io("https://voice-indicators.acord.app/", {
 });
 
 socket.on("connect", async () => {
-  let acordToken = authentication.token;
-  if (acordToken) {
-    socket.emit(":login", { acordToken });
+  let token = authentication.token;
+  if (token) {
+    socket.emit(":login", { token });
   }
 });
 
