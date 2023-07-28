@@ -2775,8 +2775,8 @@
       "type": "plugin",
       "about": {
         "name": {
-          "default": "Voice Indicators Offline",
-          "tr": "Ses İndikatörleri Offline"
+          "default": "Voice Indicators",
+          "tr": "Ses İndikatörleri"
         },
         "authors": [
           {
