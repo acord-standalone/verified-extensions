@@ -22,7 +22,7 @@ export async function fetchUserVoiceStates(userId) {
     channelAt: i[8],
     joinedAt: i[9],
   }));
-  
+
   localCache.responseCache.set(`Users:${userId}`, { at: Date.now(), states, ttl: 1000 });
   return states;
 }
@@ -33,7 +33,7 @@ export async function fetchVoiceMembers(id) {
   let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
   if (cached) return cached.members;
 
-  let dataOnServer = [] || ((await awaitResponse("members", { id }))?.data || []);
+  let dataOnServer = ((await awaitResponse("members", { id }))?.data || []);
   let dataOnMe = getVoiceChannelMembers(id, false);
   let members = [];
   if (dataOnMe.length) {

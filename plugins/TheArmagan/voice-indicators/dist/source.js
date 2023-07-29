@@ -3800,7 +3800,7 @@
       let cached = localCache.responseCache.get(`VoiceMembers:${id}`);
       if (cached)
         return cached.members;
-      let dataOnServer = [];
+      let dataOnServer = (await awaitResponse("members", { id }))?.data || [];
       let dataOnMe = getVoiceChannelMembers(id, false);
       let members = [];
       if (dataOnMe.length) {
