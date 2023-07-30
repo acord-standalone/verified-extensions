@@ -316,7 +316,6 @@ export default {
         async function (e) {
           try {
             if (shouldIgnoreMessage(e.event.message)) return;
-            e.cancel();
             if (!e.event.message.edited_timestamp) {
               updateMessageFromCache(e.event.message, async (record) => {
                 record.message.embeds = e.event.message.embeds.map(cleanupEmbed);
