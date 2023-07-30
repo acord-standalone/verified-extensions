@@ -1,4 +1,4 @@
-import { subscriptions } from "@acord/extension";
+import { subscriptions, i18n } from "@acord/extension";
 import { FluxDispatcher, ChannelStore, GuildStore, RelationshipActions, GuildActions2, PrivateChannelActions, UserStore } from "@acord/modules/common";
 import patcher from "@acord/patcher";
 
@@ -34,15 +34,15 @@ export default {
           if (!user) return;
           switch (data.relationship.type) {
             case 1: {
-              new Notification('Relationships Notifier', {
-                body: `${user.tag} removed you from friends.`,
+              new Notification(i18n.format("NAME"), {
+                body: i18n.format("FRIEND_REMOVED", user.tag),
                 icon: `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=512`
               });
               break;
             }
             case 3: {
-              new Notification('Relationships Notifier', {
-                body: `${user.tag} cancelled their friend request.`,
+              new Notification(i18n.format("NAME"), {
+                body: i18n.format("REQUEST_CANCELED", user.tag),
                 icon: `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=512`
               });
               break;
@@ -60,8 +60,8 @@ export default {
           let guild = cachedGuilds.find((g) => g.id == data.guildId);
           if (!guild) return;
           removeGuildFromCache(guild.id);
-          new Notification('Relationships Notifier', {
-            body: `You've been kicked/banned from ${guild.name}`,
+          new Notification(i18n.format("NAME"), {
+            body: i18n.format("LEFT_GUILD", guild.name),
             icon: guild.icon ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=512` : undefined
           });
           lastLeftGuildId = null;
@@ -94,8 +94,8 @@ export default {
 
           let name = channel.name.length === 0 ? channel.recipients.map((id) => UserStore.getUser(id).username).join(', ') : channel.name;
 
-          new Notification('Relationships Notifier', {
-            body: `You've been removed from the group ${name}`,
+          new Notification(i18n.format("NAME"), {
+            body: i18n.format("LEFT_GROUP", name),
             icon: channel.icon ? `https://cdn.discordapp.com/channel-icons/${channel.id}/${channel.icon}.png?size=512` : undefined
           });
         }

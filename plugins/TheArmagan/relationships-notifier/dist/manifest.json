@@ -1,12 +1,14 @@
 {
-  "hash": "03f779c260693d7933f33bb71ddc2510a45d3ea996118c82e0ae8815fd8838c7",
+  "hash": "6904c8588ca861950b3b6f19c2c77716ca51f0222d297bef30f077a3c9da7a9b",
   "type": "plugin",
   "about": {
     "name": {
-      "default": "Relationship Notifier"
+      "default": "Relationship Notifier",
+      "tr": "İlişki Bildirimleri"
     },
     "description": {
-      "default": "Notifications for friend removal, friend request cancel, group removal and server kick/ban."
+      "default": "Notifications for friend removal, friend request cancel, group removal and server kick/ban.",
+      "tr": "Arkadaş silme, arkadaşlık isteği iptali, grup silme ve sunucu atma/yasaklama için bildirimler."
     },
     "authors": [
       {
@@ -14,7 +16,7 @@
         "id": "707309693449535599"
       }
     ],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "readme": "./readme.md",
     "previews": []
@@ -22,5 +24,21 @@
   "api": {},
   "mode": "development",
   "config": [],
+  "i18n": {
+    "default": {
+      "NAME": "Relationship Notifier",
+      "FRIEND_REMOVED": "{0} removed you from friends.",
+      "REQUEST_CANCELED": "{0} cancelled their friend request.",
+      "LEFT_GUILD": "You've been kicked/banned from {0}",
+      "LEFT_GROUP": "You've been removed from the group {0}"
+    },
+    "tr": {
+      "NAME": "İlişki Bildirimleri",
+      "FRIEND_REMOVED": "{0} seni arkadaşlarından çıkardı.",
+      "REQUEST_CANCELED": "{0} arkadaşlık isteğini iptal etti.",
+      "LEFT_GUILD": "{0} sunucusundan atıldın/yasaklandın.",
+      "LEFT_GROUP": "{0} grubundan çıkarıldın."
+    }
+  },
   "readme": true
 }
