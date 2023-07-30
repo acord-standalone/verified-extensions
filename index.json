@@ -1121,59 +1121,6 @@
   {
     "meta": {
       "author": "TheArmagan",
-      "id": "channel-viewers",
-      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/channel-viewers/dist"
-    },
-    "manifest": {
-      "index": "./src/index.js",
-      "type": "plugin",
-      "about": {
-        "name": {
-          "default": "Channel Viewers",
-          "tr": "Kanal'a Bakanlar"
-        },
-        "authors": [
-          {
-            "name": "Armagan#2448",
-            "id": "707309693449535599"
-          }
-        ],
-        "description": {
-          "default": "Allows you to see who is watching your current channel.",
-          "tr": "Kanala bakanları görmenizi sağlar. (İnsta'daki gibi.)"
-        },
-        "version": "0.0.8",
-        "license": "MIT",
-        "readme": "./readme.md",
-        "previews": [
-          {
-            "name": "Default",
-            "image": "https://media.discordapp.net/attachments/945664842260439061/1109937870732533880/image.png"
-          }
-        ]
-      },
-      "i18n": {
-        "default": {
-          "COPY_IMAGE_URL": "Copy Image URL",
-          "COPY_BANNER_URL": "Copy Banner URL",
-          "COPY_AVATAR_URL": "Copy Avatar URL",
-          "COPY_ICON_URL": "Copy Icon URL"
-        },
-        "tr": {
-          "COPY_IMAGE_URL": "Resim URL'sini Kopyala",
-          "COPY_BANNER_URL": "Banner URL'sini Kopyala",
-          "COPY_AVATAR_URL": "Avatar URL'sini Kopyala",
-          "COPY_ICON_URL": "Icon URL'sini Kopyala"
-        }
-      },
-      "api": {},
-      "mode": "development",
-      "config": []
-    }
-  },
-  {
-    "meta": {
-      "author": "TheArmagan",
       "id": "copy-image-url",
       "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/copy-image-url/dist"
     },
@@ -2130,38 +2077,6 @@
           ]
         }
       ]
-    }
-  },
-  {
-    "meta": {
-      "author": "TheArmagan",
-      "id": "message-seen",
-      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/message-seen/dist"
-    },
-    "manifest": {
-      "index": "./src/index.js",
-      "type": "plugin",
-      "about": {
-        "name": {
-          "default": "Message Seen",
-          "tr": "Mesaj Görüldüsü"
-        },
-        "description": {
-          "default": "Shows if a user's messages are read or not.",
-          "tr": "Kişinin mesajlarının okunup okumandığının bilgisini gösterir."
-        },
-        "authors": [
-          {
-            "name": "Armagan#2448",
-            "id": "707309693449535599"
-          }
-        ],
-        "version": "0.0.2",
-        "license": "MIT"
-      },
-      "api": {},
-      "mode": "development",
-      "config": []
     }
   },
   {
