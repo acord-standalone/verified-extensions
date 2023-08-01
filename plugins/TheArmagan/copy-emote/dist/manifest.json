@@ -1,0 +1,98 @@
+{
+  "hash": "9cb1985deb0b7d60431759c9e4f4d85ccf7e33537a7871055f0300db0a287a7d",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Copy Emote",
+      "tr": "Emote Kopyala"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Allows you to copy other's emotes.",
+      "tr": "Başkalarının emotelarını kopyalamanızı sağlar."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://media.discordapp.net/attachments/992923898192601118/1135978979719909425/image.png"
+      }
+    ]
+  },
+  "i18n": {
+    "default": {
+      "COPY_EMOJI": "Copy Emoji",
+      "COPY_STICKER": "Copy Sticker",
+      "EMOJI_NAME": "Emoji Name",
+      "STICKER_NAME": "Sticker Name",
+      "COPY": "Copy",
+      "INVALID_NAME": "Invalid Name",
+      "LOADING": "Loading...",
+      "EMOJI_COPIED": "{0} named emoji copied to {0} server!"
+    },
+    "tr": {
+      "COPY_EMOJI": "Emojiyi Kopyala",
+      "COPY_STICKER": "Çıkartmayı Kopyala",
+      "EMOJI_NAME": "Emoji İsmi",
+      "STICKER_NAME": "Çıkartma İsmi",
+      "COPY": "Kopyala",
+      "INVALID_NAME": "Geçersiz İsim",
+      "LOADING": "Yükleniyor...",
+      "EMOJI_COPIED": "{0} adlı emoji {1} sunucusuna kopyalandı!"
+    }
+  },
+  "api": {
+    "dom": true,
+    "utils": true,
+    "ui": true,
+    "modules": {
+      "custom": [
+        {
+          "name": "uploadEmoji",
+          "reason": "...",
+          "finder": {
+            "__": true,
+            "filter": {
+              "export": false,
+              "in": "strings",
+              "by": [
+                [
+                  "\"EMOJI_UPLOAD_START\"",
+                  "GUILD_EMOJIS("
+                ]
+              ]
+            },
+            "path": {
+              "before": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ],
+              "after": "uploadEmoji"
+            },
+            "map": {
+              "uploadEmoji": [
+                "\"EMOJI_UPLOAD_START\"",
+                "GUILD_EMOJIS("
+              ]
+            }
+          }
+        },
+        {
+          "name": "GuildStore",
+          "reason": "..."
+        }
+      ]
+    }
+  },
+  "mode": "development",
+  "config": [],
+  "readme": false
+}
