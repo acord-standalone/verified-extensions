@@ -1,0 +1,59 @@
+{
+  "hash": "75f92653e12319dbcad92443343dd8f62141bdae40df62c2da10dbde004bb411",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "No DM Idle Timeout",
+      "tr": "DM Seslisinden Atılma Süresini Kaldır"
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Disables automatically getting kicked from a DM voice call after 3 minutes.",
+      "tr": "3 dakika sonra DM seslisinden otomatik olarak atılmanızı engeller."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "api": {
+    "dom": true,
+    "utils": true,
+    "ui": true,
+    "modules": {
+      "custom": [
+        {
+          "name": "idleContainer",
+          "reason": "...",
+          "finder": {
+            "__": true,
+            "filter": {
+              "export": false,
+              "in": "strings",
+              "by": [
+                [
+                  ".Messages.BOT_CALL_IDLE_DISCONNECT"
+                ]
+              ]
+            },
+            "path": {
+              "before": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "mode": "development",
+  "config": [],
+  "readme": false
+}

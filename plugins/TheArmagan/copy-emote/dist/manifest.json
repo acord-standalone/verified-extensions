@@ -1,5 +1,5 @@
 {
-  "hash": "9cb1985deb0b7d60431759c9e4f4d85ccf7e33537a7871055f0300db0a287a7d",
+  "hash": "1f4525786ac9c5e5fc2cb1cd6c8871c592298e64292fb90a13b800f6ba8739ce",
   "type": "plugin",
   "about": {
     "name": {
@@ -84,10 +84,6 @@
               ]
             }
           }
-        },
-        {
-          "name": "GuildStore",
-          "reason": "..."
         }
       ]
     }
