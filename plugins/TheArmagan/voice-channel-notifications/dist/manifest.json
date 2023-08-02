@@ -1,0 +1,111 @@
+{
+  "hash": "a4ace305862aef94ae98ffb5ef83729aac3caaadbee5b4bf62b22eafe3b45d9d",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Voice Channel Notifications",
+      "tr": "Ses Kanalı Bildirimleri"
+    },
+    "description": {
+      "default": "You can make it notify you when the channels you want are full or empty.",
+      "tr": "İstediğiniz kanallarda dolu olduğunda veya boş olduğuna bildirim atmasını sağlarsınız."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Notification Type",
+                "tr": "Bildirim Tipi"
+              }
+            },
+            {
+              "type": "Paragraph",
+              "value": {
+                "default": "Select how notifications will be sent.",
+                "tr": "Bildirimlerin ne şekilde gönderileceğini seçin."
+              }
+            }
+          ]
+        },
+        {
+          "type": "Select",
+          "default": "discord",
+          "id": "notificationType",
+          "options": [
+            {
+              "label": "Desktop",
+              "value": "desktop"
+            },
+            {
+              "label": "Discord",
+              "value": "discord"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Column",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Channels",
+            "tr": "Kanallar"
+          }
+        },
+        {
+          "type": "Paragraph",
+          "value": {
+            "default": "Each new line is a new id. Line Format: <id>, <full/empty/never>",
+            "tr": "Her yeni satır yeni bir id. Satır Formatı: <id>, <full/empty/never>"
+          }
+        },
+        {
+          "type": "Textarea",
+          "default": "",
+          "id": "channels",
+          "placeholder": ""
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "default": {
+      "CHANNEL_FULL": "{0} channel in {1} server is full!",
+      "CHANNEL_EMPTY": "{0} channel in {1} server is empty!",
+      "CHANNEL_NOTIFICATIONS": "Channel Notifications",
+      "WHEN_FULL": "When Full",
+      "WHEN_EMPTY": "When Empty",
+      "NEVER": "Asla"
+    },
+    "tr": {
+      "CHANNEL_FULL": "{0} sunucusundaki {1} kanalı doldu!",
+      "CHANNEL_EMPTY": "{0} sunucusundaki {1} kanalı boşaldı!",
+      "CHANNEL_NOTIFICATIONS": "Kanal Bildirimleri",
+      "WHEN_FULL": "Dolduğunda",
+      "WHEN_EMPTY": "Boşaldığında",
+      "NEVER": "Asla"
+    }
+  },
+  "readme": true
+}
