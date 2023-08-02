@@ -2921,7 +2921,7 @@
         },
         "description": {
           "default": "You can make it notify you when the channels you want are full or empty.",
-          "tr": "İstediğiniz kanallarda dolu olduğunda veya boş olduğuna bildirim atmasını sağlarsınız."
+          "tr": "İstediğiniz kanalların dolu olduğunda veya boş olduğuna bildirim atmasını sağlarsınız."
         },
         "authors": [
           {
