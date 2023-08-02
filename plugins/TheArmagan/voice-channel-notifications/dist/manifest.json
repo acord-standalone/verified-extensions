@@ -1,5 +1,5 @@
 {
-  "hash": "a4ace305862aef94ae98ffb5ef83729aac3caaadbee5b4bf62b22eafe3b45d9d",
+  "hash": "5da9d7c35f2fbc0818c563c2bd8631b16e159925b537f98e8371fef28aa614f2",
   "type": "plugin",
   "about": {
     "name": {
@@ -8,7 +8,7 @@
     },
     "description": {
       "default": "You can make it notify you when the channels you want are full or empty.",
-      "tr": "İstediğiniz kanallarda dolu olduğunda veya boş olduğuna bildirim atmasını sağlarsınız."
+      "tr": "İstediğiniz kanalların dolu olduğunda veya boş olduğuna bildirim atmasını sağlarsınız."
     },
     "authors": [
       {
