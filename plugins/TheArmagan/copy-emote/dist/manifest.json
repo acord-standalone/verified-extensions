@@ -1,5 +1,5 @@
 {
-  "hash": "1f4525786ac9c5e5fc2cb1cd6c8871c592298e64292fb90a13b800f6ba8739ce",
+  "hash": "d6d96103c5c0429e70f1c5f5c7a052306eda3ba62c867a509820eef67b96f8dd",
   "type": "plugin",
   "about": {
     "name": {
@@ -13,10 +13,10 @@
       }
     ],
     "description": {
-      "default": "Allows you to copy other's emotes.",
-      "tr": "Başkalarının emotelarını kopyalamanızı sağlar."
+      "default": "Allows you to copy other's emotes and stickers.",
+      "tr": "Başkalarının emotelarını ve çıkartmalarını kopyalamanızı sağlar."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "previews": [
       {
@@ -34,7 +34,9 @@
       "COPY": "Copy",
       "INVALID_NAME": "Invalid Name",
       "LOADING": "Loading...",
-      "EMOJI_COPIED": "{0} named emoji copied to {0} server!"
+      "EMOJI_COPIED": "{0} named emoji copied to {0} server!",
+      "STICKER_COPIED": "{0} named sticker copied to {0} server!",
+      "COPY_FAILED": "Copy Failed: {0}"
     },
     "tr": {
       "COPY_EMOJI": "Emojiyi Kopyala",
@@ -44,7 +46,9 @@
       "COPY": "Kopyala",
       "INVALID_NAME": "Geçersiz İsim",
       "LOADING": "Yükleniyor...",
-      "EMOJI_COPIED": "{0} adlı emoji {1} sunucusuna kopyalandı!"
+      "EMOJI_COPIED": "{0} adlı emoji {1} sunucusuna kopyalandı!",
+      "STICKER_COPIED": "{0} adlı çıkartma {1} sunucusuna kopyalandı!",
+      "COPY_FAILED": "Kopyalama Başarısız: {0}"
     }
   },
   "api": {
