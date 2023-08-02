@@ -133,8 +133,10 @@
       ui.vue.components.load(app);
       app.mount(modalContainer);
       onClose(() => {
-        app.unmount();
-        modalContainer.remove();
+        setTimeout(() => {
+          app.unmount();
+          modalContainer.remove();
+        }, 1e3);
       });
       return modalContainer;
     });
