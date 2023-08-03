@@ -1,0 +1,46 @@
+{
+  "hash": "d7ad2196f5285d7acdcbab5ee252ac76063f67c4a5fb1301c1c3a6773b1a075e",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Voice Messages",
+      "tr": "Sesli Mesajlar"
+    },
+    "description": {
+      "default": "Allows you to send voice messages to channels.",
+      "tr": "Kanallara sesli mesaj göndermenizi sağlar."
+    },
+    "authors": [
+      {
+        "name": "Armagan#2448",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "i18n": {
+    "default": {
+      "START_RECORDING": "Start Recording",
+      "RECORDING": "Recording... ({0})",
+      "STOP_RECORDING": "Stop Recording",
+      "UPLOAD_FAILED": "Voice message upload failed.",
+      "RECORDING_FAILED": "Recording failed.",
+      "UPLOADING": "Uploading..."
+    },
+    "tr": {
+      "START_RECORDING": "Kaydetmeye Başla",
+      "RECORDING": "Kaydediliyor... ({0})",
+      "STOP_RECORDING": "Kaydetmeyi Durdur",
+      "UPLOAD_FAILED": "Sesli mesaj yüklemesi başarısız oldu.",
+      "RECORDING_FAILED": "Kaydetme başarısız oldu.",
+      "UPLOADING": "Yükleniyor..."
+    }
+  },
+  "readme": true
+}

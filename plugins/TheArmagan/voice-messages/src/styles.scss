@@ -1,0 +1,36 @@
+@keyframes vmrecording {
+  0% {
+    color: #f23f42;
+  }
+  50% {
+    color: #fc7a7d;
+  }
+  100% {
+    color: #f23f42;
+  }
+}
+
+@keyframes vmloading {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.vm--record-button {
+  &.recording {
+    svg {
+      animation: vmrecording 1s linear infinite alternate;
+    }
+  }
+  &.loading {
+    svg {
+      animation: vmloading 2s linear infinite alternate;
+    }
+  }
+}
