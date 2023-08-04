@@ -1400,10 +1400,10 @@
           }
         ],
         "description": {
-          "default": "Allows you to set custom rich presence status.",
-          "tr": "Özel durum ayarlamanıza olanak sağlar."
+          "default": "Allows you to set custom rich presence status. With buttons and images.",
+          "tr": "Özel durum ayarlamanıza olanak sağlar. Düğmeler ve resimler ile."
         },
-        "version": "0.0.6",
+        "version": "0.0.7",
         "previews": [
           {
             "name": "Default",
