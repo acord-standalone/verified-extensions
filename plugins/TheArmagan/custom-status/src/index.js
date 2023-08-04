@@ -7,6 +7,14 @@ import ui from "@acord/ui";
 let checkVar = null;
 let assets = [];
 
+const cdnRegexTest = /https?:\/\/(cdn|media)\.discordapp\.(com|net)\/attachments\//;
+const cdnRegexReplace = /https?:\/\/(cdn|media)\.discordapp\.(com|net)\//;
+
+function getAsset(key) {
+  if (cdnRegexTest.test(key)) return `mp:${key.replace(cdnRegexReplace, "")}`;
+  return assets.find(i => i.name === key)?.id || key;
+}
+
 async function updateActivity() {
   let settings = persist.ghost.settings || {};
 
@@ -55,12 +63,12 @@ async function updateActivity() {
     activity.assets = {};
 
     if (settings.large_image) {
-      activity.assets.large_image = assets.find(i => i.name === settings.large_image)?.id || settings.large_image;
+      activity.assets.large_image = getAsset(settings.large_image);
       activity.assets.large_text = settings.large_text || undefined;
     }
 
     if (settings.small_image) {
-      activity.assets.small_image = assets.find(i => i.name === settings.small_image)?.id || settings.small_image;
+      activity.assets.small_image = getAsset(settings.small_image);
       activity.assets.small_text = settings.small_text || undefined;
     }
   }
