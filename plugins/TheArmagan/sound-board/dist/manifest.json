@@ -1,5 +1,5 @@
 {
-  "hash": "36b8879b94ea0bc89cc949ca352c48ad577248bed86dea3c0cdd72005973c480",
+  "hash": "9b7c67224102730ccb9c8de813fd4b0becd67fc07c457a3325b267f18ad24e37",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Sound board for Discord. Shortcut is CTRL+B",
       "tr": "Discord için ses tablosu. Kısayol CTRL+B"
     },
-    "version": "4.0.1",
+    "version": "4.0.3",
     "previews": [
       {
         "name": "Default",
@@ -32,7 +32,8 @@
       "PREVIEW": "Preview",
       "INSTANT_PLAY": "Instant Play",
       "ADD_TO_MY_SOUNDS": "Add to My Sounds",
-      "REMOVE_FROM_MY_SOUNDS": "Remove from My Sounds"
+      "REMOVE_FROM_MY_SOUNDS": "Remove from My Sounds",
+      "SEARCH": "Search..."
     },
     "tr": {
       "SOUND_BOARD": "Ses Tablosu",
@@ -41,7 +42,8 @@
       "PREVIEW": "Önizle",
       "INSTANT_PLAY": "Anında Oynat",
       "ADD_TO_MY_SOUNDS": "Seslerime Ekle",
-      "REMOVE_FROM_MY_SOUNDS": "Seslerimden Kaldır"
+      "REMOVE_FROM_MY_SOUNDS": "Seslerimden Kaldır",
+      "SEARCH": "Ara..."
     }
   },
   "config": [

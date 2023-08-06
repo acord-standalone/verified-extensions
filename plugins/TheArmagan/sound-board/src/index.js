@@ -68,9 +68,12 @@ export default {
                 </div>
               </div>
               <div v-if="selectedTab === 'mySounds'" class="tab-content my-sounds">
+                <div class="search">
+                  <input type="text" placeholder="${i18n.format("SEARCH")}" v-model="soundsSearchText" />
+                </div>
                 <div class="sounds scroller-2MALzE thin-RnSY0a scrollerBase-1Pkza4">
-                  <div v-for="sound of sounds" class="sound" :class="{'selected': selectedMedia === sound.src}" @click="selectSound(sound)" @contextmenu="onSoundContextMenu($event, sound)">
-                    <div class="name">{{sound.name}}</div>
+                  <div v-for="sound of filteredSounds" class="sound" :class="{'selected': selectedMedia === sound.src}" @click="selectSound(sound)" @contextmenu="onSoundContextMenu($event, sound)">
+                    <div class="name" :acord--tooltip-content="sound.name">{{sound.name}}</div>
                     <div class="remove" @click="removeSound(sound.src)">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"></path>
@@ -92,6 +95,9 @@ export default {
                 </div>
               </div>
               <div v-if="selectedTab === 'popularSounds'" class="tab-content popular-sounds">
+                <div class="search">
+                  <input type="text" placeholder="${i18n.format("SEARCH")}" v-model="popularSearchText" @input="onPopularSearchInput" />
+                </div>
                 <div class="sounds scroller-2MALzE thin-RnSY0a scrollerBase-1Pkza4">
                   <div v-for="sound of popularSounds" class="sound" :class="{'playing': playingPreviewMedia === sound.src}">
                     <div class="play" @click="previewMedia(sound.src)" acord--tooltip-content="${i18n.format("PREVIEW")}">
@@ -102,7 +108,7 @@ export default {
                         <path fill="currentColor" d="M6 5H8V19H6V5ZM16 5H18V19H16V5Z"></path>
                       </svg>
                     </div>
-                    <div class="name">{{sound.name}}</div>
+                    <div class="name" :acord--tooltip-content="sound.name">{{sound.name}}</div>
                     <div class="save" @click="togglePopularSave(sound)" :acord--tooltip-content="sounds.findIndex(i => i.src === sound.src) === -1 ? '${i18n.format("ADD_TO_MY_SOUNDS")}' : '${i18n.format("REMOVE_FROM_MY_SOUNDS")}'">
                       <svg v-if="sounds.findIndex(i => i.src === sound.src) === -1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="currentColor" d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path>
@@ -142,7 +148,15 @@ export default {
           maxVolume: !persist.ghost?.settings?.maxVolume ? 1 : (persist.ghost.settings.maxVolume / 100),
           currentVolume: player.volume,
           currentProgress: player.progress,
-          selectedMedia: ""
+          selectedMedia: "",
+          popularSearchText: "",
+          soundsSearchText: ""
+        }
+      },
+      computed: {
+        filteredSounds() {
+          let t = this.soundsSearchText.trim().toLowerCase();
+          return this.sounds.filter(i => i.name.toLowerCase().includes(t));
         }
       },
       watch: {
@@ -153,6 +167,13 @@ export default {
         }
       },
       methods: {
+        onPopularSearchInput(e) {
+          this.popularSoundPage = 1;
+          this.debouncedPopularSearch();
+        },
+        debouncedPopularSearch: _.debounce(function () {
+          this.loadPopularSounds();
+        }, 1000),
         async onProgressInput(e) {
           let val = Number(e.target.value);
           if (this.selectedMedia) {
@@ -178,7 +199,7 @@ export default {
         async loadPopularSounds() {
           if (this.popularLoading) return;
           this.popularLoading = true;
-          let html = await fetch("https://www.myinstants.com/en/trending/?page=" + this.popularSoundPage).then(d => d.text());
+          let html = await fetch(this.popularSearchText.trim() ? `https://www.myinstants.com/en/search/?name=${encodeURIComponent(this.popularSearchText.trim())}&page=${this.popularSoundPage}` : `https://www.myinstants.com/en/trending/?page=${this.popularSoundPage}`).then(d => d.text());
           this.popularSounds = [...(domParser.parseFromString(html, "text/html")).documentElement.querySelectorAll(".small-button")].map(i => {
             let s = i.getAttribute("onclick").slice(6, -2).split("', '");
             return { src: "https://www.myinstants.com" + s[0], id: s[2], name: i.parentElement.querySelector(".instant-link").textContent.trim() }
