@@ -1,5 +1,5 @@
 {
-  "hash": "8ec23957ed42f43af1bee80ff40b7dc6997612f2b5f57290fc521e73bd0d6f90",
+  "hash": "660db575817819e56544aa6b81189fdd132b8131b9335e09a6d7d57f5c65d2ea",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Sound board for Discord. Shortcut is CTRL+B",
       "tr": "Discord için ses tablosu. Kısayol CTRL+B"
     },
-    "version": "4.0.0",
+    "version": "4.0.1",
     "previews": [
       {
         "name": "Default",

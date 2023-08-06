@@ -230,6 +230,13 @@ export default {
                 player.stop();
                 player.play(sound.src);
               }
+            },
+            {
+              type: "text",
+              label: i18n.format("REMOVE_FROM_MY_SOUNDS"),
+              action() {
+                this.removeSound(sound.src);
+              }
             }
           ]));
         }
