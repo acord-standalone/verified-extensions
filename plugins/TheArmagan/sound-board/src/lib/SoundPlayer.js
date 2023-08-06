@@ -1,5 +1,4 @@
 import { MediaEngineStore } from "@acord/modules/common";
-import events from "@acord/events";
 
 export class SoundPlayer {
   constructor() {
@@ -16,6 +15,13 @@ export class SoundPlayer {
     this._progress = 0;
     this._duration = 0;
     this._startAt = 0;
+
+    this.ondestroy = null;
+    this.onstart = null;
+    this.onstop = null;
+    this.onprogress = null;
+    this.onloadstart = null;
+    this.onloadend = null;
   }
 
   destroy() {
@@ -23,7 +29,7 @@ export class SoundPlayer {
     this._bufferCache.clear();
     this._lastPlayingId = "";
     this._playing = false;
-    events.emit("SoundPlayer:destroy");
+    this.ondestroy?.();
     clearInterval(this._bufferClearerInterval);
     this.stop();
   }
@@ -38,9 +44,9 @@ export class SoundPlayer {
       v.at = Date.now();
       return v.cached;
     }
-    events.emit("SoundPlayer:loadStart");
+    this.onloadstart?.();
     let cached = (await this._audioContext.decodeAudioData((await (await fetch(src)).arrayBuffer())));
-    events.emit("SoundPlayer:loadEnd");
+    this.onloadend?.();
     this._bufferCache.set(src, { cached, at: Date.now() });
     return cached;
   }
@@ -53,7 +59,7 @@ export class SoundPlayer {
 
   play(src, other = { sliceBegin: 0, sliceEnd: 1000, first: true }) {
     if (other.first) {
-      events.emit("SoundPlayer:start");
+      this.onstart?.();
       this._offset = other.sliceBegin;
     }
     this._playing = true;
@@ -85,7 +91,7 @@ export class SoundPlayer {
         conns.slice(1).forEach(conn => {
           conn.startSamplesPlayback(slicedBuff, volume, () => { });
         });
-        events.emit("SoundPlayer:progress");
+        this?.onprogress?.();
       } catch {
         this.stop();
       }
@@ -93,7 +99,7 @@ export class SoundPlayer {
   }
 
   stop() {
-    events.emit("SoundPlayer:stop");
+    this.onstop?.();
     this._progress = 0;
     this._duration = 0;
     this._startAt = 0;
