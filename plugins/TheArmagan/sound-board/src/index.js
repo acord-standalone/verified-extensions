@@ -235,7 +235,7 @@ export default {
               type: "text",
               label: i18n.format("REMOVE_FROM_MY_SOUNDS"),
               action() {
-                this.removeSound(sound.src);
+                internalApp.removeSound(sound.src);
               }
             }
           ]));
