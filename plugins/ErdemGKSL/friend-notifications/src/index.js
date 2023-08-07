@@ -28,6 +28,7 @@ function showModal(userId) {
             <div class="setting-container">
               <div class="title">Aktivite</div>
               <div class="body">
+                SELECT MENU
                 <discord-check setting-id="activity" @click="toggle" :disabled="!settings.activity.enabled"> </discord-check>
               </div>
             </div>
