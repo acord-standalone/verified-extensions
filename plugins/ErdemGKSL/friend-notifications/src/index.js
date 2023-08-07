@@ -91,9 +91,14 @@ function showModal(userId) {
 /**
 * @param {Element} node 
 */
-function appendModalButton(node) {
+function appendModalButton(innerNode) {
 
-  const userId = node.getAttribute("data-list-item-id").replace("people-list___", "").trim();
+  const node = innerNode?.parentElement?.parentElement;
+
+  const userId = node.getAttribute("data-list-item-id")?.replace("people-list___", "").trim();
+
+  if (!userId) return;
+  if (node.getElementsByClassName("acord--fn--list-btn").length > 0) return;
 
   /** @type {Element} */
   const button = dom.parse(`
@@ -127,9 +132,9 @@ export default {
   load() {
     subscriptions.push(injectSCSS());
 
-    subscriptions.push(dom.patch(".peopleListItem-u6dGxF", appendModalButton));
+    subscriptions.push(dom.patch(".actions-YHvpIT", appendModalButton));
     subscriptions.push((() => {
-      const itemsToAppend = document.getElementsByClassName("peopleListItem-u6dGxF");
+      const itemsToAppend = document.getElementsByClassName("actions-YHvpIT");
       for (const item of itemsToAppend) {
         appendModalButton(item);
       }
