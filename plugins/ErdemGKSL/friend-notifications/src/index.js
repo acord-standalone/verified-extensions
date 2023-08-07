@@ -29,7 +29,7 @@ function showModal(userId) {
               <div class="title">Aktivite</div>
               <div class="body">
                 SELECT MENU
-                <discord-check setting-id="activity" @click="toggle" :disabled="!settings.activity.enabled"> </discord-check>
+                <discord-check setting-id="activity" @click="save" v-model="settings.activity.enabled" > </discord-check>
               </div>
             </div>
           </div>
@@ -62,17 +62,8 @@ function showModal(userId) {
       computed: {},
       methods: {
         close,
-        toggle(event) {
-          try {
-            let button = event.currentTarget;
-            const settingId = button.getAttribute("setting-id")
-            this.settings[settingId].enabled = !this.settings[settingId].enabled;
-            this.settings = {
-              ...this.settings,
-            }
-          } catch (error) {
-            console.error(error);
-          }
+        save() {
+          
         }
       }
     });

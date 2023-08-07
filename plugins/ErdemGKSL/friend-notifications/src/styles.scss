@@ -62,6 +62,12 @@
         justify-content: right;
         align-items: center;
         flex-direction: row;
+
+        div {
+          cursor: pointer;
+          pointer-events: all;
+        }
+
       }
     }
     
