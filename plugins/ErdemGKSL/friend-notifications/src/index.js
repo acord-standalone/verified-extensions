@@ -2,9 +2,89 @@ import { i18n, subscriptions, persist } from "@acord/extension";
 import dom from "@acord/dom";
 import injectSCSS from "./styles.scss";
 import { modals, vue, notifications } from "@acord/ui";
+import { UserStore } from "@acord/modules/common"
 
 function showModal(userId) {
 
+  const user = UserStore.getUser(userId);
+
+  modals.show(({ onClose, close }) => {
+    const modalContainer = dom.parse(`
+        <div class="fn--settings-modal-container root-1CAIjD fullscreenOnMobile-2971EC rootWithShadow-2hdL2J">
+          <div class="modal-header">
+            <div class="title">${i18n.format("SETTINGS_OF", user.globalName || user.username)}</div>
+            <div class="close" @click="close">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="setting-container">
+              <div class="title">Aktivite</div>
+              <div class="body">
+                <discord-check setting-id="activity" @click="toggle" :disabled="!settings.activity.enabled"> </discord-check>
+              </div>
+            </div>
+          </div>
+        </div>
+      `);
+
+    const app = Vue.createApp({
+      data() {
+        return {
+          settings: {
+            activity: {
+              enabled: true,
+              type: "in-app"
+            },
+            game: {
+              enabled: false,
+              type: "in-app"
+            },
+            voice: {
+              enabled: false,
+              type: "in-app"
+            },
+            text: {
+              enabled: false,
+              type: "in-app"
+            }
+          }
+        }
+      },
+      computed: {},
+      methods: {
+        close,
+        toggle(event) {
+          try {
+            let button = event.currentTarget;
+            const settingId = button.getAttribute("setting-id")
+            this.settings[settingId].enabled = !this.settings[settingId].enabled;
+            this.settings = {
+              ...this.settings,
+            }
+          } catch (error) {
+            console.error(error);
+          }
+        }
+      }
+    });
+    vue.components.load(app);
+    app.mount(modalContainer);
+    onClose(() => {
+      setTimeout(() => {
+        app.unmount();
+        modalContainer.remove();
+      }, 1000);
+    });
+    return modalContainer;
+  });
 }
 
 /**

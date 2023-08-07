@@ -7,3 +7,63 @@
   }
 
 }
+
+.fn--settings-modal-container {
+  width: 600px;
+  transform: translate(-50%, -50%) !important;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+
+  & > .modal-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: whitesmoke;
+    }
+
+    .close {
+      cursor: pointer;
+      color: whitesmoke;
+      opacity: 0.75;
+    }
+  }
+
+  & > .modal-body {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+
+    .setting-container {
+      width: 100%;
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+
+      & > .title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: whitesmoke;
+      }
+
+      & > .body {
+        display: flex;
+        gap: 16px;
+        justify-content: right;
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+    
+  }
+}

@@ -1,11 +1,6 @@
 {
-  "index": "./src/index.js",
+  "hash": "e57c550357a6b1746cef7bf1f37a80940f7cbc22707848cd77ad1b174538b60f",
   "type": "plugin",
-  "out": {
-    "minify": true,
-    "sourceMap": true,
-    "directory": "./dist"
-  },
   "about": {
     "name": {
       "default": "Friend Notifications",
@@ -22,7 +17,6 @@
     },
     "version": "0.0.1",
     "license": "MIT",
-    "readme": "./readme.md",
     "previews": []
   },
   "api": {
@@ -88,5 +82,6 @@
     }
   },
   "mode": "development",
-  "config": []
+  "config": [],
+  "readme": true
 }
