@@ -8,6 +8,15 @@
 
 }
 
+.fn--log-button {
+  margin-right: 16px;
+  color: rgba(245, 245, 245, 0.5);
+  cursor: pointer;
+  &:hover {
+    color: rgba(245, 245, 245, 0.95);
+  }
+}
+
 .fn--settings-modal-container {
   width: 600px;
   transform: translate(-50%, -50%) !important;
@@ -38,18 +47,21 @@
   & > .modal-body {
     width: 100%;
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 8px;
     justify-content: space-between;
     align-items: center;
+    
+    
 
     .setting-container {
       width: 100%;
       display: flex;
-      gap: 16px;
+      gap: 8px;
       justify-content: space-between;
       align-items: center;
       flex-direction: row;
-
+      
       & > .title {
         font-size: 1.25rem;
         font-weight: 600;
@@ -62,6 +74,10 @@
         justify-content: right;
         align-items: center;
         flex-direction: row;
+
+        & > .select-wrapper {
+          width: 150px;
+        }
 
         div {
           cursor: pointer;

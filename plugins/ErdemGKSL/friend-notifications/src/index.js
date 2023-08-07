@@ -1,8 +1,8 @@
 import { i18n, subscriptions, persist } from "@acord/extension";
 import dom from "@acord/dom";
 import injectSCSS from "./styles.scss";
-import { modals, vue, notifications } from "@acord/ui";
-import { UserStore } from "@acord/modules/common"
+import { modals, vue, notifications, tooltips } from "@acord/ui";
+import { UserStore } from "@acord/modules/common";
 
 function showModal(userId) {
 
@@ -25,13 +25,57 @@ function showModal(userId) {
             </div>
           </div>
           <div class="modal-body">
-            <div class="setting-container">
-              <div class="title">Aktivite</div>
+
+            <div class="setting-container" style="z-index: -1;">
+              <div class="title">${i18n.format("STATUS")}</div>
               <div class="body">
-                SELECT MENU
-                <discord-check setting-id="activity" @click="save" v-model="settings.activity.enabled" > </discord-check>
+                <div class="select-wrapper">
+                  <discord-select v-model="settings.status.notification" :options="settingOptions"></discord-select>
+                </div>
+                <discord-check @click="save" v-model="settings.status.enabled"></discord-check>
               </div>
             </div>
+
+            <div class="setting-container" style="z-index: -2;">
+              <div class="title">${i18n.format("GAME")}</div>
+              <div class="body">
+                <div class="select-wrapper">
+                  <discord-select v-model="settings.game.notification" :options="settingOptions"></discord-select>
+                </div>
+                <discord-check @click="save" v-model="settings.game.enabled"></discord-check>
+              </div>
+            </div>
+
+            <div class="setting-container" style="z-index: -3;">
+              <div class="title">${i18n.format("STREAM")}</div>
+              <div class="body">
+                <div class="select-wrapper">
+                  <discord-select v-model="settings.stream.notification" :options="settingOptions"></discord-select>
+                </div>
+                <discord-check @click="save" v-model="settings.stream.enabled"></discord-check>
+              </div>
+            </div>
+
+            <div class="setting-container" style="z-index: -4;">
+              <div class="title">${i18n.format("VOICE")}</div>
+              <div class="body">
+                <div class="select-wrapper">
+                  <discord-select v-model="settings.voice.notification" :options="settingOptions"></discord-select>
+                </div>
+                <discord-check @click="save" v-model="settings.voice.enabled"></discord-check>
+              </div>
+            </div>
+
+            <div class="setting-container" style="z-index: -5;">
+              <div class="title">${i18n.format("TEXT")}</div>
+              <div class="body">
+                <div class="select-wrapper">
+                  <discord-select v-model="settings.text.notification" :options="settingOptions"></discord-select>
+                </div>
+                <discord-check @click="save" v-model="settings.text.enabled"></discord-check>
+              </div>
+            </div>
+
           </div>
         </div>
       `);
@@ -39,32 +83,48 @@ function showModal(userId) {
     const app = Vue.createApp({
       data() {
         return {
-          settings: {
-            activity: {
-              enabled: true,
-              type: "in-app"
+          settingOptions: [
+            {
+              value: 1,
+              label: i18n.format("IN_APP")
             },
-            game: {
-              enabled: false,
-              type: "in-app"
-            },
-            voice: {
-              enabled: false,
-              type: "in-app"
-            },
-            text: {
-              enabled: false,
-              type: "in-app"
+            {
+              value: 2,
+              label: i18n.format("DESKTOP")
             }
+          ],
+          settings: Object.fromEntries(
+            ["status", "game", "stream", "voice", "text"].map(type => {
+              let s = persist.ghost.users?.[userId]?.settings?.[type];
+              return [type, { notification: s?.notification ?? 1, enabled: s?.enabled ?? false }]
+            })
+          )
+        }
+      },
+      watch: {
+        settings: {
+          deep: true,
+          handler() {
+            this.saveDebounced();
           }
         }
       },
-      computed: {},
       methods: {
         close,
-        save() {
-          
-        }
+        saveDebounced: _.debounce(function () {
+
+          if (["status", "game", "stream", "voice", "text"].every(type => !this.settings[type].enabled)) {
+            delete persist.store.users[userId].settings;
+            return;
+          }
+
+          ["status", "game", "stream", "voice", "text"].forEach(type => {
+            persist.store.users[userId].settings[type] = {
+              notification: this.settings[type].notification,
+              enabled: this.settings[type].enabled
+            };
+          })
+        }, 1000),
       }
     });
     vue.components.load(app);
@@ -118,12 +178,76 @@ function appendModalButton(innerNode) {
   )
 }
 
+function onActivity({ updates }) {
+  const map = {};
+  updates.forEach(update => {
+    const status = update.status;
+    map[update.user.id] = status;
+  });
+
+  for (const [userId, status] of Object.entries(map)) {
+    const data = persist.ghost.users?.[userId]?.settings?.status;
+    if (data?.enabled) {
+      // TODO: append to log
+      const user = UserStore.getUser(userId);
+      notify(
+        userId, 
+        "status", 
+        i18n.format(
+          "STATUS_NOTIFICATION", 
+          user.globalName || user.username, 
+          status
+        )
+      );
+    }
+  }
+}
+
+function notify(userId, eventType, content) {
+  const type = persist.ghost.users?.[userId]?.settings?.[eventType]?.notification ?? 1;
+  switch (type) {
+    case 1: {
+      notifications.show(`<strong>${i18n.format("FRIEND_NOTIFICATIONS")}</strong><br/>${content}`,{
+        style: "success"
+      });
+    }
+    case 2: {
+      new Notification(i18n.format("FRIEND_NOTIFICATIONS"), {
+        body: content,
+        image: `https://cdn.discordapp.com/avatars/${userId}/${UserStore.getUser(userId).avatar}.png?size=128`
+      });
+    }
+  }
+}
 
 export default {
   load() {
     subscriptions.push(injectSCSS());
 
     subscriptions.push(dom.patch(".actions-YHvpIT", appendModalButton));
+    // subscriptions.push(dom.patch(".sectionTitle-36PWt2 > .title-x4dI75", /** @param {Element} innerNode */(innerNode) => {
+    //   const node = innerNode?.parentElement;
+    //   const svgLogo = dom.parse(`
+    //     <div class="fn--log-button">
+    //       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+    //         <path fill="currentColor" d="M20 22H4C3.44772 22 3 21.5523 3 21V3C3 2.44772 3.44772 2 4 2H20C20.5523 2 21 2.44772 21 3V21C21 21.5523 20.5523 22 20 22ZM19 20V4H5V20H19ZM8 7H16V9H8V7ZM8 11H16V13H8V11ZM8 15H16V17H8V15Z"></path>
+    //       </svg>
+    //     </div>
+    //   `)
+    //   svgLogo.addEventListener("click", (event) => {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     // showLogModal();
+    //   });
+
+    //   const tooltip = tooltips.create(svgLogo, i18n.format("OPEN_FRIEND_LOGS"));
+
+    //   node.appendChild(svgLogo);
+
+    //   return () => {
+    //     tooltip.destroy();
+    //   }
+    // }));
     subscriptions.push((() => {
       const itemsToAppend = document.getElementsByClassName("actions-YHvpIT");
       for (const item of itemsToAppend) {
@@ -136,6 +260,8 @@ export default {
         }
       }
     })());
+
+    
   },
   unload() {
 
