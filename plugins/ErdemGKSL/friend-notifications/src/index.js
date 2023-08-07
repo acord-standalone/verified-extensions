@@ -1,7 +1,7 @@
 import { i18n, subscriptions, persist } from "@acord/extension";
 import dom from "@acord/dom";
 import injectSCSS from "./styles.scss";
-import { contextMenus, modals, vue, notifications } from "@acord/ui";
+import { modals, vue, notifications } from "@acord/ui";
 
 function showModal(userId) {
 
