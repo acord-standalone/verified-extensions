@@ -121,6 +121,227 @@
   {
     "meta": {
       "author": "ErdemGKSL",
+      "id": "friend-notifications",
+      "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/friend-notifications/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Friend Notifications",
+          "tr": "Arkadaş Bildirimleri"
+        },
+        "authors": [
+          {
+            "name": "erdem.dev",
+            "id": "319862027571036161"
+          },
+          {
+            "name": "thearmagan",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Get notifications about your friends.",
+          "tr": "Arkadaşların hakkında her türlü bildirimi al."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://cdn.discordapp.com/attachments/887446333047312464/1138447404450971658/image.png"
+          }
+        ]
+      },
+      "api": {
+        "dom": true,
+        "ui": true,
+        "dispatcher": true,
+        "patcher": true,
+        "storage": true,
+        "modules": {
+          "node": [
+            {
+              "name": "fs",
+              "reason": "Something meaningful.."
+            }
+          ],
+          "common": [
+            {
+              "name": "UserStore",
+              "reason": "Something meaningful.."
+            },
+            {
+              "name": "GuildStore",
+              "reason": "Something meaningful.."
+            },
+            {
+              "name": "ChannelStore",
+              "reason": "Something meaningful.."
+            }
+          ]
+        }
+      },
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Column",
+              "children": [
+                {
+                  "type": "Heading",
+                  "value": {
+                    "default": "Delete Cached Logs",
+                    "tr": "Önbelleklenen Logları Sil"
+                  }
+                },
+                {
+                  "type": "Paragraph",
+                  "value": {
+                    "default": "Deleta all logs in the cache of this plugin.",
+                    "tr": "Bu eklentinin önbelleğindeki tüm logları siler."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Button",
+              "id": "deleteAll",
+              "value": {
+                "default": "Delete All",
+                "tr": "Tümünü Sil"
+              },
+              "width": "200px",
+              "danger": true
+            }
+          ]
+        }
+      ],
+      "i18n": {
+        "default": {
+          "NOTIFICATIONS": "Notifications",
+          "SETTINGS_OF": "Notification Settings of {0}",
+          "IN_APP": "In-App",
+          "DESKTOP": "Desktop",
+          "OPEN_FRIEND_LOGS": "Open Friend Logs",
+          "FRIEND_NOTIFICATIONS": "Friend Notifications",
+          "STATUS": "Status",
+          "ACTIVITY": "Activity",
+          "STREAM": "Stream",
+          "VOICE": "Voice",
+          "TEXT": "Chatting",
+          "LISTEN": "Listen",
+          "PLATFORM": "Platform",
+          "PLATFORM_NOTIFICATION": "{0}'s platform changed to {1}",
+          "PLATFORM_DESKTOP": "Desktop",
+          "PLATFORM_MOBILE": "Mobile",
+          "PLATFORM_WEB": "Web",
+          "PLATFORM_EMBEDDED": "Embedded",
+          "STATUS_NOTIFICATION": "{0}'s status changed to {1}",
+          "STATUS_DND": "Do Not Disturb",
+          "STATUS_ONLINE": "Online",
+          "STATUS_IDLE": "Idle",
+          "STATUS_OFFLINE": "Offline",
+          "ACTIVITY_CUSTOM_NOTIFICATION": "{0} is now {1}",
+          "ACTIVITY_STREAM_NOTIFICATION": "{0} is now streaming {1}",
+          "ACTIVITY_PLAYING_NOTIFICATION": "{0} is now playing {1}",
+          "ACTIVITY_WATCHING_NOTIFICATION": "{0} is now watching {1}",
+          "ACTIVITY_LISTENING_NOTIFICATION": "{0} is now listening to {1}",
+          "ACTIVITY_COMPETING_NOTIFICATION": "{0} is now competing with {1}",
+          "ACTIVITY_UNKNOWN_NOTIFICATION": "{0} is now doing {1}",
+          "ACTIVITY_CUSTOM_NOTIFICATION_NO_LONGER": "{0} is no longer {1}",
+          "ACTIVITY_STREAM_NOTIFICATION_NO_LONGER": "{0} is no longer streaming {1}",
+          "ACTIVITY_PLAYING_NOTIFICATION_NO_LONGER": "{0} is no longer playing {1}",
+          "ACTIVITY_WATCHING_NOTIFICATION_NO_LONGER": "{0} is no longer watching {1}",
+          "ACTIVITY_LISTENING_NOTIFICATION_NO_LONGER": "{0} is no longer listening to {1}",
+          "ACTIVITY_COMPETING_NOTIFICATION_NO_LONGER": "{0} is no longer competing with {1}",
+          "ACTIVITY_UNKNOWN_NOTIFICATION_NO_LONGER": "{0} is no longer doing {1}",
+          "ACTIVITY_CUSTOM_NOTIFICATION_NOW_STARTED": "{0} is now {1}",
+          "ACTIVITY_STREAM_NOTIFICATION_NOW_STARTED": "{0} is now streaming {1}",
+          "ACTIVITY_PLAYING_NOTIFICATION_NOW_STARTED": "{0} is now playing {1}",
+          "ACTIVITY_WATCHING_NOTIFICATION_NOW_STARTED": "{0} is now watching {1}",
+          "ACTIVITY_LISTENING_NOTIFICATION_NOW_STARTED": "{0} is now listening to {1}",
+          "ACTIVITY_COMPETING_NOTIFICATION_NOW_STARTED": "{0} is now competing with {1}",
+          "ACTIVITY_UNKNOWN_NOTIFICATION_NOW_STARTED": "{0} is now doing {1}",
+          "VOICE_JOIN_NOTIFICATION": "{0} joined {1}",
+          "VOICE_LEAVE_NOTIFICATION": "{0} left {1}",
+          "VOICE_MOVE_NOTIFICATION": "{0}, {1} moved to {2}",
+          "TEXT_NOTIFICATION": "{0} wrote a message in {1}",
+          "LOGS": "Logs",
+          "OF_LOGS": "Logs of {0}",
+          "NO_LOGS": "No logs was found this user.",
+          "ALL_DELETING": "Deleting all logs...",
+          "ALL_DELETED": "All logs deleted.",
+          "ONLY_LOG": "Only Log"
+        },
+        "tr": {
+          "NOTIFICATIONS": "Bildirimler",
+          "SETTINGS_OF": "{0}'in Bildirim Ayarları",
+          "IN_APP": "Uygulama İçi",
+          "DESKTOP": "Masaüstü",
+          "OPEN_FRIEND_LOGS": "Arkadaş Loglarını Aç",
+          "FRIEND_NOTIFICATIONS": "Arkadaş Bildirimleri",
+          "STATUS": "Durum",
+          "ACTIVITY": "Aktivite",
+          "STREAM": "Yayın",
+          "VOICE": "Ses",
+          "TEXT": "Sohbet",
+          "LISTEN": "Dinleme",
+          "PLATFORM": "Platform",
+          "STATUS_NOTIFICATION": "{0}'in durumu {1} olarak değişti",
+          "STATUS_DND": "Rahatsız Etmeyin",
+          "STATUS_ONLINE": "Çevrimiçi",
+          "STATUS_IDLE": "Boşta",
+          "STATUS_OFFLINE": "Çevrimdışı",
+          "PLATFORM_NOTIFICATION": "{0}'in platformu {1} olarak değişti",
+          "PLATFORM_DESKTOP": "Masaüstü",
+          "PLATFORM_MOBILE": "Mobil",
+          "PLATFORM_WEB": "Web",
+          "PLATFORM_EMBEDDED": "Gömülü",
+          "ACTIVITY_CUSTOM_NOTIFICATION": "{0} şu anda {1} yapıyor",
+          "ACTIVITY_STREAM_NOTIFICATION": "{0} şu anda {1} yayınında",
+          "ACTIVITY_PLAYING_NOTIFICATION": "{0} şu anda {1} oynuyor",
+          "ACTIVITY_WATCHING_NOTIFICATION": "{0} şu anda {1} izliyor",
+          "ACTIVITY_LISTENING_NOTIFICATION": "{0} şu anda {1} dinliyor",
+          "ACTIVITY_COMPETING_NOTIFICATION": "{0} şu anda {1} ile yarışıyor",
+          "ACTIVITY_UNKNOWN_NOTIFICATION": "{0} şu anda {1} yapıyor",
+          "ACTIVITY_CUSTOM_NOTIFICATION_NO_LONGER": "{0} artık {1} yapmıyor",
+          "ACTIVITY_STREAM_NOTIFICATION_NO_LONGER": "{0} artık {1} yayınında değil",
+          "ACTIVITY_PLAYING_NOTIFICATION_NO_LONGER": "{0} artık {1} oynamıyor",
+          "ACTIVITY_WATCHING_NOTIFICATION_NO_LONGER": "{0} artık {1} izlemiyor",
+          "ACTIVITY_LISTENING_NOTIFICATION_NO_LONGER": "{0} artık {1} dinlemiyor",
+          "ACTIVITY_COMPETING_NOTIFICATION_NO_LONGER": "{0} artık {1} ile yarışmıyor",
+          "ACTIVITY_UNKNOWN_NOTIFICATION_NO_LONGER": "{0} artık {1} yapmıyor",
+          "ACTIVITY_CUSTOM_NOTIFICATION_NOW_STARTED": "{0} daha şimdi {1} yapıyor",
+          "ACTIVITY_STREAM_NOTIFICATION_NOW_STARTED": "{0} daha şimdi {1} yayınında",
+          "ACTIVITY_PLAYING_NOTIFICATION_NOW_STARTED": "{0} daha şimdi {1} oynuyor",
+          "ACTIVITY_WATCHING_NOTIFICATION_NOW_STARTED": "{0} daha şimdi {1} izliyor",
+          "ACTIVITY_LISTENING_NOTIFICATION_NOW_STARTED": "{0} daha şimdi {1} dinliyor",
+          "ACTIVITY_COMPETING_NOTIFICATION_NOW_STARTED": "{0} daha şimdi {1} ile yarışıyor",
+          "ACTIVITY_UNKNOWN_NOTIFICATION_NOW_STARTED": "{0} daha şimdi {1} yapıyor",
+          "VOICE_JOIN_NOTIFICATION": "{0}, {1} kanalına katıldı",
+          "VOICE_LEAVE_NOTIFICATION": "{0}, {1} kanalından ayrıldı",
+          "VOICE_MOVE_NOTIFICATION": "{0}, {1} kanalından {2} kanalına geçti",
+          "TEXT_NOTIFICATION": "{0}, {1} kanalına yazı yazdı.",
+          "LOGS": "Loglar",
+          "OF_LOGS": "{0}'in Logları",
+          "SEARCH": "Kullanıcı adı veya kullanıcı id'si ile ara",
+          "NO_LOGS": "Bu kullanıcı için log bulunamadı.",
+          "ALL_DELETING": "Tüm loglar siliniyor...",
+          "ALL_DELETED": "Tüm loglar silindi.",
+          "ONLY_LOG": "Sadece Log"
+        }
+      },
+      "mode": "development"
+    }
+  },
+  {
+    "meta": {
+      "author": "ErdemGKSL",
       "id": "goodword",
       "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/goodword/dist"
     },
