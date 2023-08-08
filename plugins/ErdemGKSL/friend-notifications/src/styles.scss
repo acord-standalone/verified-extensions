@@ -1,23 +1,12 @@
 .peopleListItem-u6dGxF {
-
   &:hover {
     .actionButton-3-B2x- {
       background-color: #1e1f22 !important;
     }
   }
-
 }
 
-.fn--log-button {
-  margin-right: 16px;
-  color: rgba(245, 245, 245, 0.5);
-  cursor: pointer;
-  &:hover {
-    color: rgba(245, 245, 245, 0.95);
-  }
-}
-
-.fn--settings-modal-container {
+.fn--log-modal-container {
   width: 600px;
   transform: translate(-50%, -50%) !important;
   display: flex;
@@ -45,14 +34,85 @@
   }
 
   & > .modal-body {
+    & > .no-logs {
+      font-size: 14px;
+      font-weight: 400;
+      color: whitesmoke;
+    }
+
+    & > .logs {
+      overflow: auto;
+      height: 300px;
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+
+      .log {
+        display: flex;
+        flex-direction: column;
+        color: whitesmoke;
+        padding: 8px;
+        background-color: rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        gap: 4px;
+
+        border-left: 2px solid var(--color);
+
+        .time {
+          font-size: 12px;
+          opacity: 0.75;
+          width: fit-content;
+        }
+
+        .content {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.fn--settings-modal-container {
+  width: 600px;
+  transform: translate(-50%, -50%) !important;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+
+  & > .modal-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: whitesmoke;
+    }
+
+    .end {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .close,
+    .logs {
+      cursor: pointer;
+      color: whitesmoke;
+      opacity: 0.75;
+    }
+  }
+
+  & > .modal-body {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 8px;
     justify-content: space-between;
     align-items: center;
-    
-    
 
     .setting-container {
       width: 100%;
@@ -61,7 +121,7 @@
       justify-content: space-between;
       align-items: center;
       flex-direction: row;
-      
+
       & > .title {
         font-size: 1.25rem;
         font-weight: 600;
@@ -83,9 +143,7 @@
           cursor: pointer;
           pointer-events: all;
         }
-
       }
     }
-    
   }
 }

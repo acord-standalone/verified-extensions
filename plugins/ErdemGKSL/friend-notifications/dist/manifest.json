@@ -1,11 +1,6 @@
 {
-  "index": "./src/index.js",
+  "hash": "b855a82df8e28c1b8a7904967596a22430ffc7b001965bc609896e4082fef8dd",
   "type": "plugin",
-  "out": {
-    "minify": false,
-    "sourceMap": false,
-    "directory": "./dist"
-  },
   "about": {
     "name": {
       "default": "Friend Notifications",
@@ -27,7 +22,6 @@
     },
     "version": "0.0.1",
     "license": "MIT",
-    "readme": "./readme.md",
     "previews": [
       {
         "name": "Default",
@@ -215,5 +209,6 @@
       "ONLY_LOG": "Sadece Log"
     }
   },
-  "mode": "development"
+  "mode": "development",
+  "readme": true
 }
