@@ -281,7 +281,7 @@ function onActivity({ updates }) {
     });
 
     if (userActivityCache[update.user.id]) {
-      Object.keys(userActivityCache[update.user.id]).forEach(activityId => {
+      Object.keys(userActivityCache[update.user.id] ?? {}).forEach(activityId => {
         if (!update.activities.some(activity => activity.id === activityId)) {
           let [oldType, oldState] = userActivityCache[update.user.id][activityId];
           const logType = activityTypeToActionType[oldType] || "activity";
@@ -302,10 +302,10 @@ function onActivity({ updates }) {
 
   const statusMap = {};
   updates.forEach(update => {
-    statusMap[update.user.id] = [Object.keys(update.clientStatus).sort((a, b) => a - b).join(", "), update.status];
+    statusMap[update.user.id] = [Object.keys(update.clientStatus ?? {}).sort((a, b) => a - b).join(", "), update.status];
   });
 
-  for (const [userId, [clientStatus, status]] of Object.entries(statusMap)) {
+  for (const [userId, [clientStatus, status]] of Object.entries(statusMap ?? {})) {
     let settings = persist.ghost.users?.[userId]?.settings;
     if (settings?.platform?.enabled && userPlatformCache[userId] !== clientStatus) {
       const user = UserStore.getUser(userId);
@@ -499,7 +499,7 @@ export default {
         userStatusCache = Object.fromEntries(userIds.map(i => [i, PresenceStore.getState().statuses[i]]));
         userPlatformCache = Object.fromEntries(userIds.map(i => [
           i,
-          Object.keys(PresenceStore.__getLocalVars().clientStatuses[i]).sort((a, b) => a - b).join(", ")
+          Object.keys(PresenceStore.__getLocalVars().clientStatuses?.[i] ?? {}).sort((a, b) => a - b).join(", ")
         ]));
         userActivityCache = Object.fromEntries(userIds.map(i => {
           let activity = PresenceStore.__getLocalVars().activities[i];
