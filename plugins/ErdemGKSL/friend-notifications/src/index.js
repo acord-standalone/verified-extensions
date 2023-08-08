@@ -4,6 +4,8 @@ import injectSCSS from "./styles.scss";
 import { modals, vue, notifications, tooltips } from "@acord/ui";
 import { UserStore } from "@acord/modules/common";
 
+let cache = {};
+
 function showModal(userId) {
 
   const user = UserStore.getUser(userId);
@@ -112,7 +114,6 @@ function showModal(userId) {
       methods: {
         close,
         saveDebounced: _.debounce(function () {
-
           if (["status", "game", "stream", "voice", "text"].every(type => !this.settings[type].enabled)) {
             delete persist.store.users[userId].settings;
             return;
@@ -166,11 +167,11 @@ function appendModalButton(innerNode) {
   </div>
   `);
 
-  button.addEventListener("click", (event) => {
+  button.onclick = (event) => {
     event.preventDefault();
     event.stopPropagation();
     showModal(userId);
-  });
+  }
 
   node.getElementsByClassName("actions-YHvpIT")?.[0]?.replaceChildren(
     button,
@@ -191,11 +192,11 @@ function onActivity({ updates }) {
       // TODO: append to log
       const user = UserStore.getUser(userId);
       notify(
-        userId, 
-        "status", 
+        userId,
+        "status",
         i18n.format(
-          "STATUS_NOTIFICATION", 
-          user.globalName || user.username, 
+          "STATUS_NOTIFICATION",
+          user.globalName || user.username,
           status
         )
       );
@@ -207,7 +208,7 @@ function notify(userId, eventType, content) {
   const type = persist.ghost.users?.[userId]?.settings?.[eventType]?.notification ?? 1;
   switch (type) {
     case 1: {
-      notifications.show(`<strong>${i18n.format("FRIEND_NOTIFICATIONS")}</strong><br/>${content}`,{
+      notifications.show(`<strong>${i18n.format("FRIEND_NOTIFICATIONS")}</strong><br/>${content}`, {
         style: "success"
       });
     }
@@ -261,7 +262,7 @@ export default {
       }
     })());
 
-    
+
   },
   unload() {
 
