@@ -4,7 +4,7 @@ import dispatcher from "@acord/dispatcher";
 import sharedStorage from "@acord/storage/shared";
 import injectSCSS from "./styles.scss";
 import { modals, vue, notifications, tooltips, contextMenus } from "@acord/ui";
-import { UserStore, GuildStore, ChannelStore, PresenceStore, moment } from "@acord/modules/common";
+import { UserStore, GuildStore, ChannelStore, PresenceStore, moment, FluxDispatcher } from "@acord/modules/common";
 
 let userPlatformCache = {};
 let userActivityCache = {};
@@ -517,7 +517,7 @@ export default {
           userStatusCache = {};
         }
       })(),
-      contextMenus.patch("user-context", (elm, prop) => {
+      contextMenus.patch("user-profile-actions", (elm, prop) => {
         if (elm?.props?.children && prop?.user?.id) {
           elm?.props?.children.push(
             contextMenus.build.item({
@@ -527,6 +527,9 @@ export default {
               label: i18n.format("FRIEND_NOTIFICATIONS"),
               action() {
                 showConfigModal(prop.user.id);
+                FluxDispatcher.dispatch({
+                  type: "USER_PROFILE_MODAL_CLOSE"
+                });
               }
             })
           );

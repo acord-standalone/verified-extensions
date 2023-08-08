@@ -483,7 +483,7 @@
             userStatusCache = {};
           };
         })(),
-        ui.contextMenus.patch("user-context", (elm, prop) => {
+        ui.contextMenus.patch("user-profile-actions", (elm, prop) => {
           if (elm?.props?.children && prop?.user?.id) {
             elm?.props?.children.push(
               ui.contextMenus.build.item({
@@ -493,6 +493,9 @@
                 label: extension.i18n.format("FRIEND_NOTIFICATIONS"),
                 action() {
                   showConfigModal(prop.user.id);
+                  common.FluxDispatcher.dispatch({
+                    type: "USER_PROFILE_MODAL_CLOSE"
+                  });
                 }
               })
             );
