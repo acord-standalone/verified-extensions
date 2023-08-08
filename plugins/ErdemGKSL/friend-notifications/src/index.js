@@ -319,6 +319,12 @@ function onActivity({ updates }) {
       notify(userId, "platform", i18n.format(...contentArgs));
     }
     if (settings?.status?.enabled && userStatusCache[userId] !== status) {
+
+      if (!userStatusCache[userId] && status === "offline") {
+        userStatusCache[userId] = status;
+        continue;
+      }
+
       const user = UserStore.getUser(userId);
       userStatusCache[userId] = status;
       let contentArgs = [
