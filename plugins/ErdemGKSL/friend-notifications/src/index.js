@@ -395,11 +395,12 @@ function onVoiceStates({ voiceStates }) {
   });
 }
 
-function onMessageCreate({ message }) {
+function onMessageCreate({ message, guildId }) {
   if (!persist.ghost.users?.[message?.author?.id]?.settings?.text?.enabled) return;
   const user = UserStore.getUser(message.author.id);
   const channel = ChannelStore.getChannel(message.channel_id);
   if (!user || !channel?.name) return;
+  if (!message.guild_id) return;
   const chName = `${GuildStore.getGuild(message.guild_id)?.name ?? "DM"} > ${ChannelStore.getChannel(message.channel_id)?.name || "Group"}`;
 
   let contentArgs = [
