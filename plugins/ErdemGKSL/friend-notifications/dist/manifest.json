@@ -1,5 +1,5 @@
 {
-  "hash": "fb22485d8b4aec517da314a5ae5849656f3863a98e7b061d6e644e4b3d0e40f0",
+  "hash": "fc0ed0f2fa3f8e71066f43844f40444c8987cb21ad4b318a96ed4587034fabd0",
   "type": "plugin",
   "about": {
     "name": {
@@ -20,7 +20,7 @@
       "default": "Get notifications about your friends.",
       "tr": "Arkadaşların hakkında her türlü bildirimi al."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "previews": [
       {
