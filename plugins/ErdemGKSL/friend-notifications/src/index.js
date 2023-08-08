@@ -20,7 +20,7 @@ function showConfigModal(userId) {
     const modalContainer = dom.parse(`
         <div class="fn--settings-modal-container root-1CAIjD fullscreenOnMobile-2971EC rootWithShadow-2hdL2J">
           <div class="modal-header">
-            <div class="title">${i18n.format("SETTINGS_OF", user.globalName || user.username)}</div>
+            <div class="title">${i18n.format("SETTINGS_OF", user ? (user.globalName || user.username) : userId)}</div>
             <div class="end">
               <div class="logs" acord--tooltip-content="${i18n.format("LOGS")}" @click="openLogs">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -186,7 +186,7 @@ function appendModalButton(innerNode) {
 
   const node = innerNode?.parentElement?.parentElement;
 
-  const userId = node.getAttribute("data-list-item-id")?.replace("people-list___", "").trim();
+  const userId = node.getAttribute("data-list-item-id")?.split("___").pop()?.trim();
 
   if (!userId) return;
   if (node.getElementsByClassName("acord--fn--list-btn").length > 0) return;
@@ -262,7 +262,7 @@ function onActivity({ updates }) {
       if (!userActivityCache[update.user.id][activity.id]) {
         let contentArgs = [
           activityTypeToMessage[activity.type] ? `${activityTypeToMessage[activity.type]}_NOW_STARTED` : "ACTIVITY_UNKNOWN_NOTIFICATION_NOW_STARTED",
-          user.globalName || user.username,
+          user?.globalName || user?.username,
           stateText
         ];
         appendToLog(update.user.id, logType, contentArgs, 0x43f581);
@@ -270,7 +270,7 @@ function onActivity({ updates }) {
       } else if (userActivityCache[update.user.id][activity.id]?.[2] !== activity.name) {
         let contentArgs = [
           activityTypeToMessage[activity.type] || "ACTIVITY_UNKNOWN_NOTIFICATION",
-          user.globalName || user.username,
+          user?.globalName || user?.username,
           stateText
         ];
         appendToLog(update.user.id, logType, contentArgs, 0x53c591);
