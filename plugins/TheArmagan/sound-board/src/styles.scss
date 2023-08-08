@@ -289,5 +289,40 @@
         }
       }
     }
+
+    & > .tts-tab {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      & > .input-line {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        .input {
+          width: 75%;
+        }
+
+        .lang {
+          width: 25%;
+        }
+
+        .speed {
+          width: 25%;
+        }
+      }
+
+      & > .controls {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        z-index: -1;
+
+        .container {
+          width: 100%;
+        }
+      }
+    }
   }
 }

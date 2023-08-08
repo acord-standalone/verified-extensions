@@ -1,5 +1,5 @@
 {
-  "hash": "9b7c67224102730ccb9c8de813fd4b0becd67fc07c457a3325b267f18ad24e37",
+  "hash": "6579f800033e12dfe016a55b795405b91070dc3a7cecbef300a18a7fb8eb4c09",
   "type": "plugin",
   "about": {
     "name": {
@@ -13,14 +13,14 @@
       }
     ],
     "description": {
-      "default": "Sound board for Discord. Shortcut is CTRL+B",
-      "tr": "Discord için ses tablosu. Kısayol CTRL+B"
+      "default": "Sound board for Discord. Supports text to speech. Shortcut is CTRL+B",
+      "tr": "Discord için ses tablosu. Metin okuma destekler. Kısayol CTRL+B"
     },
-    "version": "4.0.3",
+    "version": "4.0.5",
     "previews": [
       {
         "name": "Default",
-        "image": "https://cdn.discordapp.com/attachments/992923898192601118/1137798986116378674/image.png"
+        "image": "https://media.discordapp.net/attachments/1055158935797104640/1138500060137664552/image.png"
       }
     ]
   },
@@ -33,7 +33,14 @@
       "INSTANT_PLAY": "Instant Play",
       "ADD_TO_MY_SOUNDS": "Add to My Sounds",
       "REMOVE_FROM_MY_SOUNDS": "Remove from My Sounds",
-      "SEARCH": "Search..."
+      "SEARCH": "Search...",
+      "TEXT_TO_SPEECH": "Text to Speech",
+      "TEXT_TO_SPEECH_PLACEHOLDER": "Enter text...",
+      "STOP_PREVIEW": "Stop Preview",
+      "SLOW": "Slow",
+      "NORMAL": "Normal",
+      "STOP": "Stop",
+      "PLAY": "Play"
     },
     "tr": {
       "SOUND_BOARD": "Ses Tablosu",
@@ -43,7 +50,14 @@
       "INSTANT_PLAY": "Anında Oynat",
       "ADD_TO_MY_SOUNDS": "Seslerime Ekle",
       "REMOVE_FROM_MY_SOUNDS": "Seslerimden Kaldır",
-      "SEARCH": "Ara..."
+      "SEARCH": "Ara...",
+      "TEXT_TO_SPEECH": "Metin Okuma",
+      "TEXT_TO_SPEECH_PLACEHOLDER": "Metin girin...",
+      "STOP_PREVIEW": "Önizlemeyi Durdur",
+      "SLOW": "Yavaş",
+      "NORMAL": "Normal",
+      "STOP": "Durdur",
+      "PLAY": "Oynat"
     }
   },
   "config": [
