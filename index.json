@@ -1467,7 +1467,7 @@
           "default": "Allows you to copy the profile picture/banner of users and the picture/banner of servers.",
           "tr": "İnsaların profil resmini ve bannerını, sunucuların resmini ve bannerını kopyalayabilirsiniz."
         },
-        "version": "0.0.3",
+        "version": "0.0.4",
         "license": "MIT",
         "readme": "./readme.md"
       },
