@@ -1,5 +1,5 @@
 {
-  "hash": "7fdf13767abd458306f1ea8b6088bce1cb7058fa4a9ce73e0377364439ec0c1e",
+  "hash": "fcd85fbd7121e721d9c8e469c9b3fd6364ace6462239923a64cdf4ad637b12b9",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to copy the profile picture/banner of users and the picture/banner of servers.",
       "tr": "İnsaların profil resmini ve bannerını, sunucuların resmini ve bannerını kopyalayabilirsiniz."
     },
-    "version": "0.0.3",
+    "version": "0.0.4",
     "license": "MIT"
   },
   "i18n": {

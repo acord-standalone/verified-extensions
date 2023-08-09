@@ -103,6 +103,29 @@ export default {
     );
 
     subscriptions.push(
+      dom.patch(
+        '.roleIconPreview-YyITmd',
+        /** @param {HTMLDivElement} elm */(elm) => {
+          elm.addEventListener('contextmenu', (e) => {
+            contextMenus.open(
+              e,
+              contextMenus.build.menu(
+                [
+                  {
+                    label: i18n.format("COPY_ICON_URL"),
+                    action() {
+                      utils.copyText(elm.src.split('?')[0].replace(".webp", ".png") + "?size=4096");
+                    }
+                  }
+                ]
+              )
+            )
+          });
+        }
+      )
+    );
+
+    subscriptions.push(
       contextMenus.patch(
         "guild-context",
         (comp, props) => {
