@@ -319,6 +319,12 @@ function onActivity({ updates }) {
       notify(userId, "platform", i18n.format(...contentArgs));
     }
     if (settings?.status?.enabled && userStatusCache[userId] !== status) {
+
+      if (!userStatusCache[userId] && status === "offline") {
+        userStatusCache[userId] = status;
+        continue;
+      }
+
       const user = UserStore.getUser(userId);
       userStatusCache[userId] = status;
       let contentArgs = [
@@ -389,11 +395,12 @@ function onVoiceStates({ voiceStates }) {
   });
 }
 
-function onMessageCreate({ message }) {
+function onMessageCreate({ message, guildId }) {
   if (!persist.ghost.users?.[message?.author?.id]?.settings?.text?.enabled) return;
   const user = UserStore.getUser(message.author.id);
   const channel = ChannelStore.getChannel(message.channel_id);
   if (!user || !channel?.name) return;
+  if (!message.guild_id) return;
   const chName = `${GuildStore.getGuild(message.guild_id)?.name ?? "DM"} > ${ChannelStore.getChannel(message.channel_id)?.name || "Group"}`;
 
   let contentArgs = [
