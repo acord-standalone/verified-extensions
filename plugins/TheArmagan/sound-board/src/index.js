@@ -532,6 +532,7 @@ export default {
           saveSounds();
         },
         onSoundContextMenu(e, sound) {
+          const self = this;
           contextMenus.open(e, contextMenus.build.menu([
             {
               type: "text",
@@ -539,6 +540,13 @@ export default {
               action() {
                 player.stop();
                 player.play(sound.src);
+              }
+            },
+            {
+              type: "text",
+              label: i18n.format(self.previewPlaying ? "STOP_PREVIEW" : "PREVIEW"),
+              action() {
+                self.previewMedia(sound.src);
               }
             },
             {
