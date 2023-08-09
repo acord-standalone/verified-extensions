@@ -310,13 +310,15 @@ function onActivity({ updates }) {
     if (settings?.platform?.enabled && userPlatformCache[userId] !== clientStatus) {
       const user = UserStore.getUser(userId);
       userPlatformCache[userId] = clientStatus;
-      let contentArgs = [
-        "PLATFORM_NOTIFICATION",
-        user.globalName || user.username,
-        clientStatus.split(", ").map(i => i18n.format("PLATFORM_" + i.toUpperCase())).join(", "),
-      ];
-      appendToLog(userId, "platform", contentArgs, 0x5865f2);
-      notify(userId, "platform", i18n.format(...contentArgs));
+      if (clientStatus.trim()) {
+        let contentArgs = [
+          "PLATFORM_NOTIFICATION",
+          user.globalName || user.username,
+          clientStatus.split(", ").map(i => i18n.format("PLATFORM_" + i.toUpperCase())).join(", "),
+        ];
+        appendToLog(userId, "platform", contentArgs, 0x5865f2);
+        notify(userId, "platform", i18n.format(...contentArgs));
+      }
     }
     if (settings?.status?.enabled && userStatusCache[userId] !== status) {
 
