@@ -14,30 +14,31 @@ export default {
     //     }
     //   ).trim()
     // }
-
+    
+    const cSeperator = '<󠇰';
+    const cClosingSeparator = '󠇰>';
+    const colon = ':';
     // thanks to chat-gpt for this
     function ownToOg(content) {
-      const separator = '|(';
-      const closingSeparator = ')|';
 
       let result = '';
       let startIndex = 0;
       let openingIndex, closingIndex;
 
-      while ((openingIndex = content.indexOf(separator, startIndex)) !== -1 &&
-        (closingIndex = content.indexOf(closingSeparator, openingIndex + separator.length)) !== -1) {
-        const animStr = content.charAt(openingIndex + separator.length) === 'a' ? 'a' : '';
-        const emoteStr = content.slice(openingIndex + separator.length + animStr.length, closingIndex);
-        const emoteParts = emoteStr.split(';');
+      while ((openingIndex = content.indexOf(cSeperator, startIndex)) !== -1 &&
+        (closingIndex = content.indexOf(cClosingSeparator, openingIndex + cSeperator.length)) !== -1) {
+        const animStr = content.charAt(openingIndex + cSeperator.length) === 'a' ? 'a' : '';
+        const emoteStr = content.slice(openingIndex + cSeperator.length + animStr.length, closingIndex);
+        const emoteParts = emoteStr.split(colon);
         if (emoteParts.length === 3 && emoteParts[1].trim() !== '') {
           const emoteName = emoteParts[1].trim();
           const emoteId = emoteParts[2];
           result += content.slice(startIndex, openingIndex) + `<${animStr}:${emoteName}:${emoteId}>`;
         } else {
-          result += content.slice(startIndex, closingIndex + closingSeparator.length);
+          result += content.slice(startIndex, closingIndex + cClosingSeparator.length);
         }
 
-        startIndex = closingIndex + closingSeparator.length;
+        startIndex = closingIndex + cClosingSeparator.length;
       }
 
       result += content.slice(startIndex);
@@ -80,7 +81,8 @@ export default {
           const emoji = EmojiStore.getCustomEmojiById(emoteId);
 
           if (!(emoji && !emoji.animated && selectedGuildId && emoji.guildId === selectedGuildId)) {
-            result += content.slice(startIndex, openingIndex) + `|(${animStr};${emoteName};${emoteId})|`;
+            result += content.slice(startIndex, openingIndex) + `${cSeperator}${animStr}${colon}${emoteName}${colon}${emoteId}${cClosingSeparator}`;
+            console.log(1)
             ignore = false;
           }
         }
