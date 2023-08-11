@@ -1,5 +1,5 @@
 {
-  "hash": "a6d4aad4778cf2ab43e23fc2a3208fc2092adbeaac848ee40a41af4285e49e81",
+  "hash": "43ef20daf232dc8bd0b9bd631b4fa0acb1cab312ab3e7184b936707082c9fb09",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to use nitro emojis between Acord users.",
       "tr": "Acord kullanıcıları arasında nitro emojilerini kullanmanızı sağlar."
     },
-    "version": "0.0.3",
+    "version": "0.1.0",
     "license": "MIT",
     "readme": "./readme.md",
     "previews": []
