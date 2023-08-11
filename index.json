@@ -1363,7 +1363,7 @@
           "default": "Allows you to copy other's emotes and stickers.",
           "tr": "Başkalarının emotelarını ve çıkartmalarını kopyalamanızı sağlar."
         },
-        "version": "0.0.2",
+        "version": "0.0.3",
         "license": "MIT",
         "previews": [
           {
