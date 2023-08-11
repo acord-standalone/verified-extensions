@@ -1,5 +1,5 @@
 {
-  "hash": "fb95337b2241732dfdf7faadaf18bfdc8bb1546f57845511f34d6c016c9e8b84",
+  "hash": "ab5df9abbbfc2503daf903965cc0a460e10e97b46a39e10aec9b476353fc1deb",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to copy other's emotes and stickers.",
       "tr": "Başkalarının emotelarını ve çıkartmalarını kopyalamanızı sağlar."
     },
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
     "previews": [
       {
