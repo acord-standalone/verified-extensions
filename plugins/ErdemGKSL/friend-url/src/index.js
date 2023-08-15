@@ -32,25 +32,25 @@ export default {
       }
       return code.code;
     }
-    // subscriptions.push(dom.patch(`.userInfo-regn9W`, /**@param {Element} elm */(elm) => {
-    //   const packer = dom.parse(`<div class="acord--fu--packer"></div>`);
-    //   /** @type {Element} */
-    //   const btn = dom.parse(`<button class="acord--fu--button">${i18n.format("FRIEND_CODE_URL")}</button>`);
-    //   btn.addEventListener("click", clickTrigger);
+    subscriptions.push(dom.patch(`.userInfo-regn9W`, /**@param {Element} elm */(elm) => {
+      const packer = dom.parse(`<div class="acord--fu--packer"></div>`);
+      /** @type {Element} */
+      const btn = dom.parse(`<button class="acord--fu--button">${i18n.format("FRIEND_CODE_URL")}</button>`);
+      btn.addEventListener("click", clickTrigger);
 
-    //   const children = [...elm.children];
-    //   const editBtn = children.pop();
+      const children = [...elm.children];
+      const editBtn = children.pop();
 
-    //   packer.appendChild(editBtn);
-    //   packer.appendChild(btn);
+      packer.appendChild(editBtn);
+      packer.appendChild(btn);
       
-    //   elm.replaceChildren(...children, packer);
-    // }));
+      elm.replaceChildren(...children, packer);
+    }));
     subscriptions.push(dom.patch(`.relationshipButtons-3ByBpj`, /**@param {Element} elm */(elm) => {
       const cUserId = (react.getProps(elm, (e) => e?.user))?.user?.id;
       const userId = UserStore.getCurrentUser()?.id;
       if (cUserId !== userId) return;
-      const button = dom.parse(`<button type="button" class="actionButton-iarQTd button-ejjZWC lookFilled-1H2Jvj colorGreen-jIPCAS sizeSmall-3R2P2p grow-2T4nbg"><div class="contents-3NembX">${i18n.format("FRIEND_CODE_URL")}</div></button>`);
+      const button = dom.parse(`<button type="button" class="actionButton-iarQTd button-ejjZWC lookFilled-1H2Jvj colorGreen-jIPCAS sizeSmall-3R2P2p grow-2T4nbg"><div class="contents-3NembX">${i18n.format("COPY_FRIEND_CODE_URL")}</div></button>`);
       button.addEventListener("click", clickTrigger);
       elm.appendChild(button);
       elm.appendChild(dom.parse(`<div class="acord--fu--spacing"></div>`));

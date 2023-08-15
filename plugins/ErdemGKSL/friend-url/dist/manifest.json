@@ -1,5 +1,5 @@
 {
-  "hash": "0b03d7a648c8939fc8a0d1582966c8cbc290f85607ae7e05eec013f85a2fc7db",
+  "hash": "2b1aa214f522e06709109aa5b81503043b089d30f6117711abdb8aa135eb4ac5",
   "type": "plugin",
   "about": {
     "name": {
@@ -47,12 +47,14 @@
   "config": [],
   "i18n": {
     "tr": {
-      "FRIEND_CODE_URL": "Arkadaşlık linkini kopyala",
+      "FRIEND_CODE_URL": "Arkadaşlık linki",
+      "COPY_FRIEND_CODE_URL": "Arkadaşlık linkini kopyala",
       "SUCCESS_COPY": "Arkadaşlık linki başarıyla kopyalandı!",
       "ERROR_COPY": "Arkadaşlık linki kopyalanamadı!"
     },
     "default": {
-      "FRIEND_CODE_URL": "Copy friendship link",
+      "FRIEND_CODE_URL": "Friendship link",
+      "COPY_FRIEND_CODE_URL": "Copy friendship link",
       "SUCCESS_COPY": "Friend url successfully copied!",
       "ERROR_COPY": "Friend url could not be copied!"
     }
