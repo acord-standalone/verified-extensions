@@ -1,11 +1,6 @@
 {
-  "index": "./src/index.js",
+  "hash": "0b03d7a648c8939fc8a0d1582966c8cbc290f85607ae7e05eec013f85a2fc7db",
   "type": "plugin",
-  "out": {
-    "minify": true,
-    "sourceMap": true,
-    "directory": "./dist"
-  },
   "about": {
     "name": {
       "tr": "Arkadaşlık URL'si",
@@ -23,7 +18,6 @@
     },
     "version": "0.0.2",
     "license": "MIT",
-    "readme": "./readme.md",
     "previews": [
       {
         "name": "Default",
@@ -62,5 +56,6 @@
       "SUCCESS_COPY": "Friend url successfully copied!",
       "ERROR_COPY": "Friend url could not be copied!"
     }
-  }
+  },
+  "readme": true
 }
