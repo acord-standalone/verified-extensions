@@ -571,7 +571,7 @@
           "default": "Blur your messages by pressing Ctrl + M.",
           "tr": "Ctrl + M yaparak mesajlarınızı bulanıklaştırın."
         },
-        "version": "0.0.2",
+        "version": "0.0.3",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": [
