@@ -550,6 +550,49 @@
   {
     "meta": {
       "author": "ErdemGKSL",
+      "id": "message-blur",
+      "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/message-blur/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Message Blur",
+          "tr": "Mesaj Bulanıklığı"
+        },
+        "authors": [
+          {
+            "name": "erdem.dev",
+            "id": "319862027571036161"
+          }
+        ],
+        "description": {
+          "default": "Blur your messages by pressing Ctrl + M.",
+          "tr": "Ctrl + M yaparak mesajlarınızı bulanıklaştırın."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": [
+          {
+            "name": "Default",
+            "image": "https://cdn.discordapp.com/attachments/685842268606693376/1147240295818334278/image.png"
+          }
+        ]
+      },
+      "api": {
+        "patcher": true,
+        "ui": true,
+        "dom": true
+      },
+      "mode": "production",
+      "config": []
+    }
+  },
+  {
+    "meta": {
+      "author": "ErdemGKSL",
       "id": "platform-indicators",
       "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/platform-indicators/dist"
     },
