@@ -1,5 +1,5 @@
 {
-  "hash": "6198581d6892116d7a4c4e1b19ab5c4642717775177c22e1aec89d2e43bdd993",
+  "hash": "8377d99073a9e00267bc3af81d69b747d67ea88dbb648b516d0f274bfd7d43ca",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Blur your messages by pressing Ctrl + M.",
       "tr": "Ctrl + M yaparak mesajlarınızı bulanıklaştırın."
     },
-    "version": "0.0.2",
+    "version": "0.0.4",
     "license": "MIT",
     "previews": [
       {

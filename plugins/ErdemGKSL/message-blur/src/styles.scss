@@ -1,9 +1,9 @@
-.messageContent-2t3eCI {
+.messageContent-2t3eCI, .mediaAttachmentsContainer-1WGRWy {
   filter: blur(5px);
   transition: all 0.2s ease;
 }
 
-.messageContent-2t3eCI:hover {
+.messageContent-2t3eCI:hover, .mediaAttachmentsContainer-1WGRWy:hover {
   color: #fff;
   filter: blur(0px);
 }
