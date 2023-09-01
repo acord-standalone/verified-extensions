@@ -1,0 +1,36 @@
+{
+  "hash": "fce1efdc9a3dda289cd71da9737f22b3e900d7ab944c8e1747bedf8cc8fc0853",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Message Blur",
+      "tr": "Mesaj Bulanıklığı"
+    },
+    "authors": [
+      {
+        "name": "erdem.dev",
+        "id": "319862027571036161"
+      }
+    ],
+    "description": {
+      "default": "Blur your messages by pressing Ctrl + M.",
+      "tr": "Ctrl + M yaparak mesajlarınızı bulanıklaştırın."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://cdn.discordapp.com/attachments/685842268606693376/1147240295818334278/image.png"
+      }
+    ]
+  },
+  "api": {
+    "patcher": true,
+    "ui": true,
+    "dom": true
+  },
+  "mode": "production",
+  "config": [],
+  "readme": true
+}
