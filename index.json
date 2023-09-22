@@ -593,6 +593,64 @@
   {
     "meta": {
       "author": "ErdemGKSL",
+      "id": "minesweeper",
+      "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/minesweeper/dist"
+    },
+    "manifest": {
+      "index": "./index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Minesweeper command",
+          "tr": "Mayın Tarlası komutu"
+        },
+        "authors": [
+          {
+            "name": "érdem#6384",
+            "id": "319862027571036161"
+          }
+        ],
+        "description": {
+          "default": "Sends a minesweeper game in chat with /minesweeper command.",
+          "tr": "/mayıntarlası komutu ile sohbete mayın tarlası oyunu gönderir"
+        },
+        "version": "0.0.1",
+        "previews": []
+      },
+      "config": [],
+      "mode": "production",
+      "api": {
+        "commands": true,
+        "modules": {
+          "common": [
+            {
+              "name": "MessageActions",
+              "reason": "To send messages"
+            }
+          ]
+        }
+      },
+      "i18n": {
+        "default": {
+          "MINESWEEPER_GROUP_NAME": "Minesweeper",
+          "MINESWEEPER_COMMAND_DESCRIPTION": "Sends a minesweeper game in chat.",
+          "MINESWEEPER_SIZE_OPTION_DISPLAY_NAME": "Size",
+          "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Size of the minesweeper game. (3-9)",
+          "MINESWEEPER_COMMAND_REPLY": "Minesweeper game sent with size of {0}x{0}"
+        },
+        "tr": {
+          "MINESWEEPER_GROUP_NAME": "Mayın Tarlası",
+          "MINESWEEPER_COMMAND_DESCRIPTION": "Sohbete mayın tarlası oyunu gönderir.",
+          "MINESWEEPER_SIZE_OPTION_DISPLAY_NAME": "Boyut",
+          "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Mayın tarlası oyununun boyutu. (3-9)",
+          "MINESWEEPER_COMMAND_REPLY": "Mayın tarlası oyunu {0}x{0} boyutunda gönderildi"
+        }
+      }
+    }
+  },
+  {
+    "meta": {
+      "author": "ErdemGKSL",
       "id": "platform-indicators",
       "url": "https://api.acord.app/extensions/raw/plugins/ErdemGKSL/platform-indicators/dist"
     },
