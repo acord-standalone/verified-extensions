@@ -89,7 +89,7 @@ export default {
         execute: async ({ args, channel, reply }) => {
           const SIZE = Math.min(
             Math.max(
-              Number(args?.[0]),
+              Number(args?.[0]?.value),
               3
             ),
             9
