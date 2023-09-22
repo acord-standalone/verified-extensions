@@ -1,10 +1,10 @@
 {
-  "hash": "72eeafcaf9687d9a84994280f5db09c92b71634b037004fb69d257711c0b3bcc",
+  "hash": "272c2cbe654877347ebae19438aa429eb65186c6f36333962fa92ddbee43fbca",
   "type": "plugin",
   "about": {
     "name": {
-      "default": "Minesweeper command",
-      "tr": "Mayın Tarlası komutu"
+      "default": "Minesweeper Command",
+      "tr": "Mayın Tarlası Komutu"
     },
     "authors": [
       {
@@ -34,6 +34,7 @@
   },
   "i18n": {
     "default": {
+      "MINESWEEPER_COMMAND_NAME": "minesweeper",
       "MINESWEEPER_GROUP_NAME": "Minesweeper",
       "MINESWEEPER_COMMAND_DESCRIPTION": "Sends a minesweeper game in chat.",
       "MINESWEEPER_SIZE_OPTION_DISPLAY_NAME": "Size",
@@ -41,6 +42,7 @@
       "MINESWEEPER_COMMAND_REPLY": "Minesweeper game sent with size of {0}x{0}"
     },
     "tr": {
+      "MINESWEEPER_COMMAND_NAME": "mayıntarlası",
       "MINESWEEPER_GROUP_NAME": "Mayın Tarlası",
       "MINESWEEPER_COMMAND_DESCRIPTION": "Sohbete mayın tarlası oyunu gönderir.",
       "MINESWEEPER_SIZE_OPTION_DISPLAY_NAME": "Boyut",

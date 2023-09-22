@@ -80,6 +80,9 @@ export default {
     subscriptions.push(
       commands?.register({
         name: "minesweeper",
+        get displayName() {
+          return i18n.format("MINESWEEPER_COMMAND_NAME");
+        },
         get description() {
           return i18n.format("MINESWEEPER_COMMAND_DESCRIPTION")
         },
