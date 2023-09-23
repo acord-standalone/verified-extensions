@@ -23,7 +23,7 @@
           "default": "Extra commands for Discord, look slash commands.",
           "tr": "/ komutlarına bakın, Discord için ekstra komutlar."
         },
-        "version": "0.0.6",
+        "version": "0.0.7",
         "previews": []
       },
       "config": [],
@@ -57,7 +57,7 @@
       },
       "i18n": {
         "default": {
-          "GROUP_NAME": "Extra Utils",
+          "GROUP_NAME": "Extra Commands",
           "MOVE_BULK_COMMAND_NAME": "move bulk",
           "MOVE_BULK_COMMAND_DESCRIPTION": "Move members in a voice channel to another voice channel.",
           "MOVE_BULK_CHANNEL_FROM": "from_channel",
@@ -106,10 +106,15 @@
           "JOIN_VOICE_CHANNEL_DESCRIPTION": "The voice channel to join.",
           "JOIN_VOICE_CHANNEL_NOT_FOUND": "The voice channel you specified could not be found.",
           "JOIN_VOICE_PERMISSION_DENIED": "You do not have permission to join the voice channel you specified.",
-          "JOIN_VOICE_SUCCESS": "Successfully joined the voice channel {0}."
+          "JOIN_VOICE_SUCCESS": "Successfully joined the voice channel {0}.",
+          "ANIME_GIF_COMMAND_NAME": "anime gif",
+          "ANIME_GIF_COMMAND_DESCRIPTION": "Get a random anime gif.",
+          "ANIME_GIF_NOT_FOUND": "No anime gifs found.",
+          "ANIME_GIF_TYPE": "type",
+          "ANIME_GIF_TYPE_DESCRIPTION": "The type of anime gif to get."
         },
         "tr": {
-          "GROUP_NAME": "Ekstra Araçlar",
+          "GROUP_NAME": "Ekstra Komutlar",
           "MOVE_BULK_COMMAND_NAME": "toplu taşı",
           "MOVE_BULK_COMMAND_DESCRIPTION": "Bir ses kanalındaki üyeleri başka bir ses kanalına taşır.",
           "MOVE_BULK_CHANNEL_FROM": "kanaldan",
@@ -158,7 +163,12 @@
           "JOIN_VOICE_CHANNEL_DESCRIPTION": "Katılacağınız ses kanalı.",
           "JOIN_VOICE_CHANNEL_NOT_FOUND": "Belirttiğiniz ses kanalı bulunamadı.",
           "JOIN_VOICE_PERMISSION_DENIED": "Belirttiğiniz ses kanalına katılma izniniz yok.",
-          "JOIN_VOICE_SUCCESS": "{0} ses kanalına başarıyla katılındı."
+          "JOIN_VOICE_SUCCESS": "{0} ses kanalına başarıyla katılındı.",
+          "ANIME_GIF_COMMAND_NAME": "anime gif",
+          "ANIME_GIF_COMMAND_DESCRIPTION": "Rastgele bir anime gif alır.",
+          "ANIME_GIF_NOT_FOUND": "Anime gif bulunamadı.",
+          "ANIME_GIF_TYPE": "tür",
+          "ANIME_GIF_TYPE_DESCRIPTION": "Alınacak anime gifinin türü."
         }
       }
     }
