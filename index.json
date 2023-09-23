@@ -10,8 +10,8 @@
       "type": "plugin",
       "about": {
         "name": {
-          "default": "Extra Utils",
-          "tr": "Ekstra Araçlar"
+          "default": "Extra Commands",
+          "tr": "Ekstra Komutlar"
         },
         "authors": [
           {
@@ -20,8 +20,8 @@
           }
         ],
         "description": {
-          "default": "Extra utilities for Discord, look slash commands.",
-          "tr": "/ komutlarına bakın, Discord için ekstra araçlar."
+          "default": "Extra commands for Discord, look slash commands.",
+          "tr": "/ komutlarına bakın, Discord için ekstra komutlar."
         },
         "version": "0.0.3",
         "previews": []
