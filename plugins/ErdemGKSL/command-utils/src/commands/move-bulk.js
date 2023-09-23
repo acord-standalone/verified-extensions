@@ -10,6 +10,9 @@ export default commands?.register({
   get description() {
     return i18n.format("MOVE_BULK_COMMAND_DESCRIPTION")
   },
+  predicate: ({ channel, guild }) => {
+    return guild && PermissionStore.can(19923968n, guild);
+  },
   execute: async ({ args, channel, reply }) => {
     const fromChannelId = args[0]?.value;
     const fromChannel = ChannelStore.getChannel(fromChannelId);

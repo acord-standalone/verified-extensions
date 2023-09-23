@@ -1,5 +1,6 @@
 import commands from "@acord/commands";
 import { i18n } from "@acord/extension"
+import { PermissionStore } from "@acord/modules/common";
 
 export default commands?.register({
   name: "anime-gif",
@@ -8,6 +9,9 @@ export default commands?.register({
   },
   get description() {
     return i18n.format("ANIME_GIF_COMMAND_DESCRIPTION")
+  },
+  predicate: ({ channel, guild }) => {
+    return !guild || PermissionStore.can(3072n, channel);
   },
   execute: async ({ args, channel, reply, send }) => {
     const type = args[0]?.value;
