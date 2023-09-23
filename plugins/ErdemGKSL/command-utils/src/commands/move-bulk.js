@@ -24,7 +24,7 @@ export default commands?.register({
     if (!PermissionStore.can(19923968n, fromChannel) || !PermissionStore.can(19923968n, toChannel)) 
       return reply(i18n.format("MOVE_BULK_PERMISSION_DENIED"));
 
-    const memberIds = Object.keys(VoiceStateStore.getVoiceStatesForChannel(fromChannelId));
+    const memberIds = Object.keys(VoiceStateStore.getVoiceStatesForChannel(fromChannelId)).slice(0, 10);
 
     if (memberIds.length === 0) return reply(i18n.format("MOVE_BULK_NO_MEMBERS"));
 
