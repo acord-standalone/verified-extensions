@@ -1,10 +1,10 @@
 {
-  "hash": "5d610c29a02c0b56bff82b6c9c3776fa78cbab8db136b122ce02a908f91360e4",
+  "hash": "963b4bfc2acc7b14b1570e1dd24dd8969c9d4c794213c3e42f8bfb854bf9b791",
   "type": "plugin",
   "about": {
     "name": {
-      "default": "Extra Utils",
-      "tr": "Ekstra Araçlar"
+      "default": "Extra Commands",
+      "tr": "Ekstra Komutlar"
     },
     "authors": [
       {
@@ -13,8 +13,8 @@
       }
     ],
     "description": {
-      "default": "Extra utilities for Discord, look slash commands.",
-      "tr": "/ komutlarına bakın, Discord için ekstra araçlar."
+      "default": "Extra commands for Discord, look slash commands.",
+      "tr": "/ komutlarına bakın, Discord için ekstra komutlar."
     },
     "version": "0.0.3",
     "previews": []
