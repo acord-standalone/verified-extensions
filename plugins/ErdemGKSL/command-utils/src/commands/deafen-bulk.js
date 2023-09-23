@@ -19,7 +19,7 @@ export default commands?.register({
     if (!PermissionStore.can(1535360n, targetChannel)) 
       return reply(i18n.format("DEAFEN_BULK_PERMISSION_DENIED"));
 
-    const memberIds = Object.keys(VoiceStateStore.getVoiceStatesForChannel(targetChannelId)).slice(0, 10);
+    const memberIds = Object.entries(VoiceStateStore.getVoiceStatesForChannel(targetChannelId)).filter(e => !e[1].deaf).map(e => e[0]).slice(0, 10);
 
     if (memberIds.length === 0) return reply(i18n.format("DEAFEN_BULK_NO_MEMBERS"));
 

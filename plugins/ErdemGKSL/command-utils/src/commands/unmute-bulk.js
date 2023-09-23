@@ -13,13 +13,13 @@ export default commands?.register({
   execute: async ({ args, channel, reply }) => {
     const targetChannelId = args[0]?.value;
     const targetChannel = ChannelStore.getChannel(targetChannelId);
-    if (!targetChannel || !targetChannel.guild_id) 
+    if (!targetChannel || !targetChannel.guild_id)
       return reply(i18n.format("UNMUTE_BULK_CHANNEL_NOT_FOUND"));
 
-    if (!PermissionStore.can(7341056n, targetChannel)) 
+    if (!PermissionStore.can(7341056n, targetChannel))
       return reply(i18n.format("UNMUTE_BULK_PERMISSION_DENIED"));
 
-    const memberIds = Object.keys(VoiceStateStore.getVoiceStatesForChannel(targetChannelId)).slice(0, 10);
+    const memberIds = Object.entries(VoiceStateStore.getVoiceStatesForChannel(targetChannelId)).filter(e => e[1].mute).map(e => e[0]).slice(0, 10);
 
     if (memberIds.length === 0) return reply(i18n.format("UNMUTE_BULK_NO_MEMBERS"));
 
