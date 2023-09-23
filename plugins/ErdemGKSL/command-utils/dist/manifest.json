@@ -1,5 +1,5 @@
 {
-  "hash": "90ca26733e2c97871de9b10abea306c04f8c1be6bb07771d09d0d73771a354d1",
+  "hash": "5d610c29a02c0b56bff82b6c9c3776fa78cbab8db136b122ce02a908f91360e4",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Extra utilities for Discord, look slash commands.",
       "tr": "/ komutlarına bakın, Discord için ekstra araçlar."
     },
-    "version": "0.0.2",
+    "version": "0.0.3",
     "previews": []
   },
   "config": [],

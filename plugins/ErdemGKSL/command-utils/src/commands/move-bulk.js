@@ -30,7 +30,7 @@ export default commands?.register({
 
     for (const memberId of memberIds) {
       await GuildActions.setChannel(fromChannel.guild_id, memberId, toChannelId);
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise(resolve => setTimeout(resolve, 250));
     }
 
     return reply(i18n.format("MOVE_BULK_SUCCESS", memberIds.length));
