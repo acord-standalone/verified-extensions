@@ -1,5 +1,5 @@
 {
-  "hash": "a94ba01b644c6362c1db7170f85fa9d37c15333ce0594a3e85655f421bf120a9",
+  "hash": "90ca26733e2c97871de9b10abea306c04f8c1be6bb07771d09d0d73771a354d1",
   "type": "plugin",
   "about": {
     "name": {
@@ -70,7 +70,7 @@
       "JOIN_VOICE_SUCCESS": "Successfully joined the voice channel {0}."
     },
     "tr": {
-      "GROUP_NAME": "Extra Utils",
+      "GROUP_NAME": "Ekstra Araçlar",
       "MOVE_BULK_COMMAND_NAME": "taşı toplu",
       "MOVE_BULK_COMMAND_DESCRIPTION": "Bir ses kanalındaki üyeleri başka bir ses kanalına taşır.",
       "MOVE_BULK_CHANNEL_FROM": "kanaldan",
