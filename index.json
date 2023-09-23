@@ -77,7 +77,7 @@
           "JOIN_VOICE_SUCCESS": "Successfully joined the voice channel {0}."
         },
         "tr": {
-          "GROUP_NAME": "Extra Utils",
+          "GROUP_NAME": "Ekstra Araçlar",
           "MOVE_BULK_COMMAND_NAME": "taşı toplu",
           "MOVE_BULK_COMMAND_DESCRIPTION": "Bir ses kanalındaki üyeleri başka bir ses kanalına taşır.",
           "MOVE_BULK_CHANNEL_FROM": "kanaldan",
