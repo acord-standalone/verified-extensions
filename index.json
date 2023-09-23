@@ -3376,6 +3376,63 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "urban-dictionary",
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/urban-dictionary/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": "Urban Dictionary",
+        "authors": [
+          {
+            "name": "thearmagan",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Search terms on Urban Dictionary. Adds /urban command.",
+          "tr": "Urban Dictionary'de arama yapın. /urban komutu ekler."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "i18n": {
+        "default": {
+          "SEARCH_ON_URBAN": "Searches on Urban Dictionary.",
+          "SEARCH_TERM": "Search term",
+          "SEND_TO_CHAT": "Send to chat",
+          "NO_RESULTS_FOUND": "No results found.",
+          "DEFINITION": "**Urban Dictionary** ({0})\n\n{1}\n\n**Example**\n{2}\n\n**{3}** people liked this."
+        },
+        "tr": {
+          "SEARCH_ON_URBAN": "Urban Dictionary'de arar.",
+          "SEARCH_TERM": "Aranacak terim",
+          "SEND_TO_CHAT": "Chat'e gönder",
+          "NO_RESULTS_FOUND": "Sonuç bulunamadı.",
+          "DEFINITION": "**Urban Dictionary** ({0})\n\n{1}\n\n**Örnek**\n{2}\n\n**{3}** kişi bunu beğendi."
+        }
+      },
+      "api": {
+        "commands": true,
+        "modules": {
+          "common": [
+            {
+              "name": "MessageActions",
+              "reason": "To access unread messages."
+            }
+          ]
+        }
+      },
+      "mode": "production",
+      "config": []
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "voice-channel-notifications",
       "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/voice-channel-notifications/dist"
     },
