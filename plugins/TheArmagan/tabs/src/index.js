@@ -20,7 +20,7 @@ export default {
     const tabsContainer = dom.parse(`
       <div class="tabs--container">
           <div class="tab-items" @wheel="onVerticalScrollWheel">
-            <div v-for="tab in tabs" class="tab-item" :class="{'selected': selectedTabId === tab.id}" :key="tab.id" @click="onTabClick(tab, $event)" @contextmenu="onTabContextMenu(tab, $event)">
+            <div v-for="tab in tabs" class="tab-item" :class="{'selected': selectedTabId === tab.id}" :key="tab.id" @click="onTabClick(tab, $event)" @mousedown="onTabMouseDown(tab, $event)" @contextmenu="onTabContextMenu(tab, $event)">
               <span class="info">
                   <span class="icon" :style="tab.icon ? \`background-image: url('\${tab.icon}');\` : \`background-color: #5865f2;\`"></span>
                   <span class="title">{{tab.pathname === "/store" ? "Acord" : tab.title}}</span>
@@ -186,6 +186,10 @@ export default {
           this.ignoreSelectOnce = true;
           Router.transitionTo(tab.pathname);
         },
+        onTabMouseDown(tab, e) {
+          if (this.tabs.length <= 1) return;
+          if (e.button === 1) this.onTabCloseClick(tab);
+        },
         onTabCloseClick(tab) {
           let index = this.tabs.indexOf(tab);
           if (index === -1) return;
@@ -239,6 +243,7 @@ export default {
         },
         onBookmarkContextMenu(bookmark, e) {
           const self = this;
+          let myIndex = self.bookmarks.indexOf(bookmark);
           ui.contextMenus.open(e, ui.contextMenus.build.menu([
             {
               type: "text",
@@ -252,6 +257,29 @@ export default {
               label: i18n.format("RENAME"),
               action() {
                 bookmark.inRenameMode = true;
+              }
+            },
+            {
+              type: "separator"
+            },
+            {
+              type: "text",
+              label: i18n.format("MOVE_BOOKMARK_TO_LEFT"),
+              disabled: !myIndex,
+              action() {
+                let [item] = self.bookmarks.splice(myIndex, 1);
+                self.bookmarks.splice(myIndex - 1, 0, item);
+                self.save();
+              }
+            },
+            {
+              type: "text",
+              label: i18n.format("MOVE_BOOKMARK_TO_RIGHT"),
+              disabled: myIndex === (self.bookmarks.length - 1),
+              action() {
+                let [item] = self.bookmarks.splice(myIndex, 1);
+                self.bookmarks.splice(myIndex + 1, 0, item);
+                self.save();
               }
             },
           ]));
