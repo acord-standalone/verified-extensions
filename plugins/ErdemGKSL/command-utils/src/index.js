@@ -6,6 +6,7 @@ import muteBulk from "./commands/mute-bulk"
 import unmuteBulk from "./commands/unmute-bulk"
 import deafenBulk from "./commands/deafen-bulk"
 import undeafenBulk from "./commands/undeafen-bulk"
+import animeGif from "./commands/anime-gif"
 
 export default {
   load() {
@@ -15,7 +16,8 @@ export default {
       muteBulk,
       unmuteBulk,
       deafenBulk,
-      undeafenBulk
+      undeafenBulk,
+      animeGif
     )
   }
 }
