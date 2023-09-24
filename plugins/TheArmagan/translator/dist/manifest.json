@@ -1,0 +1,45 @@
+{
+  "hash": "53f69b9cb4ac3ae19b68851cf17ecd58658d9fe2e7a567cfca14d5956957d73b",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Translator",
+      "tr": "Çeviri"
+    },
+    "authors": [
+      {
+        "name": "thearmagan",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Translate sent messages and your messages.",
+      "tr": "Gönderilmiş mesajları ve yazdığınız mesajları çevirebilmenizi sağlar."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "i18n": {
+    "default": {
+      "TRANSLATE": "Translate",
+      "PLUGIN_NAME": "Translator",
+      "SHOW_ORIGINAL": "Show Original",
+      "TRANSLATE_TO": "Translate To",
+      "AUTO_TRANSLATE": "Auto Translate",
+      "ALL_LANGUAGES": "All Languages"
+    },
+    "tr": {
+      "TRANSLATE": "Çevir",
+      "PLUGIN_NAME": "Çeviri",
+      "SHOW_ORIGINAL": "Orijinali Göster",
+      "TRANSLATE_TO": "Şu Dile Çevir",
+      "AUTO_TRANSLATE": "Otomatik Çevir",
+      "ALL_LANGUAGES": "Tüm Diller"
+    }
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
