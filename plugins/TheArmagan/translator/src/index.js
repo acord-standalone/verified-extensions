@@ -145,7 +145,9 @@ export default {
                   items: langs.map(lang => {
                     return {
                       label: lang.label,
-                      action: () => (persist.store.autoTranslateTo = lang),
+                      action: () => {
+                        persist.store.autoTranslateTo = lang.value;
+                      },
                       group: "auto-translate-to",
                       type: "radio",
                       checked: autoTranslateTo === lang.value,
