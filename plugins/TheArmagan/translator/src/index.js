@@ -11,7 +11,17 @@ import acordI18n from "@acord/i18n";
 export default {
   load() {
 
-    function buildTranslateToCtxMenuItems(message, msgComp) {
+    function forceUpdate(htmlEl) {
+      utils.react.forceUpdate(utils.react.getInstance(htmlEl));
+    }
+
+    async function translateMessageContent(message, content, toLang) {
+      persist.store.lastUsedToLang = toLang;
+      let { text } = await translate(content, { to: toLang });
+      message.content = text;
+    }
+
+    function buildTranslateToCtxMenuItems(message, msgEl) {
       if (!message.__original_content__ || message.__original_content__.time !== (message.editedTimestamp ? Number(message.editedTimestamp) : Number(message.timestamp))) {
         message.__original_content__ = {
           text: message.content,
@@ -19,17 +29,6 @@ export default {
         };
       }
       let ogContent = message.__original_content__.text;
-
-      function forceUpdate() {
-        utils.react.forceUpdate(utils.react.getInstance(msgComp));
-      }
-
-      async function translateFunc(toLang) {
-        persist.store.lastUsedToLang = toLang;
-        let { text } = await translate(ogContent, { to: toLang });
-        message.content = text;
-        forceUpdate();
-      }
 
       let lastUsedToLang = persist.ghost.lastUsedToLang || "en";
       let discordLocale = acordI18n.locale.split("-")[0];
@@ -40,7 +39,7 @@ export default {
           disabled: message.content === ogContent,
           action: () => {
             message.content = ogContent;
-            forceUpdate();
+            forceUpdate(msgEl);
           }
         },
         {
@@ -49,11 +48,11 @@ export default {
           items: [
             lastUsedToLang === discordLocale ? null : {
               label: langs.find(lang => lang.value === lastUsedToLang)?.label || lastUsedToLang,
-              action: () => translateFunc(lastUsedToLang)
+              action: () => translateMessageContent(message, ogContent, lastUsedToLang)
             },
             {
               label: langs.find(lang => lang.value === discordLocale)?.label || discordLocale,
-              action: () => translateFunc(discordLocale)
+              action: () => translateMessageContent(message, ogContent, discordLocale)
             },
             {
               label: i18n.format("ALL_LANGUAGES"),
@@ -61,7 +60,7 @@ export default {
               items: langs.map(lang => {
                 return {
                   label: lang.label,
-                  action: () => translateFunc(lang.value),
+                  action: () => translateMessageContent(message, ogContent, lang.value),
                 }
               })
             }
@@ -123,10 +122,6 @@ export default {
           let autoTranslate = persist.ghost.autoTranslate ?? false;
           let autoTranslateTo = persist.ghost.autoTranslateTo ?? "en";
 
-          function setLang(lang) {
-            persist.store.autoTranslateTo = lang;
-          }
-
           comp.props.children.push(
             ui.contextMenus.build.item({
               type: "separator"
@@ -150,7 +145,7 @@ export default {
                   items: langs.map(lang => {
                     return {
                       label: lang.label,
-                      action: () => setLang(lang.value),
+                      action: () => (persist.store.autoTranslateTo = lang),
                       group: "auto-translate-to",
                       type: "radio",
                       checked: autoTranslateTo === lang.value,
