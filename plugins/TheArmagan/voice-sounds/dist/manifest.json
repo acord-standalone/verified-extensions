@@ -1,0 +1,270 @@
+{
+  "hash": "40a3e8fde32230bd2f323f1d28f5ae9ae1b6b83746706d07cbf0efd3866f2cfa",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Voice Sounds",
+      "tr": "Sesli Sohbet Sesleri"
+    },
+    "authors": [
+      {
+        "name": "thearmagan",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Adds TTS event notifications to your voice channel.",
+      "tr": "Ses kanalında yaşanan olayları sesli olarak bildirir."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Speaker Voice",
+            "tr": "Konuşmacı Sesi"
+          }
+        },
+        {
+          "type": "Select",
+          "default": null,
+          "id": "speakerVoiceName",
+          "options": []
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Speaker Volume",
+            "tr": "Konuşmacı Ses Seviyesi"
+          }
+        },
+        {
+          "type": "Input",
+          "default": 50,
+          "id": "speakerVolume",
+          "inputType": "number",
+          "min": 0,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Ignore Bots",
+            "tr": "Botları Engelle"
+          }
+        },
+        {
+          "type": "Check",
+          "default": true,
+          "id": "ignoreBots"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Ignore Stages",
+            "tr": "Sahne Kanallarını Engelle"
+          }
+        },
+        {
+          "type": "Check",
+          "default": true,
+          "id": "ignoreStages"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Mute Message",
+            "tr": "Susturma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "Susturuldu",
+          "placeholder": "Muted",
+          "id": "muteMessage"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Unmute Message",
+            "tr": "Susturma Kaldırma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "Susturulma Kaldırıldı",
+          "placeholder": "Unmuted",
+          "id": "unmuteMessage"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Deafen Message",
+            "tr": "Sağırlaştırılma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "Sağırlaştırıldı",
+          "placeholder": "Deafened",
+          "id": "deafenMessage"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Undeafen Message",
+            "tr": "Sağırlaştırılma Kaldırma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "Sağırlaştırılma Kaldırıldı",
+          "placeholder": "Undeafened",
+          "id": "undeafenMessage"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Member Join Message",
+            "tr": "Üye Katılma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "{nickname} sese katıldı",
+          "placeholder": "{nickname} joined {channel}",
+          "id": "memberJoinMessage"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Member Leave Message",
+            "tr": "Üye Katılma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "{nickname} sesten ayrıldı",
+          "placeholder": "{nickname} left {channel}",
+          "id": "memberLeaveMessage"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Self Join Message",
+            "tr": "Sese Katılma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "{channel} kanalına katıldın",
+          "placeholder": "You joined {channel}",
+          "id": "selfJoinMessage"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Self Move Message",
+            "tr": "Ses Kanalına Kaydırılma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "{channel} kanalına atıldın",
+          "placeholder": "You were moved to {channel}",
+          "id": "selfMoveMessage"
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Self Leave Message",
+            "tr": "Ses Kanalından Ayırlma Mesajı"
+          }
+        },
+        {
+          "type": "Input",
+          "default": "Ses kanalından çıktın",
+          "placeholder": "You left {channel}",
+          "id": "selfLeaveMessage"
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "default": {
+      "THE_CALL": "The call"
+    },
+    "tr": {
+      "THE_CALL": "Arama"
+    }
+  },
+  "readme": false
+}
