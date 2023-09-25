@@ -3917,7 +3917,7 @@
           "default": "Adds TTS event notifications to your voice channel.",
           "tr": "Ses kanalında yaşanan olayları sesli olarak bildirir."
         },
-        "version": "0.0.1",
+        "version": "0.0.2",
         "license": "MIT",
         "previews": []
       },
@@ -3959,6 +3959,23 @@
               "inputType": "number",
               "min": 0,
               "max": 100
+            }
+          ]
+        },
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Cancel First",
+                "tr": "İlk Önce Durdur"
+              }
+            },
+            {
+              "type": "Check",
+              "default": true,
+              "id": "cancelFirst"
             }
           ]
         },
