@@ -1,0 +1,25 @@
+.bd--edit-icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.bd--icon-edit-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bd--name-container {
+  display: flex;
+  gap: 4px;
+}
+
+.bd--rename-input {
+  background-color: transparent;
+  border: none;
+  padding: 2px 4px;
+  border-bottom: 2px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 4px;
+}

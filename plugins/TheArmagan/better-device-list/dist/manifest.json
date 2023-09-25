@@ -1,0 +1,90 @@
+{
+  "hash": "ee196d409d027ea7fd1d770046b75b05c285b4fa53d6c1e9066d691c5f348d0b",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Better Device List",
+      "tr": "Daha İyi Cihaz Listesi"
+    },
+    "description": {
+      "default": "Get notified about devices you logged in, name your devices..",
+      "tr": "Uygulamaya giriş yaptığınız cihazlar hakkında bildirim alın, cihazlarını isimlendirin.."
+    },
+    "authors": [
+      {
+        "name": "thearmagan",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "readme": "./readme.md",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://media.discordapp.net/attachments/724874750383358073/1155951990346612776/image.png"
+      }
+    ]
+  },
+  "api": {},
+  "mode": "development",
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Notification Type",
+            "tr": "Bildirim Tipi"
+          }
+        },
+        {
+          "type": "Select",
+          "default": "inApp",
+          "id": "notificationType",
+          "options": [
+            {
+              "value": "desktop",
+              "label": {
+                "default": "Desktop",
+                "tr": "Masaüstü"
+              }
+            },
+            {
+              "value": "inApp",
+              "label": {
+                "default": "In-App",
+                "tr": "Uygulama İçi"
+              }
+            },
+            {
+              "value": "disabled",
+              "label": {
+                "default": "Disabled",
+                "tr": "Kapalı"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "default": {
+      "RENAME": "Rename",
+      "NAME": "Name",
+      "BETTER_DEVICE_LIST": "Better Device List",
+      "NEW_SESSION_IN_APP": "New Discord session detected on <strong>{0}</strong> (from <strong>{1}</strong>)",
+      "NEW_SESSION_DESKTOP": "New Discord session detected on {0} (from {1})"
+    },
+    "tr": {
+      "RENAME": "Yeniden Adlandır",
+      "NAME": "İsim",
+      "BETTER_DEVICE_LIST": "Daha İyi Cihaz Listesi",
+      "NEW_SESSION_IN_APP": "<strong>{0}</strong> üzerinde yeni bir Discord oturumu algılandı (<strong>{1}</strong> üzerinden)",
+      "NEW_SESSION_DESKTOP": "{0} üzerinde yeni bir Discord oturumu algılandı ({1} üzerinden)"
+    }
+  },
+  "readme": true
+}
