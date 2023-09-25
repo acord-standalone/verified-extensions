@@ -9,6 +9,8 @@
     load() {
       const notValidCharRegex = /[^a-zA-Z0-9öçşğüÖÇŞİĞÜı]/g;
       function speak(message) {
+        if (extension.persist.ghost.settings.cancelFirst)
+          speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(message);
         utterance.voice = speechSynthesis.getVoices().find((i) => i.name === extension.persist.ghost.settings.speakerVoiceName);
         utterance.volume = extension.persist.ghost.settings.speakerVolume / 100;

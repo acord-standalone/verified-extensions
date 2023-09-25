@@ -1,5 +1,5 @@
 {
-  "hash": "40a3e8fde32230bd2f323f1d28f5ae9ae1b6b83746706d07cbf0efd3866f2cfa",
+  "hash": "96560f23a35f067ae9be71087c2e4b33f096f620175f2ba6df7687fa085eb0f9",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Adds TTS event notifications to your voice channel.",
       "tr": "Ses kanalında yaşanan olayları sesli olarak bildirir."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "previews": []
   },
@@ -58,6 +58,23 @@
           "inputType": "number",
           "min": 0,
           "max": 100
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Heading",
+          "value": {
+            "default": "Cancel First",
+            "tr": "İlk Önce Durdur"
+          }
+        },
+        {
+          "type": "Check",
+          "default": true,
+          "id": "cancelFirst"
         }
       ]
     },

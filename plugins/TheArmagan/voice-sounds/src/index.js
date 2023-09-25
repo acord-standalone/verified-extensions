@@ -4,10 +4,10 @@ import { UserStore, SelectedChannelStore, VoiceStateStore, ChannelStore, GuildMe
 
 export default {
   load() {
-
     const notValidCharRegex = /[^a-zA-Z0-9öçşğüÖÇŞİĞÜı]/g;
 
     function speak(message) {
+      if (persist.ghost.settings.cancelFirst) speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(message);
       utterance.voice = speechSynthesis.getVoices().find(i => i.name === persist.ghost.settings.speakerVoiceName);
       utterance.volume = persist.ghost.settings.speakerVolume / 100;
