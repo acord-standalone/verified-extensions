@@ -3654,6 +3654,9 @@
         return raw ? makeRawArray(states[userId]) : rawToParsed(makeRawArray(states[userId]));
       }) : [];
     }
+    function getAllVoiceStateUsers() {
+      return Object.values(VoiceStateStore.getAllVoiceStates()).reduce((a, c) => Object.assign(a, c), {});
+    }
     function makeRawArray(i) {
       let channel = ChannelStore.getChannel(i.channelId);
       let guild = GuildStore.getGuild(channel?.guild_id);
@@ -4321,15 +4324,15 @@
           ]);
         }
       }
-      let _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
+      let _lastUsers = JSON.parse(JSON.stringify(getAllVoiceStateUsers()));
       patchContainer.add((() => {
         function onVoiceStateUpdate(e) {
           let _oldUsers = JSON.parse(JSON.stringify(_lastUsers));
-          _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
+          _lastUsers = JSON.parse(JSON.stringify(getAllVoiceStateUsers()));
           e.voiceStates.forEach((ogNS) => {
-            let _oldState = _oldUsers?.[ogNS.userId]?.[ogNS.sessionId];
+            let _oldState = _oldUsers?.[ogNS.userId];
             let oldState = _oldState ? { ..._oldState || {} } : null;
-            let _newState = _lastUsers?.[ogNS.userId]?.[ogNS.sessionId];
+            let _newState = _lastUsers?.[ogNS.userId];
             let newState = _newState ? { ..._newState || {} } : null;
             handleVoiceUpdate({
               oldState,
@@ -4346,7 +4349,7 @@
       })());
       patchContainer.add(
         events__default["default"].on("AuthenticationSuccess", async () => {
-          _lastUsers = JSON.parse(JSON.stringify(VoiceStateStore.__getLocalVars().users));
+          _lastUsers = JSON.parse(JSON.stringify(getAllVoiceStateUsers()));
         }),
         events__default["default"].on(
           "DocumentTitleChange",

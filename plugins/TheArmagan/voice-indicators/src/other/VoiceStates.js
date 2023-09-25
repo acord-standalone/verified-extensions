@@ -33,9 +33,14 @@ export function getVoiceChannelMembers(channelId, raw = false) {
   }) : [];
 }
 
+export function getAllVoiceStateUsers() {
+  return Object.values(VoiceStateStore.getAllVoiceStates()).reduce((a, c) => Object.assign(a, c), {});
+}
+
 /** @returns {VoiceStateRawArray[]} */
 export function getUserVoiceStates(userId, rawString) {
-  return Object.values(VoiceStateStore.__getLocalVars().users[userId] || {}).map(i => rawString ? makeRawArray(i).join(";") : makeRawArray(i));
+  let i = getAllVoiceStateUsers()[userId];
+  return rawString ? makeRawArray(i).join(";") : makeRawArray(i)
 }
 
 /** @returns {VoiceStateRawArray} */
