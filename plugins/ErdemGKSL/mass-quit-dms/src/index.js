@@ -26,7 +26,7 @@ export default {
                     label: i18n.format("QUIT_DMS"),
                     action() {
                       other.disabled = true;
-                      const channels = PrivateChannelSortStore.__getLocalVars().getPrivateChannelIds().map((id) => ChannelStore.getChannel(id)).filter(channel => channel?.type === 3);
+                      const channels = PrivateChannelSortStore.getPrivateChannelIds().map((id) => ChannelStore.getChannel(id)).filter(channel => channel?.type === 3);
                       const length = channels.length;
                       (async () => {
                         for (let i = 0; i < length; i++) {
