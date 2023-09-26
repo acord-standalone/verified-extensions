@@ -320,7 +320,7 @@
           "default": "Get notifications about your friends.",
           "tr": "Arkadaşların hakkında her türlü bildirimi al."
         },
-        "version": "0.0.5",
+        "version": "0.0.6",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": [
@@ -945,7 +945,7 @@
           "default": "Sends a notification when a vanity url is freed.",
           "tr": "Özel sunucu Url'lerinin kullanımı boşa çıktığında bildirim gönderir."
         },
-        "version": "0.0.1",
+        "version": "0.0.2",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": [
