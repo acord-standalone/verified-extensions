@@ -40,7 +40,7 @@ export function getAllVoiceStateUsers() {
 /** @returns {VoiceStateRawArray[]} */
 export function getUserVoiceStates(userId, rawString) {
   let i = getAllVoiceStateUsers()[userId];
-  return rawString ? makeRawArray(i).join(";") : makeRawArray(i)
+  return [rawString ? makeRawArray(i).join(";") : makeRawArray(i)]
 }
 
 /** @returns {VoiceStateRawArray} */
