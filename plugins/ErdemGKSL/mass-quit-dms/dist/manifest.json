@@ -1,5 +1,5 @@
 {
-  "hash": "3662fbbca482bbcfb9d6371493a8595525d578ab952bc3527a014ffe7015f216",
+  "hash": "3662fbbca482bbcfb9d6371493a8595525d578ab952bc3527a014ffe7015f21z",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Massive DM Group Quitter, sliently.",
       "tr": "Toplu DM Grup Çıkışı, sessizce."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "previews": [
       {

@@ -39,7 +39,7 @@ export default {
   load() {
     FluxDispatcher.subscribe("GUILD_UPDATE", listener);
     FluxDispatcher.subscribe("GUILD_CREATE", listener);
-    setTimeout(() => Object.values(GuildStore.__getLocalVars().guilds).forEach(guild => guildVanityCache[guild.id] = guild.vanityURLCode), 1000);
+    setTimeout(() => Object.values(GuildStore.getGuilds()).forEach(guild => guildVanityCache[guild.id] = guild.vanityURLCode), 1000);
     subscriptions.push(events.on("LocaleChange", () => formatLog()));
     subscriptions.push(() => FluxDispatcher.unsubscribe("GUILD_UPDATE", listener));
     subscriptions.push(() => FluxDispatcher.unsubscribe("GUILD_CREATE", listener));

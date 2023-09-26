@@ -42,7 +42,7 @@ function notify(msg, clickAction = () => { }) {
 }
 
 function getChannelUsers(chId) {
-  return Object.keys(VoiceStateStore.__getLocalVars().channels[chId] || {});
+  return Object.keys(VoiceStateStore.getVoiceStatesForChannel(chId) || {});
 }
 
 export default {

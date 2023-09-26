@@ -508,10 +508,10 @@ export default {
         userStatusCache = Object.fromEntries(userIds.map(i => [i, PresenceStore.getState().statuses[i]]));
         userPlatformCache = Object.fromEntries(userIds.map(i => [
           i,
-          Object.keys(PresenceStore.__getLocalVars().clientStatuses?.[i] ?? {}).sort((a, b) => a - b).join(", ")
+          Object.keys(PresenceStore.getState().clientStatuses?.[i] ?? {}).sort((a, b) => a - b).join(", ")
         ]));
         userActivityCache = Object.fromEntries(userIds.map(i => {
-          let activity = PresenceStore.__getLocalVars().activities[i];
+          let activity = PresenceStore.getState().activities[i];
           if (!activity) return [i, null];
           let stateText = `${activity.name} ${activity.details || activity.state || ""}`.trim();
           return [
