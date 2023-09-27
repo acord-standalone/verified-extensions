@@ -1,0 +1,157 @@
+{
+  "hash": "b0a695a22dd07baed22999b4fd30f19a87b3d8e217e26f0153eb2e46631dc03b",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Custom Video Quality",
+      "tr": "Özel Video Paylaşımı Kalitesi"
+    },
+    "description": {
+      "default": "Allows you to change screen share and camera quality fully. Like bitrate, size, fps, etc.",
+      "tr": "Ekran paylaşımı ve kamera kalitesini tamamen değiştirmenize olanak sağlar. Bit hızı, boyut, fps vb."
+    },
+    "authors": [
+      {
+        "name": "thearmagan",
+        "id": "707309693449535599"
+      }
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": [
+      {
+        "name": "Default",
+        "image": "https://cdn.discordapp.com/attachments/887446333047312464/1156700619365695488/image.png"
+      }
+    ]
+  },
+  "api": {
+    "modules": {
+      "custom": [
+        {
+          "name": "videoQualityModule",
+          "finder": {
+            "filter": {
+              "export": false,
+              "in": "strings",
+              "by": [
+                [
+                  "audioSSRC",
+                  "updateVideoQuality"
+                ]
+              ]
+            },
+            "path": {
+              "before": [
+                "exports.Z",
+                "exports.ZP",
+                "exports.default",
+                "exports"
+              ]
+            }
+          }
+        },
+        {
+          "name": "streamParamsModuleRaw",
+          "finder": {
+            "filter": {
+              "export": false,
+              "in": "properties",
+              "by": [
+                [
+                  "FPS_5",
+                  "FPS_15"
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "mode": "development",
+  "config": [
+    {
+      "type": "Row",
+      "children": [
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Min Video Bitrate"
+            },
+            {
+              "type": "Input",
+              "inputType": "number",
+              "id": "minVideoBitrate",
+              "default": 100000,
+              "placeholder": "100000"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Max Video Bitrate"
+            },
+            {
+              "type": "Input",
+              "inputType": "number",
+              "id": "maxVideoBitrate",
+              "default": 1000000,
+              "placeholder": "1000000"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Target Video Bitrate"
+            },
+            {
+              "type": "Input",
+              "inputType": "number",
+              "id": "targetVideoBitrate",
+              "default": 1000000,
+              "placeholder": "1000000"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "children": [
+            {
+              "type": "Heading",
+              "value": "Voice Bitrate"
+            },
+            {
+              "type": "Input",
+              "inputType": "number",
+              "id": "voiceBitrate",
+              "default": 96000,
+              "placeholder": "96000"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "i18n": {
+    "default": {
+      "NEED_TO_RESTART": "You need to restart Discord to disable Custom Video Quality plugin.",
+      "NEED_TO_RESTART_TITLE": "Restart Discord",
+      "OK": "Okay"
+    },
+    "tr": {
+      "NEED_TO_RESTART": "Özel Video Paylaşımı Kalitesi eklentisini devre dışı bırakmak için Discord'u yeniden başlatmanız gerekiyor.",
+      "NEED_TO_RESTART_TITLE": "Discord'u Yeniden Başlat",
+      "OK": "Tamam"
+    }
+  },
+  "readme": true
+}
