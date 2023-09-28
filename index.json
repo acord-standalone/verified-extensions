@@ -644,7 +644,7 @@
             },
             {
               "type": "Textarea",
-              "default": "fuck, amk, oç, aq",
+              "default": "fuck, amk, oç, aq, piç, mk, sikik, sikerim, orospu, yarrak",
               "placeholder": "fuck, amk, oç, aq",
               "id": "badwords",
               "cols": 6
