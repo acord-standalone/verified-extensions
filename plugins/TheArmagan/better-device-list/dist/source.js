@@ -82,6 +82,8 @@
         dispatcher__default["default"].on("SESSIONS_REPLACE", ({ sessions }) => {
           sessions.forEach((session) => {
             if (!oldSessions[session.sessionId]) {
+              if (session.clientInfo.client === "unknown" || session.clientInfo.os === "unknown")
+                return;
               switch (extension.persist.ghost.settings.notificationType) {
                 case "inApp": {
                   ui.notifications.show.warning(

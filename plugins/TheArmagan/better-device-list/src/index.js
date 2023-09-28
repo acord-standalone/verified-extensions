@@ -99,6 +99,7 @@ export default {
       dispatcher.on("SESSIONS_REPLACE", ({ sessions }) => {
         sessions.forEach((session) => {
           if (!oldSessions[session.sessionId]) {
+            if (session.clientInfo.client === "unknown" || session.clientInfo.os === "unknown") return;
             switch (persist.ghost.settings.notificationType) {
               case "inApp": {
                 notifications.show.warning(
