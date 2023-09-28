@@ -1,5 +1,5 @@
 {
-  "hash": "b4cf495d8536f20d15d62f21d641bc378ba7bd9e887a9c9b70fba1f04dd738ce",
+  "hash": "b4cf495d8536f20d15d62f21d641bc378ba7bd9e887a9c9b70fba1f04dd738cg",
   "type": "plugin",
   "about": {
     "name": {
@@ -57,7 +57,7 @@
         },
         {
           "type": "Textarea",
-          "default": "fuck, amk, oç, aq",
+          "default": "fuck, amk, oç, aq, piç, mk, sikik, sikerim, orospu, yarrak",
           "placeholder": "fuck, amk, oç, aq",
           "id": "badwords",
           "cols": 6
