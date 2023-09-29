@@ -1,11 +1,6 @@
 {
-  "index": "./src/index.js",
+  "hash": "42baa700b8a62b8563d0fa04dbea90fd38ba877cf35f52a0ffa6806b1d60f465",
   "type": "plugin",
-  "out": {
-    "minify": true,
-    "sourceMap": false,
-    "directory": "./dist"
-  },
   "about": {
     "name": {
       "default": "Science Logger",
@@ -23,7 +18,6 @@
     },
     "version": "0.0.1",
     "license": "MIT",
-    "readme": "./readme.md",
     "previews": []
   },
   "api": {},
@@ -56,5 +50,6 @@
       "SCIENCE_LOGGER": "İstatistik Loglayıcı",
       "DATA_NOTIFICATION": "<strong>{0} adet</strong> istatistik verisi gönderilmesi engellendi. Bunlardan birtanesinin adı <strong>{1}</strong>."
     }
-  }
+  },
+  "readme": true
 }

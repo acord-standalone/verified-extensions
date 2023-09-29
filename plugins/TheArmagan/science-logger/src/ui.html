@@ -1,0 +1,55 @@
+<div
+  class="sl--modal-container root-1CAIjD fullscreenOnMobile-2971EC rootWithShadow-2hdL2J"
+>
+  <div class="modal-header">
+    <div class="title">{{i18nFormat("SCIENCE_LOGGER")}}</div>
+  </div>
+  <div class="modal-body">
+    <div class="history scroller-2MALzE thin-RnSY0a scrollerBase-1Pkza4">
+      <div v-for="item in history" class="item">
+        <div class="info">
+          <div class="type">{{item.type}}</div>
+          <div class="date">
+            {{new
+            Date(item.properties.client_track_timestamp).toLocaleString()}}
+          </div>
+        </div>
+        <div class="properties">
+          <div class="toggle-container">
+            <div class="toggle" @click="item.show_props = !item.show_props">
+              <svg
+                v-if="!item.show_props"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"
+                ></path>
+              </svg>
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div v-if="item.show_props" class="code">
+            <pre>
+              <code>{{JSON.stringify(item.properties, null, 2)}}</code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
