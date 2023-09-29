@@ -3729,6 +3729,40 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "unlimited-message-queue",
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/unlimited-message-queue/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Unlimited Message Queue",
+          "tr": "Sınırsız Mesaj Kuyruğu"
+        },
+        "authors": [
+          {
+            "name": "thearmagan",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Allows you to send as many messages as you want in a row. Disables the Hop! Stop! warning.",
+          "tr": "Arka arkaya istediğiniz kadar mesaj atabilmenizi sağlar. Hop! Dur bakalım uyarısını engeller."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {},
+      "mode": "development",
+      "config": []
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "unmirror-camera",
       "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/unmirror-camera/dist"
     },
