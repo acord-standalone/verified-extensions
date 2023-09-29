@@ -96,7 +96,7 @@
           }
         },
         mounted() {
-          this.filters = { ...extension.persist.ghost?.filters ?? { ignoreBots: true, roleIds: [], nicks: [] } };
+          this.filters = { ...extension.persist.ghost?.filters ?? { ignoreBots: true, roleIds: "", nicks: "", ignoredChannels: "" } };
           this.updateGuildStates();
           this.updateInterval = setInterval(this.updateGuildStates, 1e3);
         },
