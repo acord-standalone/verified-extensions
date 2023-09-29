@@ -4104,6 +4104,72 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "voice-list",
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/voice-list/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Ses Listesi",
+          "tr": "Voice List"
+        },
+        "authors": [
+          {
+            "name": "thearmagan",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "List of all people in voice on the servers you are in. With filtering support.",
+          "tr": "Olduğun sunuculardaki tüm seste olan insanların listesi. Filtreleme desteği ile."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "previews": [
+          {
+            "name": "List",
+            "image": "https://media.discordapp.net/attachments/1134048759542718544/1157282577300869181/image.png"
+          },
+          {
+            "name": "Filters",
+            "image": "https://i.imgur.com/sJFbjEY.png"
+          }
+        ]
+      },
+      "api": {},
+      "mode": "development",
+      "config": [],
+      "i18n": {
+        "default": {
+          "VOICE_LIST": "Voice List",
+          "PLEASE_WAIT": "Please wait...",
+          "FILTERS": "Filters",
+          "IGNORE_BOTS": "Ignore Bots",
+          "ROLE_IDS": "Required Role IDs",
+          "NICKS": "Nicks",
+          "IGNORED_CHANNELS": "Ignored Channels IDs",
+          "SEE_CHANNEL": "See Channel",
+          "FILTERS_DESC": "All filters are is or operation. If you want to filter multiple things, you can use comma (,) to separate them. For example: 123, 456, 789"
+        },
+        "tr": {
+          "VOICE_LIST": "Ses Listesi",
+          "PLEASE_WAIT": "Lütfen bekleyin...",
+          "FILTERS": "Filtreler",
+          "IGNORE_BOTS": "Botları Yoksay",
+          "ROLE_IDS": "Gerekli Rol IDleri",
+          "NICKS": "Takma Adlar",
+          "IGNORED_CHANNELS": "Yoksayılan Kanallar IDleri",
+          "SEE_CHANNEL": "Kanalı Gör",
+          "FILTERS_DESC": "Tüm filtreler veya işlemidir. Birden fazla şeyi filtrelemek istiyorsanız, bunları ayırmak için virgül (,) kullanabilirsiniz. Örneğin: 123, 456, 789"
+        }
+      }
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "voice-messages",
       "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/voice-messages/dist"
     },
