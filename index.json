@@ -3165,6 +3165,68 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "science-logger",
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/science-logger/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Science Logger",
+          "tr": "İstatistik Loglayıcı"
+        },
+        "authors": [
+          {
+            "name": "thearmagan",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Allows you to view all the data Discord collects about you. Of course, Acord already prevents the sharing of this data.",
+          "tr": "Discord'un sizin hakkınızda topladığı tüm verileri inceleyebilmenizi sağlar. Tabikide Acord bu verilerin paylaşılmasını zaten engelliyor."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {},
+      "mode": "development",
+      "config": [
+        {
+          "type": "Row",
+          "children": [
+            {
+              "type": "Heading",
+              "value": {
+                "default": "Show Notifications",
+                "tr": "Bildirimleri Göster"
+              }
+            },
+            {
+              "type": "Check",
+              "default": false,
+              "id": "showNotifications"
+            }
+          ]
+        }
+      ],
+      "i18n": {
+        "default": {
+          "SCIENCE_LOGGER": "Science Logger",
+          "DATA_NOTIFICATION": "<strong>{0} data</strong> has been blocked from being sent. One of them is named <strong>{1}</strong>."
+        },
+        "tr": {
+          "SCIENCE_LOGGER": "İstatistik Loglayıcı",
+          "DATA_NOTIFICATION": "<strong>{0} adet</strong> istatistik verisi gönderilmesi engellendi. Bunlardan birtanesinin adı <strong>{1}</strong>."
+        }
+      }
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "see-deleted-messages",
       "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/see-deleted-messages/dist"
     },
