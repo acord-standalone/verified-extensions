@@ -18,12 +18,53 @@
       font-weight: 600;
       color: whitesmoke;
     }
+
+    .filters {
+      color: whitesmoke;
+      display: flex;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 
   & > .modal-body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    & > .filters-tab {
+      & > .desc {
+        font-size: 1rem;
+        font-weight: 400;
+        color: whitesmoke;
+        opacity: 0.95;
+        margin-bottom: 16px;
+      }
+
+      & > .filters {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .filter {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          justify-content: space-between;
+          & > .name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: whitesmoke;
+            width: 50%;
+          }
+        }
+      }
+    }
 
     & > .guilds-tab {
       & > .guilds {
@@ -32,6 +73,16 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+
+        & > .please-wait {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          font-size: 1rem;
+          font-weight: 400;
+          color: whitesmoke;
+        }
 
         .guild {
           display: flex;
@@ -59,7 +110,6 @@
               font-size: 1.25rem;
               font-weight: 600;
               color: whitesmoke;
-              margin-right: 8px;
             }
           }
 
@@ -78,29 +128,50 @@
                 display: flex;
                 gap: 4px;
                 align-items: center;
-                justify-content: flex-start;
+                justify-content: space-between;
                 background-color: rgba(0, 0, 0, 0.25);
                 width: 100%;
                 border-radius: 9999px;
 
-                & > .icon {
-                  border-radius: 50%;
-                  width: 32px;
-                  height: 32px;
+                & > .left {
                   display: flex;
+                  gap: 8px;
                   align-items: center;
-                  justify-content: center;
-                  svg {
-                    width: 24px;
-                    height: 24px;
+
+                  & > .icon {
+                    border-radius: 50%;
+                    width: 32px;
+                    height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    svg {
+                      width: 24px;
+                      height: 24px;
+                    }
+                  }
+
+                  & > .name {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    color: rgba(245, 245, 245, 0.95);
                   }
                 }
 
-                & > .name {
-                  font-size: 1rem;
-                  font-weight: 400;
-                  color: rgba(245, 245, 245, 0.95);
+                & > .right {
                   margin-right: 8px;
+                  display: flex;
+                  align-items: center;
+
+                  & > .see-channel {
+                    color: whitesmoke;
+                    display: flex;
+                    cursor: pointer;
+                    svg {
+                      width: 20px;
+                      height: 20px;
+                    }
+                  }
                 }
               }
 

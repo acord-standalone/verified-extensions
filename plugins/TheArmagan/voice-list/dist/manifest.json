@@ -1,11 +1,6 @@
 {
-  "index": "./src/index.js",
+  "hash": "c0f725a10c8be488b257b082108f68ffafad6b0a17f1dc135339d56534f59a56",
   "type": "plugin",
-  "out": {
-    "minify": false,
-    "sourceMap": false,
-    "directory": "./dist"
-  },
   "about": {
     "name": {
       "default": "Ses Listesi",
@@ -60,5 +55,6 @@
       "SEE_CHANNEL": "Kanalı Gör",
       "FILTERS_DESC": "Tüm filtreler veya işlemidir. Birden fazla şeyi filtrelemek istiyorsanız, bunları ayırmak için virgül (,) kullanabilirsiniz. Örneğin: 123, 456, 789"
     }
-  }
+  },
+  "readme": false
 }
