@@ -50,7 +50,6 @@
   }
   var index = {
     load() {
-      window.getAllGuildVoiceStatesArray = getAllGuildVoiceStatesArray;
       const uiContainer = genUI();
       const app = Vue.createApp({
         data() {

@@ -49,7 +49,6 @@ function getAllGuildVoiceStatesArray(filters = {}) {
 
 export default {
   load() {
-    window.getAllGuildVoiceStatesArray = getAllGuildVoiceStatesArray;
     const uiContainer = genUI();
 
     const app = Vue.createApp({
