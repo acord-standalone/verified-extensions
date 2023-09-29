@@ -1,0 +1,27 @@
+{
+  "hash": "8b84b70d1acf481db458ec21a5eaf068806e2ddcbfce2b20f8ee771eda530563",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Unlimited Message Queue",
+      "tr": "Sınırsız Mesaj Kuyruğu"
+    },
+    "authors": [
+      {
+        "name": "thearmagan",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Allows you to send as many messages as you want in a row. Disables the Hop! Stop! warning.",
+      "tr": "Arka arkaya istediğiniz kadar mesaj atabilmenizi sağlar. Hop! Dur bakalım uyarısını engeller."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
