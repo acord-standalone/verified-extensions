@@ -1,5 +1,5 @@
 {
-  "hash": "0cca700e76e7c07438f5b4478d71757fa24ed8fc45aa5fbca92ecf0b25351c7e",
+  "hash": "265be0b863aa2f9a7a38bb0e5ab704986cce818d16f5a506a1862b6f1dcde03e",
   "type": "plugin",
   "about": {
     "name": {
@@ -13,8 +13,8 @@
       }
     ],
     "description": {
-      "default": "Allows you to hide the sidebar.",
-      "tr": "Kanal listesini gizlemenizi sağlar."
+      "default": "Allows you to hide the sidebar. Shortcut: CTRL + H",
+      "tr": "Kanal listesini gizleyebilmenizi sağlar. Kısayol: CTRL + H"
     },
     "version": "0.0.1",
     "license": "MIT",
