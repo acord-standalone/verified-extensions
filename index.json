@@ -2534,7 +2534,7 @@
       "about": {
         "name": {
           "default": "Disable Typing",
-          "tr": "Gizli Yazıyor"
+          "tr": "Yazıyor Bilgisini Gizle"
         },
         "authors": [
           {
