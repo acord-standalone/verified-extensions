@@ -10,8 +10,10 @@ export default {
       const buttonElm = document.querySelector(".hs--button");
       const sidebar = document.querySelector(".sidebar-1tnWFu");
       sidebar.style.width = (sidebar.style.width === "0px" || !sidebar.style.width) ? "240px" : "0px";
-      buttonElm.classList.remove("visible", "hidden");
-      buttonElm.classList.add(sidebar.style.width === "0px" ? "hidden" : "visible");
+      if (buttonElm) {
+        buttonElm.classList.remove("visible", "hidden");
+        buttonElm.classList.add(sidebar.style.width === "0px" ? "hidden" : "visible");
+      }
     }
 
     subscriptions.push(
@@ -24,7 +26,11 @@ export default {
           baseElm.prepend(buttonElm);
         }
       ),
-      hotkeys.register("ctrl+h", toggleHide)
+      hotkeys.register("ctrl+h", toggleHide),
+      () => {
+        const sidebar = document.querySelector(".sidebar-1tnWFu");
+        sidebar.style.width = "240px";
+      }
     );
   }
 }
