@@ -1,0 +1,27 @@
+{
+  "hash": "e6c8f7ce2b2e257e7124435f8ae3896a5086bff1f1a7acfab1c6bdaec8113804",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Disable Typing",
+      "tr": "Gizli Yazıyor"
+    },
+    "authors": [
+      {
+        "name": "thearmagan",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Hides typing status while typing a message.",
+      "tr": "Bir yere mesaj yazarken yazıyor bilgisini gizlemenizi sağlar."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}

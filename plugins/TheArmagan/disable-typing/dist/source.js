@@ -1,0 +1,1 @@
+(function(n,a,e){"use strict";function o(t){return t&&typeof t=="object"&&"default"in t?t:{default:t}}var r=o(a),c={load(){n.subscriptions.push(r.default.instead("startTyping",e.TypingActions,async function(t,i){}))}};return c})($acord.extension,$acord.patcher,$acord.modules.common);
