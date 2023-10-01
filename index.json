@@ -2525,6 +2525,40 @@
   {
     "meta": {
       "author": "TheArmagan",
+      "id": "disable-typing",
+      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/disable-typing/dist"
+    },
+    "manifest": {
+      "index": "./src/index.js",
+      "type": "plugin",
+      "about": {
+        "name": {
+          "default": "Disable Typing",
+          "tr": "Gizli Yazıyor"
+        },
+        "authors": [
+          {
+            "name": "thearmagan",
+            "id": "707309693449535599"
+          }
+        ],
+        "description": {
+          "default": "Hides typing status while typing a message.",
+          "tr": "Bir yere mesaj yazarken yazıyor bilgisini gizlemenizi sağlar."
+        },
+        "version": "0.0.1",
+        "license": "MIT",
+        "readme": "./readme.md",
+        "previews": []
+      },
+      "api": {},
+      "mode": "development",
+      "config": []
+    }
+  },
+  {
+    "meta": {
+      "author": "TheArmagan",
       "id": "double-click-to-edit",
       "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/double-click-to-edit/dist"
     },
