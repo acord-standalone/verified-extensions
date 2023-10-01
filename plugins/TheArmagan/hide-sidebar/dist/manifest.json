@@ -1,0 +1,27 @@
+{
+  "hash": "b90b7c716eec496171780d313c17537349c3bfde0fdde51e7bdad0f3b04d664e",
+  "type": "plugin",
+  "about": {
+    "name": {
+      "default": "Hide Sidebar",
+      "tr": "Kanal Listesini Gizle"
+    },
+    "authors": [
+      {
+        "name": "thearmagan",
+        "id": "707309693449535599"
+      }
+    ],
+    "description": {
+      "default": "Allows you to hide the sidebar.",
+      "tr": "Kanal listesini gizlemenizi sağlar."
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "previews": []
+  },
+  "api": {},
+  "mode": "development",
+  "config": [],
+  "readme": true
+}
