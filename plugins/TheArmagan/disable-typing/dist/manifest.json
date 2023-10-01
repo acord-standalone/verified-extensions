@@ -1,10 +1,10 @@
 {
-  "hash": "e6c8f7ce2b2e257e7124435f8ae3896a5086bff1f1a7acfab1c6bdaec8113804",
+  "hash": "f9e4e2e96a83ba101623d79bc59f4856f621c9605aedcb90409146594dbbf3c3",
   "type": "plugin",
   "about": {
     "name": {
       "default": "Disable Typing",
-      "tr": "Gizli Yazıyor"
+      "tr": "Yazıyor Bilgisini Gizle"
     },
     "authors": [
       {
