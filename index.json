@@ -2880,8 +2880,8 @@
           }
         ],
         "description": {
-          "default": "Allows you to hide the sidebar.",
-          "tr": "Kanal listesini gizlemenizi sağlar."
+          "default": "Allows you to hide the sidebar. Shortcut: CTRL + H",
+          "tr": "Kanal listesini gizleyebilmenizi sağlar. Kısayol: CTRL + H"
         },
         "version": "0.0.1",
         "license": "MIT",
