@@ -3378,64 +3378,6 @@
   {
     "meta": {
       "author": "TheArmagan",
-      "id": "see-hidden-channels",
-      "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/see-hidden-channels/dist"
-    },
-    "manifest": {
-      "index": "./src/index.js",
-      "type": "plugin",
-      "about": {
-        "name": {
-          "default": "See Hidden Channels",
-          "tr": "Gizli Kanalları Gör"
-        },
-        "authors": [
-          {
-            "name": "thearmagan",
-            "id": "707309693449535599"
-          }
-        ],
-        "description": {
-          "default": "Option to make hidden channels visible. (It does not allow you to see the content of the channels.)",
-          "tr": "Gizli kanalları görebilmenizi sağlar. (Kanalın içeriğini görebilmenizi sağlamaz.)"
-        },
-        "version": "0.0.1"
-      },
-      "api": {
-        "ui": true,
-        "patcher": true,
-        "modules": {
-          "common": [
-            {
-              "name": "PermissionStore",
-              "reason": "..."
-            },
-            {
-              "name": "Router",
-              "reason": "..."
-            },
-            {
-              "name": "GuildActions",
-              "reason": "..."
-            }
-          ]
-        }
-      },
-      "mode": "production",
-      "config": [],
-      "i18n": {
-        "default": {
-          "SEE_HIDDEN_CHANNELS": "See Hidden Channels"
-        },
-        "tr": {
-          "SEE_HIDDEN_CHANNELS": "Gizli Kanalları Gör"
-        }
-      }
-    }
-  },
-  {
-    "meta": {
-      "author": "TheArmagan",
       "id": "sound-board",
       "url": "https://api.acord.app/extensions/raw/plugins/TheArmagan/sound-board/dist"
     },
