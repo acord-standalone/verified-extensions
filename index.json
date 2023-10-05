@@ -3465,7 +3465,7 @@
           "default": "Sound board for Discord. Supports text to speech. Shortcut is CTRL+B",
           "tr": "Discord için ses tablosu. Metin okuma destekler. Kısayol CTRL+B"
         },
-        "version": "4.0.6",
+        "version": "4.0.7",
         "previews": [
           {
             "name": "Default",
