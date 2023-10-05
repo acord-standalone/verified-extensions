@@ -1,5 +1,5 @@
 {
-  "hash": "04a823bae9b1ff279e03dde9aa1e0ed5ce24e274178d1282e62b5ea54ba05777",
+  "hash": "b2a3eddcb7dc6aa318bbd85984b4b3e23142d60f37f5581a358f37517b638657",
   "type": "plugin",
   "about": {
     "name": {
@@ -72,7 +72,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Activity Type"
+              "value": {
+                "tr": "Aktivite Tipi (Gerekli)",
+                "default": "Activity Type (Required)"
+              }
             },
             {
               "type": "Select",
