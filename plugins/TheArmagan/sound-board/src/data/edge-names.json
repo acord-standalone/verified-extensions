@@ -1,0 +1,1206 @@
+[
+  {
+    "label": "Microsoft Adri Online (Natural) - Afrikaans (South Africa)",
+    "value": "af-ZA-AdriNeural"
+  },
+  {
+    "label": "Microsoft Willem Online (Natural) - Afrikaans (South Africa)",
+    "value": "af-ZA-WillemNeural"
+  },
+  {
+    "label": "Microsoft Anila Online (Natural) - Albanian (Albania)",
+    "value": "sq-AL-AnilaNeural"
+  },
+  {
+    "label": "Microsoft Ilir Online (Natural) - Albanian (Albania)",
+    "value": "sq-AL-IlirNeural"
+  },
+  {
+    "label": "Microsoft Ameha Online (Natural) - Amharic (Ethiopia)",
+    "value": "am-ET-AmehaNeural"
+  },
+  {
+    "label": "Microsoft Mekdes Online (Natural) - Amharic (Ethiopia)",
+    "value": "am-ET-MekdesNeural"
+  },
+  {
+    "label": "Microsoft Amina Online (Natural) - Arabic (Algeria)",
+    "value": "ar-DZ-AminaNeural"
+  },
+  {
+    "label": "Microsoft Ismael Online (Natural) - Arabic (Algeria)",
+    "value": "ar-DZ-IsmaelNeural"
+  },
+  {
+    "label": "Microsoft Ali Online (Natural) - Arabic (Bahrain)",
+    "value": "ar-BH-AliNeural"
+  },
+  {
+    "label": "Microsoft Laila Online (Natural) - Arabic (Bahrain)",
+    "value": "ar-BH-LailaNeural"
+  },
+  {
+    "label": "Microsoft Salma Online (Natural) - Arabic (Egypt)",
+    "value": "ar-EG-SalmaNeural"
+  },
+  {
+    "label": "Microsoft Shakir Online (Natural) - Arabic (Egypt)",
+    "value": "ar-EG-ShakirNeural"
+  },
+  {
+    "label": "Microsoft Bassel Online (Natural) - Arabic (Iraq)",
+    "value": "ar-IQ-BasselNeural"
+  },
+  {
+    "label": "Microsoft Rana Online (Natural) - Arabic (Iraq)",
+    "value": "ar-IQ-RanaNeural"
+  },
+  {
+    "label": "Microsoft Sana Online (Natural) - Arabic (Jordan)",
+    "value": "ar-JO-SanaNeural"
+  },
+  {
+    "label": "Microsoft Taim Online (Natural) - Arabic (Jordan)",
+    "value": "ar-JO-TaimNeural"
+  },
+  {
+    "label": "Microsoft Fahed Online (Natural) - Arabic (Kuwait)",
+    "value": "ar-KW-FahedNeural"
+  },
+  {
+    "label": "Microsoft Noura Online (Natural) - Arabic (Kuwait)",
+    "value": "ar-KW-NouraNeural"
+  },
+  {
+    "label": "Microsoft Layla Online (Natural) - Arabic (Lebanon)",
+    "value": "ar-LB-LaylaNeural"
+  },
+  {
+    "label": "Microsoft Rami Online (Natural) - Arabic (Lebanon)",
+    "value": "ar-LB-RamiNeural"
+  },
+  {
+    "label": "Microsoft Iman Online (Natural) - Arabic (Libya)",
+    "value": "ar-LY-ImanNeural"
+  },
+  {
+    "label": "Microsoft Omar Online (Natural) - Arabic (Libya)",
+    "value": "ar-LY-OmarNeural"
+  },
+  {
+    "label": "Microsoft Jamal Online (Natural) - Arabic (Morocco)",
+    "value": "ar-MA-JamalNeural"
+  },
+  {
+    "label": "Microsoft Mouna Online (Natural) - Arabic (Morocco)",
+    "value": "ar-MA-MounaNeural"
+  },
+  {
+    "label": "Microsoft Abdullah Online (Natural) - Arabic (Oman)",
+    "value": "ar-OM-AbdullahNeural"
+  },
+  {
+    "label": "Microsoft Aysha Online (Natural) - Arabic (Oman)",
+    "value": "ar-OM-AyshaNeural"
+  },
+  {
+    "label": "Microsoft Amal Online (Natural) - Arabic (Qatar)",
+    "value": "ar-QA-AmalNeural"
+  },
+  {
+    "label": "Microsoft Moaz Online (Natural) - Arabic (Qatar)",
+    "value": "ar-QA-MoazNeural"
+  },
+  {
+    "label": "Microsoft Hamed Online (Natural) - Arabic (Saudi Arabia)",
+    "value": "ar-SA-HamedNeural"
+  },
+  {
+    "label": "Microsoft Zariyah Online (Natural) - Arabic (Saudi Arabia)",
+    "value": "ar-SA-ZariyahNeural"
+  },
+  {
+    "label": "Microsoft Amany Online (Natural) - Arabic (Syria)",
+    "value": "ar-SY-AmanyNeural"
+  },
+  {
+    "label": "Microsoft Laith Online (Natural) - Arabic (Syria)",
+    "value": "ar-SY-LaithNeural"
+  },
+  {
+    "label": "Microsoft Hedi Online (Natural) - Arabic (Tunisia)",
+    "value": "ar-TN-HediNeural"
+  },
+  {
+    "label": "Microsoft Reem Online (Natural) - Arabic (Tunisia)",
+    "value": "ar-TN-ReemNeural"
+  },
+  {
+    "label": "Microsoft Fatima Online (Natural) - Arabic (United Arab Emirates)",
+    "value": "ar-AE-FatimaNeural"
+  },
+  {
+    "label": "Microsoft Hamdan Online (Natural) - Arabic (United Arab Emirates)",
+    "value": "ar-AE-HamdanNeural"
+  },
+  {
+    "label": "Microsoft Maryam Online (Natural) - Arabic (Yemen)",
+    "value": "ar-YE-MaryamNeural"
+  },
+  {
+    "label": "Microsoft Saleh Online (Natural) - Arabic (Yemen)",
+    "value": "ar-YE-SalehNeural"
+  },
+  {
+    "label": "Microsoft Babek Online (Natural) - Azerbaijani (Azerbaijan)",
+    "value": "az-AZ-BabekNeural"
+  },
+  {
+    "label": "Microsoft Banu Online (Natural) - Azerbaijani (Azerbaijan)",
+    "value": "az-AZ-BanuNeural"
+  },
+  {
+    "label": "Microsoft Nabanita Online (Natural) - Bangla (Bangladesh)",
+    "value": "bn-BD-NabanitaNeural"
+  },
+  {
+    "label": "Microsoft Pradeep Online (Natural) - Bangla (Bangladesh)",
+    "value": "bn-BD-PradeepNeural"
+  },
+  {
+    "label": "Microsoft Bashkar Online (Natural) - Bangla (India)",
+    "value": "bn-IN-BashkarNeural"
+  },
+  {
+    "label": "Microsoft Tanishaa Online (Natural) - Bengali (India)",
+    "value": "bn-IN-TanishaaNeural"
+  },
+  {
+    "label": "Microsoft Goran Online (Natural) - Bosnian (Bosnia)",
+    "value": "bs-BA-GoranNeural"
+  },
+  {
+    "label": "Microsoft Vesna Online (Natural) - Bosnian (Bosnia)",
+    "value": "bs-BA-VesnaNeural"
+  },
+  {
+    "label": "Microsoft Borislav Online (Natural) - Bulgarian (Bulgaria)",
+    "value": "bg-BG-BorislavNeural"
+  },
+  {
+    "label": "Microsoft Kalina Online (Natural) - Bulgarian (Bulgaria)",
+    "value": "bg-BG-KalinaNeural"
+  },
+  {
+    "label": "Microsoft Nilar Online (Natural) - Burmese (Myanmar)",
+    "value": "my-MM-NilarNeural"
+  },
+  {
+    "label": "Microsoft Thiha Online (Natural) - Burmese (Myanmar)",
+    "value": "my-MM-ThihaNeural"
+  },
+  {
+    "label": "Microsoft Enric Online (Natural) - Catalan (Spain)",
+    "value": "ca-ES-EnricNeural"
+  },
+  {
+    "label": "Microsoft Joana Online (Natural) - Catalan (Spain)",
+    "value": "ca-ES-JoanaNeural"
+  },
+  {
+    "label": "Microsoft HiuGaai Online (Natural) - Chinese (Cantonese Traditional)",
+    "value": "zh-HK-HiuGaaiNeural"
+  },
+  {
+    "label": "Microsoft HiuMaan Online (Natural) - Chinese (Hong Kong)",
+    "value": "zh-HK-HiuMaanNeural"
+  },
+  {
+    "label": "Microsoft WanLung Online (Natural) - Chinese (Hong Kong)",
+    "value": "zh-HK-WanLungNeural"
+  },
+  {
+    "label": "Microsoft Xiaoxiao Online (Natural) - Chinese (Mainland)",
+    "value": "zh-CN-XiaoxiaoNeural"
+  },
+  {
+    "label": "Microsoft Xiaoyi Online (Natural) - Chinese (Mainland)",
+    "value": "zh-CN-XiaoyiNeural"
+  },
+  {
+    "label": "Microsoft Yunjian Online (Natural) - Chinese (Mainland)",
+    "value": "zh-CN-YunjianNeural"
+  },
+  {
+    "label": "Microsoft Yunxi Online (Natural) - Chinese (Mainland)",
+    "value": "zh-CN-YunxiNeural"
+  },
+  {
+    "label": "Microsoft Yunxia Online (Natural) - Chinese (Mainland)",
+    "value": "zh-CN-YunxiaNeural"
+  },
+  {
+    "label": "Microsoft Yunyang Online (Natural) - Chinese (Mainland)",
+    "value": "zh-CN-YunyangNeural"
+  },
+  {
+    "label": "Microsoft Xiaobei Online (Natural) - Chinese (Northeastern Mandarin)",
+    "value": "zh-CN-liaoning-XiaobeiNeural"
+  },
+  {
+    "label": "Microsoft HsiaoChen Online (Natural) - Chinese (Taiwan)",
+    "value": "zh-TW-HsiaoChenNeural"
+  },
+  {
+    "label": "Microsoft YunJhe Online (Natural) - Chinese (Taiwan)",
+    "value": "zh-TW-YunJheNeural"
+  },
+  {
+    "label": "Microsoft HsiaoYu Online (Natural) - Chinese (Taiwanese Mandarin)",
+    "value": "zh-TW-HsiaoYuNeural"
+  },
+  {
+    "label": "Microsoft Xiaoni Online (Natural) - Chinese (Zhongyuan Mandarin Shaanxi)",
+    "value": "zh-CN-shaanxi-XiaoniNeural"
+  },
+  {
+    "label": "Microsoft Gabrijela Online (Natural) - Croatian (Croatia)",
+    "value": "hr-HR-GabrijelaNeural"
+  },
+  {
+    "label": "Microsoft Srecko Online (Natural) - Croatian (Croatia)",
+    "value": "hr-HR-SreckoNeural"
+  },
+  {
+    "label": "Microsoft Antonin Online (Natural) - Czech (Czech)",
+    "value": "cs-CZ-AntoninNeural"
+  },
+  {
+    "label": "Microsoft Vlasta Online (Natural) - Czech (Czech)",
+    "value": "cs-CZ-VlastaNeural"
+  },
+  {
+    "label": "Microsoft Christel Online (Natural) - Danish (Denmark)",
+    "value": "da-DK-ChristelNeural"
+  },
+  {
+    "label": "Microsoft Jeppe Online (Natural) - Danish (Denmark)",
+    "value": "da-DK-JeppeNeural"
+  },
+  {
+    "label": "Microsoft Arnaud Online (Natural) - Dutch (Belgium)",
+    "value": "nl-BE-ArnaudNeural"
+  },
+  {
+    "label": "Microsoft Dena Online (Natural) - Dutch (Belgium)",
+    "value": "nl-BE-DenaNeural"
+  },
+  {
+    "label": "Microsoft Colette Online (Natural) - Dutch (Netherlands)",
+    "value": "nl-NL-ColetteNeural"
+  },
+  {
+    "label": "Microsoft Fenna Online (Natural) - Dutch (Netherlands)",
+    "value": "nl-NL-FennaNeural"
+  },
+  {
+    "label": "Microsoft Maarten Online (Natural) - Dutch (Netherlands)",
+    "value": "nl-NL-MaartenNeural"
+  },
+  {
+    "label": "Microsoft Natasha Online (Natural) - English (Australia)",
+    "value": "en-AU-NatashaNeural"
+  },
+  {
+    "label": "Microsoft William Online (Natural) - English (Australia)",
+    "value": "en-AU-WilliamNeural"
+  },
+  {
+    "label": "Microsoft Clara Online (Natural) - English (Canada)",
+    "value": "en-CA-ClaraNeural"
+  },
+  {
+    "label": "Microsoft Liam Online (Natural) - English (Canada)",
+    "value": "en-CA-LiamNeural"
+  },
+  {
+    "label": "Microsoft Sam Online (Natural) - English (Hongkong)",
+    "value": "en-HK-SamNeural"
+  },
+  {
+    "label": "Microsoft Yan Online (Natural) - English (Hongkong)",
+    "value": "en-HK-YanNeural"
+  },
+  {
+    "label": "Microsoft Neerja Online (Natural) - English (India) (Preview)",
+    "value": "en-IN-NeerjaExpressiveNeural"
+  },
+  {
+    "label": "Microsoft Neerja Online (Natural) - English (India)",
+    "value": "en-IN-NeerjaNeural"
+  },
+  {
+    "label": "Microsoft Prabhat Online (Natural) - English (India)",
+    "value": "en-IN-PrabhatNeural"
+  },
+  {
+    "label": "Microsoft Connor Online (Natural) - English (Ireland)",
+    "value": "en-IE-ConnorNeural"
+  },
+  {
+    "label": "Microsoft Emily Online (Natural) - English (Ireland)",
+    "value": "en-IE-EmilyNeural"
+  },
+  {
+    "label": "Microsoft Asilia Online (Natural) - English (Kenya)",
+    "value": "en-KE-AsiliaNeural"
+  },
+  {
+    "label": "Microsoft Chilemba Online (Natural) - English (Kenya)",
+    "value": "en-KE-ChilembaNeural"
+  },
+  {
+    "label": "Microsoft Mitchell Online (Natural) - English (New Zealand)",
+    "value": "en-NZ-MitchellNeural"
+  },
+  {
+    "label": "Microsoft Molly Online (Natural) - English (New Zealand)",
+    "value": "en-NZ-MollyNeural"
+  },
+  {
+    "label": "Microsoft Abeo Online (Natural) - English (Nigeria)",
+    "value": "en-NG-AbeoNeural"
+  },
+  {
+    "label": "Microsoft Ezinne Online (Natural) - English (Nigeria)",
+    "value": "en-NG-EzinneNeural"
+  },
+  {
+    "label": "Microsoft James Online (Natural) - English (Philippines)",
+    "value": "en-PH-JamesNeural"
+  },
+  {
+    "label": "Microsoft Rosa Online (Natural) - English (Philippines)",
+    "value": "en-PH-RosaNeural"
+  },
+  {
+    "label": "Microsoft Luna Online (Natural) - English (Singapore)",
+    "value": "en-SG-LunaNeural"
+  },
+  {
+    "label": "Microsoft Wayne Online (Natural) - English (Singapore)",
+    "value": "en-SG-WayneNeural"
+  },
+  {
+    "label": "Microsoft Leah Online (Natural) - English (South Africa)",
+    "value": "en-ZA-LeahNeural"
+  },
+  {
+    "label": "Microsoft Luke Online (Natural) - English (South Africa)",
+    "value": "en-ZA-LukeNeural"
+  },
+  {
+    "label": "Microsoft Elimu Online (Natural) - English (Tanzania)",
+    "value": "en-TZ-ElimuNeural"
+  },
+  {
+    "label": "Microsoft Imani Online (Natural) - English (Tanzania)",
+    "value": "en-TZ-ImaniNeural"
+  },
+  {
+    "label": "Microsoft Libby Online (Natural) - English (United Kingdom)",
+    "value": "en-GB-LibbyNeural"
+  },
+  {
+    "label": "Microsoft Maisie Online (Natural) - English (United Kingdom)",
+    "value": "en-GB-MaisieNeural"
+  },
+  {
+    "label": "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+    "value": "en-GB-RyanNeural"
+  },
+  {
+    "label": "Microsoft Sonia Online (Natural) - English (United Kingdom)",
+    "value": "en-GB-SoniaNeural"
+  },
+  {
+    "label": "Microsoft Thomas Online (Natural) - English (United Kingdom)",
+    "value": "en-GB-ThomasNeural"
+  },
+  {
+    "label": "Microsoft Aria Online (Natural) - English (United States)",
+    "value": "en-US-AriaNeural"
+  },
+  {
+    "label": "Microsoft Ana Online (Natural) - English (United States)",
+    "value": "en-US-AnaNeural"
+  },
+  {
+    "label": "Microsoft Christopher Online (Natural) - English (United States)",
+    "value": "en-US-ChristopherNeural"
+  },
+  {
+    "label": "Microsoft Eric Online (Natural) - English (United States)",
+    "value": "en-US-EricNeural"
+  },
+  {
+    "label": "Microsoft Guy Online (Natural) - English (United States)",
+    "value": "en-US-GuyNeural"
+  },
+  {
+    "label": "Microsoft Jenny Online (Natural) - English (United States)",
+    "value": "en-US-JennyNeural"
+  },
+  {
+    "label": "Microsoft Michelle Online (Natural) - English (United States)",
+    "value": "en-US-MichelleNeural"
+  },
+  {
+    "label": "Microsoft Roger Online (Natural) - English (United States)",
+    "value": "en-US-RogerNeural"
+  },
+  {
+    "label": "Microsoft Steffan Online (Natural) - English (United States)",
+    "value": "en-US-SteffanNeural"
+  },
+  {
+    "label": "Microsoft Anu Online (Natural) - Estonian (Estonia)",
+    "value": "et-EE-AnuNeural"
+  },
+  {
+    "label": "Microsoft Kert Online (Natural) - Estonian (Estonia)",
+    "value": "et-EE-KertNeural"
+  },
+  {
+    "label": "Microsoft Angelo Online (Natural) - Filipino (Philippines)",
+    "value": "fil-PH-AngeloNeural"
+  },
+  {
+    "label": "Microsoft Blessica Online (Natural) - Filipino (Philippines)",
+    "value": "fil-PH-BlessicaNeural"
+  },
+  {
+    "label": "Microsoft Harri Online (Natural) - Finnish (Finland)",
+    "value": "fi-FI-HarriNeural"
+  },
+  {
+    "label": "Microsoft Noora Online (Natural) - Finnish (Finland)",
+    "value": "fi-FI-NooraNeural"
+  },
+  {
+    "label": "Microsoft Charline Online (Natural) - French (Belgium)",
+    "value": "fr-BE-CharlineNeural"
+  },
+  {
+    "label": "Microsoft Gerard Online (Natural) - French (Belgium)",
+    "value": "fr-BE-GerardNeural"
+  },
+  {
+    "label": "Microsoft Antoine Online (Natural) - French (Canada)",
+    "value": "fr-CA-AntoineNeural"
+  },
+  {
+    "label": "Microsoft Jean Online (Natural) - French (Canada)",
+    "value": "fr-CA-JeanNeural"
+  },
+  {
+    "label": "Microsoft Sylvie Online (Natural) - French (Canada)",
+    "value": "fr-CA-SylvieNeural"
+  },
+  {
+    "label": "Microsoft Denise Online (Natural) - French (France)",
+    "value": "fr-FR-DeniseNeural"
+  },
+  {
+    "label": "Microsoft Eloise Online (Natural) - French (France)",
+    "value": "fr-FR-EloiseNeural"
+  },
+  {
+    "label": "Microsoft Henri Online (Natural) - French (France)",
+    "value": "fr-FR-HenriNeural"
+  },
+  {
+    "label": "Microsoft Ariane Online (Natural) - French (Switzerland)",
+    "value": "fr-CH-ArianeNeural"
+  },
+  {
+    "label": "Microsoft Fabrice Online (Natural) - French (Switzerland)",
+    "value": "fr-CH-FabriceNeural"
+  },
+  {
+    "label": "Microsoft Roi Online (Natural) - Galician (Spain)",
+    "value": "gl-ES-RoiNeural"
+  },
+  {
+    "label": "Microsoft Sabela Online (Natural) - Galician (Spain)",
+    "value": "gl-ES-SabelaNeural"
+  },
+  {
+    "label": "Microsoft Eka Online (Natural) - Georgian (Georgia)",
+    "value": "ka-GE-EkaNeural"
+  },
+  {
+    "label": "Microsoft Giorgi Online (Natural) - Georgian (Georgia)",
+    "value": "ka-GE-GiorgiNeural"
+  },
+  {
+    "label": "Microsoft Ingrid Online (Natural) - German (Austria)",
+    "value": "de-AT-IngridNeural"
+  },
+  {
+    "label": "Microsoft Jonas Online (Natural) - German (Austria)",
+    "value": "de-AT-JonasNeural"
+  },
+  {
+    "label": "Microsoft Amala Online (Natural) - German (Germany)",
+    "value": "de-DE-AmalaNeural"
+  },
+  {
+    "label": "Microsoft Conrad Online (Natural) - German (Germany)",
+    "value": "de-DE-ConradNeural"
+  },
+  {
+    "label": "Microsoft Katja Online (Natural) - German (Germany)",
+    "value": "de-DE-KatjaNeural"
+  },
+  {
+    "label": "Microsoft Killian Online (Natural) - German (Germany)",
+    "value": "de-DE-KillianNeural"
+  },
+  {
+    "label": "Microsoft Jan Online (Natural) - German (Switzerland)",
+    "value": "de-CH-JanNeural"
+  },
+  {
+    "label": "Microsoft Leni Online (Natural) - German (Switzerland)",
+    "value": "de-CH-LeniNeural"
+  },
+  {
+    "label": "Microsoft Athina Online (Natural) - Greek (Greece)",
+    "value": "el-GR-AthinaNeural"
+  },
+  {
+    "label": "Microsoft Nestoras Online (Natural) - Greek (Greece)",
+    "value": "el-GR-NestorasNeural"
+  },
+  {
+    "label": "Microsoft Dhwani Online (Natural) - Gujarati (India)",
+    "value": "gu-IN-DhwaniNeural"
+  },
+  {
+    "label": "Microsoft Niranjan Online (Natural) - Gujarati (India)",
+    "value": "gu-IN-NiranjanNeural"
+  },
+  {
+    "label": "Microsoft Avri Online (Natural) - Hebrew (Israel)",
+    "value": "he-IL-AvriNeural"
+  },
+  {
+    "label": "Microsoft Hila Online (Natural) - Hebrew (Israel)",
+    "value": "he-IL-HilaNeural"
+  },
+  {
+    "label": "Microsoft Madhur Online (Natural) - Hindi (India)",
+    "value": "hi-IN-MadhurNeural"
+  },
+  {
+    "label": "Microsoft Swara Online (Natural) - Hindi (India)",
+    "value": "hi-IN-SwaraNeural"
+  },
+  {
+    "label": "Microsoft Noemi Online (Natural) - Hungarian (Hungary)",
+    "value": "hu-HU-NoemiNeural"
+  },
+  {
+    "label": "Microsoft Tamas Online (Natural) - Hungarian (Hungary)",
+    "value": "hu-HU-TamasNeural"
+  },
+  {
+    "label": "Microsoft Gudrun Online (Natural) - Icelandic (Iceland)",
+    "value": "is-IS-GudrunNeural"
+  },
+  {
+    "label": "Microsoft Gunnar Online (Natural) - Icelandic (Iceland)",
+    "value": "is-IS-GunnarNeural"
+  },
+  {
+    "label": "Microsoft Ardi Online (Natural) - Indonesian (Indonesia)",
+    "value": "id-ID-ArdiNeural"
+  },
+  {
+    "label": "Microsoft Gadis Online (Natural) - Indonesian (Indonesia)",
+    "value": "id-ID-GadisNeural"
+  },
+  {
+    "label": "Microsoft Colm Online (Natural) - Irish (Ireland)",
+    "value": "ga-IE-ColmNeural"
+  },
+  {
+    "label": "Microsoft Orla Online (Natural) - Irish (Ireland)",
+    "value": "ga-IE-OrlaNeural"
+  },
+  {
+    "label": "Microsoft Diego Online (Natural) - Italian (Italy)",
+    "value": "it-IT-DiegoNeural"
+  },
+  {
+    "label": "Microsoft Elsa Online (Natural) - Italian (Italy)",
+    "value": "it-IT-ElsaNeural"
+  },
+  {
+    "label": "Microsoft Isabella Online (Natural) - Italian (Italy)",
+    "value": "it-IT-IsabellaNeural"
+  },
+  {
+    "label": "Microsoft Keita Online (Natural) - Japanese (Japan)",
+    "value": "ja-JP-KeitaNeural"
+  },
+  {
+    "label": "Microsoft Nanami Online (Natural) - Japanese (Japan)",
+    "value": "ja-JP-NanamiNeural"
+  },
+  {
+    "label": "Microsoft Dimas Online (Natural) - Javanese (Indonesia)",
+    "value": "jv-ID-DimasNeural"
+  },
+  {
+    "label": "Microsoft Siti Online (Natural) - Javanese (Indonesia)",
+    "value": "jv-ID-SitiNeural"
+  },
+  {
+    "label": "Microsoft Gagan Online (Natural) - Kannada (India)",
+    "value": "kn-IN-GaganNeural"
+  },
+  {
+    "label": "Microsoft Sapna Online (Natural) - Kannada (India)",
+    "value": "kn-IN-SapnaNeural"
+  },
+  {
+    "label": "Microsoft Aigul Online (Natural) - Kazakh (Kazakhstan)",
+    "value": "kk-KZ-AigulNeural"
+  },
+  {
+    "label": "Microsoft Daulet Online (Natural) - Kazakh (Kazakhstan)",
+    "value": "kk-KZ-DauletNeural"
+  },
+  {
+    "label": "Microsoft Piseth Online (Natural) - Khmer (Cambodia)",
+    "value": "km-KH-PisethNeural"
+  },
+  {
+    "label": "Microsoft Sreymom Online (Natural) - Khmer (Cambodia)",
+    "value": "km-KH-SreymomNeural"
+  },
+  {
+    "label": "Microsoft InJoon Online (Natural) - Korean (Korea)",
+    "value": "ko-KR-InJoonNeural"
+  },
+  {
+    "label": "Microsoft SunHi Online (Natural) - Korean (Korea)",
+    "value": "ko-KR-SunHiNeural"
+  },
+  {
+    "label": "Microsoft Chanthavong Online (Natural) - Lao (Laos)",
+    "value": "lo-LA-ChanthavongNeural"
+  },
+  {
+    "label": "Microsoft Keomany Online (Natural) - Lao (Laos)",
+    "value": "lo-LA-KeomanyNeural"
+  },
+  {
+    "label": "Microsoft Everita Online (Natural) - Latvian (Latvia)",
+    "value": "lv-LV-EveritaNeural"
+  },
+  {
+    "label": "Microsoft Nils Online (Natural) - Latvian (Latvia)",
+    "value": "lv-LV-NilsNeural"
+  },
+  {
+    "label": "Microsoft Leonas Online (Natural) - Lithuanian (Lithuania)",
+    "value": "lt-LT-LeonasNeural"
+  },
+  {
+    "label": "Microsoft Ona Online (Natural) - Lithuanian (Lithuania)",
+    "value": "lt-LT-OnaNeural"
+  },
+  {
+    "label": "Microsoft Aleksandar Online (Natural) - Macedonian (Republic of North Macedonia)",
+    "value": "mk-MK-AleksandarNeural"
+  },
+  {
+    "label": "Microsoft Marija Online (Natural) - Macedonian (Republic of North Macedonia)",
+    "value": "mk-MK-MarijaNeural"
+  },
+  {
+    "label": "Microsoft Osman Online (Natural) - Malay (Malaysia)",
+    "value": "ms-MY-OsmanNeural"
+  },
+  {
+    "label": "Microsoft Yasmin Online (Natural) - Malay (Malaysia)",
+    "value": "ms-MY-YasminNeural"
+  },
+  {
+    "label": "Microsoft Midhun Online (Natural) - Malayalam (India)",
+    "value": "ml-IN-MidhunNeural"
+  },
+  {
+    "label": "Microsoft Sobhana Online (Natural) - Malayalam (India)",
+    "value": "ml-IN-SobhanaNeural"
+  },
+  {
+    "label": "Microsoft Grace Online (Natural) - Maltese (Malta)",
+    "value": "mt-MT-GraceNeural"
+  },
+  {
+    "label": "Microsoft Joseph Online (Natural) - Maltese (Malta)",
+    "value": "mt-MT-JosephNeural"
+  },
+  {
+    "label": "Microsoft Aarohi Online (Natural) - Marathi (India)",
+    "value": "mr-IN-AarohiNeural"
+  },
+  {
+    "label": "Microsoft Manohar Online (Natural) - Marathi (India)",
+    "value": "mr-IN-ManoharNeural"
+  },
+  {
+    "label": "Microsoft Bataa Online (Natural) - Mongolian (Mongolia)",
+    "value": "mn-MN-BataaNeural"
+  },
+  {
+    "label": "Microsoft Yesui Online (Natural) - Mongolian (Mongolia)",
+    "value": "mn-MN-YesuiNeural"
+  },
+  {
+    "label": "Microsoft Hemkala Online (Natural) - Nepali (Nepal)",
+    "value": "ne-NP-HemkalaNeural"
+  },
+  {
+    "label": "Microsoft Sagar Online (Natural) - Nepali (Nepal)",
+    "value": "ne-NP-SagarNeural"
+  },
+  {
+    "label": "Microsoft Finn Online (Natural) - Norwegian (Bokmål Norway)",
+    "value": "nb-NO-FinnNeural"
+  },
+  {
+    "label": "Microsoft Pernille Online (Natural) - Norwegian (Bokmål, Norway)",
+    "value": "nb-NO-PernilleNeural"
+  },
+  {
+    "label": "Microsoft GulNawaz Online (Natural) - Pashto (Afghanistan)",
+    "value": "ps-AF-GulNawazNeural"
+  },
+  {
+    "label": "Microsoft Latifa Online (Natural) - Pashto (Afghanistan)",
+    "value": "ps-AF-LatifaNeural"
+  },
+  {
+    "label": "Microsoft Dilara Online (Natural) - Persian (Iran)",
+    "value": "fa-IR-DilaraNeural"
+  },
+  {
+    "label": "Microsoft Farid Online (Natural) - Persian (Iran)",
+    "value": "fa-IR-FaridNeural"
+  },
+  {
+    "label": "Microsoft Marek Online (Natural) - Polish (Poland)",
+    "value": "pl-PL-MarekNeural"
+  },
+  {
+    "label": "Microsoft Zofia Online (Natural) - Polish (Poland)",
+    "value": "pl-PL-ZofiaNeural"
+  },
+  {
+    "label": "Microsoft Antonio Online (Natural) - Portuguese (Brazil)",
+    "value": "pt-BR-AntonioNeural"
+  },
+  {
+    "label": "Microsoft Francisca Online (Natural) - Portuguese (Brazil)",
+    "value": "pt-BR-FranciscaNeural"
+  },
+  {
+    "label": "Microsoft Duarte Online (Natural) - Portuguese (Portugal)",
+    "value": "pt-PT-DuarteNeural"
+  },
+  {
+    "label": "Microsoft Raquel Online (Natural) - Portuguese (Portugal)",
+    "value": "pt-PT-RaquelNeural"
+  },
+  {
+    "label": "Microsoft Alina Online (Natural) - Romanian (Romania)",
+    "value": "ro-RO-AlinaNeural"
+  },
+  {
+    "label": "Microsoft Emil Online (Natural) - Romanian (Romania)",
+    "value": "ro-RO-EmilNeural"
+  },
+  {
+    "label": "Microsoft Dmitry Online (Natural) - Russian (Russia)",
+    "value": "ru-RU-DmitryNeural"
+  },
+  {
+    "label": "Microsoft Svetlana Online (Natural) - Russian (Russia)",
+    "value": "ru-RU-SvetlanaNeural"
+  },
+  {
+    "label": "Microsoft Nicholas Online (Natural) - Serbian (Serbia)",
+    "value": "sr-RS-NicholasNeural"
+  },
+  {
+    "label": "Microsoft Sophie Online (Natural) - Serbian (Serbia)",
+    "value": "sr-RS-SophieNeural"
+  },
+  {
+    "label": "Microsoft Sameera Online (Natural) - Sinhala (Sri Lanka)",
+    "value": "si-LK-SameeraNeural"
+  },
+  {
+    "label": "Microsoft Thilini Online (Natural) - Sinhala (Sri Lanka)",
+    "value": "si-LK-ThiliniNeural"
+  },
+  {
+    "label": "Microsoft Lukas Online (Natural) - Slovak (Slovakia)",
+    "value": "sk-SK-LukasNeural"
+  },
+  {
+    "label": "Microsoft Viktoria Online (Natural) - Slovak (Slovakia)",
+    "value": "sk-SK-ViktoriaNeural"
+  },
+  {
+    "label": "Microsoft Petra Online (Natural) - Slovenian (Slovenia)",
+    "value": "sl-SI-PetraNeural"
+  },
+  {
+    "label": "Microsoft Rok Online (Natural) - Slovenian (Slovenia)",
+    "value": "sl-SI-RokNeural"
+  },
+  {
+    "label": "Microsoft Muuse Online (Natural) - Somali (Somalia)",
+    "value": "so-SO-MuuseNeural"
+  },
+  {
+    "label": "Microsoft Ubax Online (Natural) - Somali (Somalia)",
+    "value": "so-SO-UbaxNeural"
+  },
+  {
+    "label": "Microsoft Elena Online (Natural) - Spanish (Argentina)",
+    "value": "es-AR-ElenaNeural"
+  },
+  {
+    "label": "Microsoft Tomas Online (Natural) - Spanish (Argentina)",
+    "value": "es-AR-TomasNeural"
+  },
+  {
+    "label": "Microsoft Marcelo Online (Natural) - Spanish (Bolivia)",
+    "value": "es-BO-MarceloNeural"
+  },
+  {
+    "label": "Microsoft Sofia Online (Natural) - Spanish (Bolivia)",
+    "value": "es-BO-SofiaNeural"
+  },
+  {
+    "label": "Microsoft Catalina Online (Natural) - Spanish (Chile)",
+    "value": "es-CL-CatalinaNeural"
+  },
+  {
+    "label": "Microsoft Lorenzo Online (Natural) - Spanish (Chile)",
+    "value": "es-CL-LorenzoNeural"
+  },
+  {
+    "label": "Microsoft Gonzalo Online (Natural) - Spanish (Colombia)",
+    "value": "es-CO-GonzaloNeural"
+  },
+  {
+    "label": "Microsoft Salome Online (Natural) - Spanish (Colombia)",
+    "value": "es-CO-SalomeNeural"
+  },
+  {
+    "label": "Microsoft Juan Online (Natural) - Spanish (Costa Rica)",
+    "value": "es-CR-JuanNeural"
+  },
+  {
+    "label": "Microsoft Maria Online (Natural) - Spanish (Costa Rica)",
+    "value": "es-CR-MariaNeural"
+  },
+  {
+    "label": "Microsoft Belkys Online (Natural) - Spanish (Cuba)",
+    "value": "es-CU-BelkysNeural"
+  },
+  {
+    "label": "Microsoft Manuel Online (Natural) - Spanish (Cuba)",
+    "value": "es-CU-ManuelNeural"
+  },
+  {
+    "label": "Microsoft Emilio Online (Natural) - Spanish (Dominican Republic)",
+    "value": "es-DO-EmilioNeural"
+  },
+  {
+    "label": "Microsoft Ramona Online (Natural) - Spanish (Dominican Republic)",
+    "value": "es-DO-RamonaNeural"
+  },
+  {
+    "label": "Microsoft Andrea Online (Natural) - Spanish (Ecuador)",
+    "value": "es-EC-AndreaNeural"
+  },
+  {
+    "label": "Microsoft Luis Online (Natural) - Spanish (Ecuador)",
+    "value": "es-EC-LuisNeural"
+  },
+  {
+    "label": "Microsoft Lorena Online (Natural) - Spanish (El Salvador)",
+    "value": "es-SV-LorenaNeural"
+  },
+  {
+    "label": "Microsoft Rodrigo Online (Natural) - Spanish (El Salvador)",
+    "value": "es-SV-RodrigoNeural"
+  },
+  {
+    "label": "Microsoft Javier Online (Natural) - Spanish (Equatorial Guinea)",
+    "value": "es-GQ-JavierNeural"
+  },
+  {
+    "label": "Microsoft Teresa Online (Natural) - Spanish (Equatorial Guinea)",
+    "value": "es-GQ-TeresaNeural"
+  },
+  {
+    "label": "Microsoft Andres Online (Natural) - Spanish (Guatemala)",
+    "value": "es-GT-AndresNeural"
+  },
+  {
+    "label": "Microsoft Marta Online (Natural) - Spanish (Guatemala)",
+    "value": "es-GT-MartaNeural"
+  },
+  {
+    "label": "Microsoft Carlos Online (Natural) - Spanish (Honduras)",
+    "value": "es-HN-CarlosNeural"
+  },
+  {
+    "label": "Microsoft Karla Online (Natural) - Spanish (Honduras)",
+    "value": "es-HN-KarlaNeural"
+  },
+  {
+    "label": "Microsoft Dalia Online (Natural) - Spanish (Mexico)",
+    "value": "es-MX-DaliaNeural"
+  },
+  {
+    "label": "Microsoft Jorge Online (Natural) - Spanish (Mexico)",
+    "value": "es-MX-JorgeNeural"
+  },
+  {
+    "label": "Microsoft Federico Online (Natural) - Spanish (Nicaragua)",
+    "value": "es-NI-FedericoNeural"
+  },
+  {
+    "label": "Microsoft Yolanda Online (Natural) - Spanish (Nicaragua)",
+    "value": "es-NI-YolandaNeural"
+  },
+  {
+    "label": "Microsoft Margarita Online (Natural) - Spanish (Panama)",
+    "value": "es-PA-MargaritaNeural"
+  },
+  {
+    "label": "Microsoft Roberto Online (Natural) - Spanish (Panama)",
+    "value": "es-PA-RobertoNeural"
+  },
+  {
+    "label": "Microsoft Mario Online (Natural) - Spanish (Paraguay)",
+    "value": "es-PY-MarioNeural"
+  },
+  {
+    "label": "Microsoft Tania Online (Natural) - Spanish (Paraguay)",
+    "value": "es-PY-TaniaNeural"
+  },
+  {
+    "label": "Microsoft Alex Online (Natural) - Spanish (Peru)",
+    "value": "es-PE-AlexNeural"
+  },
+  {
+    "label": "Microsoft Camila Online (Natural) - Spanish (Peru)",
+    "value": "es-PE-CamilaNeural"
+  },
+  {
+    "label": "Microsoft Karina Online (Natural) - Spanish (Puerto Rico)",
+    "value": "es-PR-KarinaNeural"
+  },
+  {
+    "label": "Microsoft Victor Online (Natural) - Spanish (Puerto Rico)",
+    "value": "es-PR-VictorNeural"
+  },
+  {
+    "label": "Microsoft Alvaro Online (Natural) - Spanish (Spain)",
+    "value": "es-ES-AlvaroNeural"
+  },
+  {
+    "label": "Microsoft Elvira Online (Natural) - Spanish (Spain)",
+    "value": "es-ES-ElviraNeural"
+  },
+  {
+    "label": "Microsoft Alonso Online (Natural) - Spanish (United States)",
+    "value": "es-US-AlonsoNeural"
+  },
+  {
+    "label": "Microsoft Paloma Online (Natural) - Spanish (United States)",
+    "value": "es-US-PalomaNeural"
+  },
+  {
+    "label": "Microsoft Mateo Online (Natural) - Spanish (Uruguay)",
+    "value": "es-UY-MateoNeural"
+  },
+  {
+    "label": "Microsoft Valentina Online (Natural) - Spanish (Uruguay)",
+    "value": "es-UY-ValentinaNeural"
+  },
+  {
+    "label": "Microsoft Paola Online (Natural) - Spanish (Venezuela)",
+    "value": "es-VE-PaolaNeural"
+  },
+  {
+    "label": "Microsoft Sebastian Online (Natural) - Spanish (Venezuela)",
+    "value": "es-VE-SebastianNeural"
+  },
+  {
+    "label": "Microsoft Jajang Online (Natural) - Sundanese (Indonesia)",
+    "value": "su-ID-JajangNeural"
+  },
+  {
+    "label": "Microsoft Tuti Online (Natural) - Sundanese (Indonesia)",
+    "value": "su-ID-TutiNeural"
+  },
+  {
+    "label": "Microsoft Rafiki Online (Natural) - Swahili (Kenya)",
+    "value": "sw-KE-RafikiNeural"
+  },
+  {
+    "label": "Microsoft Zuri Online (Natural) - Swahili (Kenya)",
+    "value": "sw-KE-ZuriNeural"
+  },
+  {
+    "label": "Microsoft Daudi Online (Natural) - Swahili (Tanzania)",
+    "value": "sw-TZ-DaudiNeural"
+  },
+  {
+    "label": "Microsoft Rehema Online (Natural) - Swahili (Tanzania)",
+    "value": "sw-TZ-RehemaNeural"
+  },
+  {
+    "label": "Microsoft Mattias Online (Natural) - Swedish (Sweden)",
+    "value": "sv-SE-MattiasNeural"
+  },
+  {
+    "label": "Microsoft Sofie Online (Natural) - Swedish (Sweden)",
+    "value": "sv-SE-SofieNeural"
+  },
+  {
+    "label": "Microsoft Pallavi Online (Natural) - Tamil (India)",
+    "value": "ta-IN-PallaviNeural"
+  },
+  {
+    "label": "Microsoft Valluvar Online (Natural) - Tamil (India)",
+    "value": "ta-IN-ValluvarNeural"
+  },
+  {
+    "label": "Microsoft Kani Online (Natural) - Tamil (Malaysia)",
+    "value": "ta-MY-KaniNeural"
+  },
+  {
+    "label": "Microsoft Surya Online (Natural) - Tamil (Malaysia)",
+    "value": "ta-MY-SuryaNeural"
+  },
+  {
+    "label": "Microsoft Anbu Online (Natural) - Tamil (Singapore)",
+    "value": "ta-SG-AnbuNeural"
+  },
+  {
+    "label": "Microsoft Venba Online (Natural) - Tamil (Singapore)",
+    "value": "ta-SG-VenbaNeural"
+  },
+  {
+    "label": "Microsoft Kumar Online (Natural) - Tamil (Sri Lanka)",
+    "value": "ta-LK-KumarNeural"
+  },
+  {
+    "label": "Microsoft Saranya Online (Natural) - Tamil (Sri Lanka)",
+    "value": "ta-LK-SaranyaNeural"
+  },
+  {
+    "label": "Microsoft Mohan Online (Natural) - Telugu (India)",
+    "value": "te-IN-MohanNeural"
+  },
+  {
+    "label": "Microsoft Shruti Online (Natural) - Telugu (India)",
+    "value": "te-IN-ShrutiNeural"
+  },
+  {
+    "label": "Microsoft Niwat Online (Natural) - Thai (Thailand)",
+    "value": "th-TH-NiwatNeural"
+  },
+  {
+    "label": "Microsoft Premwadee Online (Natural) - Thai (Thailand)",
+    "value": "th-TH-PremwadeeNeural"
+  },
+  {
+    "label": "Microsoft Ahmet Online (Natural) - Turkish (Turkey)",
+    "value": "tr-TR-AhmetNeural"
+  },
+  {
+    "label": "Microsoft Emel Online (Natural) - Turkish (Turkey)",
+    "value": "tr-TR-EmelNeural"
+  },
+  {
+    "label": "Microsoft Ostap Online (Natural) - Ukrainian (Ukraine)",
+    "value": "uk-UA-OstapNeural"
+  },
+  {
+    "label": "Microsoft Polina Online (Natural) - Ukrainian (Ukraine)",
+    "value": "uk-UA-PolinaNeural"
+  },
+  {
+    "label": "Microsoft Gul Online (Natural) - Urdu (India)",
+    "value": "ur-IN-GulNeural"
+  },
+  {
+    "label": "Microsoft Salman Online (Natural) - Urdu (India)",
+    "value": "ur-IN-SalmanNeural"
+  },
+  {
+    "label": "Microsoft Asad Online (Natural) - Urdu (Pakistan)",
+    "value": "ur-PK-AsadNeural"
+  },
+  {
+    "label": "Microsoft Uzma Online (Natural) - Urdu (Pakistan)",
+    "value": "ur-PK-UzmaNeural"
+  },
+  {
+    "label": "Microsoft Madina Online (Natural) - Uzbek (Uzbekistan)",
+    "value": "uz-UZ-MadinaNeural"
+  },
+  {
+    "label": "Microsoft Sardor Online (Natural) - Uzbek (Uzbekistan)",
+    "value": "uz-UZ-SardorNeural"
+  },
+  {
+    "label": "Microsoft HoaiMy Online (Natural) - Vietnamese (Vietnam)",
+    "value": "vi-VN-HoaiMyNeural"
+  },
+  {
+    "label": "Microsoft NamMinh Online (Natural) - Vietnamese (Vietnam)",
+    "value": "vi-VN-NamMinhNeural"
+  },
+  {
+    "label": "Microsoft Aled Online (Natural) - Welsh (United Kingdom)",
+    "value": "cy-GB-AledNeural"
+  },
+  {
+    "label": "Microsoft Nia Online (Natural) - Welsh (United Kingdom)",
+    "value": "cy-GB-NiaNeural"
+  },
+  {
+    "label": "Microsoft Thando Online (Natural) - Zulu (South Africa)",
+    "value": "zu-ZA-ThandoNeural"
+  },
+  {
+    "label": "Microsoft Themba Online (Natural) - Zulu (South Africa)",
+    "value": "zu-ZA-ThembaNeural"
+  }
+]

@@ -5,6 +5,9 @@ import { contextMenus, modals, vue, tooltips } from "@acord/ui";
 import acordI18N from "@acord/i18n";
 import dom from "@acord/dom";
 
+import edgeNames from "./data/edge-names.json";
+import googleLangs from "./data/google-langs.json";
+
 let sounds = [];
 
 function loadSounds() {
@@ -20,232 +23,7 @@ function saveSounds() {
   persist.store.settings.sounds = sounds.map(i => `${i.name};${i.src};${i.volume}`).join("\n");
 }
 
-const ttsLangs = [
-  {
-    value: "af",
-    label: "Afrikaans"
-  },
-  {
-    value: "sq",
-    label: "Albanian"
-  },
-  {
-    value: "de",
-    label: "German"
-  },
-  {
-    value: "ar",
-    label: "Arabic"
-  },
-  {
-    value: "bn",
-    label: "Bengali"
-  },
-  {
-    value: "my",
-    label: "Burmese"
-  },
-  {
-    value: "bs",
-    label: "Bosnian"
-  },
-  {
-    value: "bg",
-    label: "Bulgarian"
-  },
-  {
-    value: "km",
-    label: "Cambodian"
-  },
-  {
-    value: "kn",
-    label: "Kannada"
-  },
-  {
-    value: "ca",
-    label: "Catalan"
-  },
-  {
-    value: "cs",
-    label: "Czech"
-  },
-  {
-    value: "zh",
-    label: "Simplified Chinese"
-  },
-  {
-    value: "zh-TW",
-    label: "Traditional Chinese"
-  },
-  {
-    value: "si",
-    label: "Sinhalese"
-  },
-  {
-    value: "ko",
-    label: "Korean"
-  },
-  {
-    value: "hr",
-    label: "Croatian"
-  },
-  {
-    value: "da",
-    label: "Danish"
-  },
-  {
-    value: "sk",
-    label: "Slovak"
-  },
-  {
-    value: "es",
-    label: "Spanish"
-  },
-  {
-    value: "et",
-    label: "Estonian"
-  },
-  {
-    value: "fi",
-    label: "Finnish"
-  },
-  {
-    value: "fr",
-    label: "French"
-  },
-  {
-    value: "el",
-    label: "Greek"
-  },
-  {
-    value: "gu",
-    label: "Gujarati"
-  },
-  {
-    value: "hi",
-    label: "Hindi"
-  },
-  {
-    value: "nl",
-    label: "Dutch"
-  },
-  {
-    value: "hu",
-    label: "Hungarian"
-  },
-  {
-    value: "id",
-    label: "Indonesian"
-  },
-  {
-    value: "en",
-    label: "English"
-  },
-  {
-    value: "is",
-    label: "Icelandic"
-  },
-  {
-    value: "it",
-    label: "Italian"
-  },
-  {
-    value: "ja",
-    label: "Japanese"
-  },
-  {
-    value: "la",
-    label: "Latin"
-  },
-  {
-    value: "lv",
-    label: "Latvian"
-  },
-  {
-    value: "ml",
-    label: "Malayalam"
-  },
-  {
-    value: "ms",
-    label: "Malay"
-  },
-  {
-    value: "mr",
-    label: "Marathi"
-  },
-  {
-    value: "ne",
-    label: "Nepali"
-  },
-  {
-    value: "no",
-    label: "Norwegian"
-  },
-  {
-    value: "pl",
-    label: "Polish"
-  },
-  {
-    value: "pt",
-    label: "Portuguese"
-  },
-  {
-    value: "ro",
-    label: "Romanian"
-  },
-  {
-    value: "ru",
-    label: "Russian"
-  },
-  {
-    value: "sr",
-    label: "Serbian"
-  },
-  {
-    value: "sw",
-    label: "Swahili"
-  },
-  {
-    value: "sv",
-    label: "Swedish"
-  },
-  {
-    value: "su",
-    label: "Sundanese"
-  },
-  {
-    value: "tl",
-    label: "Tagalog"
-  },
-  {
-    value: "th",
-    label: "Thai"
-  },
-  {
-    value: "ta",
-    label: "Tamil"
-  },
-  {
-    value: "te",
-    label: "Telugu"
-  },
-  {
-    value: "tr",
-    label: "Turkish"
-  },
-  {
-    value: "uk",
-    label: "Ukrainian"
-  },
-  {
-    value: "ur",
-    label: "Urdu"
-  },
-  {
-    value: "vi",
-    label: "Vietnamese"
-  }
-];
+
 
 const debouncedLoadSounds = _.debounce(loadSounds, 1000);
 
@@ -361,11 +139,14 @@ export default {
                   <div class="input" @keyup="onTSSKeyUp">
                     <discord-input v-model="ttsText" maxlength="200" placeholder="${i18n.format("TEXT_TO_SPEECH_PLACEHOLDER")}"></discord-input>
                   </div>
-                  <div class="lang">
-                    <discord-select v-model="ttsLang" :options="ttsLangs"></discord-select>
+                  <div class="tts-platform">
+                    <discord-select v-model="ttsPlatform" :options="ttsPlatforms"></discord-select>
                   </div>
-                  <div class="speed">
-                    <discord-select v-model="ttsSlow" :options="ttsSpeeds"></discord-select>
+                  <div v-if="ttsPlatform === 'google'" class="lang">
+                    <discord-select v-model="googleTTSLang" :options="googleLangs"></discord-select>
+                  </div>
+                  <div v-if="ttsPlatform === 'edge'" class="name">
+                    <discord-select v-model="edgeTTSName" :options="edgeNames"></discord-select>
                   </div>
                 </div>
                 <div class="controls">
@@ -385,18 +166,14 @@ export default {
     const app = Vue.createApp({
       data() {
         return {
-          ttsSpeeds: [
-            {
-              label: i18n.format("SLOW"),
-              value: true,
-            },
-            {
-              label: i18n.format("NORMAL"),
-              value: false,
-            }
+          ttsPlatforms: [
+            { label: "Google", value: "google" },
+            { label: "Edge", value: "edge" }
           ],
+          ttsPlatform: "edge",
           sounds,
-          ttsLangs,
+          googleLangs,
+          edgeNames,
           selectedTab: "mySounds",
           popularSounds: [],
           popularSoundPage: 1,
@@ -415,8 +192,9 @@ export default {
           popularSearchText: "",
           soundsSearchText: "",
           ttsText: "",
-          ttsLang: ttsLangs.find(i => i.value === acordI18N.locale)?.value || "en",
-          ttsSlow: false,
+          googleTTSLang: googleLangs.find(i => i.value === acordI18N.locale)?.value || "en",
+          edgeTTSName: edgeNames.find(i => i.value.startsWith(acordI18N.locale))?.value || "en-US-AriaNeural",
+          ttsPlatform: "google",
           lastTTSUrl: ""
         }
       },
@@ -426,7 +204,7 @@ export default {
           return this.sounds.filter(i => i.name.toLowerCase().includes(t));
         },
         canPlayTTS() {
-          return this.ttsText.trim().length > 0 && this.ttsText.trim().length <= 200 && this.ttsLang;
+          return this.ttsText.trim().length > 0 && this.ttsText.trim().length <= 200 && this.googleTTSLang;
         }
       },
       watch: {
@@ -452,7 +230,11 @@ export default {
         },
         generateTTSUrl() {
           if (!this.canPlayTTS) return null;
-          let t = `https://google-tts-api.armagan.rest/?text=${encodeURIComponent(this.ttsText.toLocaleLowerCase())}&lang=${this.ttsLang}&slow=${this.ttsSlow}`;
+          let ttsLower = this.ttsText.toLocaleLowerCase();
+          let t = this.ttsPlatform === "google"
+            ? `https://google-tts-api.armagan.rest/?text=${encodeURIComponent(ttsLower)}&lang=${this.googleTTSLang}`
+            : this.ttsPlatform === "edge"
+              ? `https://edge-tts-api.armagan.rest/?text=${encodeURIComponent(ttsLower)}&name=${this.edgeTTSName}` : null;
           this.lastTTSUrl = t;
           return t;
         },
