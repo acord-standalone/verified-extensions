@@ -1,5 +1,5 @@
 {
-  "hash": "74ea2f481106845454a223037739791ad8b4b6f51343ac12d427ab6e9b41f075",
+  "hash": "04a823bae9b1ff279e03dde9aa1e0ed5ce24e274178d1282e62b5ea54ba05777",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Allows you to set custom rich presence status. With buttons and images.",
       "tr": "Özel durum ayarlamanıza olanak sağlar. Düğmeler ve resimler ile."
     },
-    "version": "0.0.7",
+    "version": "0.0.8",
     "previews": [
       {
         "name": "Default",
@@ -34,7 +34,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Application Id"
+              "value": {
+                "default": "Application ID (Required)",
+                "tr": "Uygulama Kimliği (Gerekli)"
+              }
             },
             {
               "type": "Input",
@@ -50,7 +53,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Name"
+              "value": {
+                "default": "Application Name (Required)",
+                "tr": "Uygulama İsmi (Gerekli)"
+              }
             },
             {
               "type": "Input",
@@ -74,23 +80,38 @@
               "id": "type",
               "options": [
                 {
-                  "label": "Playing",
+                  "label": {
+                    "default": "Playing",
+                    "tr": "Oynuyor"
+                  },
                   "value": 0
                 },
                 {
-                  "label": "Streaming",
+                  "label": {
+                    "default": "Streaming",
+                    "tr": "Yayında"
+                  },
                   "value": 1
                 },
                 {
-                  "label": "Listening",
+                  "label": {
+                    "default": "Listening",
+                    "tr": "Dinliyor"
+                  },
                   "value": 2
                 },
                 {
-                  "label": "Watching",
+                  "label": {
+                    "default": "Watching",
+                    "tr": "İzliyor"
+                  },
                   "value": 3
                 },
                 {
-                  "label": "Competing",
+                  "label": {
+                    "default": "Competing",
+                    "tr": "Yarışıyor"
+                  },
                   "value": 5
                 }
               ]
@@ -108,12 +129,14 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Details (Top) (Required)"
+              "value": {
+                "default": "Details (Top) (Required)",
+                "tr": "Detaylar (Üst) (Gerekli)"
+              }
             },
             {
               "type": "Input",
               "default": "Details",
-              "placeholder": "Top Text",
               "id": "details"
             }
           ]
@@ -124,12 +147,14 @@
           "children": [
             {
               "type": "Heading",
-              "value": "State (Bottom) (Required)"
+              "value": {
+                "default": "State (Bottom) (Required)",
+                "tr": "Durum (Alt) (Gerekli)"
+              }
             },
             {
               "type": "Input",
               "default": "State",
-              "placeholder": "Bottom Text",
               "id": "state"
             }
           ]
@@ -145,11 +170,14 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Button 1 Text"
+              "value": {
+                "default": "Button 1 Text",
+                "tr": "Düğme 1 Metni"
+              }
             },
             {
               "type": "Input",
-              "default": "Button 1",
+              "default": "Acord",
               "id": "button_1_text"
             }
           ]
@@ -160,7 +188,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Button 1 URL"
+              "value": {
+                "default": "Button 1 URL",
+                "tr": "Düğme 1 URL"
+              }
             },
             {
               "type": "Input",
@@ -175,11 +206,14 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Button 2 Text"
+              "value": {
+                "default": "Button 2 Text",
+                "tr": "Düğme 2 Metni"
+              }
             },
             {
               "type": "Input",
-              "default": "Button 2",
+              "default": "Acord",
               "id": "button_2_text"
             }
           ]
@@ -190,11 +224,14 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Button 2 URL"
+              "value": {
+                "default": "Button 2 URL",
+                "tr": "Düğme 2 URL"
+              }
             },
             {
               "type": "Input",
-              "default": "https://discord.gg/acord",
+              "default": "https://discord.gg/HQ57svW6as",
               "id": "button_2_url"
             }
           ]
@@ -210,7 +247,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Start Timestamp"
+              "value": {
+                "default": "Start Timestamp",
+                "tr": "Başlangıç Zaman Damgası"
+              }
             },
             {
               "type": "Input",
@@ -226,7 +266,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "End Timestamp"
+              "value": {
+                "default": "End Timestamp",
+                "tr": "Bitiş Zaman Damgası"
+              }
             },
             {
               "type": "Input",
@@ -247,7 +290,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Large Image Name"
+              "value": {
+                "default": "Large Image CDN URL",
+                "tr": "Büyük Resim CDN URL"
+              }
             },
             {
               "type": "Input",
@@ -262,7 +308,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Large Image Text"
+              "value": {
+                "default": "Large Image Text",
+                "tr": "Büyük Resim Metni"
+              }
             },
             {
               "type": "Input",
@@ -277,7 +326,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Small Image Name"
+              "value": {
+                "default": "Small Image CDN URL",
+                "tr": "Küçük Resim CDN URL"
+              }
             },
             {
               "type": "Input",
@@ -292,7 +344,10 @@
           "children": [
             {
               "type": "Heading",
-              "value": "Small Image Text"
+              "value": {
+                "default": "Small Image Text",
+                "tr": "Küçük Resim Metni"
+              }
             },
             {
               "type": "Input",
@@ -304,6 +359,14 @@
       ]
     }
   ],
+  "i18n": {
+    "default": {
+      "INVALID_APPLICATION_ID": "Invalid Application ID!"
+    },
+    "tr": {
+      "INVALID_APPLICATION_ID": "Geçersiz Uygulama Kimliği!"
+    }
+  },
   "mode": "development",
   "readme": false
 }

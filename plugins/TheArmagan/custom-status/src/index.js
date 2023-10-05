@@ -1,4 +1,4 @@
-import { subscriptions, persist } from "@acord/extension";
+import { subscriptions, persist, i18n } from "@acord/extension";
 import { FluxDispatcher } from "@acord/modules/common";
 import events from "@acord/events";
 import utils from "@acord/utils";
@@ -24,7 +24,7 @@ async function updateActivity() {
     if (req.ok) {
       assets = await req.json();
     } else {
-      ui.toasts.show.error("[Custom Status] Invalid application id.");
+      ui.toasts.show.error(i18n.format("INVALID_APPLICATION_ID"));
     }
   }
 
