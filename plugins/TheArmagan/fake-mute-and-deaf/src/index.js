@@ -16,6 +16,7 @@ async function update() {
   if (!state.disabledSounds.includes("unmute")) toDisable.push("unmute");
 
   state.disabledSounds.push(...toDisable);
+  await utils.sleep(50);
   await MediaEngineActions.toggleSelfMute();
   await utils.sleep(100);
   await MediaEngineActions.toggleSelfMute();
