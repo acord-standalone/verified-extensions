@@ -1,5 +1,5 @@
 {
-  "hash": "96560f23a35f067ae9be71087c2e4b33f096f620175f2ba6df7687fa085eb0f9",
+  "hash": "2418cfeee3a9b14477126b797de637b698f179e8e99dbabd8fbeb45dec102337",
   "type": "plugin",
   "about": {
     "name": {
@@ -209,7 +209,7 @@
           "type": "Heading",
           "value": {
             "default": "Member Leave Message",
-            "tr": "Üye Katılma Mesajı"
+            "tr": "Üye Ayrılma Mesajı"
           }
         },
         {
