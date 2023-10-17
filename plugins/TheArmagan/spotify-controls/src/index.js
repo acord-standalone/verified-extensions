@@ -154,7 +154,7 @@ export default {
         function reInject() {
           appElm.remove();
           if (!document.querySelector('.sc--container'))
-            document.querySelector('section.panels-3wFtMD > .wrapper-3Hk9OB')
+            document.querySelector('section.panels-3wFtMD > .wrapper-VSquwh')
               .insertAdjacentElement("afterend", appElm);
         }
 
