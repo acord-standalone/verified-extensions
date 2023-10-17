@@ -4608,7 +4608,7 @@
               "type": "Heading",
               "value": {
                 "default": "Member Leave Message",
-                "tr": "Üye Katılma Mesajı"
+                "tr": "Üye Ayrılma Mesajı"
               }
             },
             {
