@@ -8,14 +8,14 @@ export default {
   load() {
     subscriptions.push(
       (() => {
-        const container = document.querySelector(".container-YkUktl > .noWrap-hBpHBz");
-        const tagAsButton = document.querySelector('.container-YkUktl > .withTagAsButton-OsgQ9L');
+        const container = document.querySelector(".container-1CH86i > .noWrap-hBpHBz");
+        const tagAsButton = document.querySelector('.container-1CH86i > .withTagAsButton-2_JkHX');
         tagAsButton.style.width = "88px";
         tagAsButton.style.minWidth = "88px";
 
         const audios = {
-          "enable": "https://ptb.discord.com/assets/9ca817f41727edc1b2f1bc4f1911107c.mp3",
-          "disable": "https://ptb.discord.com/assets/4e30f98aa537854f79f49a76af822bbc.mp3"
+          enable: "https://ptb.discord.com/assets/9ca817f41727edc1b2f1bc4f1911107c.mp3",
+          disable: "https://ptb.discord.com/assets/4e30f98aa537854f79f49a76af822bbc.mp3"
         }
 
         const audio = new Audio();
