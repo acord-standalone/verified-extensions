@@ -75,7 +75,7 @@ export default {
         uiContainer.remove();
       },
       dom.patch(
-        ".upperContainer-2DCPUA .toolbar-3_r2xA .inviteToolbar-2k2nqz",
+        ".inviteToolbar_e74dc0",
         (elm) => {
           let icon = genIcon();
 

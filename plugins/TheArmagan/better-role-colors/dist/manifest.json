@@ -1,10 +1,14 @@
 {
-  "hash": "962c9af1069321fe508cf43da9002150299baa4a9c51cec2801ca060c7c4de57",
+  "hash": "d823ca9b8c0c07ea54c7fa2f0b4a6a5fa883f5bc1c846092803b73b612a64bb3",
   "type": "plugin",
   "about": {
     "name": {
       "default": "Better Role Colors",
       "tr": "Daha İyi Rol Renkleri"
+    },
+    "description": {
+      "default": "Show member's role colors everywhere.",
+      "tr": "Üyelerin rol renklerini her yerde gösterir."
     },
     "authors": [
       {
@@ -12,10 +16,6 @@
         "id": "707309693449535599"
       }
     ],
-    "description": {
-      "default": "Show member's role colors everywhere.",
-      "tr": "Üyelerin rol renklerini her yerde gösterir."
-    },
     "version": "0.0.1",
     "license": "MIT",
     "previews": [

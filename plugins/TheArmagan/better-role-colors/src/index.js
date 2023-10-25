@@ -9,9 +9,9 @@ export default {
   load() {
     subscriptions.push(
       dom.patch(
-        '[class*="voiceUser-"] > [class*="content-"] > [class*="username-"]',
+        '.voiceUser__0470a .username__73ce9',
         (elm) => {
-          let uA = elm.parentElement.querySelector('[class*="userAvatar-"]');
+          let uA = elm.parentElement.querySelector('.userAvatar_c4f005');
           if (!uA) return;
           let userId = uA.style.backgroundImage.split("/")[4];
           if (!userId) return;
@@ -26,7 +26,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '[id*="message-content-"]',
+        '[id^="message-content-"]',
         async (elm) => {
           let props = utils.react.getProps(elm, i => i?.message);
           if (!props?.message) return;
@@ -42,11 +42,11 @@ export default {
     subscriptions.push(
       patcher.injectCSS(
         `
-          [id*="message-content-"], [id*="chat-messages-"] [data-slate-node] {
+          [id^="message-content-"], [id^="chat-messages-"] [data-slate-node] {
             color: var(--brc-color, var(--text-normal)) !important;
           }
 
-          [class*="repliedTextPreview-"] [class*="repliedTextContent-"] {
+          .repliedTextContent__75526 {
             width: inherit !important;
           }
         `,

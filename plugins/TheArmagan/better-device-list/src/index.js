@@ -22,14 +22,14 @@ export default {
     subscriptions.push(
       patchSCSS(),
       dom.patch(
-        ".session-9khLqt",
+        ".session_f56359",
         /** @param {Element} sessionElm */
         (sessionElm) => {
           const session = utils.react.getProps(sessionElm, i => i?.session, 1)?.session;
           if (!session) return;
           const sessionId = session.id_hash;
 
-          const infoRow = sessionElm.querySelector(".sessionInfoRow-pEX9fY:nth-child(1)");
+          const infoRow = sessionElm.querySelector(".sessionInfoRow_f3c7fd:nth-child(1)");
 
           /** @type {Element} */
           const nameContainer = dom.parse(`<div class="bd--name-container"></div>`);

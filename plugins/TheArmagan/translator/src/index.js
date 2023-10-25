@@ -82,12 +82,12 @@ export default {
             return i18n.format("TRANSLATE");
           },
           predicate(elm) {
-            let container = dom.parents(elm, '.message-2CShn3').pop();
+            let container = dom.parents(elm, '.message__80c10').pop();
             let message = utils.react.getProps(container, i => i?.message)?.message;
             return message?.content?.length > 0;
           },
           action(e) {
-            let container = dom.parents(e.target, '.message-2CShn3').pop();
+            let container = dom.parents(e.target, '.message__80c10').pop();
             let message = utils.react.getProps(container, i => i?.message)?.message;
             if (!message) return;
 

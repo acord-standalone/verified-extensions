@@ -60,7 +60,7 @@ export default {
     );
 
     const modalContainer = dom.parse(`
-          <div class="sb--modal-container root-1CAIjD fullscreenOnMobile-2971EC rootWithShadow-2hdL2J">
+          <div class="sb--modal-container root_a28985 fullscreenOnMobile__96797 rootWithShadow__073a7">
             <div class="modal-header">
               <div class="title">${i18n.format("SOUND_BOARD")}</div>
             </div>
@@ -80,7 +80,7 @@ export default {
                 <div class="search">
                   <input type="text" placeholder="${i18n.format("SEARCH")}" v-model="soundsSearchText" />
                 </div>
-                <div class="sounds scroller-2MALzE thin-RnSY0a scrollerBase-1Pkza4">
+                <div class="sounds thin_b1c063 scrollerBase_dc3aa9">
                   <div v-for="sound of filteredSounds" class="sound" :class="{'selected': selectedMedia === sound.src}" @click="selectSound(sound)" @contextmenu="onSoundContextMenu($event, sound)">
                     <div class="name" :acord--tooltip-content="sound.name">{{sound.name}}</div>
                     <div class="remove" @click="removeSound(sound.src)">
@@ -107,7 +107,7 @@ export default {
                 <div class="search">
                   <input type="text" placeholder="${i18n.format("SEARCH")}" v-model="popularSearchText" @input="onPopularSearchInput" />
                 </div>
-                <div class="sounds scroller-2MALzE thin-RnSY0a scrollerBase-1Pkza4">
+                <div class="sounds thin_b1c063 scrollerBase_dc3aa9">
                   <div v-for="sound of popularSounds" class="sound" :class="{'playing': playingPreviewMedia === sound.src}">
                     <div class="play" @click="previewMedia(sound.src)" acord--tooltip-content="${i18n.format("PREVIEW")}">
                       <svg v-if="!previewPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

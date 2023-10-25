@@ -24,13 +24,13 @@
       extension.subscriptions.push(
         patchSCSS(),
         dom__default["default"].patch(
-          ".session-9khLqt",
+          ".session_f56359",
           (sessionElm) => {
             const session = utils__default["default"].react.getProps(sessionElm, (i) => i?.session, 1)?.session;
             if (!session)
               return;
             const sessionId = session.id_hash;
-            const infoRow = sessionElm.querySelector(".sessionInfoRow-pEX9fY:nth-child(1)");
+            const infoRow = sessionElm.querySelector(".sessionInfoRow_f3c7fd:nth-child(1)");
             const nameContainer = dom__default["default"].parse(`<div class="bd--name-container"></div>`);
             const customNameElm = dom__default["default"].parse(`<span class="bd--custom-name"></span>`);
             customNameElm.innerText = extension.persist.ghost.sessionNames?.[sessionId] ? `(${extension.persist.ghost.sessionNames[sessionId]})` : "";

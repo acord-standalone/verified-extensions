@@ -41,10 +41,10 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.text-xs-normal-3O7EaX.subtext-2HDqJ7.channel-2vy8ff',
+        '.subtext__8f869.channel_d7d412',
         (elm) => {
-          let div = dom.parents(elm, `[class*="inner-"] > div`)?.[0];
-          let container = dom.parse(`<div class="subtext-2HDqJ7 vt--container"></div>`)
+          let div = dom.parents(elm, `.inner_ab95dc > div`)?.[0];
+          let container = dom.parse(`<div class="subtext__8f869 vt--container"></div>`)
 
           state.startTime = Date.now();
           state.render = true;
