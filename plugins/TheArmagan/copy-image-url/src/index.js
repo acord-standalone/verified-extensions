@@ -8,7 +8,7 @@ export default {
   load() {
     subscriptions.push(
       dom.patch(
-        '.avatarHoverTarget-1zzfRL',
+        '.avatarHoverTarget__3a360',
         /** @param {HTMLDivElement} elm */(elm) => {
           const imgElm = elm.querySelector('img');
           if (!imgElm) return;
@@ -33,7 +33,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.popoutBannerPremium-3i5EEI',
+        '.popoutBannerPremium__942db',
         /** @param {HTMLDivElement} elm */(elm) => {
           elm.addEventListener('contextmenu', (e) => {
             contextMenus.open(
@@ -56,7 +56,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.avatar-3QF_VA',
+        '.avatar__445f3',
         /** @param {HTMLDivElement} elm */(elm) => {
           const imgElm = elm.querySelector('img');
           if (!imgElm) return;
@@ -81,7 +81,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.profileBannerPremium-KD60EB',
+        '.profileBannerPremium__9ca8f',
         /** @param {HTMLDivElement} elm */(elm) => {
           elm.addEventListener('contextmenu', (e) => {
             contextMenus.open(
@@ -104,7 +104,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        '.roleIconPreview-YyITmd',
+        '.roleIconPreview_c90826',
         /** @param {HTMLDivElement} elm */(elm) => {
           elm.addEventListener('contextmenu', (e) => {
             contextMenus.open(
