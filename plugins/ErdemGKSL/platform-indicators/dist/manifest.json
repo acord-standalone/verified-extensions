@@ -1,5 +1,5 @@
 {
-  "hash": "da39fcab3cee7a5df17eb46f16e9237fcec0d37e7670b40e7ae309a31887c79f",
+  "hash": "af416098357c9d1f60bd3e6cc786bd24010c5962886a1fa001dc6a105ede8751",
   "type": "plugin",
   "about": {
     "name": {
@@ -20,7 +20,7 @@
       "default": "Shows user's platform next to their username.",
       "tr": "Kullanıcıların kullanıcı adları yanında platformlarını gösterir."
     },
-    "version": "2.0.1",
+    "version": "2.0.2",
     "previews": [
       {
         "name": "Default",

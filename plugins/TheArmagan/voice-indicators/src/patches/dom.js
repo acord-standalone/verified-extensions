@@ -10,11 +10,11 @@ import { showModal } from "../lib/showModal.jsx";
 import { formatSeconds } from "../other/utils.js";
 
 const selectors = [
-  ".nameAndDecorators-3ERwy2",
-  ".userText-1_v2Cq h1",
-  ".container-3g15px .defaultColor-1EVLSt",
-  ".nameAndDecorators-2A8Bbk",
-  ".info-3ddo6z .username-Qpc78p"
+  ".nameAndDecorators_cfd1ff",
+  ".userText__3e8b7 h1",
+  ".container_b6b15b .defaultColor__77578:not(.pronouns_be950a)",
+  ".nameAndDecorators_e34d47",
+  ".info__40462 .username__81ee6"
 ];
 
 export function patchDOM() {
