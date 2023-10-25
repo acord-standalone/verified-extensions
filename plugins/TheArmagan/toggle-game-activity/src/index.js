@@ -8,8 +8,8 @@ export default {
   load() {
     subscriptions.push(
       (() => {
-        const container = document.querySelector(".container-1CH86i > .noWrap-hBpHBz");
-        const tagAsButton = document.querySelector('.container-1CH86i > .withTagAsButton-2_JkHX');
+        const container = document.querySelector(".container_ca50b9 > .noWrap__5c413");
+        const tagAsButton = document.querySelector('.container_ca50b9 > .withTagAsButton_cc125f');
         tagAsButton.style.width = "88px";
         tagAsButton.style.minWidth = "88px";
 
@@ -23,8 +23,8 @@ export default {
 
         /** @type {Element} */
         let buttonElm = dom.parse(`
-          <button class="button-12Fmur enabled-9OeuTA button-ejjZWC lookBlank-FgPMy6 colorBrand-2M3O3N grow-2T4nbg button-12Fmur">
-            <div class="contents-3NembX contents">
+          <button class="button__4f306 enabled__470f0 button_afdfd9 lookBlank__7ca0a colorBrand_b2253e grow__4c8a4 button__4f306">
+            <div class="contents_fb6220 contents">
               
             </div>
           </button>
