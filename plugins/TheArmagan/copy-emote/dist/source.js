@@ -28,7 +28,7 @@
   function showCopyModal(copyType, src, name, stickerData) {
     ui.modals.show(({ onClose, close }) => {
       const modalContainer = dom__default["default"].parse(`
-        <div class="ce--modal-container root-1CAIjD fullscreenOnMobile-2971EC rootWithShadow-2hdL2J">
+        <div class="ce--modal-container root_a28985 fullscreenOnMobile__96797 rootWithShadow__073a7">
           <div class="modal-header">
             <div class="title">${extension.i18n.format(`COPY_${copyType.toUpperCase()}`)}</div>
             <div class="close" @click="close">
