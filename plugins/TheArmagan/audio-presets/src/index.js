@@ -1,4 +1,4 @@
-import { WebAudio } from "@acord/modules/custom";
+import { WebAudioSound } from "@acord/modules/custom";
 import { subscriptions, persist } from "@acord/extension";
 import { toasts } from "@acord/ui";
 import { logger } from "@acord/utils";
@@ -7,7 +7,7 @@ import patcher from "@acord/patcher";
 export default {
   load() {
     subscriptions.push(
-      patcher.instead("_ensureAudio", WebAudio.prototype, async function (args, instead) {
+      patcher.instead("_ensureAudio", WebAudioSound.prototype, async function (args, instead) {
         let map = Object.fromEntries(persist.ghost.settings.preset.split(/;|\n/).map(i => i.trim().split("=")));
 
         if (persist.ghost.settings.logAudioNames) {

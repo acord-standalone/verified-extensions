@@ -1,5 +1,5 @@
 {
-  "hash": "082aad31c87372b15c27df8342c958a131ca100efbbe9891f2f904b1778c1905",
+  "hash": "555e7806dc7bc58e40911e9eeb5554b6e246d2b9aa162b9e976e77cd226d90af",
   "type": "plugin",
   "about": {
     "name": {
@@ -25,11 +25,11 @@
     "modules": {
       "custom": [
         {
-          "name": "WebAudio",
+          "name": "WebAudioSound",
           "finder": {
             "filter": {
               "export": false,
-              "in": "prototypes",
+              "in": "strings",
               "by": [
                 [
                   "_ensureAudio"
@@ -38,16 +38,7 @@
             },
             "path": {
               "before": [
-                "exports.Z",
-                "exports.ZP",
-                "exports.default",
-                "exports"
-              ],
-              "after": "WebAudio"
-            },
-            "map": {
-              "WebAudio": [
-                "prototype._ensureAudio"
+                "exports.WebAudioSound"
               ]
             }
           }
