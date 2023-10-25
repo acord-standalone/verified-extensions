@@ -7,7 +7,7 @@ export default {
   load() {
     subscriptions.push(
       dom.patch(
-        '.headerContent-2SNbie.primaryInfo-2ocY3v [data-text-variant="text-md/semibold"]',
+        '.primaryInfo_b44f9d [data-text-variant="text-md/semibold"]',
         /** @param {Element} elm */(elm) => {
           let guild = utils.react.getProps(elm, i => i?.guild)?.guild;
           if (!guild) return;
