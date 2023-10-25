@@ -22,17 +22,17 @@ export default {
       if (oldCode && oldCode.expires_at > Date.now()) {
         return oldCode.code;
       }
-    
+
       const code = await InviteActions.createFriendInvite().catch(() => null);
       if (!code) return null;
-    
+
       if (code.inviter?.id) persist.store.oldCode[code.inviter?.id] = {
         code: code.code,
         expires_at: new Date(code.expires_at).getTime()
       }
       return code.code;
     }
-    subscriptions.push(dom.patch(`.userInfo-regn9W`, /**@param {Element} elm */(elm) => {
+    subscriptions.push(dom.patch(`.userInfo__8f826`, /**@param {Element} elm */(elm) => {
       const packer = dom.parse(`<div class="acord--fu--packer"></div>`);
       /** @type {Element} */
       const btn = dom.parse(`<button class="acord--fu--button">${i18n.format("FRIEND_CODE_URL")}</button>`);
@@ -43,14 +43,14 @@ export default {
 
       packer.appendChild(editBtn);
       packer.appendChild(btn);
-      
+
       elm.replaceChildren(...children, packer);
     }));
-    subscriptions.push(dom.patch(`.relationshipButtons-3ByBpj`, /**@param {Element} elm */(elm) => {
+    subscriptions.push(dom.patch(`.relationshipButtons__5efdd`, /**@param {Element} elm */(elm) => {
       const cUserId = (react.getProps(elm, (e) => e?.user))?.user?.id;
       const userId = UserStore.getCurrentUser()?.id;
       if (cUserId !== userId) return;
-      const button = dom.parse(`<button type="button" class="actionButton-iarQTd button-ejjZWC lookFilled-1H2Jvj colorGreen-jIPCAS sizeSmall-3R2P2p grow-2T4nbg"><div class="contents-3NembX">${i18n.format("COPY_FRIEND_CODE_URL")}</div></button>`);
+      const button = dom.parse(`<button type="button" class="actionButton_dac582 button_afdfd9 lookFilled__19298 colorGreen__5f181 sizeSmall__71a98 grow__4c8a4"><div class="contents_fb6220">${i18n.format("COPY_FRIEND_CODE_URL")}</div></button>`);
       button.addEventListener("click", clickTrigger);
       elm.appendChild(button);
       elm.appendChild(dom.parse(`<div class="acord--fu--spacing"></div>`));
