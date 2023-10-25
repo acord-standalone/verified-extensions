@@ -332,7 +332,7 @@ export default {
       tabsContainer.remove();
     });
 
-    document.querySelector('.titleBar__01af6').insertAdjacentElement("afterend", tabsContainer);
+    document.querySelector('.titleBar__01af6')?.insertAdjacentElement("afterend", tabsContainer);
 
     function removeTabsContainer() {
       if (document.querySelector('.tabs--container')) tabsContainer.parentElement.removeChild(tabsContainer);
@@ -340,7 +340,7 @@ export default {
 
     function reInject() {
       removeTabsContainer();
-      document.querySelector('.titleBar__01af6').insertAdjacentElement("afterend", tabsContainer);
+      document.querySelector('.titleBar__01af6')?.insertAdjacentElement("afterend", tabsContainer);
     }
 
     subscriptions.push(
