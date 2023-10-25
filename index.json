@@ -1366,11 +1366,11 @@
         "modules": {
           "custom": [
             {
-              "name": "WebAudio",
+              "name": "WebAudioSound",
               "finder": {
                 "filter": {
                   "export": false,
-                  "in": "prototypes",
+                  "in": "strings",
                   "by": [
                     [
                       "_ensureAudio"
@@ -1379,16 +1379,7 @@
                 },
                 "path": {
                   "before": [
-                    "exports.Z",
-                    "exports.ZP",
-                    "exports.default",
-                    "exports"
-                  ],
-                  "after": "WebAudio"
-                },
-                "map": {
-                  "WebAudio": [
-                    "prototype._ensureAudio"
+                    "exports.WebAudioSound"
                   ]
                 }
               }
