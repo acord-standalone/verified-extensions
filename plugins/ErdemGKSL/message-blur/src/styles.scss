@@ -1,9 +1,15 @@
-.messageContent-2t3eCI, .mediaAttachmentsContainer-1WGRWy, .imageContainer-10XenG, .gridContainer-1cF_Ic {
+.messageContent__21e69,
+.mediaAttachmentsContainer_edba75,
+.imageContainer__04362,
+.gridContainer_de8cdc {
   filter: blur(5px);
   transition: all 0.2s ease;
 }
 
-.messageContent-2t3eCI:hover, .mediaAttachmentsContainer-1WGRWy:hover, .imageContainer-10XenG:hover, .gridContainer-1cF_Ic:hover {
+.messageContent__21e69:hover,
+.mediaAttachmentsContainer_edba75:hover,
+.imageContainer__04362:hover,
+.gridContainer_de8cdc:hover {
   color: #fff;
   filter: blur(0px);
 }
