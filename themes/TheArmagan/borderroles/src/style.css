@@ -2,20 +2,20 @@
   --roles-roundness: var(--acord--fullRound--1--0);
   --roles-roundness-calc: calc((var(--roles-roundness) + .21) * 25px)
 }
-.role-2TIOKu {
+.role__631a3 {
   transform: translate(0);
   border: 0;
   border-radius: var(--roles-roundness-calc);
 }
-.role-2TIOKu .roleRemoveIcon-387wKV {
+.role__631a3 .roleRemoveIcon__7f63d {
   margin: 0;
   left: unset;
   transform: translate(50%,-50%);
 }
-.role-2TIOKu .roleRemoveButton-17oXnT{
+.role__631a3 .roleRemoveButton__737f2{
   position: static;
 }
-.role-2TIOKu .roleCircle-3TFUOr:before {
+.role__631a3 .roleCircle_bae511:before {
   content: '';
   top: 0;left: 0;
   z-index: -1;
