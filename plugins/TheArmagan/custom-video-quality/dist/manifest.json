@@ -1,11 +1,6 @@
 {
-  "index": "./src/index.js",
+  "hash": "9bc2d38e6b2aab9ced5387137c14b75bc458d9497091825c7d306431e6799f38",
   "type": "plugin",
-  "out": {
-    "minify": false,
-    "sourceMap": false,
-    "directory": "./dist"
-  },
   "about": {
     "name": {
       "default": "Custom Video Quality",
@@ -23,7 +18,6 @@
     ],
     "version": "0.0.1",
     "license": "MIT",
-    "readme": "./readme.md",
     "previews": [
       {
         "name": "Default",
@@ -41,7 +35,10 @@
               "export": false,
               "in": "strings",
               "by": [
-                ["audioSSRC", "updateVideoQuality"]
+                [
+                  "audioSSRC",
+                  "updateVideoQuality"
+                ]
               ]
             },
             "path": {
@@ -61,7 +58,10 @@
               "export": false,
               "in": "properties",
               "by": [
-                ["ApplicationStreamFPS", "GoLiveDeviceResolutionButtons"]
+                [
+                  "ApplicationStreamFPS",
+                  "GoLiveDeviceResolutionButtons"
+                ]
               ]
             }
           }
@@ -152,5 +152,6 @@
       "NEED_TO_RESTART_TITLE": "Discord'u Yeniden Başlat",
       "OK": "Tamam"
     }
-  }
+  },
+  "readme": true
 }

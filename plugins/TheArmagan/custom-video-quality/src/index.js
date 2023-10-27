@@ -156,13 +156,13 @@ export default {
     subscriptions.push(
       patcher.injectCSS(
         `
-        .qualitySettingsContainer-2LjkfM > div:nth-child(2) {
+        .qualitySettingsContainer__5cacd > div:nth-child(2) {
           display: flex;
           flex-direction: column;
           align-items: center;
         }
 
-        .qualitySettingsContainer-2LjkfM .settingsGroup-VNJxZ8 {
+        .settingsGroup__8c3f8 {
           width: calc(100% - 16px);
           margin: 0;
         }
@@ -206,13 +206,13 @@ export default {
       ),
       (() => {
         const customParams = {
-          LY: resWithSource.reduce((all, curr) => {
+          ApplicationStreamResolutions: resWithSource.reduce((all, curr) => {
             let label = `RESOLUTION_${curr.value === 0 ? "SOURCE" : curr.value}`;
             all[label] = curr.value;
             all[curr.value.toString()] = label;
             return all;
           }, {}),
-          ND: resWithSource.map((resolution) => {
+          ApplicationStreamSettingRequirements: resWithSource.map((resolution) => {
             return fpsOptions.map((fps) => {
               return {
                 resolution: resolution.value,
@@ -220,38 +220,38 @@ export default {
               }
             });
           }).flat(5),
-          WC: resWithSource.map((resolution) => {
+          ApplicationStreamResolutionButtons: resWithSource.map((resolution) => {
             return {
               value: resolution.value,
               label: resolution.value === 0 ? "Source" : resolution.name,
             }
           }),
-          af: fpsOptions.map((fps) => {
+          ApplicationStreamFPSButtonsWithSuffixLabel: fpsOptions.map((fps) => {
             return {
               value: fps.value,
               label: fps.name,
             }
           }),
-          k0: fpsOptions.map((fps) => {
+          ApplicationStreamFPSButtons: fpsOptions.map((fps) => {
             return {
               value: fps.value,
               label: fps.value,
             }
           }),
-          km: resWithSource.map((resolution) => {
+          ApplicationStreamResolutionButtonsWithSuffixLabel: resWithSource.map((resolution) => {
             return {
               value: resolution.value,
               label: resolution.value === 0 ? "Source" : resolution.name,
             }
           }),
-          w8: resWithSource.map((resolution) => {
+          ApplicationStreamResolutionButtons: resWithSource.map((resolution) => {
             return {
               value: resolution.value,
-              label: resolution.value,
+              label: resolution.value === 0 ? "Source" : resolution.name,
             }
           }),
           // no: key
-          ws: fpsOptions.reduce((all, curr) => {
+          ApplicationStreamFPS: fpsOptions.reduce((all, curr) => {
             let label = `FPS_${curr.value}`;
             all[label] = curr.value;
             all[curr.value.toString()] = label;
