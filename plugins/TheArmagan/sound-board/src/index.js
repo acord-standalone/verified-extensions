@@ -4,6 +4,7 @@ import patchSCSS from "./styles.scss";
 import { contextMenus, modals, vue, tooltips } from "@acord/ui";
 import acordI18N from "@acord/i18n";
 import dom from "@acord/dom";
+import utils from "@acord/utils";
 
 import edgeNames from "./data/edge-names.json";
 import googleLangs from "./data/google-langs.json";
@@ -333,6 +334,13 @@ export default {
             },
             {
               type: "text",
+              label: i18n.format("COPY_LINK"),
+              action() {
+                utils.copyText(sound.src);
+              }
+            },
+            {
+              type: "text",
               label: i18n.format("REMOVE_FROM_MY_SOUNDS"),
               action() {
                 internalApp.removeSound(sound.src);
@@ -392,7 +400,7 @@ export default {
 
     subscriptions.push(
       dom.patch(
-        ".downloadHoverButtonIcon-16xasX",
+        ".downloadHoverButtonIcon_cc2f59",
         (elm) => {
 
           const parentElement = elm.parentElement.parentElement;
@@ -405,7 +413,7 @@ export default {
           const fileName = src.split(/\?|#/)[0].split("/").pop().split(".").slice(0, -1).join(".");
 
           const button = dom.parse(`
-            <a class="anchor-1X4H4q anchorUnderlineOnHover-wiZFZ_ hoverButton-36QWJk" href="#" role="button" tabindex="0" acord--tooltip-content>
+            <a class="anchor_c8ddc0 anchorUnderlineOnHover__78236 hoverButton__13836" href="#" role="button" tabindex="0" acord--tooltip-content>
             </a>
           `);
 

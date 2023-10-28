@@ -1,5 +1,5 @@
 {
-  "hash": "03eedbc8f15b993fa70b6088fe328066593d8ff5089c6cc9c24be66896f6639b",
+  "hash": "c4f38c1e07eac1f7b2a6bae3429c703b520cbad5ab52e77890360c455b1d1a19",
   "type": "plugin",
   "about": {
     "name": {
@@ -40,7 +40,8 @@
       "SLOW": "Slow",
       "NORMAL": "Normal",
       "STOP": "Stop",
-      "PLAY": "Play"
+      "PLAY": "Play",
+      "COPY_LINK": "Copy Link"
     },
     "tr": {
       "SOUND_BOARD": "Ses Tablosu",
@@ -57,7 +58,8 @@
       "SLOW": "Yavaş",
       "NORMAL": "Normal",
       "STOP": "Durdur",
-      "PLAY": "Oynat"
+      "PLAY": "Oynat",
+      "COPY_LINK": "Bağlantıyı Kopyala"
     }
   },
   "config": [
