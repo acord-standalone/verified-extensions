@@ -190,18 +190,24 @@
         ui.contextMenus.patch(
           "expression-picker",
           (comp, props) => {
-            let img = props.target.querySelector("img");
+            let isSticker = props.target.nodeName === "IMG";
+            let img = isSticker ? props.target : props.target.querySelector("img");
             if (comp?.props?.children?.props?.children && img) {
               comp?.props?.children?.props?.children.push(
                 ui.contextMenus.build.item({
                   type: "separator"
                 }),
                 ui.contextMenus.build.item({
-                  label: extension.i18n.format("COPY_EMOJI"),
+                  label: extension.i18n.format(isSticker ? "COPY_STICKER" : "COPY_EMOJI"),
                   action: () => {
-                    let src = img.src.split("?")[0].replace(".webp", ".png");
-                    let alt = img.alt.slice(1, -1);
-                    showCopyModal("emoji", src, alt);
+                    const src = img.src.split("?")[0].replace(".webp", ".png");
+                    if (isSticker) {
+                      let id = props.target.getAttribute("data-id");
+                      let sticker = common.StickersStore.getStickerById(id);
+                      showCopyModal("sticker", src, sticker.name, sticker);
+                    } else {
+                      showCopyModal("emoji", src, img.alt.slice(1, -1));
+                    }
                   }
                 })
               );
