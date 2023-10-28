@@ -3413,7 +3413,8 @@
           "SLOW": "Slow",
           "NORMAL": "Normal",
           "STOP": "Stop",
-          "PLAY": "Play"
+          "PLAY": "Play",
+          "COPY_LINK": "Copy Link"
         },
         "tr": {
           "SOUND_BOARD": "Ses Tablosu",
@@ -3430,7 +3431,8 @@
           "SLOW": "Yavaş",
           "NORMAL": "Normal",
           "STOP": "Durdur",
-          "PLAY": "Oynat"
+          "PLAY": "Oynat",
+          "COPY_LINK": "Bağlantıyı Kopyala"
         }
       },
       "config": [
