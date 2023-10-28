@@ -1,5 +1,5 @@
 {
-  "hash": "ecf489ff12d96b647007ac441ddc1af3e958b342c018e029db4826be6110da81",
+  "hash": "5913fcf789486281e281a82e2de55c87cb79d64a6bac386d9535e908c94210ed",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Unmirrors your camera.",
       "tr": "Kameranızı olması gerektiği yöne çevirir."
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT"
   },
   "api": {

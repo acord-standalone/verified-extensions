@@ -5,7 +5,7 @@ export default {
   load() {
     subscriptions.push(
       patcher.injectCSS(`
-        [class*="mirror-"] {
+        [class*="mirror_"] {
           transform: none;
         }
       `)
