@@ -18,7 +18,7 @@ function showConfigModal(userId) {
 
   modals.show(({ onClose, close }) => {
     const modalContainer = dom.parse(`
-        <div class="fn--settings-modal-container root-1CAIjD fullscreenOnMobile-2971EC rootWithShadow-2hdL2J">
+        <div class="fn--settings-modal-container root_a28985 fullscreenOnMobile__96797 rootWithShadow__073a7">
           <div class="modal-header">
             <div class="title">${i18n.format("SETTINGS_OF", user ? (user.globalName || user.username) : userId)}</div>
             <div class="end">
