@@ -422,7 +422,7 @@ async function showLogModal(userId) {
 
   modals.show(({ onClose, close }) => {
     const modalContainer = dom.parse(`
-        <div class="fn--log-modal-container root-1CAIjD fullscreenOnMobile-2971EC rootWithShadow-2hdL2J">
+        <div class="fn--log-modal-container root_a28985 fullscreenOnMobile__96797 rootWithShadow__073a7">
           <div class="modal-header">
             <div class="title">${i18n.format("OF_LOGS", user.globalName || user.username)}</div>
             <div class="close" @click="close">
@@ -438,7 +438,7 @@ async function showLogModal(userId) {
           </div>
           <div class="modal-body">
             <div v-if="!logs.length" class="no-logs">${i18n.format("NO_LOGS")}</div>
-            <div v-else class="logs scroller-2MALzE thin-RnSY0a scrollerBase-1Pkza4">
+            <div v-else class="logs thin_b1c063 scrollerBase_dc3aa9">
               <div v-for="log in logs" class="log" :style="{'--color': '#'+log.color?.toString(16)}">
                 <div class="content">
                   {{ i18nFormat(...log.content) }}
