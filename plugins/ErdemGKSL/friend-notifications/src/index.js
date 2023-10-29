@@ -193,7 +193,7 @@ function appendModalButton(innerNode) {
 
   /** @type {Element} */
   const button = dom.parse(`
-    <div class="actionButton-3-B2x- acord--fn--list-btn" style="color: #b5bac1;">
+    <div class="actionButton__23182 acord--fn--list-btn" style="color: #b5bac1;">
       <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 448 512" xml:space="preserve" width="15">
         <g>
           <path fill="currentColor" d="M222.987,510c31.418,0,57.529-22.646,62.949-52.5H160.038C165.458,487.354,191.569,510,222.987,510z"/>
@@ -214,9 +214,9 @@ function appendModalButton(innerNode) {
     showConfigModal(userId);
   }
 
-  node.getElementsByClassName("actions-YHvpIT")?.[0]?.replaceChildren(
+  node.getElementsByClassName("actions_c08157")?.[0]?.replaceChildren(
     button,
-    ...node.getElementsByClassName("actions-YHvpIT")[0].children
+    ...node.getElementsByClassName("actions_c08157")[0].children
   )
 
   return () => {
@@ -484,10 +484,10 @@ export default {
   load() {
     subscriptions.push(injectSCSS());
 
-    subscriptions.push(dom.patch(".actions-YHvpIT", appendModalButton));
+    subscriptions.push(dom.patch(".actions_c08157", appendModalButton));
 
     subscriptions.push((() => {
-      const itemsToAppend = document.getElementsByClassName("actions-YHvpIT");
+      const itemsToAppend = document.getElementsByClassName("actions_c08157");
       for (const item of itemsToAppend) {
         appendModalButton(item);
       }
