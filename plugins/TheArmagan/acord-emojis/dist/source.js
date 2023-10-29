@@ -48,7 +48,6 @@
             const emoji = common.EmojiStore.getCustomEmojiById(emoteId);
             if (!(emoji && !emoji.animated && selectedGuildId && emoji.guildId === selectedGuildId)) {
               result += content.slice(startIndex, openingIndex) + `${cSeperator}${animStr}${colon}${emoteName}${colon}${emoteId}${cClosingSeparator}`;
-              console.log(1);
               ignore = false;
             }
           }

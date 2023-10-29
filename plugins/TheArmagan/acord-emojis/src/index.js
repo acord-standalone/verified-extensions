@@ -14,7 +14,7 @@ export default {
     //     }
     //   ).trim()
     // }
-    
+
     const cSeperator = '<󠇰';
     const cClosingSeparator = '󠇰>';
     const colon = ':';
@@ -82,7 +82,6 @@ export default {
 
           if (!(emoji && !emoji.animated && selectedGuildId && emoji.guildId === selectedGuildId)) {
             result += content.slice(startIndex, openingIndex) + `${cSeperator}${animStr}${colon}${emoteName}${colon}${emoteId}${cClosingSeparator}`;
-            console.log(1)
             ignore = false;
           }
         }
