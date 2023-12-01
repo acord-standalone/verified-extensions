@@ -743,7 +743,7 @@
           "MINESWEEPER_GROUP_NAME": "Minesweeper",
           "MINESWEEPER_COMMAND_DESCRIPTION": "Sends a minesweeper game in chat.",
           "MINESWEEPER_SIZE_OPTION_DISPLAY_NAME": "Size",
-          "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Size of the minesweeper game. (3-9)",
+          "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Size of the minesweeper game. (3-14)",
           "MINESWEEPER_COMMAND_REPLY": "Minesweeper game sent with size of {0}x{0}"
         },
         "tr": {
@@ -751,7 +751,7 @@
           "MINESWEEPER_GROUP_NAME": "Mayın Tarlası",
           "MINESWEEPER_COMMAND_DESCRIPTION": "Sohbete mayın tarlası oyunu gönderir.",
           "MINESWEEPER_SIZE_OPTION_DISPLAY_NAME": "Boyut",
-          "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Mayın tarlası oyununun boyutu. (3-9)",
+          "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Mayın tarlası oyununun boyutu. (3-14)",
           "MINESWEEPER_COMMAND_REPLY": "Mayın tarlası oyunu {0}x{0} boyutunda gönderildi"
         }
       }
