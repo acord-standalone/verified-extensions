@@ -1,5 +1,5 @@
 {
-  "hash": "5863b67306995e6b4899773f39e001093bde11321a8a9a42bfa4d3e6207acbc6",
+  "hash": "1addd7c9051ea6ca554f02d8304aef427248bd5a2fcb3e8df63b6274f596fa68",
   "type": "plugin",
   "about": {
     "name": {
@@ -38,7 +38,7 @@
       "MINESWEEPER_GROUP_NAME": "Minesweeper",
       "MINESWEEPER_COMMAND_DESCRIPTION": "Sends a minesweeper game in chat.",
       "MINESWEEPER_SIZE_OPTION_DISPLAY_NAME": "Size",
-      "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Size of the minesweeper game. (3-9)",
+      "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Size of the minesweeper game. (3-14)",
       "MINESWEEPER_COMMAND_REPLY": "Minesweeper game sent with size of {0}x{0}"
     },
     "tr": {
@@ -46,7 +46,7 @@
       "MINESWEEPER_GROUP_NAME": "Mayın Tarlası",
       "MINESWEEPER_COMMAND_DESCRIPTION": "Sohbete mayın tarlası oyunu gönderir.",
       "MINESWEEPER_SIZE_OPTION_DISPLAY_NAME": "Boyut",
-      "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Mayın tarlası oyununun boyutu. (3-9)",
+      "MINESWEEPER_SIZE_OPTION_DESCRIPTION": "Mayın tarlası oyununun boyutu. (3-14)",
       "MINESWEEPER_COMMAND_REPLY": "Mayın tarlası oyunu {0}x{0} boyutunda gönderildi"
     }
   },
