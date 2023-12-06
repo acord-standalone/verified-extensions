@@ -2,10 +2,12 @@ import { subscriptions, i18n } from "@acord/extension";
 import dom from "@acord/dom";
 import utils from "@acord/utils";
 import { GuildMemberCountStore } from "@acord/modules/common";
+import patchSCSS from "./styles.scss";
 
 export default {
   load() {
     subscriptions.push(
+      patchSCSS(),
       dom.patch(
         '.primaryInfo_b44f9d [data-text-variant="text-md/semibold"]',
         /** @param {Element} elm */(elm) => {
