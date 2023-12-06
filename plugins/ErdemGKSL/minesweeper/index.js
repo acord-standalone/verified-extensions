@@ -92,7 +92,7 @@ export default {
               Number(args?.[0]?.value),
               3
             ),
-            9
+            14
           ) || 4;
           await MessageActions.sendMessage(channel.id, {
             content: generate(SIZE)
