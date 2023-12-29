@@ -2831,7 +2831,7 @@
             "id": "707309693449535599"
           }
         ],
-        "version": "0.0.1",
+        "version": "0.0.2",
         "license": "MIT",
         "readme": "./readme.md",
         "previews": []
@@ -2841,10 +2841,12 @@
       "config": [],
       "i18n": {
         "default": {
-          "MEMBER_COUNT": "{0} members"
+          "MEMBER_COUNT": "{0} members",
+          "ONLINE_COUNT": "{0} online"
         },
         "tr": {
-          "MEMBER_COUNT": "{0} üye"
+          "MEMBER_COUNT": "{0} üye",
+          "ONLINE_COUNT": "{0} çevrimiçi"
         }
       }
     }
