@@ -1,6 +1,7 @@
 import { subscriptions, i18n } from "@acord/extension";
 import dom from "@acord/dom";
 import utils from "@acord/utils";
+import dispatcher from "@acord/dispatcher";
 import { GuildMemberCountStore } from "@acord/modules/common";
 import patchSCSS from "./styles.scss";
 
@@ -16,11 +17,33 @@ export default {
 
           let countElm = dom.parse(`
             <div style="opacity: 0.85; font-size: 12px; line-height: 10px; font-weight: 100;">
-              ${i18n.format("MEMBER_COUNT", GuildMemberCountStore.getMemberCount(guild.id).toLocaleString())}
             </div>
           `);
 
+          function updateText(memberCount, onlineCount) {
+            memberCount = memberCount || GuildMemberCountStore.getMemberCount(guild.id);
+            onlineCount = onlineCount || GuildMemberCountStore.getOnlineCount(guild.id);
+            let texts = [
+              memberCount ? i18n.format("MEMBER_COUNT", memberCount.toLocaleString()) : null,
+              onlineCount ? i18n.format("ONLINE_COUNT", onlineCount.toLocaleString()) : null
+            ];
+            countElm.textContent = texts.filter(i => i).join(" / ");
+          }
+
+          updateText();
           elm.appendChild(countElm);
+
+          const off1 = dispatcher.on(
+            "GUILD_MEMBER_LIST_UPDATE",
+            (e) => {
+              if (e.guildId !== guild.id) return;
+              updateText(e.memberCount, e.onlineCount);
+            }
+          )
+
+          return () => {
+            off1();
+          }
         }
       )
     )
