@@ -1,5 +1,5 @@
 {
-  "hash": "d09a12b71e13c6ae40901eb52c631385b96b2806eb28e0d124f9ae6d8f897483",
+  "hash": "9e9b1322b6164bdf427d7e2bbf6600763ebe9708d66a6b2dba27b95962a646c3",
   "type": "plugin",
   "about": {
     "name": {
@@ -16,7 +16,7 @@
       "default": "Sound board for Discord. Supports text to speech. Shortcut is CTRL+B",
       "tr": "Discord için ses tablosu. Metin okuma destekler. Kısayol CTRL+B"
     },
-    "version": "4.0.7",
+    "version": "4.0.8",
     "previews": [
       {
         "name": "Default",
