@@ -8,6 +8,7 @@ import utils from "@acord/utils";
 
 import edgeNames from "./data/edge-names.json";
 import googleLangs from "./data/google-langs.json";
+import tiktokSpeakers from "./data/tiktok-speakers.json";
 
 let sounds = [];
 
@@ -149,6 +150,9 @@ export default {
                   <div v-if="ttsPlatform === 'edge'" class="name">
                     <discord-select v-model="edgeTTSName" :options="edgeNames"></discord-select>
                   </div>
+                  <div v-if="ttsPlatform === 'tiktok'" class="name">
+                    <discord-select v-model="tiktokSpeaker" :options="tiktokSpeakers"></discord-select>
+                  </div>
                 </div>
                 <div class="controls">
                   <div class="preview container">
@@ -169,7 +173,8 @@ export default {
         return {
           ttsPlatforms: [
             { label: "Google", value: "google" },
-            { label: "Edge", value: "edge" }
+            { label: "Edge", value: "edge" },
+            { label: "TikTok", value: "tiktok" }
           ],
           ttsPlatform: "edge",
           sounds,
@@ -196,7 +201,9 @@ export default {
           googleTTSLang: googleLangs.find(i => i.value === acordI18N.locale)?.value || "en",
           edgeTTSName: edgeNames.find(i => i.value.startsWith(acordI18N.locale))?.value || "en-US-AriaNeural",
           ttsPlatform: "google",
-          lastTTSUrl: ""
+          tiktokSpeaker: "en_us_001",
+          lastTTSUrl: "",
+          tiktokSpeakers
         }
       },
       computed: {
@@ -235,7 +242,8 @@ export default {
           let t = this.ttsPlatform === "google"
             ? `https://google-tts-api.armagan.rest/?text=${encodeURIComponent(ttsLower)}&lang=${this.googleTTSLang}`
             : this.ttsPlatform === "edge"
-              ? `https://edge-tts-api.armagan.rest/?text=${encodeURIComponent(ttsLower)}&name=${this.edgeTTSName}` : null;
+              ? `https://edge-tts-api.armagan.rest/?text=${encodeURIComponent(ttsLower)}&name=${this.edgeTTSName}` :
+              `https://tiktok-tts-api.armagan.rest/?text=${encodeURIComponent(ttsLower)}&speaker=${this.tiktokSpeaker}`;
           this.lastTTSUrl = t;
           return t;
         },
