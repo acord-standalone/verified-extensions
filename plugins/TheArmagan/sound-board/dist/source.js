@@ -1586,432 +1586,432 @@
 
   var tiktokSpeakers = [
   	{
-  		name: "Default Female (English)",
-  		code: "en_us_001"
+  		label: "Default Female (English)",
+  		value: "en_us_001"
   	},
   	{
-  		name: "Game On (English)",
-  		code: "en_male_jomboy"
+  		label: "Game On (English)",
+  		value: "en_male_jomboy"
   	},
   	{
-  		name: "Jessie (English)",
-  		code: "en_us_002"
+  		label: "Jessie (English)",
+  		value: "en_us_002"
   	},
   	{
-  		name: "Warm (Spanish)",
-  		code: "es_mx_002"
+  		label: "Warm (Spanish)",
+  		value: "es_mx_002"
   	},
   	{
-  		name: "Wacky (English)",
-  		code: "en_male_funny"
+  		label: "Wacky (English)",
+  		value: "en_male_funny"
   	},
   	{
-  		name: "Scream (English)",
-  		code: "en_us_ghostface"
+  		label: "Scream (English)",
+  		value: "en_us_ghostface"
   	},
   	{
-  		name: "Empathetic (English)",
-  		code: "en_female_samc"
+  		label: "Empathetic (English)",
+  		value: "en_female_samc"
   	},
   	{
-  		name: "Serious (English)",
-  		code: "en_male_cody"
+  		label: "Serious (English)",
+  		value: "en_male_cody"
   	},
   	{
-  		name: "Beauty Guru (English)",
-  		code: "en_female_makeup"
+  		label: "Beauty Guru (English)",
+  		value: "en_female_makeup"
   	},
   	{
-  		name: "Bestie (English)",
-  		code: "en_female_richgirl"
+  		label: "Bestie (English)",
+  		value: "en_female_richgirl"
   	},
   	{
-  		name: "Trickster (English)",
-  		code: "en_male_grinch"
+  		label: "Trickster (English)",
+  		value: "en_male_grinch"
   	},
   	{
-  		name: "Joey (English)",
-  		code: "en_us_006"
+  		label: "Joey (English)",
+  		value: "en_us_006"
   	},
   	{
-  		name: "Story Teller (English)",
-  		code: "en_male_narration"
+  		label: "Story Teller (English)",
+  		value: "en_male_narration"
   	},
   	{
-  		name: "Mr. GoodGuy (English)",
-  		code: "en_male_deadpool"
+  		label: "Mr. GoodGuy (English)",
+  		value: "en_male_deadpool"
   	},
   	{
-  		name: "Narrator (English)",
-  		code: "en_uk_001"
+  		label: "Narrator (English)",
+  		value: "en_uk_001"
   	},
   	{
-  		name: "Male English UK (English)",
-  		code: "en_uk_003"
+  		label: "Male English UK (English)",
+  		value: "en_uk_003"
   	},
   	{
-  		name: "Metro (English)",
-  		code: "en_au_001"
+  		label: "Metro (English)",
+  		value: "en_au_001"
   	},
   	{
-  		name: "Alfred (English)",
-  		code: "en_male_jarvis"
+  		label: "Alfred (English)",
+  		value: "en_male_jarvis"
   	},
   	{
-  		name: "ashmagic (English)",
-  		code: "en_male_ashmagic"
+  		label: "ashmagic (English)",
+  		value: "en_male_ashmagic"
   	},
   	{
-  		name: "olantekkers (English)",
-  		code: "en_male_olantekkers"
+  		label: "olantekkers (English)",
+  		value: "en_male_olantekkers"
   	},
   	{
-  		name: "Lord Cringe (English)",
-  		code: "en_male_ukneighbor"
+  		label: "Lord Cringe (English)",
+  		value: "en_male_ukneighbor"
   	},
   	{
-  		name: "Mr. Meticulous (English)",
-  		code: "en_male_ukbutler"
+  		label: "Mr. Meticulous (English)",
+  		value: "en_male_ukbutler"
   	},
   	{
-  		name: "Debutante (English)",
-  		code: "en_female_shenna"
+  		label: "Debutante (English)",
+  		value: "en_female_shenna"
   	},
   	{
-  		name: "Varsity (English)",
-  		code: "en_female_pansino"
+  		label: "Varsity (English)",
+  		value: "en_female_pansino"
   	},
   	{
-  		name: "Marty (English)",
-  		code: "en_male_trevor"
+  		label: "Marty (English)",
+  		value: "en_male_trevor"
   	},
   	{
-  		name: "Pop Lullaby (English)",
-  		code: "en_female_f08_twinkle"
+  		label: "Pop Lullaby (English)",
+  		value: "en_female_f08_twinkle"
   	},
   	{
-  		name: "Classic Electric (English)",
-  		code: "en_male_m03_classical"
+  		label: "Classic Electric (English)",
+  		value: "en_male_m03_classical"
   	},
   	{
-  		name: "Bae (English)",
-  		code: "en_female_betty"
+  		label: "Bae (English)",
+  		value: "en_female_betty"
   	},
   	{
-  		name: "Cupid (English)",
-  		code: "en_male_cupid"
+  		label: "Cupid (English)",
+  		value: "en_male_cupid"
   	},
   	{
-  		name: "Granny (English)",
-  		code: "en_female_grandma"
+  		label: "Granny (English)",
+  		value: "en_female_grandma"
   	},
   	{
-  		name: "Cozy (English)",
-  		code: "en_male_m2_xhxs_m03_christmas"
+  		label: "Cozy (English)",
+  		value: "en_male_m2_xhxs_m03_christmas"
   	},
   	{
-  		name: "Author (English)",
-  		code: "en_male_santa_narration"
+  		label: "Author (English)",
+  		value: "en_male_santa_narration"
   	},
   	{
-  		name: "Caroler (English)",
-  		code: "en_male_sing_deep_jingle"
+  		label: "Caroler (English)",
+  		value: "en_male_sing_deep_jingle"
   	},
   	{
-  		name: "Santa (English)",
-  		code: "en_male_santa_effect"
+  		label: "Santa (English)",
+  		value: "en_male_santa_effect"
   	},
   	{
-  		name: "NYE 2023 (English)",
-  		code: "en_female_ht_f08_newyear"
+  		label: "NYE 2023 (English)",
+  		value: "en_female_ht_f08_newyear"
   	},
   	{
-  		name: "Magician (English)",
-  		code: "en_male_wizard"
+  		label: "Magician (English)",
+  		value: "en_male_wizard"
   	},
   	{
-  		name: "Opera (English)",
-  		code: "en_female_ht_f08_halloween"
+  		label: "Opera (English)",
+  		value: "en_female_ht_f08_halloween"
   	},
   	{
-  		name: "Euphoric (English)",
-  		code: "en_female_ht_f08_glorious"
+  		label: "Euphoric (English)",
+  		value: "en_female_ht_f08_glorious"
   	},
   	{
-  		name: "Hypetrain (English)",
-  		code: "en_male_sing_funny_it_goes_up"
+  		label: "Hypetrain (English)",
+  		value: "en_male_sing_funny_it_goes_up"
   	},
   	{
-  		name: "Melodrama (English)",
-  		code: "en_female_ht_f08_wonderful_world"
+  		label: "Melodrama (English)",
+  		value: "en_female_ht_f08_wonderful_world"
   	},
   	{
-  		name: "Quirky Time (English)",
-  		code: "en_male_m2_xhxs_m03_silly"
+  		label: "Quirky Time (English)",
+  		value: "en_male_m2_xhxs_m03_silly"
   	},
   	{
-  		name: "Peaceful (English)",
-  		code: "en_female_emotional"
+  		label: "Peaceful (English)",
+  		value: "en_female_emotional"
   	},
   	{
-  		name: "Toon Beat (English)",
-  		code: "en_male_m03_sunshine_soon"
+  		label: "Toon Beat (English)",
+  		value: "en_male_m03_sunshine_soon"
   	},
   	{
-  		name: "Open Mic (English)",
-  		code: "en_female_f08_warmy_breeze"
+  		label: "Open Mic (English)",
+  		value: "en_female_f08_warmy_breeze"
   	},
   	{
-  		name: "Jingle (English)",
-  		code: "en_male_m03_lobby"
+  		label: "Jingle (English)",
+  		value: "en_male_m03_lobby"
   	},
   	{
-  		name: "Thanksgiving (English)",
-  		code: "en_male_sing_funny_thanksgiving"
+  		label: "Thanksgiving (English)",
+  		value: "en_male_sing_funny_thanksgiving"
   	},
   	{
-  		name: "Cottagecore (English)",
-  		code: "en_female_f08_salut_damour"
+  		label: "Cottagecore (English)",
+  		value: "en_female_f08_salut_damour"
   	},
   	{
-  		name: "Professor (English)",
-  		code: "en_us_007"
+  		label: "Professor (English)",
+  		value: "en_us_007"
   	},
   	{
-  		name: "Scientist (English)",
-  		code: "en_us_009"
+  		label: "Scientist (English)",
+  		value: "en_us_009"
   	},
   	{
-  		name: "Confidence (English)",
-  		code: "en_us_010"
+  		label: "Confidence (English)",
+  		value: "en_us_010"
   	},
   	{
-  		name: "Smooth (English)",
-  		code: "en_au_002"
+  		label: "Smooth (English)",
+  		value: "en_au_002"
   	},
   	{
-  		name: "Ghost Face (Disney)",
-  		code: "en_us_ghostface"
+  		label: "Ghost Face (Disney)",
+  		value: "en_us_ghostface"
   	},
   	{
-  		name: "Chewbacca (Disney)",
-  		code: "en_us_chewbacca"
+  		label: "Chewbacca (Disney)",
+  		value: "en_us_chewbacca"
   	},
   	{
-  		name: "C3PO (Disney)",
-  		code: "en_us_c3po"
+  		label: "C3PO (Disney)",
+  		value: "en_us_c3po"
   	},
   	{
-  		name: "Stitch (Disney)",
-  		code: "en_us_stitch"
+  		label: "Stitch (Disney)",
+  		value: "en_us_stitch"
   	},
   	{
-  		name: "Stormtrooper (Disney)",
-  		code: "en_us_stormtrooper"
+  		label: "Stormtrooper (Disney)",
+  		value: "en_us_stormtrooper"
   	},
   	{
-  		name: "Rocket (Disney)",
-  		code: "en_us_rocket"
+  		label: "Rocket (Disney)",
+  		value: "en_us_rocket"
   	},
   	{
-  		name: "Madame Leota (Disney)",
-  		code: "en_female_madam_leota"
+  		label: "Madame Leota (Disney)",
+  		value: "en_female_madam_leota"
   	},
   	{
-  		name: "Ghost Host (Disney)",
-  		code: "en_male_ghosthost"
+  		label: "Ghost Host (Disney)",
+  		value: "en_male_ghosthost"
   	},
   	{
-  		name: "Pirate (Disney)",
-  		code: "en_male_pirate"
+  		label: "Pirate (Disney)",
+  		value: "en_male_pirate"
   	},
   	{
-  		name: "French - Male 1 (French)",
-  		code: "fr_001"
+  		label: "French - Male 1 (French)",
+  		value: "fr_001"
   	},
   	{
-  		name: "French - Male 2 (French)",
-  		code: "fr_002"
+  		label: "French - Male 2 (French)",
+  		value: "fr_002"
   	},
   	{
-  		name: "Spanish (Spain) - Male (Spanish)",
-  		code: "es_002"
+  		label: "Spanish (Spain) - Male (Spanish)",
+  		value: "es_002"
   	},
   	{
-  		name: "Spanish MX - Male (Spanish)",
-  		code: "es_mx_002"
+  		label: "Spanish MX - Male (Spanish)",
+  		value: "es_mx_002"
   	},
   	{
-  		name: "Portuguese BR - Female 1 (Portuguese)",
-  		code: "br_001"
+  		label: "Portuguese BR - Female 1 (Portuguese)",
+  		value: "br_001"
   	},
   	{
-  		name: "Portuguese BR - Female 2 (Portuguese)",
-  		code: "br_003"
+  		label: "Portuguese BR - Female 2 (Portuguese)",
+  		value: "br_003"
   	},
   	{
-  		name: "Portuguese BR - Female 3 (Portuguese)",
-  		code: "br_004"
+  		label: "Portuguese BR - Female 3 (Portuguese)",
+  		value: "br_004"
   	},
   	{
-  		name: "Portuguese BR - Male (Portuguese)",
-  		code: "br_005"
+  		label: "Portuguese BR - Male (Portuguese)",
+  		value: "br_005"
   	},
   	{
-  		name: "Ludmilla (Portuguese)",
-  		code: "bp_female_ludmilla"
+  		label: "Ludmilla (Portuguese)",
+  		value: "bp_female_ludmilla"
   	},
   	{
-  		name: "Lhays Macedo (Portuguese)",
-  		code: "pt_female_lhays"
+  		label: "Lhays Macedo (Portuguese)",
+  		value: "pt_female_lhays"
   	},
   	{
-  		name: "Laizza (Portuguese)",
-  		code: "pt_female_laizza"
+  		label: "Laizza (Portuguese)",
+  		value: "pt_female_laizza"
   	},
   	{
-  		name: "German - Female (German)",
-  		code: "de_001"
+  		label: "German - Female (German)",
+  		value: "de_001"
   	},
   	{
-  		name: "German - Male (German)",
-  		code: "de_002"
+  		label: "German - Male (German)",
+  		value: "de_002"
   	},
   	{
-  		name: "Indonesian - Female (Indonesian)",
-  		code: "id_001"
+  		label: "Indonesian - Female (Indonesian)",
+  		value: "id_001"
   	},
   	{
-  		name: "Japanese - Female 1 (Japanese)",
-  		code: "jp_001"
+  		label: "Japanese - Female 1 (Japanese)",
+  		value: "jp_001"
   	},
   	{
-  		name: "Japanese - Female 2 (Japanese)",
-  		code: "jp_003"
+  		label: "Japanese - Female 2 (Japanese)",
+  		value: "jp_003"
   	},
   	{
-  		name: "Japanese - Female 3 (Japanese)",
-  		code: "jp_005"
+  		label: "Japanese - Female 3 (Japanese)",
+  		value: "jp_005"
   	},
   	{
-  		name: "Japanese - Male (Japanese)",
-  		code: "jp_006"
+  		label: "Japanese - Male (Japanese)",
+  		value: "jp_006"
   	},
   	{
-  		name: "りーさ (Japanese)",
-  		code: "jp_female_fujicochan"
+  		label: "りーさ (Japanese)",
+  		value: "jp_female_fujicochan"
   	},
   	{
-  		name: "世羅鈴 (Japanese)",
-  		code: "jp_female_hasegawariona"
+  		label: "世羅鈴 (Japanese)",
+  		value: "jp_female_hasegawariona"
   	},
   	{
-  		name: "Morio’s Kitchen (Japanese)",
-  		code: "jp_male_keiichinakano"
+  		label: "Morio’s Kitchen (Japanese)",
+  		value: "jp_male_keiichinakano"
   	},
   	{
-  		name: "夏絵ココ (Japanese)",
-  		code: "jp_female_oomaeaika"
+  		label: "夏絵ココ (Japanese)",
+  		value: "jp_female_oomaeaika"
   	},
   	{
-  		name: "低音ボイス (Japanese)",
-  		code: "jp_male_yujinchigusa"
+  		label: "低音ボイス (Japanese)",
+  		value: "jp_male_yujinchigusa"
   	},
   	{
-  		name: "四郎 (Japanese)",
-  		code: "jp_female_shirou"
+  		label: "四郎 (Japanese)",
+  		value: "jp_female_shirou"
   	},
   	{
-  		name: "玉川寿紀 (Japanese)",
-  		code: "jp_male_tamawakazuki"
+  		label: "玉川寿紀 (Japanese)",
+  		value: "jp_male_tamawakazuki"
   	},
   	{
-  		name: "庄司果織 (Japanese)",
-  		code: "jp_female_kaorishoji"
+  		label: "庄司果織 (Japanese)",
+  		value: "jp_female_kaorishoji"
   	},
   	{
-  		name: "八木沙季 (Japanese)",
-  		code: "jp_female_yagishaki"
+  		label: "八木沙季 (Japanese)",
+  		value: "jp_female_yagishaki"
   	},
   	{
-  		name: "ヒカキン (Japanese)",
-  		code: "jp_male_hikakin"
+  		label: "ヒカキン (Japanese)",
+  		value: "jp_male_hikakin"
   	},
   	{
-  		name: "丸山礼 (Japanese)",
-  		code: "jp_female_rei"
+  		label: "丸山礼 (Japanese)",
+  		value: "jp_female_rei"
   	},
   	{
-  		name: "修一朗 (Japanese)",
-  		code: "jp_male_shuichiro"
+  		label: "修一朗 (Japanese)",
+  		value: "jp_male_shuichiro"
   	},
   	{
-  		name: "マツダ家の日常 (Japanese)",
-  		code: "jp_male_matsudake"
+  		label: "マツダ家の日常 (Japanese)",
+  		value: "jp_male_matsudake"
   	},
   	{
-  		name: "まちこりーた (Japanese)",
-  		code: "jp_female_machikoriiita"
+  		label: "まちこりーた (Japanese)",
+  		value: "jp_female_machikoriiita"
   	},
   	{
-  		name: "モジャオ (Japanese)",
-  		code: "jp_male_matsuo"
+  		label: "モジャオ (Japanese)",
+  		value: "jp_male_matsuo"
   	},
   	{
-  		name: "モリスケ (Japanese)",
-  		code: "jp_male_osada"
+  		label: "モリスケ (Japanese)",
+  		value: "jp_male_osada"
   	},
   	{
-  		name: "Korean - Male 1 (Korean)",
-  		code: "kr_002"
+  		label: "Korean - Male 1 (Korean)",
+  		value: "kr_002"
   	},
   	{
-  		name: "Korean - Female (Korean)",
-  		code: "kr_003"
+  		label: "Korean - Female (Korean)",
+  		value: "kr_003"
   	},
   	{
-  		name: "Korean - Male 2 (Korean)",
-  		code: "kr_004"
+  		label: "Korean - Male 2 (Korean)",
+  		value: "kr_004"
   	},
   	{
-  		name: "Female (Vietnamese)",
-  		code: "BV074_streaming"
+  		label: "Female (Vietnamese)",
+  		value: "BV074_streaming"
   	},
   	{
-  		name: "Male (Vietnamese)",
-  		code: "BV075_streaming"
+  		label: "Male (Vietnamese)",
+  		value: "BV075_streaming"
   	},
   	{
-  		name: "Alto (Other)",
-  		code: "en_female_f08_salut_damour"
+  		label: "Alto (Other)",
+  		value: "en_female_f08_salut_damour"
   	},
   	{
-  		name: "Tenor (Other)",
-  		code: "en_male_m03_lobby"
+  		label: "Tenor (Other)",
+  		value: "en_male_m03_lobby"
   	},
   	{
-  		name: "Sunshine Soon (Other)",
-  		code: "en_male_m03_sunshine_soon"
+  		label: "Sunshine Soon (Other)",
+  		value: "en_male_m03_sunshine_soon"
   	},
   	{
-  		name: "Warmy Breeze (Other)",
-  		code: "en_female_f08_warmy_breeze"
+  		label: "Warmy Breeze (Other)",
+  		value: "en_female_f08_warmy_breeze"
   	},
   	{
-  		name: "Glorious (Other)",
-  		code: "en_female_ht_f08_glorious"
+  		label: "Glorious (Other)",
+  		value: "en_female_ht_f08_glorious"
   	},
   	{
-  		name: "It Goes Up (Other)",
-  		code: "en_male_sing_funny_it_goes_up"
+  		label: "It Goes Up (Other)",
+  		value: "en_male_sing_funny_it_goes_up"
   	},
   	{
-  		name: "Chipmunk (Other)",
-  		code: "en_male_m2_xhxs_m03_silly"
+  		label: "Chipmunk (Other)",
+  		value: "en_male_m2_xhxs_m03_silly"
   	},
   	{
-  		name: "Dramatic (Other)",
-  		code: "en_female_ht_f08_wonderful_world"
+  		label: "Dramatic (Other)",
+  		value: "en_female_ht_f08_wonderful_world"
   	}
   ];
 
